@@ -10,6 +10,9 @@ MAX_POSTS_PER_RUN = int(os.getenv("MAX_POSTS_PER_RUN", "2"))
 SCHEDULE_INTERVAL_HOURS = int(os.getenv("SCHEDULE_INTERVAL_HOURS", "3"))
 POST_DELAY_SECONDS = int(os.getenv("POST_DELAY_SECONDS", "60"))
 
+IG_USERNAME = os.getenv("IG_USERNAME", "")
+IG_PASSWORD = os.getenv("IG_PASSWORD", "")
+
 NEWS_SOURCES = {
     "habr_ai": {
         "name": "Habr",

@@ -14,7 +14,9 @@ jobs:
         id: cache-db
         uses: actions/cache@v4
         with:
-          path: ainovosti.db
+          path: |
+            ainovosti.db
+            instagram_session.pkl
           key: ainovosti-db
 
       - name: Setup Python
@@ -29,4 +31,6 @@ jobs:
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
+          IG_USERNAME: ${{ secrets.IG_USERNAME }}
+          IG_PASSWORD: ${{ secrets.IG_PASSWORD }}
         run: python main.py --once

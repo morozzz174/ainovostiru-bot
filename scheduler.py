@@ -13,6 +13,21 @@ from translator import translate_article
 logger = logging.getLogger(__name__)
 
 
+def _post_to_instagram(text: str, image_buf):
+    if not config.IG_USERNAME:
+        logger.info("Instagram: skipped (no credentials)")
+        return
+    try:
+        from instagram_publisher import post_article
+        success = post_article(text, image_buf)
+        if success:
+            logger.info("Instagram: posted successfully")
+        else:
+            logger.warning("Instagram: post failed")
+    except Exception as e:
+        logger.error("Instagram: error: %s", e)
+
+
 async def run_once(bot: Bot, storage: Storage):
     logger.info("=== Starting news collection ===")
 
@@ -44,9 +59,9 @@ async def run_once(bot: Bot, storage: Storage):
                 article.lang = "ru"
 
             text, image_buf = prepare_post(article)
-            success = await send_post(bot, config.CHANNEL_ID, text, image_buf)
-            if success:
-                storage.mark_posted(article.url, article.title)
+            await send_post(bot, config.CHANNEL_ID, text, image_buf)
+            _post_to_instagram(text, image_buf)
+            storage.mark_posted(article.url, article.title)
 
             if i < len(selected) - 1:
                 await asyncio.sleep(config.POST_DELAY_SECONDS)
