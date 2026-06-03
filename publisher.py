@@ -60,7 +60,7 @@ def generate_image(title: str, source: str) -> io.BytesIO:
     font_small = _get_font(FONT_SIZE_SMALL)
     font_brand = _get_font(FONT_SIZE_BRAND)
 
-    draw.text((30, 20), "AINOVOSTI.RU", font=font_brand, fill=COLOR_BRAND)
+    draw.text((30, 20), config.BRAND_NAME, font=font_brand, fill=COLOR_BRAND)
 
     date_str = datetime.now().strftime("%d.%m.%Y")
     date_bbox = draw.textbbox((0, 0), date_str, font=font_small)

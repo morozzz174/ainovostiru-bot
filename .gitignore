@@ -1,5 +1,8 @@
 __pycache__/
 *.pyc
 .env
-ainovosti.db
+.env.*
+!.env.example
+*.db
+instagram_session.pkl
 nul

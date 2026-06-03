@@ -62,18 +62,9 @@ def _fetch_image_from_page(url: str) -> str | None:
     return None
 
 
-AI_KEYWORDS = [
-    "ai", "artificial intelligence", "machine learning", "deep learning",
-    "neural network", "llm", "gpt", "openai", "anthropic", "gemini",
-    "chatgpt", "claude", "robot", "robotics", "automation",
-    "ии", "искусственный интеллект", "нейросеть", "робот",
-    "робототехника", "машинное обучение", "гпт",
-]
-
-
-def _is_ai_related(title: str, description: str) -> bool:
+def _is_relevant(title: str, description: str) -> bool:
     text = (title + " " + description).lower()
-    for kw in AI_KEYWORDS:
+    for kw in config.KEYWORDS:
         if kw in text:
             return True
     return False
@@ -82,14 +73,14 @@ def _is_ai_related(title: str, description: str) -> bool:
 def _parse_rss(source_key: str, source_cfg: dict) -> list[Article]:
     articles = []
     try:
-        resp = SESSION.get(source_cfg["url"], timeout=15)
+        resp = SESSION.get(source_cfg["url"], timeout=20)
         resp.raise_for_status()
         feed = feedparser.parse(resp.content)
         for entry in feed.entries[:12]:
             title = entry.get("title", "")
             link = entry.get("link", "")
             desc = entry.get("summary") or entry.get("description") or ""
-            if not _is_ai_related(title, desc):
+            if not _is_relevant(title, desc):
                 continue
             image_url = None
             if entry.get("media_content"):
