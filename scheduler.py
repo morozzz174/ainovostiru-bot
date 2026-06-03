@@ -1,0 +1,88 @@
+import asyncio
+import logging
+
+from telegram import Bot
+from telegram.error import InvalidToken
+
+import config
+from collector import collect_news, Article
+from publisher import prepare_post, send_post
+from storage import Storage
+from translator import translate_article
+
+logger = logging.getLogger(__name__)
+
+
+async def run_once(bot: Bot, storage: Storage):
+    logger.info("=== Starting news collection ===")
+
+    all_articles = collect_news()
+    if not all_articles:
+        logger.warning("No articles collected")
+        return
+
+    new_articles: list[Article] = []
+    for art in all_articles:
+        if not storage.is_posted(art.url):
+            new_articles.append(art)
+
+    logger.info("New articles: %d out of %d", len(new_articles), len(all_articles))
+
+    if not new_articles:
+        logger.info("No new articles to post")
+        return
+
+    new_articles.sort(key=lambda a: a.lang != "ru")
+    selected = new_articles[: config.MAX_POSTS_PER_RUN]
+
+    for i, article in enumerate(selected):
+        try:
+            if article.lang == "en":
+                title_ru, desc_ru = translate_article(article.title, article.description)
+                article.title = title_ru
+                article.description = desc_ru
+                article.lang = "ru"
+
+            text, image_buf = prepare_post(article)
+            success = await send_post(bot, config.CHANNEL_ID, text, image_buf)
+            if success:
+                storage.mark_posted(article.url, article.title)
+
+            if i < len(selected) - 1:
+                await asyncio.sleep(config.POST_DELAY_SECONDS)
+        except Exception as e:
+            logger.error("Error posting article %s: %s", article.url, e)
+
+    logger.info("=== Collection finished ===")
+
+
+async def scheduler_loop(bot: Bot, storage: Storage):
+    logger.info(
+        "Scheduler started. Interval: %d hours",
+        config.SCHEDULE_INTERVAL_HOURS,
+    )
+    while True:
+        try:
+            await run_once(bot, storage)
+        except Exception as e:
+            logger.exception("Scheduler error: %s", e)
+        await asyncio.sleep(config.SCHEDULE_INTERVAL_HOURS * 3600)
+
+
+async def run_scheduler(bot_token: str):
+    if not bot_token:
+        logger.error("BOT_TOKEN is not set. Create .env file from .env.example")
+        return
+
+    try:
+        bot = Bot(token=bot_token)
+        me = await bot.get_me()
+        logger.info("Bot authorized: @%s", me.username)
+    except InvalidToken:
+        logger.error("Invalid BOT_TOKEN. Check your .env file")
+        return
+
+    storage = Storage(config.DATABASE_PATH)
+    logger.info("Database: %s (%d articles indexed)", config.DATABASE_PATH, storage.get_posted_count())
+
+    await scheduler_loop(bot, storage)

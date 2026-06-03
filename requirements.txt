@@ -1,0 +1,9 @@
+python-telegram-bot[job-queue]==21.10
+feedparser==6.0.11
+requests==2.32.3
+beautifulsoup4==4.13.3
+lxml==5.3.1
+Pillow==11.1.0
+python-dotenv==1.1.0
+deep-translator==1.11.4
+APScheduler==3.11.0
