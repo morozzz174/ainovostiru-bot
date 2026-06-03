@@ -16,6 +16,9 @@ THEME = os.getenv("THEME", "ai")
 BRAND_NAME = os.getenv("BRAND_NAME", "AINOVOSTI.RU")
 POST_MODE = os.getenv("POST_MODE", "mixed")
 VIDEO_DURATION = int(os.getenv("VIDEO_DURATION", "6"))
+USE_THEMED_IMAGES = os.getenv("USE_THEMED_IMAGES", "true").lower() == "true"
+PEXELS_API_KEY = os.getenv("PEXELS_API_KEY", "")
+UNSPLASH_ACCESS_KEY = os.getenv("UNSPLASH_ACCESS_KEY", "")
 
 IG_USERNAME = os.getenv("IG_USERNAME", "")
 IG_PASSWORD = os.getenv("IG_PASSWORD", "")

@@ -80,7 +80,7 @@ async def run_once(bot: Bot, storage: Storage):
                 article.lang = "ru"
 
             text, image_buf, media_type = prepare_post(article)
-            await send_post(bot, config.CHANNEL_ID, text, image_buf, media_type)
+            await send_post(bot, config.CHANNEL_ID, text, image_buf, media_type, title=article.title, source=article.source)
             _post_to_instagram(text, image_buf)
             storage.mark_posted(article.url, article.title)
 

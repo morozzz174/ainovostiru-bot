@@ -11,6 +11,7 @@ import requests
 from PIL import Image, ImageDraw, ImageFont
 
 import config
+from image_finder import find_image_for_topic
 from video_generator import image_to_video, VIDEO_WIDTH, VIDEO_HEIGHT
 
 logger = logging.getLogger(__name__)
@@ -127,18 +128,24 @@ def _download_image(url: str) -> io.BytesIO | None:
         return None
 
 
+def _prepare_image(article) -> io.BytesIO:
+    image_buf = None
+    if article.image_url:
+        image_buf = _download_image(article.image_url)
+    if not image_buf and config.USE_THEMED_IMAGES:
+        image_buf = find_image_for_topic(article.title + " " + article.description)
+    if not image_buf:
+        image_buf = generate_image(article.title, article.source)
+    return image_buf
+
+
 def prepare_post(article) -> tuple[str, io.BytesIO, str]:
     title = article.title
     description = article.description[:500]
 
     text = f"🤖 *{title}*\n\n{description}\n\n📅 Источник: [{article.source}]({article.url})\n{' '.join(config.HASHTAGS)}"
 
-    image_buf = None
-    if article.image_url:
-        image_buf = _download_image(article.image_url)
-
-    if not image_buf:
-        image_buf = generate_image(title, article.source)
+    image_buf = _prepare_image(article)
 
     media_type = "image"
     if config.POST_MODE == "video":
@@ -164,8 +171,8 @@ async def _send_photo(bot, chat_id: str, text: str, image_buf: io.BytesIO) -> bo
         return False
 
 
-async def _send_video(bot, chat_id: str, text: str, image_buf: io.BytesIO) -> bool:
-    video_buf = image_to_video(image_buf)
+async def _send_video(bot, chat_id: str, text: str, image_buf: io.BytesIO, title: str = "", source: str = "") -> bool:
+    video_buf = image_to_video(image_buf, title=title, source=source)
     if not video_buf:
         return False
     video_buf.seek(0)
@@ -196,10 +203,10 @@ async def _send_video(bot, chat_id: str, text: str, image_buf: io.BytesIO) -> bo
             pass
 
 
-async def send_post(bot, chat_id: str, text: str, image_buf: io.BytesIO, media_type: str = "image"):
+async def send_post(bot, chat_id: str, text: str, image_buf: io.BytesIO, media_type: str = "image", title: str = "", source: str = ""):
     sent = False
     if media_type == "video":
-        sent = await _send_video(bot, chat_id, text, image_buf)
+        sent = await _send_video(bot, chat_id, text, image_buf, title=title, source=source)
         if not sent:
             logger.info("Video failed, falling back to photo")
             sent = await _send_photo(bot, chat_id, text, image_buf)
