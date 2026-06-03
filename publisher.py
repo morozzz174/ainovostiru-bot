@@ -1,6 +1,9 @@
 import io
 import logging
+import os
+import random
 import re
+import tempfile
 import textwrap
 from datetime import datetime
 
@@ -8,6 +11,7 @@ import requests
 from PIL import Image, ImageDraw, ImageFont
 
 import config
+from video_generator import image_to_video, VIDEO_WIDTH, VIDEO_HEIGHT
 
 logger = logging.getLogger(__name__)
 
@@ -123,7 +127,7 @@ def _download_image(url: str) -> io.BytesIO | None:
         return None
 
 
-def prepare_post(article) -> tuple[str, io.BytesIO]:
+def prepare_post(article) -> tuple[str, io.BytesIO, str]:
     title = article.title
     description = article.description[:500]
 
@@ -136,10 +140,17 @@ def prepare_post(article) -> tuple[str, io.BytesIO]:
     if not image_buf:
         image_buf = generate_image(title, article.source)
 
-    return text, image_buf
+    media_type = "image"
+    if config.POST_MODE == "video":
+        media_type = "video"
+    elif config.POST_MODE == "mixed":
+        media_type = random.choice(["image", "video"])
+
+    return text, image_buf, media_type
 
 
-async def send_post(bot, chat_id: str, text: str, image_buf: io.BytesIO):
+async def _send_photo(bot, chat_id: str, text: str, image_buf: io.BytesIO) -> bool:
+    image_buf.seek(0)
     try:
         await bot.send_photo(
             chat_id=chat_id,
@@ -147,18 +158,67 @@ async def send_post(bot, chat_id: str, text: str, image_buf: io.BytesIO):
             caption=text,
             parse_mode="Markdown",
         )
-        logger.info("Post sent successfully")
         return True
     except Exception as e:
-        logger.error("Failed to send post: %s", e)
-        try:
-            await bot.send_message(
+        logger.error("Photo send failed: %s", e)
+        return False
+
+
+async def _send_video(bot, chat_id: str, text: str, image_buf: io.BytesIO) -> bool:
+    video_buf = image_to_video(image_buf)
+    if not video_buf:
+        return False
+    video_buf.seek(0)
+
+    tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".mp4")
+    try:
+        tmp.write(video_buf.read())
+        tmp.close()
+        with open(tmp.name, "rb") as f:
+            await bot.send_video(
                 chat_id=chat_id,
-                text=text,
+                video=f,
+                caption=text,
                 parse_mode="Markdown",
+                width=VIDEO_WIDTH,
+                height=VIDEO_HEIGHT,
+                duration=config.VIDEO_DURATION,
+                supports_streaming=True,
             )
-            logger.info("Fallback: text-only post sent")
-            return True
-        except Exception as e2:
-            logger.error("Fallback also failed: %s", e2)
-            return False
+        return True
+    except Exception as e:
+        logger.error("Video send failed: %s", e)
+        return False
+    finally:
+        try:
+            os.unlink(tmp.name)
+        except Exception:
+            pass
+
+
+async def send_post(bot, chat_id: str, text: str, image_buf: io.BytesIO, media_type: str = "image"):
+    sent = False
+    if media_type == "video":
+        sent = await _send_video(bot, chat_id, text, image_buf)
+        if not sent:
+            logger.info("Video failed, falling back to photo")
+            sent = await _send_photo(bot, chat_id, text, image_buf)
+    else:
+        sent = await _send_photo(bot, chat_id, text, image_buf)
+
+    if sent:
+        logger.info("Post sent successfully (%s)", media_type)
+        return True
+
+    logger.error("Failed to send post as %s", media_type)
+    try:
+        await bot.send_message(
+            chat_id=chat_id,
+            text=text,
+            parse_mode="Markdown",
+        )
+        logger.info("Fallback: text-only post sent")
+        return True
+    except Exception as e2:
+        logger.error("Fallback also failed: %s", e2)
+        return False

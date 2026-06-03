@@ -1,6 +1,8 @@
 import io
 import logging
+import os
 import pickle
+import tempfile
 import time
 from pathlib import Path
 
@@ -11,7 +13,6 @@ from instagrapi.exceptions import (
     ReloginAttemptExceeded,
     ChallengeRequired,
     FeedbackRequired,
-    RecaptchaChallengeRequired,
     PleaseWaitFewMinutes,
     TwoFactorRequired,
 )
@@ -80,10 +81,10 @@ def _get_client() -> Client | None:
             logger.warning("Instagram: session load failed: %s", e)
             SESSION_FILE.unlink(missing_ok=True)
 
+    cl.two_factor_code_fn = config.IG_2FA_CALLBACK or _noop_code_fn
+
     for attempt in range(config.IG_LOGIN_MAX_RETRIES):
         try:
-            cl.set_verify_code_fn(config.IG_2FA_CALLBACK or _noop_code_fn)
-
             cl.login(config.IG_USERNAME, config.IG_PASSWORD)
 
             with open(SESSION_FILE, "wb") as f:
@@ -132,8 +133,23 @@ def _get_client() -> Client | None:
     return None
 
 
-def _noop_code_fn() -> str:
-    return config.IG_2FA_CODE or ""
+def _prompt_2fa_code() -> str:
+    if config.IG_2FA_CODE:
+        return config.IG_2FA_CODE
+    code = input("Instagram 2FA код (пришёл в WhatsApp?): ").strip()
+    if code:
+        return code
+    return ""
+
+
+_noop_code_fn = _prompt_2fa_code
+
+
+def _temp_save(image_buf: io.BytesIO) -> str:
+    tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".jpg")
+    tmp.write(image_buf.read())
+    tmp.close()
+    return tmp.name
 
 
 def post_article(text: str, image_buf: io.BytesIO) -> bool:
@@ -144,10 +160,12 @@ def post_article(text: str, image_buf: io.BytesIO) -> bool:
     image_buf.seek(0)
 
     for attempt in range(config.IG_POST_MAX_RETRIES):
+        tmp_path = None
         try:
             caption = _format_caption(text)
             image_buf.seek(0)
-            cl.photo_upload(image_buf, caption)
+            tmp_path = _temp_save(image_buf)
+            cl.photo_upload(tmp_path, caption)
             logger.info("Instagram: post published")
             return True
 
@@ -174,13 +192,13 @@ def post_article(text: str, image_buf: io.BytesIO) -> bool:
             logger.warning("Instagram: rate limited: %s", e)
             time.sleep(120)
 
-        except RecaptchaChallengeRequired:
-            logger.error("Instagram: recaptcha required, cannot proceed automatically")
-
         except Exception as e:
             logger.error("Instagram: post failed (attempt %d/%d): %s", attempt + 1, config.IG_POST_MAX_RETRIES, e)
             if attempt < config.IG_POST_MAX_RETRIES - 1:
                 time.sleep(config.IG_RETRY_DELAY)
+        finally:
+            if tmp_path and os.path.exists(tmp_path):
+                os.unlink(tmp_path)
 
     logger.error("Instagram: post failed after %d attempts", config.IG_POST_MAX_RETRIES)
     return False

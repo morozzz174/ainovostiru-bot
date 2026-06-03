@@ -14,6 +14,8 @@ POST_DELAY_SECONDS = int(os.getenv("POST_DELAY_SECONDS", "60"))
 
 THEME = os.getenv("THEME", "ai")
 BRAND_NAME = os.getenv("BRAND_NAME", "AINOVOSTI.RU")
+POST_MODE = os.getenv("POST_MODE", "mixed")
+VIDEO_DURATION = int(os.getenv("VIDEO_DURATION", "6"))
 
 IG_USERNAME = os.getenv("IG_USERNAME", "")
 IG_PASSWORD = os.getenv("IG_PASSWORD", "")

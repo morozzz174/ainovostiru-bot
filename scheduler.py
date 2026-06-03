@@ -1,5 +1,7 @@
 import asyncio
 import logging
+import random
+from collections import defaultdict
 
 from telegram import Bot
 from telegram.error import InvalidToken
@@ -47,8 +49,27 @@ async def run_once(bot: Bot, storage: Storage):
         logger.info("No new articles to post")
         return
 
-    new_articles.sort(key=lambda a: a.lang != "ru")
-    selected = new_articles[: config.MAX_POSTS_PER_RUN]
+    random.shuffle(new_articles)
+
+    by_source = defaultdict(list)
+    for art in new_articles:
+        by_source[art.source].append(art)
+
+    sources = list(by_source.keys())
+    random.shuffle(sources)
+
+    selected = []
+    used_sources = set()
+    while len(selected) < config.MAX_POSTS_PER_RUN and sources:
+        next_sources = [s for s in sources if s not in used_sources] or sources
+        src = random.choice(next_sources)
+        if by_source[src]:
+            selected.append(by_source[src].pop(0))
+            used_sources.add(src)
+        if not by_source[src]:
+            sources.remove(src)
+        if len(used_sources) >= len(sources):
+            used_sources.clear()
 
     for i, article in enumerate(selected):
         try:
@@ -58,8 +79,8 @@ async def run_once(bot: Bot, storage: Storage):
                 article.description = desc_ru
                 article.lang = "ru"
 
-            text, image_buf = prepare_post(article)
-            await send_post(bot, config.CHANNEL_ID, text, image_buf)
+            text, image_buf, media_type = prepare_post(article)
+            await send_post(bot, config.CHANNEL_ID, text, image_buf, media_type)
             _post_to_instagram(text, image_buf)
             storage.mark_posted(article.url, article.title)
 
