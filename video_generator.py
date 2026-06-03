@@ -16,9 +16,9 @@ logger = logging.getLogger(__name__)
 VIDEO_WIDTH = 1200
 VIDEO_HEIGHT = 630
 FPS = 12
-FONT_SIZE_TITLE = 44
-FONT_SIZE_BRAND = 22
-FONT_SIZE_SMALL = 20
+FONT_SIZE_TITLE = 54
+FONT_SIZE_BRAND = 26
+FONT_SIZE_SMALL = 22
 
 _FFMPEG_PATH = "ffmpeg"
 try:
@@ -27,15 +27,50 @@ try:
 except Exception:
     pass
 
+_FONT_CACHE = None
+
 
 def _get_font(size: int):
-    try:
-        return ImageFont.truetype("arial.ttf", size)
-    except Exception:
+    global _FONT_CACHE
+    if _FONT_CACHE:
+        return ImageFont.truetype(_FONT_CACHE, size)
+
+    font_dirs = [
+        ".",
+        os.path.join(os.path.dirname(__file__), "fonts"),
+        "/usr/share/fonts/truetype/dejavu",
+        "/usr/share/fonts/truetype/liberation",
+        "/usr/share/fonts",
+        "C:\\Windows\\Fonts",
+    ]
+    font_names = [
+        "DejaVuSans.ttf",
+        "LiberationSans-Regular.ttf",
+        "NotoSans-Regular.ttf",
+        "arial.ttf",
+    ]
+
+    for d in font_dirs:
+        for name in font_names:
+            path = os.path.join(d, name)
+            if os.path.exists(path):
+                _FONT_CACHE = path
+                return ImageFont.truetype(path, size)
+
+    font_path = os.path.join(os.path.dirname(__file__), "DejaVuSans.ttf")
+    if not os.path.exists(font_path):
+        import urllib.request
+        url = "https://github.com/dejavu-fonts/dejavu-fonts/raw/master/ttf/DejaVuSans.ttf"
         try:
-            return ImageFont.truetype("C:\\Windows\\Fonts\\arial.ttf", size)
+            urllib.request.urlretrieve(url, font_path)
         except Exception:
-            return ImageFont.load_default()
+            pass
+
+    if os.path.exists(font_path):
+        _FONT_CACHE = font_path
+        return ImageFont.truetype(font_path, size)
+
+    return ImageFont.load_default()
 
 
 def _draw_gradient(draw: ImageDraw, w: int, h: int, top_color, bottom_color):
