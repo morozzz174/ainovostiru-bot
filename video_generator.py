@@ -16,9 +16,9 @@ logger = logging.getLogger(__name__)
 VIDEO_WIDTH = 1200
 VIDEO_HEIGHT = 630
 FPS = 12
-FONT_SIZE_TITLE = 54
-FONT_SIZE_BRAND = 26
-FONT_SIZE_SMALL = 22
+FONT_SIZE_TITLE = 64
+FONT_SIZE_BRAND = 28
+FONT_SIZE_SMALL = 24
 
 _FFMPEG_PATH = "ffmpeg"
 try:
@@ -35,41 +35,55 @@ def _get_font(size: int):
     if _FONT_CACHE:
         return ImageFont.truetype(_FONT_CACHE, size)
 
-    font_dirs = [
-        ".",
-        os.path.join(os.path.dirname(__file__), "fonts"),
-        "/usr/share/fonts/truetype/dejavu",
-        "/usr/share/fonts/truetype/liberation",
-        "/usr/share/fonts",
-        "C:\\Windows\\Fonts",
-    ]
-    font_names = [
-        "DejaVuSans.ttf",
-        "LiberationSans-Regular.ttf",
-        "NotoSans-Regular.ttf",
+    font_candidates = [
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
+        "/usr/share/fonts/opentype/noto/NotoSans-Regular.ttf",
+        "/usr/share/fonts/truetype/msttcorefonts/Arial.ttf",
+        "C:\\Windows\\Fonts\\arial.ttf",
         "arial.ttf",
     ]
 
-    for d in font_dirs:
-        for name in font_names:
-            path = os.path.join(d, name)
-            if os.path.exists(path):
-                _FONT_CACHE = path
-                return ImageFont.truetype(path, size)
+    for path in font_candidates:
+        if os.path.exists(path):
+            _FONT_CACHE = path
+            logger.info("Using font: %s", path)
+            return ImageFont.truetype(path, size)
 
     font_path = os.path.join(os.path.dirname(__file__), "DejaVuSans.ttf")
     if not os.path.exists(font_path):
-        import urllib.request
-        url = "https://github.com/dejavu-fonts/dejavu-fonts/raw/master/ttf/DejaVuSans.ttf"
-        try:
-            urllib.request.urlretrieve(url, font_path)
-        except Exception:
-            pass
+        urls = [
+            "https://raw.githubusercontent.com/dejavu-fonts/dejavu-fonts/master/ttf/DejaVuSans.ttf",
+            "https://github.com/dejavu-fonts/dejavu-fonts/raw/master/ttf/DejaVuSans.ttf",
+        ]
+        for url in urls:
+            try:
+                import urllib.request
+                urllib.request.urlretrieve(url, font_path)
+                if os.path.exists(font_path) and os.path.getsize(font_path) > 1000:
+                    break
+            except Exception:
+                continue
 
-    if os.path.exists(font_path):
+    if os.path.exists(font_path) and os.path.getsize(font_path) > 1000:
         _FONT_CACHE = font_path
+        logger.info("Using downloaded font: %s", font_path)
         return ImageFont.truetype(font_path, size)
 
+    logger.warning("No suitable font found, trying to install")
+    try:
+        subprocess.run(
+            ["apt-get", "install", "-y", "fonts-dejavu-core"],
+            capture_output=True, timeout=30,
+        )
+        dejavu = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+        if os.path.exists(dejavu):
+            _FONT_CACHE = dejavu
+            return ImageFont.truetype(dejavu, size)
+    except Exception:
+        pass
+
+    logger.warning("Fallback to default font")
     return ImageFont.load_default()
 
 
