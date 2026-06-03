@@ -6,8 +6,8 @@ load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN", "")
 CHANNEL_ID = os.getenv("CHANNEL_ID", "@ainovostiru")
 DATABASE_PATH = os.getenv("DATABASE_PATH", "ainovosti.db")
-MAX_POSTS_PER_RUN = int(os.getenv("MAX_POSTS_PER_RUN", "3"))
-SCHEDULE_INTERVAL_HOURS = int(os.getenv("SCHEDULE_INTERVAL_HOURS", "4"))
+MAX_POSTS_PER_RUN = int(os.getenv("MAX_POSTS_PER_RUN", "2"))
+SCHEDULE_INTERVAL_HOURS = int(os.getenv("SCHEDULE_INTERVAL_HOURS", "3"))
 POST_DELAY_SECONDS = int(os.getenv("POST_DELAY_SECONDS", "60"))
 
 NEWS_SOURCES = {
