@@ -1,7 +1,7 @@
-name: AI News Bot
+name: FACTUM Bot
 on:
   schedule:
-    - cron: '0 7,10,13,16 * * *'
+    - cron: '30 6,10,14,18 * * *'
   workflow_dispatch:
 
 jobs:
@@ -15,9 +15,8 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            ainovosti.db
-            instagram_session.pkl
-          key: ainovosti-db
+            bot_facts.db
+          key: factum-db
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -27,13 +26,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run news collector
+      - name: Run facts collector
         env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
-          THEME: ai
-          BRAND_NAME: AINOVOSTI.RU
-          DATABASE_PATH: ainovosti.db
-          IG_USERNAME: ${{ secrets.IG_USERNAME }}
-          IG_PASSWORD: ${{ secrets.IG_PASSWORD }}
+          BOT_TOKEN: ${{ secrets.FACTUM_BOT_TOKEN }}
+          CHANNEL_ID: ${{ secrets.FACTUM_CHANNEL_ID }}
+          THEME: facts
+          BRAND_NAME: FACTUM.RU
+          DATABASE_PATH: bot_facts.db
         run: python main.py --once
