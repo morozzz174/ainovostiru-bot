@@ -2,6 +2,7 @@ python-telegram-bot[job-queue]==21.10
 feedparser==6.0.11
 requests==2.32.4
 numpy>=1.26,<3
+edge-tts>=7.2,<8
 
 beautifulsoup4==4.13.3
 lxml==5.3.1

@@ -11,6 +11,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 import config
 from music import SAMPLE_RATE, build_music_track
+from voice import synthesize_voice
 
 logger = logging.getLogger(__name__)
 
@@ -259,6 +260,7 @@ def image_to_video(
     title: str = "",
     source: str = "",
     duration: float = 0,
+    description: str = "",
 ) -> io.BytesIO | None:
     if not _ffmpeg_ready():
         return None
@@ -270,6 +272,7 @@ def image_to_video(
     tmp_video = tempfile.NamedTemporaryFile(delete=False, suffix=".mp4")
     err_log = os.path.join(tmp_dir, "ffmpeg.log")
     music_path = None
+    voice_path = None
 
     try:
         audio = build_music_track(duration)
@@ -278,6 +281,13 @@ def image_to_video(
             with open(music_path, "wb") as f:
                 f.write(audio)
 
+        speech = synthesize_voice(title, description)
+        if speech:
+            voice_path = os.path.join(tmp_dir, "voice.mp3")
+            with open(voice_path, "wb") as f:
+                f.write(speech)
+
+        fade_out = max(0.0, duration - 0.9)
         cmd = [
             _FFMPEG_PATH,
             "-y",
@@ -288,29 +298,58 @@ def image_to_video(
             "-i", "pipe:0",
         ]
         if music_path:
+            music_idx = 1
             cmd += ["-i", music_path]
+        else:
+            music_idx = None
+        if voice_path:
+            voice_idx = 2 if music_path else 1
+            cmd += ["-i", voice_path]
+        else:
+            voice_idx = None
+
         cmd += [
             "-c:v", "libx264",
             "-pix_fmt", "yuv420p",
             "-preset", "medium",
             "-crf", "23",
         ]
-        if music_path:
-            fade_out = max(0.0, duration - 0.9)
-            cmd += [
-                "-c:a", "aac",
-                "-b:a", "128k",
-                "-ar", str(SAMPLE_RATE),
-                "-ac", "2",
-                "-af", (
-                    f"afade=t=in:st=0:d=0.6,"
-                    f"afade=t=out:st={fade_out:.2f}:d=0.9,"
-                    f"volume={config.MUSIC_VOLUME}"
-                ),
-                "-shortest",
-            ]
+
+        filters = []
+        if music_path and voice_path:
+            common = "aformat=sample_fmts=fltp:sample_rates=%d:channel_layouts=stereo" % SAMPLE_RATE
+            bed = max(0.05, config.MUSIC_VOLUME * 0.7)
+            filters.append("[%d:a]volume=%.2f[bg]" % (music_idx, bed))
+            filters.append("[%d:a]%s,highpass=f=90[sp]" % (voice_idx, common))
+            filters.append("[bg][sp]amix=inputs=2:duration=longest:normalize=0[a]")
+            fade_in = 0.4
+        elif music_path:
+            filters.append(
+                "[%d:a]volume=%.2f,aformat=sample_fmts=fltp:sample_rates=%d:channel_layouts=stereo[a]"
+                % (music_idx, config.MUSIC_VOLUME, SAMPLE_RATE)
+            )
+            fade_in = 0.6
+        elif voice_path:
+            filters.append(
+                "[%d:a]aformat=sample_fmts=fltp:sample_rates=%d:channel_layouts=stereo[a]"
+                % (voice_idx, SAMPLE_RATE)
+            )
+            fade_in = 0.4
+        else:
+            fade_in = 0.0
+
+        if filters:
+            filters.append(
+                "[a]alimiter=limit=0.95,afade=t=in:st=0:d=%.2f,afade=t=out:st=%.2f:d=0.9[aout]"
+                % (fade_in, fade_out)
+            )
+            cmd += ["-filter_complex", ";".join(filters), "-map", "0:v", "-map", "[aout]"]
         else:
             cmd += ["-an"]
+
+        if music_path or voice_path:
+            cmd += ["-c:a", "aac", "-b:a", "128k", "-ar", str(SAMPLE_RATE), "-ac", "2", "-shortest"]
+
         cmd += ["-movflags", "+faststart", tmp_video.name]
 
         frames = 0
@@ -325,14 +364,20 @@ def image_to_video(
                 for frame in iter_frames(image_buf, title, source, duration):
                     proc.stdin.write(frame.tobytes())
                     frames += 1
+            except BrokenPipeError:
+                pass
             finally:
-                proc.stdin.close()
-            code = proc.wait(timeout=180)
+                try:
+                    proc.stdin.close()
+                except Exception:
+                    pass
+                code = proc.wait(timeout=180)
 
         if code != 0:
             with open(err_log, "rb") as f:
-                err_text = f.read().decode("utf-8", "ignore")[-500:]
-            logger.warning("FFmpeg error: %s", err_text)
+                raw = f.read().decode("utf-8", "ignore")
+            lines = [ln for ln in raw.splitlines() if "Error" in ln or "error" in ln or "Invalid" in ln]
+            logger.warning("FFmpeg error (exit %d): %s", code, " | ".join(lines[-6:]) or raw[-600:])
             return None
 
         tmp_video.close()
@@ -342,8 +387,8 @@ def image_to_video(
         result = io.BytesIO(video_bytes)
         result.seek(0)
         logger.info(
-            "Video generated: %d bytes (%.1fs, %d frames, audio=%s)",
-            len(video_bytes), duration, frames, bool(music_path),
+            "Video generated: %d bytes (%.1fs, %d frames, music=%s, voice=%s)",
+            len(video_bytes), duration, frames, bool(music_path), bool(voice_path),
         )
         return result
 

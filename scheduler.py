@@ -82,7 +82,7 @@ async def run_once(bot: Bot, storage: Storage) -> dict:
                 article.lang = "ru"
 
             text, image_buf, media_type = prepare_post(article)
-            sent = await send_post(bot, config.CHANNEL_ID, text, image_buf, media_type, title=article.title, source=article.source)
+            sent = await send_post(bot, config.CHANNEL_ID, text, image_buf, media_type, title=article.title, source=article.source, description=article.description)
             if sent:
                 posted += 1
                 storage.mark_posted(article.url, article.title)

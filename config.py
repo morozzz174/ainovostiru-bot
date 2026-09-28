@@ -23,6 +23,12 @@ MUSIC_STYLE = os.getenv("MUSIC_STYLE", "auto")
 MUSIC_FILE = os.getenv("MUSIC_FILE", "")
 MUSIC_VOLUME = float(os.getenv("MUSIC_VOLUME", "0.35"))
 MUSIC_SEED = os.getenv("MUSIC_SEED", "")
+VOICE_ENABLED = os.getenv("VOICE_ENABLED", "true").lower() == "true"
+VOICE_NAME = os.getenv("VOICE_NAME", "ru-RU-DmitryNeural")
+VOICE_FALLBACK_NAME = os.getenv("VOICE_FALLBACK_NAME", "ru-RU-SvetlanaNeural")
+VOICE_RATE = os.getenv("VOICE_RATE", "+5%")
+VOICE_MAX_CHARS = int(os.getenv("VOICE_MAX_CHARS", "200"))
+VOICE_RETRIES = int(os.getenv("VOICE_RETRIES", "3"))
 USE_THEMED_IMAGES = os.getenv("USE_THEMED_IMAGES", "true").lower() == "true"
 PEXELS_API_KEY = os.getenv("PEXELS_API_KEY", "")
 UNSPLASH_ACCESS_KEY = os.getenv("UNSPLASH_ACCESS_KEY", "")

@@ -183,8 +183,8 @@ async def _send_photo(bot, chat_id: str, text: str, image_buf: io.BytesIO) -> bo
         return False
 
 
-async def _send_video(bot, chat_id: str, text: str, image_buf: io.BytesIO, title: str = "", source: str = "") -> bool:
-    video_buf = image_to_video(image_buf, title=title, source=source)
+async def _send_video(bot, chat_id: str, text: str, image_buf: io.BytesIO, title: str = "", source: str = "", description: str = "") -> bool:
+    video_buf = image_to_video(image_buf, title=title, source=source, description=description)
     if not video_buf:
         return False
     video_buf.seek(0)
@@ -215,10 +215,10 @@ async def _send_video(bot, chat_id: str, text: str, image_buf: io.BytesIO, title
             pass
 
 
-async def send_post(bot, chat_id: str, text: str, image_buf: io.BytesIO, media_type: str = "image", title: str = "", source: str = ""):
+async def send_post(bot, chat_id: str, text: str, image_buf: io.BytesIO, media_type: str = "image", title: str = "", source: str = "", description: str = ""):
     sent = False
     if media_type == "video":
-        sent = await _send_video(bot, chat_id, text, image_buf, title=title, source=source)
+        sent = await _send_video(bot, chat_id, text, image_buf, title=title, source=source, description=description)
         if not sent:
             logger.info("Video failed, falling back to photo")
             sent = await _send_photo(bot, chat_id, text, image_buf)
