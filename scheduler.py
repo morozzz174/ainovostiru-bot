@@ -30,6 +30,20 @@ def _post_to_instagram(text: str, image_buf):
         logger.error("Instagram: error: %s", e)
 
 
+def _post_to_tiktok(article: Article, text: str, image_buf):
+    if not config.TT_ENABLED:
+        return
+    try:
+        from tiktok_publisher import post_article
+        success = post_article(text, article.title, article.description, image_buf)
+        if success:
+            logger.info("TikTok: posted successfully")
+        else:
+            logger.warning("TikTok: post failed")
+    except Exception as e:
+        logger.error("TikTok: error: %s", e)
+
+
 async def run_once(bot: Bot, storage: Storage) -> dict:
     logger.info("=== Starting news collection ===")
 
@@ -90,6 +104,7 @@ async def run_once(bot: Bot, storage: Storage) -> dict:
                 failed += 1
                 logger.error("Post NOT delivered: %s", article.url)
             _post_to_instagram(text, image_buf)
+            _post_to_tiktok(article, text, image_buf)
 
             if i < len(selected) - 1:
                 await asyncio.sleep(config.POST_DELAY_SECONDS)

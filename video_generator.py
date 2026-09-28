@@ -7,7 +7,7 @@ import subprocess
 import tempfile
 import textwrap
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 import config
 from music import SAMPLE_RATE, build_music_track
@@ -17,6 +17,8 @@ logger = logging.getLogger(__name__)
 
 VIDEO_WIDTH = 1200
 VIDEO_HEIGHT = 630
+VERTICAL_WIDTH = 1080
+VERTICAL_HEIGHT = 1920
 FPS = 12
 FONT_SIZE_TITLE = 64
 FONT_SIZE_BRAND = 28
@@ -219,6 +221,257 @@ def _remove_tree(path: str) -> None:
         os.rmdir(path)
     except Exception:
         pass
+
+
+def _vertical_background(bg: Image.Image) -> Image.Image:
+    w, h = VERTICAL_WIDTH, VERTICAL_HEIGHT
+    src_ratio = bg.width / bg.height
+    dst_ratio = w / h
+
+    if src_ratio > dst_ratio:
+        crop_w = int(bg.height * dst_ratio)
+        left = (bg.width - crop_w) // 2
+        canvas = bg.crop((left, 0, left + crop_w, bg.height)).resize((w, h), Image.LANCZOS)
+    else:
+        crop_h = int(bg.width / dst_ratio)
+        top = (bg.height - crop_h) // 2
+        canvas = bg.crop((0, top, bg.width, top + crop_h)).resize((w, h), Image.LANCZOS)
+
+    blurred = bg.resize((w, h), Image.BILINEAR).filter(ImageFilter.GaussianBlur(radius=28))
+    return Image.blend(blurred, canvas, 0.62)
+
+
+VERTICAL_ZOOM_STEPS = 8
+
+
+def prepare_vertical_canvas(bg: Image.Image) -> list[Image.Image]:
+    w, h = VERTICAL_WIDTH, VERTICAL_HEIGHT
+
+    gradient = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    _draw_gradient(ImageDraw.Draw(gradient), w, h, (0, 0, 0, 40), (0, 0, 0, 190))
+    graded = Image.alpha_composite(_vertical_background(bg).convert("RGBA"), gradient).convert("RGB")
+
+    levels = [graded]
+    for step in range(1, VERTICAL_ZOOM_STEPS):
+        scale = 1.0 + (step / (VERTICAL_ZOOM_STEPS - 1)) * 0.05
+        new_w, new_h = int(w * scale), int(h * scale)
+        zoomed = graded.resize((new_w, new_h), Image.BILINEAR)
+        offset_x = (new_w - w) // 2
+        offset_y = (new_h - h) // 2
+        levels.append(zoomed.crop((offset_x, offset_y, offset_x + w, offset_y + h)))
+    return levels
+
+
+def make_vertical_frame(
+    levels: list[Image.Image],
+    title: str,
+    source: str,
+    frame: int,
+    total_frames: int,
+) -> Image.Image:
+    w, h = VERTICAL_WIDTH, VERTICAL_HEIGHT
+    progress = frame / max(total_frames - 1, 1)
+
+    index = min(VERTICAL_ZOOM_STEPS - 1, int(progress * VERTICAL_ZOOM_STEPS))
+    canvas = levels[index].copy()
+    draw = ImageDraw.Draw(canvas, "RGBA")
+    _draw_particles(draw, w, h, frame, count=44)
+
+    font_title = _get_font(76)
+    font_brand = _get_font(44)
+    font_small = _get_font(36)
+
+    lines = _wrap_text(title, max_chars=18)[:6]
+    line_h = font_title.getbbox("Ay")[3] - font_title.getbbox("Ay")[1]
+    gap = 18
+    block_h = len(lines) * (line_h + gap) - gap
+    y = (h - block_h) // 2
+
+    total_chars = sum(len(line) for line in lines)
+    reveal = min(1.0, progress * 1.9)
+    chars_to_show = int(total_chars * reveal)
+    seen = 0
+    for line in lines:
+        take = max(0, min(len(line), chars_to_show - seen))
+        seen += len(line)
+        visible = line[:take]
+        if not visible:
+            y += line_h + gap
+            continue
+        line_w = font_title.getbbox(line)[2]
+        draw.text(((w - line_w) // 2, y), visible, font=font_title, fill=(255, 255, 255, 235))
+        y += line_h + gap
+
+    brand = config.BRAND_NAME or "NEWS"
+    if progress > 0.15:
+        alpha = int(200 * min(1.0, (progress - 0.15) / 0.25))
+        draw.text((60, 90), brand, font=font_brand, fill=(200, 200, 225, alpha))
+
+    if progress > 0.55:
+        alpha = int(190 * min(1.0, (progress - 0.55) / 0.25))
+        draw.text((60, h - 150), f"Источник: {source}", font=font_small, fill=(180, 205, 255, alpha))
+
+    bar_top = h - 46
+    draw.rectangle([60, bar_top, w - 60, bar_top + 8], fill=(255, 255, 255, 45))
+    draw.rectangle([60, bar_top, 60 + int((w - 120) * progress), bar_top + 8], fill=(110, 190, 255, 230))
+
+    return canvas
+
+
+def iter_vertical_frames(
+    image_buf: io.BytesIO,
+    title: str,
+    source: str,
+    duration: float,
+):
+    image_buf.seek(0)
+    bg = Image.open(image_buf).convert("RGB")
+    canvas = prepare_vertical_canvas(bg)
+
+    total_frames = max(int(FPS * duration), 1)
+    for i in range(total_frames):
+        yield make_vertical_frame(canvas, title, source, i, total_frames)
+
+
+def image_to_video_vertical(
+    image_buf: io.BytesIO,
+    title: str = "",
+    source: str = "",
+    duration: float = 0,
+    description: str = "",
+) -> io.BytesIO | None:
+    if not _ffmpeg_ready():
+        return None
+
+    if duration <= 0:
+        duration = config.VIDEO_DURATION
+
+    tmp_dir = tempfile.mkdtemp()
+    tmp_video = tempfile.NamedTemporaryFile(delete=False, suffix=".mp4")
+    err_log = os.path.join(tmp_dir, "ffmpeg.log")
+    music_path = None
+    voice_path = None
+
+    try:
+        audio = build_music_track(duration)
+        if audio:
+            music_path = os.path.join(tmp_dir, "music.wav")
+            with open(music_path, "wb") as f:
+                f.write(audio)
+
+        speech = synthesize_voice(title, description)
+        if speech:
+            voice_path = os.path.join(tmp_dir, "voice.mp3")
+            with open(voice_path, "wb") as f:
+                f.write(speech)
+
+        cmd = [
+            _FFMPEG_PATH, "-y",
+            "-f", "rawvideo",
+            "-pix_fmt", "rgb24",
+            "-s", f"{VERTICAL_WIDTH}x{VERTICAL_HEIGHT}",
+            "-framerate", str(FPS),
+            "-i", "pipe:0",
+        ]
+        music_idx = None
+        voice_idx = None
+        if music_path:
+            music_idx = 1
+            cmd += ["-i", music_path]
+        if voice_path:
+            voice_idx = 2 if music_path else 1
+            cmd += ["-i", voice_path]
+
+        cmd += [
+            "-c:v", "libx264",
+            "-pix_fmt", "yuv420p",
+            "-preset", config.VIDEO_PRESET,
+            "-crf", "23",
+        ]
+
+        filters = []
+        if music_path and voice_path:
+            common = "aformat=sample_fmts=fltp:sample_rates=%d:channel_layouts=stereo" % SAMPLE_RATE
+            bed = max(0.05, config.MUSIC_VOLUME * 0.7)
+            filters.append("[%d:a]volume=%.2f[bg]" % (music_idx, bed))
+            filters.append("[%d:a]%s,highpass=f=90[sp]" % (voice_idx, common))
+            filters.append("[bg][sp]amix=inputs=2:duration=longest:normalize=0[a]")
+            fade_in = 0.4
+        elif music_path:
+            filters.append(
+                "[%d:a]volume=%.2f,aformat=sample_fmts=fltp:sample_rates=%d:channel_layouts=stereo[a]"
+                % (music_idx, config.MUSIC_VOLUME, SAMPLE_RATE)
+            )
+            fade_in = 0.6
+        elif voice_path:
+            filters.append(
+                "[%d:a]aformat=sample_fmts=fltp:sample_rates=%d:channel_layouts=stereo[a]"
+                % (voice_idx, SAMPLE_RATE)
+            )
+            fade_in = 0.4
+        else:
+            fade_in = 0.0
+
+        if filters:
+            fade_out = max(0.0, duration - 0.9)
+            filters.append(
+                "[a]alimiter=limit=0.95,afade=t=in:st=0:d=%.2f,afade=t=out:st=%.2f:d=0.9[aout]"
+                % (fade_in, fade_out)
+            )
+            cmd += ["-filter_complex", ";".join(filters), "-map", "0:v", "-map", "[aout]",
+                    "-c:a", "aac", "-b:a", "128k", "-ar", str(SAMPLE_RATE), "-ac", "2", "-shortest"]
+        else:
+            cmd += ["-an"]
+
+        cmd += ["-movflags", "+faststart", tmp_video.name]
+
+        frames = 0
+        with open(err_log, "wb") as err:
+            proc = subprocess.Popen(
+                cmd,
+                stdin=subprocess.PIPE,
+                stdout=subprocess.DEVNULL,
+                stderr=err,
+            )
+            try:
+                for frame in iter_vertical_frames(image_buf, title, source, duration):
+                    proc.stdin.write(frame.tobytes())
+                    frames += 1
+            except BrokenPipeError:
+                pass
+            finally:
+                try:
+                    proc.stdin.close()
+                except Exception:
+                    pass
+                code = proc.wait(timeout=300)
+
+        if code != 0:
+            with open(err_log, "rb") as f:
+                raw = f.read().decode("utf-8", "ignore")
+            lines = [ln for ln in raw.splitlines() if "Error" in ln or "Invalid" in ln]
+            logger.warning("FFmpeg vertical error (exit %d): %s", code, " | ".join(lines[-6:]) or raw[-400:])
+            return None
+
+        tmp_video.close()
+        with open(tmp_video.name, "rb") as f:
+            video_bytes = f.read()
+
+        result = io.BytesIO(video_bytes)
+        result.seek(0)
+        logger.info("Vertical video: %d bytes (%.1fs, %d frames, music=%s, voice=%s)",
+                    len(video_bytes), duration, frames, bool(music_path), bool(voice_path))
+        return result
+
+    except Exception as e:
+        logger.warning("Vertical video generation failed: %s", e)
+        return None
+    finally:
+        _remove_tree(tmp_dir)
+        try:
+            os.unlink(tmp_video.name)
+        except Exception:
+            pass
 
 
 def generate_animated_frames(

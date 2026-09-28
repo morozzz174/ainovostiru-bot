@@ -29,6 +29,22 @@ VOICE_FALLBACK_NAME = os.getenv("VOICE_FALLBACK_NAME", "ru-RU-SvetlanaNeural")
 VOICE_RATE = os.getenv("VOICE_RATE", "+5%")
 VOICE_MAX_CHARS = int(os.getenv("VOICE_MAX_CHARS", "200"))
 VOICE_RETRIES = int(os.getenv("VOICE_RETRIES", "3"))
+VIDEO_PRESET = os.getenv("VIDEO_PRESET", "medium")
+
+TT_ENABLED = os.getenv("TT_ENABLED", "false").lower() == "true"
+TT_ACCESS_TOKEN = os.getenv("TT_ACCESS_TOKEN", "")
+TT_REFRESH_TOKEN = os.getenv("TT_REFRESH_TOKEN", "")
+TT_CLIENT_KEY = os.getenv("TT_CLIENT_KEY", "")
+TT_CLIENT_SECRET = os.getenv("TT_CLIENT_SECRET", "")
+TT_OPEN_ID = os.getenv("TT_OPEN_ID", "")
+TT_PRIVACY_LEVEL = os.getenv("TT_PRIVACY_LEVEL", "SELF_ONLY")
+TT_MAX_CHARS = int(os.getenv("TT_MAX_CHARS", "2200"))
+TT_CHUNK_SIZE = int(os.getenv("TT_CHUNK_SIZE", str(10 * 1024 * 1024)))
+TT_STATUS_ATTEMPTS = int(os.getenv("TT_STATUS_ATTEMPTS", "10"))
+TT_STATUS_INTERVAL = int(os.getenv("TT_STATUS_INTERVAL", "6"))
+TT_DISABLE_DUET = os.getenv("TT_DISABLE_DUET", "true").lower() == "true"
+TT_DISABLE_COMMENT = os.getenv("TT_DISABLE_COMMENT", "false").lower() == "true"
+TT_DISABLE_STITCH = os.getenv("TT_DISABLE_STITCH", "true").lower() == "true"
 USE_THEMED_IMAGES = os.getenv("USE_THEMED_IMAGES", "true").lower() == "true"
 PEXELS_API_KEY = os.getenv("PEXELS_API_KEY", "")
 UNSPLASH_ACCESS_KEY = os.getenv("UNSPLASH_ACCESS_KEY", "")
