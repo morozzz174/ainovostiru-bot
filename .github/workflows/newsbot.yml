@@ -48,6 +48,13 @@ jobs:
           DATABASE_PATH: ainovosti.db
           IG_USERNAME: ${{ secrets.IG_USERNAME }}
           IG_PASSWORD: ${{ secrets.IG_PASSWORD }}
+          TT_ENABLED: ${{ secrets.TT_ENABLED }}
+          TT_ACCESS_TOKEN: ${{ secrets.TT_ACCESS_TOKEN }}
+          TT_REFRESH_TOKEN: ${{ secrets.TT_REFRESH_TOKEN }}
+          TT_CLIENT_KEY: ${{ secrets.TT_CLIENT_KEY }}
+          TT_CLIENT_SECRET: ${{ secrets.TT_CLIENT_SECRET }}
+          TT_OPEN_ID: ${{ secrets.TT_OPEN_ID }}
+          TT_PRIVACY_LEVEL: ${{ secrets.TT_PRIVACY_LEVEL }}
         run: python main.py --once --strict
 
       - name: Save posted articles DB
