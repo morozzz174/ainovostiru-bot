@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Restore posted articles DB
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v6
         with:
           path: bot_facts.db
           key: factum-db-${{ github.run_id }}-${{ github.run_attempt }}
@@ -30,7 +30,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y fonts-dejavu-core
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 
@@ -48,7 +48,7 @@ jobs:
 
       - name: Save posted articles DB
         if: always()
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v6
         with:
           path: bot_facts.db
           key: factum-db-${{ github.run_id }}-${{ github.run_attempt }}
