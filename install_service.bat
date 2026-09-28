@@ -2,7 +2,7 @@
 chcp 65001 >NUL
 cd /d "%~dp0"
 set "TASK_NAME=AINOVOSTIRU Bot"
-set "SCRIPT_PATH=%~dp0main.py"
+set "LAUNCHER_PATH=%~dp0run_service.bat"
 set "PYTHON_PATH=python"
 
 echo ============================================
@@ -12,10 +12,12 @@ echo.
 echo Бот будет запускаться при каждом входе в систему
 echo и работать в фоновом режиме.
 echo.
-echo Путь к скрипту: %SCRIPT_PATH%
+echo Лаунчер: %LAUNCHER_PATH%
+echo Лог:     %~dp0logs\bot.log
 echo.
-
-schtasks /create /tn "%TASK_NAME%" /tr "%PYTHON_PATH% %SCRIPT_PATH%" /sc onlogon /delay 0000:01:00 /f
+echo ВАЖНО: в файле .env должен быть заполнен BOT_TOKEN.
+echo.
+schtasks /create /tn "%TASK_NAME%" /tr "cmd.exe /c \"%LAUNCHER_PATH%\"" /sc onlogon /delay 0000:01:00 /f
 
 if %errorlevel% equ 0 (
     echo.

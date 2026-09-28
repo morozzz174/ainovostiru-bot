@@ -2,12 +2,14 @@ import os
 import sys
 from dotenv import load_dotenv
 
-dotenv_path = os.getenv("DOTENV_PATH", ".env")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+dotenv_path = os.getenv("DOTENV_PATH") or os.path.join(BASE_DIR, ".env")
 load_dotenv(dotenv_path)
 
 BOT_TOKEN = os.getenv("BOT_TOKEN", "")
 CHANNEL_ID = os.getenv("CHANNEL_ID", "")
-DATABASE_PATH = os.getenv("DATABASE_PATH", "bot_data.db")
+DATABASE_PATH = os.getenv("DATABASE_PATH") or os.path.join(BASE_DIR, "bot_data.db")
 MAX_POSTS_PER_RUN = int(os.getenv("MAX_POSTS_PER_RUN", "2"))
 SCHEDULE_INTERVAL_HOURS = int(os.getenv("SCHEDULE_INTERVAL_HOURS", "3"))
 POST_DELAY_SECONDS = int(os.getenv("POST_DELAY_SECONDS", "60"))

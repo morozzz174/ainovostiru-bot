@@ -30,13 +30,13 @@ def _post_to_instagram(text: str, image_buf):
         logger.error("Instagram: error: %s", e)
 
 
-async def run_once(bot: Bot, storage: Storage):
+async def run_once(bot: Bot, storage: Storage) -> dict:
     logger.info("=== Starting news collection ===")
 
     all_articles = collect_news()
     if not all_articles:
         logger.warning("No articles collected")
-        return
+        return {"collected": 0, "new": 0, "posted": 0}
 
     new_articles: list[Article] = []
     for art in all_articles:
@@ -47,7 +47,7 @@ async def run_once(bot: Bot, storage: Storage):
 
     if not new_articles:
         logger.info("No new articles to post")
-        return
+        return {"collected": len(all_articles), "new": 0, "posted": 0}
 
     random.shuffle(new_articles)
 
@@ -71,6 +71,8 @@ async def run_once(bot: Bot, storage: Storage):
         if len(used_sources) >= len(sources):
             used_sources.clear()
 
+    posted = 0
+    failed = 0
     for i, article in enumerate(selected):
         try:
             if article.lang == "en":
@@ -80,16 +82,23 @@ async def run_once(bot: Bot, storage: Storage):
                 article.lang = "ru"
 
             text, image_buf, media_type = prepare_post(article)
-            await send_post(bot, config.CHANNEL_ID, text, image_buf, media_type, title=article.title, source=article.source)
+            sent = await send_post(bot, config.CHANNEL_ID, text, image_buf, media_type, title=article.title, source=article.source)
+            if sent:
+                posted += 1
+                storage.mark_posted(article.url, article.title)
+            else:
+                failed += 1
+                logger.error("Post NOT delivered: %s", article.url)
             _post_to_instagram(text, image_buf)
-            storage.mark_posted(article.url, article.title)
 
             if i < len(selected) - 1:
                 await asyncio.sleep(config.POST_DELAY_SECONDS)
         except Exception as e:
+            failed += 1
             logger.error("Error posting article %s: %s", article.url, e)
 
-    logger.info("=== Collection finished ===")
+    logger.info("=== Collection finished: posted %d/%d, failed %d ===", posted, len(selected), failed)
+    return {"collected": len(all_articles), "new": len(new_articles), "posted": posted, "failed": failed}
 
 
 async def scheduler_loop(bot: Bot, storage: Storage):

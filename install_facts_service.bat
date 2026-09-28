@@ -2,7 +2,7 @@
 chcp 65001 >NUL
 cd /d "%~dp0"
 set "TASK_NAME=FACTUM Bot"
-set "SCRIPT_PATH=%~dp0main.py"
+set "LAUNCHER_PATH=%~dp0run_facts_service.bat"
 set "PYTHON_PATH=python"
 
 echo ============================================
@@ -11,10 +11,12 @@ echo ============================================
 echo.
 echo Бот будет запускаться при каждом входе в систему.
 echo.
-echo Путь к скрипту: %SCRIPT_PATH%
+echo Лаунчер: %LAUNCHER_PATH%
+echo Лог:     %~dp0logs\facts.log
 echo.
-
-schtasks /create /tn "%TASK_NAME%" /tr "%PYTHON_PATH% %SCRIPT_PATH%" /sc onlogon /delay 0000:01:00 /f /ru "%USERNAME%"
+echo ВАЖНО: в файле .env.facts должен быть заполнен BOT_TOKEN.
+echo.
+schtasks /create /tn "%TASK_NAME%" /tr "cmd.exe /c \"%LAUNCHER_PATH%\"" /sc onlogon /delay 0000:01:00 /f /ru "%USERNAME%"
 
 if %errorlevel% equ 0 (
     echo.

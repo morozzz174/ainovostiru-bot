@@ -29,6 +29,16 @@ COLOR_TEXT = (255, 255, 255)
 COLOR_ACCENT = (100, 180, 255)
 COLOR_BRAND = (150, 150, 200)
 
+_MD_SPECIAL = re.compile(r"([_*\[\]()`\\])")
+
+
+def _escape_md(text: str) -> str:
+    return _MD_SPECIAL.sub(r"\\\1", text or "")
+
+
+def _escape_md_url(url: str) -> str:
+    return (url or "").replace("\\", "\\\\").replace(")", "\\)")
+
 
 def _get_font(size: int):
     try:
@@ -140,10 +150,12 @@ def _prepare_image(article) -> io.BytesIO:
 
 
 def prepare_post(article) -> tuple[str, io.BytesIO, str]:
-    title = article.title
-    description = article.description[:500]
+    title = _escape_md(article.title)
+    description = _escape_md(article.description[:500])
+    url = _escape_md_url(article.url)
+    source = _escape_md(article.source)
 
-    text = f"🤖 *{title}*\n\n{description}\n\n📅 Источник: [{article.source}]({article.url})\n{' '.join(config.HASHTAGS)}"
+    text = f"🤖 *{title}*\n\n{description}\n\n📅 Источник: [{source}]({url})\n{' '.join(config.HASHTAGS)}"
 
     image_buf = _prepare_image(article)
 

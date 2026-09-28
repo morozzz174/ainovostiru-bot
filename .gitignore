@@ -5,4 +5,5 @@ __pycache__/
 !.env.example
 *.db
 instagram_session.pkl
+logs/
 nul

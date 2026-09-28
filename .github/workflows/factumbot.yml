@@ -1,22 +1,30 @@
 name: FACTUM Bot
 on:
   schedule:
+    # 09:30, 13:30, 17:30, 21:30 MSK (UTC+3).
+    # ВАЖНО: GitHub отключает scheduled-воркфлоу после 60 дней без коммитов
+    # в публичном репозитории ("disabled_inactivity"). Делайте коммиты чаще.
     - cron: '30 6,10,14,18 * * *'
   workflow_dispatch:
+
+concurrency:
+  group: factum-bot
+  cancel-in-progress: false
 
 jobs:
   post-news:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
 
-      - name: Cache posted articles DB
-        id: cache-db
-        uses: actions/cache@v4
+      - name: Restore posted articles DB
+        uses: actions/cache/restore@v4
         with:
-          path: |
-            bot_facts.db
-          key: factum-db
+          path: bot_facts.db
+          key: factum-db-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            factum-db-
 
       - name: Install system fonts
         run: sudo apt-get update && sudo apt-get install -y fonts-dejavu-core
@@ -36,4 +44,11 @@ jobs:
           THEME: facts
           BRAND_NAME: FACTUM.RU
           DATABASE_PATH: bot_facts.db
-        run: python main.py --once
+        run: python main.py --once --strict
+
+      - name: Save posted articles DB
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: bot_facts.db
+          key: factum-db-${{ github.run_id }}-${{ github.run_attempt }}
