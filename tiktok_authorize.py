@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 AUTHORIZE_URL = "https://www.tiktok.com/v2/auth/authorize/"
 TOKEN_URL = "https://open.tiktokapis.com/v2/oauth/token/"
-SCOPE = "video.publish,user.info.basic"
+SCOPE = "video.publish"
 STATE_FILE = os.path.join(tempfile.gettempdir(), "tiktok_oauth_state.txt")
 
 
