@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MorozMax — AI, tech and science news bot</title>
+<meta name="description" content="MorozMax (AINOVOSTI.RU) is an automated news publishing bot for Telegram, Instagram and TikTok with generated video, music and Russian voiceover.">
+<style>
+body { font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 760px; margin: 48px auto; padding: 0 20px; line-height: 1.65; color: #1c1c1e; background: #fbfbfd; }
+h1 { font-size: 30px; margin-bottom: 4px; }
+.sub { color: #6e6e73; margin-top: 0; }
+h2 { font-size: 19px; margin-top: 34px; }
+code, .mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+.box { background: #fff; border: 1px solid #e5e5ea; border-radius: 10px; padding: 16px 20px; }
+ul { padding-left: 20px; }
+a { color: #0a58ca; }
+footer { margin-top: 40px; color: #6e6e73; font-size: 14px; }
+</style>
+</head>
+<body>
+<h1>MorozMax</h1>
+<p class="sub">Automated AI, technology and science news publishing bot — AINOVOSTI.RU</p>
+
+<h2>What it does</h2>
+<div class="box">
+<ul>
+<li>Collects articles from public RSS feeds of technology and science media.</li>
+<li>Translates headlines and summaries into Russian.</li>
+<li>Renders a branded image, an original royalty-free music bed and a Russian voiceover.</li>
+<li>Produces a 9:16 H.264 MP4 with burnt-in text for short-form video platforms.</li>
+<li>Publishes to Telegram channels, Instagram and TikTok, with every post linking to its original source.</li>
+</ul>
+</div>
+
+<h2>TikTok integration</h2>
+<p>The bot uses the official <b>Content Posting API</b> with the <code>video.publish</code> scope.</p>
+<div class="box">
+<ul>
+<li>Authorization: <b>Login Kit</b> OAuth authorization page, scope <code>video.publish</code>.</li>
+<li>Publishing: <b>Direct Post</b> endpoint with <code>push_by_file</code> source and chunked upload.</li>
+<li>Status: the bot polls the publish status endpoint until <code>PUBLISH_COMPLETE</code>.</li>
+<li>Tokens: the 24 hour access token is renewed once per run with the <code>refresh_token</code> grant.</li>
+<li>Privacy: the first test posts are published as <code>SELF_ONLY</code> until the app passes TikTok review.</li>
+</ul>
+</div>
+
+<h2>No personal data</h2>
+<p>No personal data of end users is collected or stored. Only the account owner's OAuth tokens are kept,
+and they are used exclusively for publishing. See the
+<a href="privacy.html">Privacy Policy</a> and the <a href="terms.html">Terms of Service</a>.</p>
+
+<footer>
+Contact: <span class="mono">morozzz174@gmail.com</span><br>
+Source code: <span class="mono">github.com/morozzz174/ainovostiru-bot</span>
+</footer>
+</body>
+</html>
