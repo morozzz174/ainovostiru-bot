@@ -1,32 +1,86 @@
 import logging
 import time
 
+import requests
 from deep_translator import GoogleTranslator
 
 logger = logging.getLogger(__name__)
 
 _translator = GoogleTranslator(source="en", target="ru")
 
+MYMEMORY_API = "https://api.mymemory.translated.net/get"
+USER_AGENT = "Mozilla/5.0 (compatible; AINOVOSTIRU/1.0)"
 
-def translate_text(text: str, retries: int = 2) -> str:
-    if not text or len(text.strip()) < 10:
-        return text
+MIN_LENGTH = 10
+MAX_CHUNK = 450
+
+
+def _translate_google_batch(texts: list[str], retries: int = 2) -> list[str] | None:
     for attempt in range(retries + 1):
         try:
-            result = _translator.translate(text)
-            if result:
-                return result
+            result = _translator.translate_batch(texts)
+            if result and len(result) == len(texts):
+                return [r if r and r.strip() else o for r, o in zip(result, texts)]
         except Exception as e:
             if attempt < retries:
-                logger.warning("Translation retry %d/%d: %s", attempt + 1, retries, e)
-                time.sleep(2)
+                logger.warning("Google batch retry %d/%d: %s", attempt + 1, retries, e)
+                time.sleep(3)
             else:
-                logger.error("Translation failed after %d attempts: %s", retries + 1, e)
-    logger.warning("Returning original text for: %.50s...", text)
+                logger.error("Google batch failed after %d attempts: %s", retries + 1, e)
+    return None
+
+
+def _translate_mymemory(text: str) -> str | None:
+    if not text:
+        return None
+    try:
+        resp = requests.get(
+            MYMEMORY_API,
+            params={"q": text[:MAX_CHUNK], "langpair": "en|ru"},
+            headers={"User-Agent": USER_AGENT},
+            timeout=10,
+        )
+        resp.raise_for_status()
+        translated = (resp.json().get("responseData") or {}).get("translatedText")
+        if translated and translated.strip():
+            return translated
+    except Exception as e:
+        logger.debug("MyMemory failed: %s", e)
+    return None
+
+
+def _translate_one(text: str) -> str:
+    if not text or len(text.strip()) < MIN_LENGTH:
+        return text
+    batch = _translate_google_batch([text])
+    if batch is not None:
+        return batch[0]
+    fallback = _translate_mymemory(text)
+    if fallback:
+        logger.info("Translated via MyMemory fallback")
+        return fallback
+    logger.warning("All translators failed, keeping original: %.50s...", text)
     return text
 
 
+def translate_text(text: str) -> str:
+    return _translate_one(text)
+
+
 def translate_article(title: str, description: str) -> tuple[str, str]:
-    title_ru = translate_text(title)
-    desc_ru = translate_text(description[:2000])
-    return title_ru, desc_ru
+    parts = [title, description[:2000]]
+    if not any(p and len(p.strip()) >= MIN_LENGTH for p in parts):
+        return title, description
+
+    batch = _translate_google_batch(parts)
+    if batch is not None:
+        return batch[0], batch[1]
+
+    results = []
+    for part in parts:
+        results.append(_translate_mymemory(part) or part)
+    if any(r != p for r, p in zip(results, parts)):
+        logger.info("Translated via MyMemory fallback")
+    else:
+        logger.warning("Translation unavailable, posting original text")
+    return results[0], results[1]
