@@ -10,6 +10,7 @@ import textwrap
 from PIL import Image, ImageDraw, ImageFont
 
 import config
+from music import SAMPLE_RATE, build_music_track
 
 logger = logging.getLogger(__name__)
 
@@ -201,21 +202,56 @@ def make_frame(
     return result
 
 
+def _remove_tree(path: str) -> None:
+    for root, dirs, files in os.walk(path, topdown=False):
+        for name in files:
+            try:
+                os.unlink(os.path.join(root, name))
+            except Exception:
+                pass
+        for name in dirs:
+            try:
+                os.rmdir(os.path.join(root, name))
+            except Exception:
+                pass
+    try:
+        os.rmdir(path)
+    except Exception:
+        pass
+
+
 def generate_animated_frames(
     image_buf: io.BytesIO,
     title: str,
     source: str,
     duration: float,
 ) -> list[Image.Image]:
+    return list(iter_frames(image_buf, title, source, duration))
+
+
+def iter_frames(
+    image_buf: io.BytesIO,
+    title: str,
+    source: str,
+    duration: float,
+):
     image_buf.seek(0)
     bg = Image.open(image_buf).convert("RGB")
 
     total_frames = max(int(FPS * duration), 1)
-    frames = []
     for i in range(total_frames):
-        frame = make_frame(bg, title, source, i, total_frames)
-        frames.append(frame)
-    return frames
+        yield make_frame(bg, title, source, i, total_frames)
+
+
+def _ffmpeg_ready() -> bool:
+    if os.path.exists(_FFMPEG_PATH):
+        return True
+    try:
+        subprocess.run([_FFMPEG_PATH, "-version"], capture_output=True, timeout=5)
+        return True
+    except Exception:
+        logger.warning("FFmpeg not found, video mode disabled")
+        return False
 
 
 def image_to_video(
@@ -224,42 +260,80 @@ def image_to_video(
     source: str = "",
     duration: float = 0,
 ) -> io.BytesIO | None:
-    if not os.path.exists(_FFMPEG_PATH):
-        try:
-            subprocess.run([_FFMPEG_PATH, "-version"], capture_output=True, timeout=5)
-        except Exception:
-            logger.warning("FFmpeg not found, video mode disabled")
-            return None
+    if not _ffmpeg_ready():
+        return None
 
     if duration <= 0:
         duration = config.VIDEO_DURATION
 
     tmp_dir = tempfile.mkdtemp()
     tmp_video = tempfile.NamedTemporaryFile(delete=False, suffix=".mp4")
+    err_log = os.path.join(tmp_dir, "ffmpeg.log")
+    music_path = None
 
     try:
-        frames = generate_animated_frames(image_buf, title, source, duration)
-        if not frames:
-            return None
+        audio = build_music_track(duration)
+        if audio:
+            music_path = os.path.join(tmp_dir, "music.wav")
+            with open(music_path, "wb") as f:
+                f.write(audio)
 
-        for i, frame in enumerate(frames):
-            frame_path = os.path.join(tmp_dir, f"frame_{i:04d}.png")
-            frame.save(frame_path)
-
-        input_pattern = os.path.join(tmp_dir, "frame_%04d.png")
         cmd = [
             _FFMPEG_PATH,
             "-y",
+            "-f", "rawvideo",
+            "-pix_fmt", "rgb24",
+            "-s", f"{VIDEO_WIDTH}x{VIDEO_HEIGHT}",
             "-framerate", str(FPS),
-            "-i", input_pattern,
+            "-i", "pipe:0",
+        ]
+        if music_path:
+            cmd += ["-i", music_path]
+        cmd += [
             "-c:v", "libx264",
             "-pix_fmt", "yuv420p",
             "-preset", "medium",
             "-crf", "23",
-            "-an",
-            tmp_video.name,
         ]
-        subprocess.run(cmd, capture_output=True, timeout=60, check=True)
+        if music_path:
+            fade_out = max(0.0, duration - 0.9)
+            cmd += [
+                "-c:a", "aac",
+                "-b:a", "128k",
+                "-ar", str(SAMPLE_RATE),
+                "-ac", "2",
+                "-af", (
+                    f"afade=t=in:st=0:d=0.6,"
+                    f"afade=t=out:st={fade_out:.2f}:d=0.9,"
+                    f"volume={config.MUSIC_VOLUME}"
+                ),
+                "-shortest",
+            ]
+        else:
+            cmd += ["-an"]
+        cmd += ["-movflags", "+faststart", tmp_video.name]
+
+        frames = 0
+        with open(err_log, "wb") as err:
+            proc = subprocess.Popen(
+                cmd,
+                stdin=subprocess.PIPE,
+                stdout=subprocess.DEVNULL,
+                stderr=err,
+            )
+            try:
+                for frame in iter_frames(image_buf, title, source, duration):
+                    proc.stdin.write(frame.tobytes())
+                    frames += 1
+            finally:
+                proc.stdin.close()
+            code = proc.wait(timeout=180)
+
+        if code != 0:
+            with open(err_log, "rb") as f:
+                err_text = f.read().decode("utf-8", "ignore")[-500:]
+            logger.warning("FFmpeg error: %s", err_text)
+            return None
 
         tmp_video.close()
         with open(tmp_video.name, "rb") as f:
@@ -267,31 +341,22 @@ def image_to_video(
 
         result = io.BytesIO(video_bytes)
         result.seek(0)
-        logger.info("Video generated: %d bytes (%.1fs, %d frames)", len(video_bytes), duration, len(frames))
+        logger.info(
+            "Video generated: %d bytes (%.1fs, %d frames, audio=%s)",
+            len(video_bytes), duration, frames, bool(music_path),
+        )
         return result
 
     except subprocess.TimeoutExpired:
         logger.warning("FFmpeg timeout")
         return None
-    except subprocess.CalledProcessError as e:
-        err = e.stderr.decode()[:500] if e.stderr else str(e)
-        logger.warning("FFmpeg error: %s", err)
-        return None
     except Exception as e:
         logger.warning("Video generation failed: %s", e)
         return None
     finally:
-        for root, dirs, files in os.walk(tmp_dir, topdown=False):
-            for f in files:
-                try:
-                    os.unlink(os.path.join(root, f))
-                except Exception:
-                    pass
-            try:
-                os.rmdir(root)
-            except Exception:
-                pass
+        _remove_tree(tmp_dir)
         try:
             os.unlink(tmp_video.name)
         except Exception:
             pass
+

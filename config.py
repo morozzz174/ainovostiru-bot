@@ -17,7 +17,12 @@ POST_DELAY_SECONDS = int(os.getenv("POST_DELAY_SECONDS", "60"))
 THEME = os.getenv("THEME", "ai")
 BRAND_NAME = os.getenv("BRAND_NAME", "AINOVOSTI.RU")
 POST_MODE = os.getenv("POST_MODE", "mixed")
-VIDEO_DURATION = int(os.getenv("VIDEO_DURATION", "6"))
+VIDEO_DURATION = int(os.getenv("VIDEO_DURATION", "15"))
+MUSIC_ENABLED = os.getenv("MUSIC_ENABLED", "true").lower() == "true"
+MUSIC_STYLE = os.getenv("MUSIC_STYLE", "auto")
+MUSIC_FILE = os.getenv("MUSIC_FILE", "")
+MUSIC_VOLUME = float(os.getenv("MUSIC_VOLUME", "0.35"))
+MUSIC_SEED = os.getenv("MUSIC_SEED", "")
 USE_THEMED_IMAGES = os.getenv("USE_THEMED_IMAGES", "true").lower() == "true"
 PEXELS_API_KEY = os.getenv("PEXELS_API_KEY", "")
 UNSPLASH_ACCESS_KEY = os.getenv("UNSPLASH_ACCESS_KEY", "")
