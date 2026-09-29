@@ -10,3 +10,8 @@ Pillow==11.1.0
 python-dotenv==1.1.0
 deep-translator==1.11.4
 instagrapi==2.2.1
+
+# Веб-панель управления (FastAPI) и ffmpeg для рендера видео
+fastapi==0.141.1
+uvicorn[standard]==0.54.0
+imageio-ffmpeg==0.6.0

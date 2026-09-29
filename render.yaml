@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: morozmax-panel
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn webapp.app:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/status
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.10"
+      - key: WEB_PASSWORD
+        sync: false
+      - key: DATABASE_PATH
+        value: /tmp/ainovosti.db
+      - key: TT_ENABLED
+        value: "true"
+      - key: TT_PRIVACY_LEVEL
+        value: SELF_ONLY
+      - key: TT_CLIENT_KEY
+        sync: false
+      - key: TT_CLIENT_SECRET
+        sync: false
+      - key: TT_REDIRECT_URI
+        value: https://app.ainovosti24.ru
+      - key: TT_ACCESS_TOKEN
+        sync: false
+      - key: TT_REFRESH_TOKEN
+        sync: false
+      - key: TT_OPEN_ID
+        sync: false
+      - key: USE_THEMED_IMAGES
+        value: "true"
+      - key: PEXELS_API_KEY
+        sync: false
+      - key: MUSIC_ENABLED
+        value: "true"
+      - key: VOICE_ENABLED
+        value: "true"
