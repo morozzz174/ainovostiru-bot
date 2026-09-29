@@ -17,6 +17,8 @@ jobs:
     timeout-minutes: 30
     permissions:
       contents: write
+    env:
+      DZEN_ENABLED: ${{ vars.DZEN_ENABLED }}
     steps:
       - uses: actions/checkout@v7
 
@@ -55,8 +57,6 @@ jobs:
 
       - name: Build Dzen RSS feed
         if: always()
-        env:
-          DZEN_ENABLED: ${{ vars.DZEN_ENABLED }}
         run: |
           if [ "$DZEN_ENABLED" = "true" ]; then
             python dzen_feed.py flush
@@ -67,6 +67,7 @@ jobs:
       - name: Commit Dzen feed
         if: always()
         run: |
+          set +e
           git config user.name "ainovostiru-bot"
           git config user.email "bot@users.noreply.github.com"
           git add -A docs
@@ -74,18 +75,30 @@ jobs:
             echo "feed unchanged"
             exit 0
           fi
-          git commit -m "dzen: update RSS feed"
-          for attempt in 1 2 3; do
+          git commit -m "dzen: update RSS feed" >/dev/null
+          for attempt in 1 2 3 4; do
             if git push; then
-              echo "feed pushed"
+              echo "feed pushed on attempt $attempt"
               exit 0
             fi
-            echo "push attempt $attempt failed, rebasing onto main"
-            git pull --rebase origin main
+            echo "push attempt $attempt rejected, rebasing onto main"
+            git rebase --abort >/dev/null 2>&1
+            git fetch origin >/dev/null 2>&1
+            if ! git rebase origin/main >/dev/null 2>&1; then
+              echo "rebase conflicted, rebuilding the feed on top of the remote state"
+              git rebase --abort >/dev/null 2>&1
+              git reset --hard origin/main >/dev/null 2>&1
+              python dzen_feed.py flush
+              git add -A docs
+              if git diff --staged --quiet; then
+                echo "nothing left to commit"
+                exit 0
+              fi
+              git commit -m "dzen: update RSS feed" >/dev/null
+            fi
           done
-          echo "could not push the feed after 3 attempts"
+          echo "could not push the feed, the next run will rebuild it"
           exit 0
-
       - name: Save posted articles DB
         if: always()
         uses: actions/cache/save@v6
