@@ -69,11 +69,22 @@ button.ghost{background:transparent;border:1px solid var(--line);color:var(--mut
   </div>
 </div>
 
+<div id="gate" style="display:none;position:fixed;inset:0;background:#0f1117;z-index:50;align-items:center;justify-content:center">
+  <div style="background:#181b24;padding:32px;border-radius:14px;width:320px;border:1px solid #262a36">
+    <h1 style="font-size:19px;margin:0 0 4px">MorozMax</h1>
+    <p style="color:#8b8fa3;font-size:13px;margin:0 0 18px">Панель управления публикацией</p>
+    <div id="gateErr" style="color:#ff6b6b;font-size:13px;min-height:18px;margin-bottom:8px"></div>
+    <input id="gatePwd" type="password" placeholder="Пароль"
+      style="width:100%;box-sizing:border-box;padding:11px;border-radius:8px;font-size:14px;background:#0f1117;border:1px solid #2c3140;color:#e8e8ee;margin-bottom:10px">
+    <button id="gateBtn" style="width:100%">Войти</button>
+  </div>
+</div>
+
 <script>
-const TOKEN = localStorage.getItem('mm_token') || '';
+let TOKEN = localStorage.getItem('mm_token') || '';
 let selected = null, lastSeq = 0, polling = false;
 
-const H = {'Content-Type':'application/json','X-Auth-Token':TOKEN};
+const H = () => ({'Content-Type':'application/json','X-Auth-Token':TOKEN});
 const logBox = document.getElementById('log');
 const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 
@@ -92,7 +103,7 @@ function addLines(items){
 
 async function api(url, opts){
   const r = await fetch(url, opts);
-  if(r.status === 401){ localStorage.removeItem('mm_token'); location.href='/'; return null; }
+  if(r.status === 401){ TOKEN = ''; localStorage.removeItem('mm_token'); showLogin(); return null; }
   return r;
 }
 
@@ -140,7 +151,7 @@ async function publish(){
   const btn = document.getElementById('btnPub');
   btn.disabled = true; btn.textContent = 'Публикую…';
   document.getElementById('msg').textContent = 'Идёт загрузка, следите за логом ↓';
-  await fetch('/api/publish', {method:'POST', headers:H, body:JSON.stringify(selected)});
+  await fetch('/api/publish', {method:'POST', headers:H(), body:JSON.stringify(selected)});
   const pollResult = setInterval(async () => {
     const r = await api('/api/status');
     if(!r || !r.ok) return;
@@ -161,6 +172,41 @@ async function publish(){
 document.getElementById('btnLoad').onclick = loadArticles;
 document.getElementById('btnPub').onclick = publish;
 
+function showLogin(){
+  const g = document.getElementById('gate');
+  g.style.display = 'flex';
+  document.getElementById('gatePwd').focus();
+  if(polling){ polling = false; } // stop the log poller while locked out
+}
+
+function hideLogin(){
+  document.getElementById('gate').style.display = 'none';
+  start();
+}
+
+async function doLogin(){
+  const pwd = document.getElementById('gatePwd').value;
+  const r = await fetch('/api/login', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({password: pwd})
+  });
+  if(!r.ok){
+    document.getElementById('gateErr').textContent = 'Неверный пароль';
+    document.getElementById('gatePwd').value = '';
+    return;
+  }
+  const d = await r.json();
+  TOKEN = d.token || '';
+  localStorage.setItem('mm_token', TOKEN);
+  document.getElementById('gateErr').textContent = '';
+  document.getElementById('gatePwd').value = '';
+  hideLogin();
+}
+
+document.getElementById('gateBtn').onclick = doLogin;
+document.getElementById('gatePwd').addEventListener('keydown', e => { if(e.key === 'Enter') doLogin(); });
+
 async function pollLogs(){
   if(polling) return;
   polling = true;
@@ -171,8 +217,18 @@ async function pollLogs(){
   }
 }
 
-loadStatus(); loadArticles(); pollLogs();
-setInterval(loadStatus, 15000);
+function start(){
+  loadStatus(); loadArticles(); pollLogs();
+  setInterval(loadStatus, 15000);
+}
+
+async function boot(){
+  const r = await fetch('/api/status', {headers:{'X-Auth-Token':TOKEN}});
+  if(r.status === 401){ showLogin(); return; }
+  start();
+}
+
+boot();
 </script>
 </body>
 </html>

@@ -122,8 +122,6 @@ async def _publish(article: dict) -> dict:
 
 @app.get("/", response_class=HTMLResponse)
 def index() -> HTMLResponse:
-    if WEB_PASSWORD:
-        return HTMLResponse(LOGIN_PAGE)
     with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "panel.html"), encoding="utf-8") as f:
         return HTMLResponse(f.read())
 
@@ -229,29 +227,3 @@ async def publish(req: PublishRequest) -> dict:
 async def logs(since: int = 0) -> dict:
     since = since or (LOG_BUFFER[0]["seq"] - 1 if LOG_BUFFER else 0)
     return {"items": [entry for entry in LOG_BUFFER if entry["seq"] > since], "seq": _log_seq}
-
-
-LOGIN_PAGE = """<!DOCTYPE html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MorozMax — вход</title>
-<style>
-body{font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#0f1117;color:#e8e8ee;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
-.card{background:#181b24;padding:36px;border-radius:14px;width:320px;border:1px solid #262a36}
-h1{font-size:20px;margin:0 0 4px}p{color:#8b8fa3;font-size:13px;margin:0 0 20px}
-input,button{width:100%;padding:11px;border-radius:8px;font-size:14px;box-sizing:border-box}
-input{background:#0f1117;border:1px solid #2c3140;color:#e8e8ee;margin-bottom:10px}
-button{background:#5e6aff;border:0;color:#fff;cursor:pointer;font-weight:600}
-.err{color:#ff6b6b;font-size:13px;min-height:18px;margin-bottom:8px}
-</style></head><body>
-<div class="card"><h1>MorozMax</h1><p>Панель управления публикацией</p>
-<div class="err" id="e"></div>
-<input id="p" type="password" placeholder="Пароль" autofocus>
-<button onclick="go()">Войти</button></div>
-<script>
-async function go(){
-  const r = await fetch('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:document.getElementById('p').value})});
-  if(r.ok){const d=await r.json();localStorage.setItem('mm_token',d.token);location.href='/';}
-  else{document.getElementById('e').textContent='Неверный пароль';}
-}
-document.getElementById('p').addEventListener('keydown',e=>{if(e.key==='Enter')go();});
-</script></body></html>"""
