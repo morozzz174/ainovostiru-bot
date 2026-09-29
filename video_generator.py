@@ -102,13 +102,17 @@ def _draw_gradient(draw: ImageDraw, w: int, h: int, top_color, bottom_color):
 
 
 def _draw_particles(draw: ImageDraw, w: int, h: int, frame: int, count: int = 30):
-    random.seed(42)
+    # Use a private generator. Seeding the global random module here made every
+    # random.choice() elsewhere in the app (e.g. image vs video in
+    # publisher.prepare_post) replay the same sequence, so posts always came
+    # out as images.
+    rng = random.Random(42)
     for _ in range(count):
-        px = random.randint(0, w)
-        py = random.randint(0, h)
+        px = rng.randint(0, w)
+        py = rng.randint(0, h)
         drift = math.sin(frame * 0.05 + px * 0.01) * 3
         px = int(px + drift) % w
-        alpha = random.randint(15, 40)
+        alpha = rng.randint(15, 40)
         draw.ellipse([px, py, px + 2, py + 2], fill=(255, 255, 255, alpha))
 
 
