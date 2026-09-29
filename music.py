@@ -54,11 +54,52 @@ STYLES = {
         "drums": True,
         "bright": (1.0, 0.32, 0.14),
     },
+    "tender": {
+        "root": 246.94,
+        "chords": ((0, 4, 7), (5, 9, 12), (2, 5, 9), (-3, 4, 9)),
+        "bpm": 60,
+        "pad": 0.40,
+        "arp": 0.16,
+        "pluck_decay": 3.2,
+        "drums": False,
+        "bright": (1.0, 0.20, 0.30),
+    },
+    "ambient": {
+        "root": 146.83,
+        "chords": ((0, 7, 16), (-5, 2, 11), (3, 10, 19), (5, 12, 21)),
+        "bpm": 52,
+        "pad": 0.50,
+        "arp": 0.10,
+        "pluck_decay": 2.4,
+        "drums": False,
+        "bright": (1.0, 0.16, 0.22),
+    },
+    "inspiring": {
+        "root": 293.66,
+        "chords": ((0, 7, 12), (4, 9, 16), (5, 12, 17), (7, 14, 19)),
+        "bpm": 96,
+        "pad": 0.34,
+        "arp": 0.32,
+        "pluck_decay": 6.5,
+        "drums": True,
+        "bright": (1.0, 0.52, 0.18),
+    },
+    "lofi": {
+        "root": 196.00,
+        "chords": ((0, 4, 7), (-2, 3, 7), (5, 9, 12), (-5, 2, 7)),
+        "bpm": 74,
+        "pad": 0.30,
+        "arp": 0.22,
+        "pluck_decay": 5.5,
+        "drums": True,
+        "bright": (1.0, 0.24, 0.38),
+    },
 }
 
 THEME_STYLES = {
     "ai": ("upbeat", "calm", "epic", "mystery"),
     "facts": ("calm", "mystery", "epic"),
+    "beauty": ("tender", "ambient", "inspiring", "calm", "lofi", "mystery"),
 }
 
 

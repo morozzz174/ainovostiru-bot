@@ -44,6 +44,8 @@ jobs:
           THEME: beauty
           BRAND_NAME: AESTHETIC.RU
           DATABASE_PATH: bot_beauty.db
+          VIDEO_ORIENTATION: vertical
+          MUSIC_STYLE: auto
         run: python main.py --once --strict
 
       - name: Save posted articles DB

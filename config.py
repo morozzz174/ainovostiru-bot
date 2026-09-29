@@ -30,6 +30,8 @@ VOICE_RATE = os.getenv("VOICE_RATE", "+5%")
 VOICE_MAX_CHARS = int(os.getenv("VOICE_MAX_CHARS", "200"))
 VOICE_RETRIES = int(os.getenv("VOICE_RETRIES", "3"))
 VIDEO_PRESET = os.getenv("VIDEO_PRESET", "medium")
+# Формат видео для Telegram. vertical - 9:16 (1080x1920), horizontal - 16:9 (1200x630)
+VIDEO_ORIENTATION = os.getenv("VIDEO_ORIENTATION", "vertical")
 
 TT_ENABLED = os.getenv("TT_ENABLED", "false").lower() == "true"
 TT_ACCESS_TOKEN = os.getenv("TT_ACCESS_TOKEN", "")
