@@ -46,6 +46,9 @@ jobs:
           DATABASE_PATH: bot_beauty.db
           VIDEO_ORIENTATION: vertical
           MUSIC_STYLE: auto
+          USE_THEMED_IMAGES: "true"
+          IMAGE_ORIENTATION: portrait
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         run: python main.py --once --strict
 
       - name: Save posted articles DB
