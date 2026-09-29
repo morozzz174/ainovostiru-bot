@@ -31,6 +31,9 @@ class Article:
 
     @staticmethod
     def _clean_html(text: str) -> str:
+        # Some feeds (Dermatology Times) wrap values in CDATA. Strip the
+        # wrapper first, otherwise the tag-strip below eats the whole title.
+        text = re.sub(r"<!\[CDATA\[(.*?)\]\]>", r"\1", text, flags=re.S)
         text = re.sub(r"<[^>]+>", "", text)
         text = unescape(text)
         text = re.sub(r"\s+", " ", text).strip()

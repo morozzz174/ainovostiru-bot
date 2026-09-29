@@ -192,6 +192,74 @@ NEWS_SOURCES_FACTS = {
     },
 }
 
+NEWS_SOURCES_BEAUTY = {
+    # Дерматология и клиническая косметология
+    "dermatology_times": {
+        "name": "Dermatology Times",
+        "url": "https://www.dermatologytimes.com/rss.xml",
+        "lang": "en",
+    },
+    # Наука о старении и долголетии
+    "fightaging": {
+        "name": "Fight Aging",
+        "url": "https://www.fightaging.org/feed/",
+        "lang": "en",
+    },
+    "frontiers_aging": {
+        "name": "Frontiers in Aging",
+        "url": "https://www.frontiersin.org/journals/aging/rss",
+        "lang": "en",
+    },
+    # Рецензируемые исследования
+    "plos_biology": {
+        "name": "PLOS Biology",
+        "url": "https://journals.plos.org/plosbiology/feed/atom",
+        "lang": "en",
+    },
+    "medical_xpress": {
+        "name": "Medical Xpress",
+        "url": "https://medicalxpress.com/rss-feed/",
+        "lang": "en",
+    },
+    "sciencedaily_health": {
+        "name": "ScienceDaily Health",
+        "url": "https://www.sciencedaily.com/rss/health_medicine.xml",
+        "lang": "en",
+    },
+    # Индустрия и потребительский сегмент
+    "allure": {
+        "name": "Allure",
+        "url": "https://www.allure.com/feed/rss",
+        "lang": "en",
+    },
+    "glamour": {
+        "name": "Glamour",
+        "url": "https://www.glamour.com/feed/rss",
+        "lang": "en",
+    },
+    "newbeauty": {
+        "name": "NewBeauty",
+        "url": "https://www.newbeauty.com/feed/",
+        "lang": "en",
+    },
+    # Русскоязычные
+    "naked_beauty": {
+        "name": "Naked Science",
+        "url": "https://naked-science.ru/feed",
+        "lang": "ru",
+    },
+    "hi_news": {
+        "name": "Hi-News",
+        "url": "https://hi-news.ru/feed/",
+        "lang": "ru",
+    },
+    "tass_science_beauty": {
+        "name": "ТАСС Наука",
+        "url": "https://tass.ru/rss/v2.xml?category=science",
+        "lang": "ru",
+    },
+}
+
 THEMES = {
     "ai": {
         "sources": NEWS_SOURCES_AI,
@@ -224,6 +292,31 @@ THEMES = {
             "физика", "биология", "химия", "психология",
             "исследование", "эксперимент", "технология", "природа",
             "идея", "мысль", "гениально", "интересно", "удивительно",
+        ],
+    },
+    "beauty": {
+        "sources": NEWS_SOURCES_BEAUTY,
+        "hashtags": [
+            "#Косметология", "#Омоложение", "#Долголетие", "#Здоровье",
+            "#Кожа", "#Антиэйджинг", "#Наука", "#Красота",
+        ],
+        "brand": "AESTHETIC.RU",
+        "keywords": [
+            # косметология и дерматология
+            "cosmetic", "dermatolog", "skin", "skin barrier", "wrinkle",
+            "collagen", "retinol", "retinoid", "botox", "filler",
+            "hyaluronic", "peptide", "sunscreen", "spf", "photoaging",
+            "biostimulator", "mesotherapy", "prp", "acne", "psoriasis",
+            "eczema", "melanoma", "hair loss", "alopecia", "pigment",
+            # омоложение и долголетие
+            "aging", "ageing", "longevity", "senolytic", "anti-aging",
+            "telomere", "cellular", "regenerat", "stem cell", "epigenetic",
+            "mitochondri", "metabolic", "microbiome", "inflammation",
+            "antioxidant", "healthspan", "biological age",
+            # русский
+            "косметолог", "дерматолог", "омоложен", "долголет", "старени",
+            "кожа", "морщин", "коллаген", "ретинол", "гиалурон",
+            "антиоксид", "регенерац", "стелл", "восстановлен", "здоровье",
         ],
     },
 }
