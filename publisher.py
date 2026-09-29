@@ -202,13 +202,15 @@ async def _send_photo(bot, chat_id: str, text: str, image_buf: io.BytesIO) -> bo
 async def _send_video(bot, chat_id: str, text: str, image_buf: io.BytesIO, title: str = "", source: str = "", description: str = "") -> bool:
     if config.VIDEO_ORIENTATION == "vertical":
         from video_generator import image_to_video_vertical
-        video_buf = image_to_video_vertical(image_buf, title=title, source=source, description=description)
+        result = image_to_video_vertical(image_buf, title=title, source=source, description=description)
         width, height = 1080, 1920
     else:
-        video_buf = image_to_video(image_buf, title=title, source=source, description=description)
+        from video_generator import image_to_video
+        result = image_to_video(image_buf, title=title, source=source, description=description)
         width, height = VIDEO_WIDTH, VIDEO_HEIGHT
-    if not video_buf:
+    if not result:
         return False
+    video_buf = result.data
     video_buf.seek(0)
 
     tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".mp4")
@@ -223,7 +225,7 @@ async def _send_video(bot, chat_id: str, text: str, image_buf: io.BytesIO, title
                 parse_mode="Markdown",
                 width=width,
                 height=height,
-                duration=config.VIDEO_DURATION,
+                duration=result.duration,
                 supports_streaming=True,
             )
         return True

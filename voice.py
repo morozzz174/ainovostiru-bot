@@ -108,3 +108,17 @@ def speech_duration(audio: bytes) -> float:
         return 0.0
     bitrate_kbps = 48
     return (len(audio) * 8) / (bitrate_kbps * 1000)
+
+
+CHARS_PER_SECOND = 13.5
+
+
+def estimate_speech_seconds(text: str) -> float:
+    """Fallback narration length when the TTS payload is unavailable.
+
+    The Russian neural voices read roughly 13.5 characters per second at the
+    configured rate, which is close enough to size the clip when no audio came
+    back from edge-tts.
+    """
+    return len(text or "") / CHARS_PER_SECOND
+

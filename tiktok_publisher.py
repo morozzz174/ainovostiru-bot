@@ -279,7 +279,7 @@ def post_article(text: str, title: str, description: str, image_buf: io.BytesIO)
         logger.warning("TikTok: vertical video unavailable, skipping")
         return False
 
-    if publish_video(video, text) is None:
+    if publish_video(video.data, text) is None:
         return False
-    logger.info("TikTok: posted successfully")
+    logger.info("TikTok: posted successfully (%.1fs video)", video.duration)
     return True

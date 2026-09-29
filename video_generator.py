@@ -11,7 +11,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 import config
 from music import SAMPLE_RATE, build_music_track
-from voice import speech_duration, synthesize_voice
+from voice import build_speech_text, estimate_speech_seconds, speech_duration, synthesize_voice
 
 logger = logging.getLogger(__name__)
 
@@ -133,30 +133,169 @@ def _wrap_text(text: str, max_chars: int = 30) -> list[str]:
     return lines[:4]
 
 
+def _soft_sprite(radius: int, alpha: int) -> Image.Image:
+    size = radius * 2
+    mask = Image.new("L", (size, size), 0)
+    ImageDraw.Draw(mask).ellipse([1, 1, size - 2, size - 2], fill=255)
+    mask = mask.filter(ImageFilter.GaussianBlur(radius=max(2, radius * 0.32)))
+    mask = mask.point(lambda value: int(value * alpha / 255))
+    sprite = Image.new("RGBA", (size, size), (255, 255, 255, 0))
+    sprite.putalpha(mask)
+    return sprite
+
+
+def _sweep_sprite(width: int, height: int, band: int) -> Image.Image:
+    strip = Image.new("RGBA", (band, height * 2), (255, 255, 255, 0))
+    draw = ImageDraw.Draw(strip)
+    steps = band // 2
+    for i in range(steps):
+        offset = int(steps * (1 - i / max(steps - 1, 1)))
+        alpha = int(46 * (1 - i / max(steps - 1, 1)) ** 2)
+        draw.rectangle([i, 0, i + offset, height * 2], fill=(255, 255, 255, alpha))
+    return strip.rotate(18, resample=Image.BICUBIC, expand=True)
+
+
+class Overlay:
+    """Foreground animation drawn straight onto each frame.
+
+    Soft bokeh circles and a diagonal light sweep are pre-rendered as RGBA
+    sprites and pasted with their own alpha mask, which avoids a full-frame
+    alpha composite per frame.
+    """
+
+    def __init__(self, width: int, height: int, count: int, seed: int = 20260928):
+        rng = random.Random(seed)
+        self.width = width
+        self.height = height
+        self.bokeh = []
+        for index in range(count):
+            radius = int(min(width, height) * rng.uniform(0.02, 0.075))
+            alpha = rng.randint(18, 54)
+            self.bokeh.append({
+                "sprite": _soft_sprite(radius, alpha),
+                "x": rng.uniform(-0.1, 1.1) * width,
+                "y": rng.uniform(0.0, 1.0) * height,
+                "sway": rng.uniform(0.4, 1.4),
+                "period": rng.uniform(5.0, 11.0),
+                "phase": rng.uniform(0, math.tau),
+                "drift": rng.uniform(0.008, 0.03),
+                "depth": rng.uniform(0.45, 1.35),
+            })
+        self.bokeh.sort(key=lambda item: item["depth"])
+        self.sweep = _sweep_sprite(width, height, int(width * 0.55))
+        self.sweep_period = max(config.VIDEO_SWEEP_PERIOD, 3.0)
+
+    def draw(self, frame: Image.Image, progress: float, duration: float) -> None:
+        t = progress * max(duration, 0.001)
+        w, h = self.width, self.height
+
+        for item in self.bokeh:
+            sprite = item["sprite"]
+            sway = math.sin(2 * math.pi * t / item["period"] + item["phase"])
+            x = item["x"] + sway * 26 * item["depth"] - sprite.width // 2
+            y = item["y"] - t * item["drift"] * h - sprite.height // 2
+            x = int(x % (w + sprite.width))
+            y = int(y % (h + sprite.height)) - sprite.height // 2
+            frame.paste(sprite, (x, y), sprite)
+
+        phase = (t % self.sweep_period) / self.sweep_period
+        span = w + self.sweep.width
+        offset = int(-self.sweep.width + span * phase)
+        frame.paste(self.sweep, (offset, 0), self.sweep)
+
+
+def _cover(bg: Image.Image, w: int, h: int) -> Image.Image:
+    src_ratio = bg.width / bg.height
+    dst_ratio = w / h
+    if src_ratio > dst_ratio:
+        crop_w = int(bg.height * dst_ratio)
+        left = (bg.width - crop_w) // 2
+        return bg.crop((left, 0, left + crop_w, bg.height)).resize((w, h), Image.LANCZOS)
+    crop_h = int(bg.width / dst_ratio)
+    top = (bg.height - crop_h) // 2
+    return bg.crop((0, top, bg.width, top + crop_h)).resize((w, h), Image.LANCZOS)
+
+
+def _grade(canvas: Image.Image, top_alpha: int, bottom_alpha: int) -> Image.Image:
+    gradient = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+    _draw_gradient(
+        ImageDraw.Draw(gradient), canvas.width, canvas.height,
+        (0, 0, 0, top_alpha), (0, 0, 0, bottom_alpha),
+    )
+    return Image.alpha_composite(canvas.convert("RGBA"), gradient).convert("RGB")
+
+
+def _build_levels(
+    graded: Image.Image, zoom: float, steps: int, pad_x: int, pad_y: int,
+) -> list[tuple[Image.Image, int, int]]:
+    w, h = graded.size
+    levels = []
+    for step in range(steps):
+        scale = 1.0 + zoom * (step / max(steps - 1, 1))
+        target_w = int((w + 2 * pad_x) * scale)
+        target_h = int((h + 2 * pad_y) * scale)
+        scaled = graded.resize((target_w, target_h), Image.LANCZOS if step == 0 else Image.BILINEAR)
+        base_x = max(pad_x, (target_w - w) // 2)
+        base_y = max(pad_y, (target_h - h) // 2)
+        levels.append((scaled, base_x, base_y))
+    return levels
+
+
+def _sway(progress: float, duration: float) -> tuple[float, float]:
+    t = progress * max(duration, 0.001)
+    x = math.sin(2 * math.pi * t / max(config.VIDEO_SWAY_PERIOD, 0.1))
+    y = math.sin(2 * math.pi * t / max(config.VIDEO_SWAY_PERIOD_Y, 0.1) + 1.2)
+    return x, y
+
+
+def _frame_window(
+    levels: list[tuple[Image.Image, int, int]],
+    w: int,
+    h: int,
+    pad_x: int,
+    pad_y: int,
+    progress: float,
+    duration: float,
+) -> Image.Image:
+    index = min(len(levels) - 1, int(progress * len(levels)))
+    scaled, base_x, base_y = levels[index]
+    sway_x, sway_y = _sway(progress, duration)
+    left = base_x + int(sway_x * pad_x)
+    top = base_y + int(sway_y * pad_y)
+    return scaled.crop((left, top, left + w, top + h))
+
+
+def _resolve_duration(narration: float, requested: float) -> float:
+    if requested and requested > 0:
+        return float(requested)
+    target = (narration + config.VIDEO_DURATION_TAIL) if narration > 0 else config.VIDEO_DURATION
+    return float(max(config.VIDEO_MIN_DURATION, min(config.VIDEO_MAX_DURATION, target)))
+
+
+def _voice_tempo(narration: float) -> float:
+    if narration <= 0:
+        return 1.0
+    target = narration + config.VIDEO_DURATION_TAIL
+    if target <= config.VIDEO_MAX_DURATION:
+        return 1.0
+    return min(2.0, target / config.VIDEO_MAX_DURATION)
+
+
 def make_frame(
-    bg: Image.Image,
+    canvas,
     title: str,
     source: str,
     frame: int,
     total_frames: int,
+    duration: float = 0.0,
 ) -> Image.Image:
     w, h = VIDEO_WIDTH, VIDEO_HEIGHT
-    progress = frame / total_frames
+    levels, pad_x, pad_y, overlay = canvas
+    progress = frame / max(total_frames - 1, 1)
 
-    bg_w, bg_h = bg.size
-    scale = max(w / bg_w, h / bg_h) * (1.0 + progress * 0.06)
-    new_w = int(bg_w * scale)
-    new_h = int(bg_h * scale)
-    bg_resized = bg.resize((new_w, new_h), Image.LANCZOS)
-    x = (new_w - w) // 2
-    y = (new_h - h) // 2
-    bg_cropped = bg_resized.crop((x, y, x + w, y + h))
-
-    base = bg_cropped.convert("RGBA")
-
-    overlay = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-    overlay_draw = ImageDraw.Draw(overlay)
-    _draw_gradient(overlay_draw, w, h, (0, 0, 0, 80), (0, 0, 0, 200))
+    base = _frame_window(levels, w, h, pad_x, pad_y, progress, duration)
+    overlay.draw(base, progress, duration)
+    overlay_draw = ImageDraw.Draw(base, "RGBA")
     _draw_particles(overlay_draw, w, h, frame)
 
     font_title = _get_font(FONT_SIZE_TITLE)
@@ -177,16 +316,23 @@ def make_frame(
     for line_idx, line in enumerate(lines):
         line_visible_chars = max(0, min(len(line), chars_to_show - char_count))
         visible_line = line[:line_visible_chars]
+        start_at = char_count
         char_count += len(line)
+        if not line_visible_chars:
+            continue
+
+        local = _line_entrance(reveal_progress, start_at, len(line), total_chars)
+        slide = int((1.0 - local) * 18)
+        global_alpha = min(1.0, 0.35 + local * 1.4)
 
         line_bbox = font_title.getbbox(line)
         lw = line_bbox[2] - line_bbox[0]
         lx = (w - lw) // 2
-        ly = text_y_start + line_idx * (line_h + line_gap)
+        ly = text_y_start + line_idx * (line_h + line_gap) + slide
 
         for ci, ch in enumerate(visible_line):
-            ch_alpha = int(200 + 55 * (1 - ci / max(len(visible_line), 1)))
-            ch_alpha = min(255, max(100, ch_alpha))
+            ch_alpha = int((200 + 55 * (1 - ci / max(len(visible_line), 1))) * global_alpha)
+            ch_alpha = min(255, max(60, ch_alpha))
             overlay_draw.text((lx, ly), ch, font=font_title, fill=(255, 255, 255, ch_alpha))
             ch_bbox = font_title.getbbox(ch)
             lx += ch_bbox[2] - ch_bbox[0]
@@ -205,8 +351,7 @@ def make_frame(
         alpha = int(source_alpha * 150)
         overlay_draw.text((30, h - 45), f"Источник: {source}", font=font_small, fill=(180, 200, 255, alpha))
 
-    result = Image.alpha_composite(base, overlay).convert("RGB")
-    return result
+    return base
 
 
 def _remove_tree(path: str) -> None:
@@ -229,56 +374,46 @@ def _remove_tree(path: str) -> None:
 
 def _vertical_background(bg: Image.Image) -> Image.Image:
     w, h = VERTICAL_WIDTH, VERTICAL_HEIGHT
-    src_ratio = bg.width / bg.height
-    dst_ratio = w / h
-
-    if src_ratio > dst_ratio:
-        crop_w = int(bg.height * dst_ratio)
-        left = (bg.width - crop_w) // 2
-        canvas = bg.crop((left, 0, left + crop_w, bg.height)).resize((w, h), Image.LANCZOS)
-    else:
-        crop_h = int(bg.width / dst_ratio)
-        top = (bg.height - crop_h) // 2
-        canvas = bg.crop((0, top, bg.width, top + crop_h)).resize((w, h), Image.LANCZOS)
-
+    canvas = _cover(bg, w, h)
     blurred = bg.resize((w, h), Image.BILINEAR).filter(ImageFilter.GaussianBlur(radius=28))
     return Image.blend(blurred, canvas, 0.62)
 
 
-VERTICAL_ZOOM_STEPS = 8
+VERTICAL_ZOOM_STEPS = 4
 
 
-def prepare_vertical_canvas(bg: Image.Image) -> list[Image.Image]:
+def prepare_vertical_canvas(bg: Image.Image):
     w, h = VERTICAL_WIDTH, VERTICAL_HEIGHT
+    pad_x = max(2, int(w * config.VIDEO_SWAY_X / 100))
+    pad_y = max(2, int(h * config.VIDEO_SWAY_Y / 100))
+    graded = _grade(_vertical_background(bg), 40, 190)
+    levels = _build_levels(graded, config.VIDEO_ZOOM, VERTICAL_ZOOM_STEPS, pad_x, pad_y)
+    return levels, pad_x, pad_y, Overlay(w, h, config.VIDEO_BOKEH)
 
-    gradient = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-    _draw_gradient(ImageDraw.Draw(gradient), w, h, (0, 0, 0, 40), (0, 0, 0, 190))
-    graded = Image.alpha_composite(_vertical_background(bg).convert("RGBA"), gradient).convert("RGB")
 
-    levels = [graded]
-    for step in range(1, VERTICAL_ZOOM_STEPS):
-        scale = 1.0 + (step / (VERTICAL_ZOOM_STEPS - 1)) * 0.05
-        new_w, new_h = int(w * scale), int(h * scale)
-        zoomed = graded.resize((new_w, new_h), Image.BILINEAR)
-        offset_x = (new_w - w) // 2
-        offset_y = (new_h - h) // 2
-        levels.append(zoomed.crop((offset_x, offset_y, offset_x + w, offset_y + h)))
-    return levels
+def _line_entrance(reveal: float, line_start: int, line_len: int, total_chars: int) -> float:
+    if total_chars <= 0 or line_len <= 0:
+        return 1.0
+    start_at = line_start / total_chars
+    local = (reveal - start_at) / max(1.0 - start_at, 0.001)
+    return min(1.0, max(0.0, local))
 
 
 def make_vertical_frame(
-    levels: list[Image.Image],
+    canvas,
     title: str,
     source: str,
     frame: int,
     total_frames: int,
+    duration: float = 0.0,
 ) -> Image.Image:
     w, h = VERTICAL_WIDTH, VERTICAL_HEIGHT
+    levels, pad_x, pad_y, overlay = canvas
     progress = frame / max(total_frames - 1, 1)
 
-    index = min(VERTICAL_ZOOM_STEPS - 1, int(progress * VERTICAL_ZOOM_STEPS))
-    canvas = levels[index].copy()
-    draw = ImageDraw.Draw(canvas, "RGBA")
+    base = _frame_window(levels, w, h, pad_x, pad_y, progress, duration)
+    overlay.draw(base, progress, duration)
+    draw = ImageDraw.Draw(base, "RGBA")
     _draw_particles(draw, w, h, frame, count=44)
 
     font_title = _get_font(76)
@@ -297,17 +432,20 @@ def make_vertical_frame(
     seen = 0
     for line in lines:
         take = max(0, min(len(line), chars_to_show - seen))
+        start_at = seen
         seen += len(line)
-        visible = line[:take]
-        if not visible:
+        if not take:
             y += line_h + gap
             continue
+        visible = line[:take]
+        local = _line_entrance(reveal, start_at, len(line), total_chars)
+        slide = int((1.0 - local) * 30)
+        alpha = int(245 * min(1.0, 0.3 + local * 1.6))
         line_w = font_title.getbbox(line)[2]
         tx = (w - line_w) // 2
-        # Dark shadow keeps the headline readable over a light photo
-        # background, where white-on-white would disappear.
-        draw.text((tx + 3, y + 3), visible, font=font_title, fill=(0, 0, 0, 170))
-        draw.text((tx, y), visible, font=font_title, fill=(255, 255, 255, 245))
+        ty = y + slide
+        draw.text((tx + 3, ty + 3), visible, font=font_title, fill=(0, 0, 0, int(alpha * 0.7)))
+        draw.text((tx, ty), visible, font=font_title, fill=(255, 255, 255, alpha))
         y += line_h + gap
 
     brand = config.BRAND_NAME or "NEWS"
@@ -321,7 +459,7 @@ def make_vertical_frame(
         draw.text((63, h - 147), f"Источник: {source}", font=font_small, fill=(0, 0, 0, 140))
         draw.text((60, h - 150), f"Источник: {source}", font=font_small, fill=(180, 205, 255, alpha))
 
-    return canvas
+    return base
 
 
 def _clean_background(topic: str = "") -> Image.Image:
@@ -359,7 +497,7 @@ def iter_vertical_frames(
 
     total_frames = max(int(FPS * duration), 1)
     for i in range(total_frames):
-        yield make_vertical_frame(canvas, title, source, i, total_frames)
+        yield make_vertical_frame(canvas, title, source, i, total_frames, duration)
 
 
 def image_to_video_vertical(
@@ -380,13 +518,12 @@ def image_to_video_vertical(
 
     try:
         speech = synthesize_voice(title, description)
-        if duration <= 0:
-            # Match the clip to the narration plus a short tail, instead of
-            # always running the full VIDEO_DURATION and trailing silence.
-            narration = speech_duration(speech) if speech else 0.0
-            duration = min(max(narration + 1.5, 6.0), config.VIDEO_DURATION)
-        else:
-            duration = config.VIDEO_DURATION
+        narration = (
+            speech_duration(speech) if speech
+            else estimate_speech_seconds(build_speech_text(title, description))
+        )
+        tempo = _voice_tempo(narration)
+        duration = _resolve_duration(narration, duration)
 
         audio = build_music_track(duration)
         if audio:
@@ -423,12 +560,13 @@ def image_to_video_vertical(
             "-crf", "23",
         ]
 
+        speed = ",atempo=%.3f" % tempo if tempo > 1.01 else ""
         filters = []
         if music_path and voice_path:
             common = "aformat=sample_fmts=fltp:sample_rates=%d:channel_layouts=stereo" % SAMPLE_RATE
             bed = max(0.05, config.MUSIC_VOLUME * 0.7)
             filters.append("[%d:a]volume=%.2f[bg]" % (music_idx, bed))
-            filters.append("[%d:a]%s,highpass=f=90[sp]" % (voice_idx, common))
+            filters.append("[%d:a]%s,highpass=f=90%s[sp]" % (voice_idx, common, speed))
             filters.append("[bg][sp]amix=inputs=2:duration=longest:normalize=0[a]")
             fade_in = 0.4
         elif music_path:
@@ -439,8 +577,8 @@ def image_to_video_vertical(
             fade_in = 0.6
         elif voice_path:
             filters.append(
-                "[%d:a]aformat=sample_fmts=fltp:sample_rates=%d:channel_layouts=stereo[a]"
-                % (voice_idx, SAMPLE_RATE)
+                "[%d:a]%saformat=sample_fmts=fltp:sample_rates=%d:channel_layouts=stereo[a]"
+                % (voice_idx, speed, SAMPLE_RATE)
             )
             fade_in = 0.4
         else:
@@ -495,7 +633,7 @@ def image_to_video_vertical(
         result.seek(0)
         logger.info("Vertical video: %d bytes (%.1fs, %d frames, music=%s, voice=%s)",
                     len(video_bytes), duration, frames, bool(music_path), bool(voice_path))
-        return result
+        return VideoResult(result, duration, bool(music_path), bool(voice_path))
 
     except Exception as e:
         logger.warning("Vertical video generation failed: %s", e)
@@ -524,10 +662,29 @@ def iter_frames(
     duration: float,
 ):
     bg = _clean_background(title)
+    pad_x = max(2, int(VIDEO_WIDTH * config.VIDEO_SWAY_X / 100))
+    pad_y = max(2, int(VIDEO_HEIGHT * config.VIDEO_SWAY_Y / 100))
+    graded = _grade(_cover(bg, VIDEO_WIDTH, VIDEO_HEIGHT), 80, 200)
+    canvas = (
+        _build_levels(graded, config.VIDEO_ZOOM, VERTICAL_ZOOM_STEPS, pad_x, pad_y),
+        pad_x,
+        pad_y,
+        Overlay(VIDEO_WIDTH, VIDEO_HEIGHT, config.VIDEO_BOKEH),
+    )
 
     total_frames = max(int(FPS * duration), 1)
     for i in range(total_frames):
-        yield make_frame(bg, title, source, i, total_frames)
+        yield make_frame(canvas, title, source, i, total_frames, duration)
+
+
+from typing import NamedTuple
+
+
+class VideoResult(NamedTuple):
+    data: io.BytesIO
+    duration: float
+    music: bool
+    voice: bool
 
 
 def _ffmpeg_ready() -> bool:
@@ -559,13 +716,12 @@ def image_to_video(
 
     try:
         speech = synthesize_voice(title, description)
-        if duration <= 0:
-            # Match the clip to the narration plus a short tail, instead of
-            # always running the full VIDEO_DURATION and trailing silence.
-            narration = speech_duration(speech) if speech else 0.0
-            duration = min(max(narration + 1.5, 6.0), config.VIDEO_DURATION)
-        else:
-            duration = config.VIDEO_DURATION
+        narration = (
+            speech_duration(speech) if speech
+            else estimate_speech_seconds(build_speech_text(title, description))
+        )
+        tempo = _voice_tempo(narration)
+        duration = _resolve_duration(narration, duration)
 
         audio = build_music_track(duration)
         if audio:
@@ -602,16 +758,17 @@ def image_to_video(
         cmd += [
             "-c:v", "libx264",
             "-pix_fmt", "yuv420p",
-            "-preset", "medium",
+            "-preset", config.VIDEO_PRESET,
             "-crf", "23",
         ]
 
+        speed = ",atempo=%.3f" % tempo if tempo > 1.01 else ""
         filters = []
         if music_path and voice_path:
             common = "aformat=sample_fmts=fltp:sample_rates=%d:channel_layouts=stereo" % SAMPLE_RATE
             bed = max(0.05, config.MUSIC_VOLUME * 0.7)
             filters.append("[%d:a]volume=%.2f[bg]" % (music_idx, bed))
-            filters.append("[%d:a]%s,highpass=f=90[sp]" % (voice_idx, common))
+            filters.append("[%d:a]%s,highpass=f=90%s[sp]" % (voice_idx, common, speed))
             filters.append("[bg][sp]amix=inputs=2:duration=longest:normalize=0[a]")
             fade_in = 0.4
         elif music_path:
@@ -622,8 +779,8 @@ def image_to_video(
             fade_in = 0.6
         elif voice_path:
             filters.append(
-                "[%d:a]aformat=sample_fmts=fltp:sample_rates=%d:channel_layouts=stereo[a]"
-                % (voice_idx, SAMPLE_RATE)
+                "[%d:a]%saformat=sample_fmts=fltp:sample_rates=%d:channel_layouts=stereo[a]"
+                % (voice_idx, speed, SAMPLE_RATE)
             )
             fade_in = 0.4
         else:
@@ -681,7 +838,7 @@ def image_to_video(
             "Video generated: %d bytes (%.1fs, %d frames, music=%s, voice=%s)",
             len(video_bytes), duration, frames, bool(music_path), bool(voice_path),
         )
-        return result
+        return VideoResult(result, duration, bool(music_path), bool(voice_path))
 
     except subprocess.TimeoutExpired:
         logger.warning("FFmpeg timeout")
