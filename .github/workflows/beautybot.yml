@@ -69,13 +69,22 @@ jobs:
         run: |
           git config user.name "ainovostiru-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add docs .dzen_pending.json
+          git add -A docs
           if git diff --staged --quiet; then
             echo "feed unchanged"
-          else
-            git commit -m "dzen: update RSS feed"
-            git push
+            exit 0
           fi
+          git commit -m "dzen: update RSS feed"
+          for attempt in 1 2 3; do
+            if git push; then
+              echo "feed pushed"
+              exit 0
+            fi
+            echo "push attempt $attempt failed, rebasing onto main"
+            git pull --rebase origin main
+          done
+          echo "could not push the feed after 3 attempts"
+          exit 0
 
       - name: Save posted articles DB
         if: always()

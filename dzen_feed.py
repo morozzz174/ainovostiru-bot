@@ -309,7 +309,10 @@ def flush(theme: str | None = None) -> dict:
         result["written"] += len(rendered)
         logger.info("Dzen: feed-%s.xml written with %d items", name, len(items))
 
-    save_pending({})
+    # Only clear the queue for the feeds that were actually rebuilt, otherwise
+    # a partial run would throw away articles it never wrote to a feed.
+    remaining = {name: items for name, items in pending.items() if name not in themes}
+    save_pending(remaining)
     return result
 
 
@@ -317,6 +320,12 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
     import sys
 
-    args = sys.argv[1:]
-    outcome = flush(args[0] if args else None)
+    args = [a for a in sys.argv[1:] if a]
+    theme = None
+    if args and args[0] in ("flush", "build", "publish"):
+        args = args[1:]
+    if args:
+        theme = args[0]
+    outcome = flush(theme)
     logger.info("Dzen: %s", outcome)
+    raise SystemExit(0 if outcome["written"] >= 0 else 1)
