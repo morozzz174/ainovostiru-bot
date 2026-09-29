@@ -84,7 +84,6 @@ button.ghost{background:transparent;border:1px solid var(--line);color:var(--mut
 let TOKEN = localStorage.getItem('mm_token') || '';
 let selected = null, lastSeq = 0, polling = false;
 
-const H = () => ({'Content-Type':'application/json','X-Auth-Token':TOKEN});
 const logBox = document.getElementById('log');
 const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 
@@ -102,6 +101,10 @@ function addLines(items){
 }
 
 async function api(url, opts){
+  // Always attach the current token. Callers pass no headers, so building
+  // them here keeps every request authenticated after a fresh login.
+  opts = opts || {};
+  opts.headers = Object.assign({}, opts.headers, {'X-Auth-Token': TOKEN});
   const r = await fetch(url, opts);
   if(r.status === 401){ TOKEN = ''; localStorage.removeItem('mm_token'); showLogin(); return null; }
   return r;
@@ -151,7 +154,13 @@ async function publish(){
   const btn = document.getElementById('btnPub');
   btn.disabled = true; btn.textContent = 'Публикую…';
   document.getElementById('msg').textContent = 'Идёт загрузка, следите за логом ↓';
-  await fetch('/api/publish', {method:'POST', headers:H(), body:JSON.stringify(selected)});
+  const pub = await api('/api/publish', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(selected)});
+  if(!pub || !pub.ok){
+    btn.textContent = 'Опубликовать в TikTok';
+    btn.disabled = false;
+    document.getElementById('msg').innerHTML = '<span style="color:#ff6b6b">Публикация отклонена, проверьте настройки</span>';
+    return;
+  }
   const pollResult = setInterval(async () => {
     const r = await api('/api/status');
     if(!r || !r.ok) return;
