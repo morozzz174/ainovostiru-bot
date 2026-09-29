@@ -9,7 +9,7 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Tue, 29 Sep 2026 17:44:51 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 29 Sep 2026 19:12:28 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
@@ -34,6 +34,26 @@
       <description>BB - это открытая программа под лицензией MIT, в которой Claude Code, Codex, Pi и ACP-агенты работают в одном окне. За 7 месяцев репозиторий собрал около 4 тысяч звёзд. Главное в BB не окно, а то, что его интерфейс достраивается плагинами и новый плагин подхватывается без перезапуска…</description>
       <content:encoded><![CDATA[<p>BB - это открытая программа под лицензией MIT, в которой Claude Code, Codex, Pi и ACP-агенты работают в одном окне.</p><p>За 7 месяцев репозиторий собрал около 4 тысяч звёзд.</p><p>Главное в BB не окно, а то, что его интерфейс достраивается плагинами и новый плагин подхватывается без перезапуска программы.Недавно я снимал про BB ролик.</p><p>Там агент за 20 минут и два промпта собрал плагин, который расшифровывает запись созвона, выделяет договорённости со сроками и пишет письмо клиенту.</p><p>Ролик был про то, что это даёт пользователю, а в этой статье я разберу код и покажу, за счёт чего это работает.</p><p>Всё ниже проверено по репозиторию get-bb/bb по состоянию на конец сентября 2026.</p><p>Читать далее</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/9e4ba653a755.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Исследователи ИИ выпускают видеоролики, в которых говорится, что суперинтеллект «так же опасен, как и звучит»</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/2dfd3783842b.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/2dfd3783842b.html</guid>
+      <pubDate>Tue, 29 Sep 2026 19:10:47 +0000</pubDate>
+      <category>The Verge</category>
+      <description>«На мой взгляд, вероятность вымирания человека - это подбрасывание монеты», - сказал в новом интервью Джеффри Ирвинг, бывший сотрудник OpenAI и Google DeepMind. Это одно из дюжины интервью с исследователями ИИ, включая нынешних и бывших сотрудников OpenAI, Google и Anthropic. Palisade Research, в…</description>
+      <content:encoded><![CDATA[<p>«На мой взгляд, вероятность вымирания человека - это подбрасывание монеты», - сказал в новом интервью Джеффри Ирвинг, бывший сотрудник OpenAI и Google DeepMind.</p><p>Это одно из дюжины интервью с исследователями ИИ, включая нынешних и бывших сотрудников OpenAI, Google и Anthropic.</p><p>Palisade Research, в котором говорится, что это некоммерческая организация, изучающая …</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/2dfd3783842b.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>ИИ есть, но есть ли преимущество? Что изменилось для маркетинга и PR</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f9fb47f30e39.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f9fb47f30e39.html</guid>
+      <pubDate>Tue, 29 Sep 2026 19:12:28 +0000</pubDate>
+      <category>Habr</category>
+      <description>ИИ помогает быстрее писать тексты, собирать презентации и готовить рекламу. Но между скоростью производства и решением клиента купить продукт остаётся немало работы. В отчете McKinsey Technology Trends Outlook 2026 это рассматривается на уровне бизнеса. Для маркетинга и PR из него следуют три…</description>
+      <content:encoded><![CDATA[<p>ИИ помогает быстрее писать тексты, собирать презентации и готовить рекламу.</p><p>Но между скоростью производства и решением клиента купить продукт остаётся немало работы.</p><p>В отчете McKinsey Technology Trends Outlook 2026 это рассматривается на уровне бизнеса.</p><p>Для маркетинга и PR из него следуют три изменения.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/f9fb47f30e39.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
