@@ -12,8 +12,12 @@ logger = logging.getLogger(__name__)
 PEXELS_API = "https://api.pexels.com/v1/search"
 PEXELS_PHOTO = "https://api.pexels.com/v1/photos/{id}"
 UNSPLASH_API = "https://api.unsplash.com/search/photos"
+OPENVERSE_API = "https://api.openverse.org/v1/images/"
 
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+USER_AGENT = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+)
 
 
 def _extract_keywords(text: str) -> list[str]:
@@ -81,43 +85,179 @@ def _search_unsplash(query: str) -> str | None:
     return None
 
 
+RU_TO_EN = {
+    "искусственн": "artificial intelligence",
+    "интеллект": "artificial intelligence",
+    "нейросет": "neural network",
+    "машинн": "machine learning",
+    "алгоритм": "algorithm",
+    "модел": "technology",
+    "физик": "physics laboratory",
+    "сверхпровод": "superconductor",
+    "материал": "materials science",
+    "энерг": "energy",
+    "двигател": "engine",
+    "космос": "space",
+    "астроном": "astronomy",
+    "планет": "planet",
+    "телескоп": "telescope",
+    "ракет": "rocket launch",
+    "биолог": "biology",
+    "медицин": "medicine",
+    "здоров": "health",
+    "генет": "genetics",
+    "днк": "dna",
+    "мозг": "brain",
+    "клетк": "cell biology",
+    "археолог": "archaeology",
+    "истори": "history",
+    "папирус": "ancient papyrus",
+    "памятник": "ancient monument",
+    "раскопк": "excavation",
+    "учен": "scientists",
+    "исследовател": "research laboratory",
+    "наук": "science",
+    "открыти": "discovery",
+    "робот": "robot",
+    "программ": "software",
+    "разработ": "software developer",
+    "компан": "technology company",
+    "компьют": "computer",
+    "процессор": "processor",
+    "сервер": "data center",
+    "телефон": "smartphone",
+    "интернет": "internet",
+    "безопасност": "cybersecurity",
+    "шифр": "encryption",
+    "квант": "quantum computing",
+    "рынок": "stock market",
+    "экономик": "economy",
+    "инвест": "investment",
+    "климат": "climate",
+    "эколог": "ecology",
+    "космическ": "space",
+    "игру": "gaming",
+    "фильм": "cinema",
+    "музык": "music",
+    "спорт": "sports",
+    "автомобил": "car",
+    "самолет": "aircraft",
+    "еда": "food",
+}
+
+
+def _english_queries(keywords: list[str]) -> list[str]:
+    """Openverse has almost no Russian coverage, so map stems to English."""
+    queries = []
+    for word in keywords:
+        for stem, english in RU_TO_EN.items():
+            if word.startswith(stem):
+                if english not in queries:
+                    queries.append(english)
+                break
+    return queries[:3]
+
+
+def _search_openverse(query: str) -> tuple[str, str] | None:
+    try:
+        resp = requests.get(
+            OPENVERSE_API,
+            params={
+                "q": query,
+                "page_size": 6,
+                "license_type": "commercial",
+                "mature": "false",
+            },
+            headers={"User-Agent": USER_AGENT},
+            timeout=15,
+        )
+        resp.raise_for_status()
+        results = resp.json().get("results") or []
+        if not results:
+            return None
+        photo = random.choice(results)
+        url = photo.get("url")
+        if not url:
+            return None
+        creator = (photo.get("creator") or "").strip()
+        license_name = (photo.get("license") or "").lower()
+        if license_name == "cc0":
+            label = "CC0"
+        elif license_name.startswith("cc"):
+            label = "CC " + license_name[2:].upper()
+        elif license_name:
+            label = license_name.upper()
+        else:
+            label = ""
+        parts = [p for p in (creator, label) if p]
+        credit = " · ".join(parts)
+        return url, credit
+    except Exception as e:
+        logger.debug("Openverse search failed: %s", e)
+    return None
+
+
 def _search_picsum(query: str) -> str:
     seed = re.sub(r"\s+", "-", query.strip()[:50])
     return f"https://picsum.photos/seed/{seed}/1200/630"
 
 
-def find_image_for_topic(text: str) -> io.BytesIO | None:
+def _download(url: str) -> io.BytesIO | None:
+    try:
+        resp = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=15)
+        resp.raise_for_status()
+        if "image" in resp.headers.get("content-type", ""):
+            return io.BytesIO(resp.content)
+    except Exception as e:
+        logger.debug("Image download failed for %s: %s", url[:60], e)
+    return None
+
+
+def find_image_with_credit(text: str) -> tuple[io.BytesIO | None, str]:
+    """Return a photo for the topic plus a short attribution line.
+
+    picsum.photos answers 403 for datacenter and cloud IPs, which is where the
+    bot runs, so Openverse (WordPress, CC licensed, no key) is the primary
+    source. Attribution matters for CC-BY images, so the credit is returned
+    instead of being dropped.
+    """
     keywords = _extract_keywords(text)
     if not keywords:
-        return None
+        return None, ""
 
-    query = " ".join(keywords[:3])
+    candidates = []
+    for word in keywords[:3]:
+        candidates.append(_search_pexels(word) or _search_unsplash(word))
 
-    for attempt in range(3):
-        url = None
-        if attempt == 0:
-            url = _search_pexels(query)
-        elif attempt == 1:
-            url = _search_pexels(keywords[0])
-        elif attempt == 2:
-            url = _search_picsum(query)
+    for query in _english_queries(keywords):
+        found = _search_openverse(query)
+        if found:
+            candidates.append(found)
 
-        if url:
-            try:
-                resp = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=10)
-                resp.raise_for_status()
-                if "image" in resp.headers.get("content-type", ""):
-                    return io.BytesIO(resp.content)
-            except Exception as e:
-                logger.debug("Image download failed: %s", e)
-                continue
+    for entry in candidates:
+        if not entry:
+            continue
+        url, credit = entry
+        image = _download(url)
+        if image:
+            return image, credit
 
-    try:
-        url = _search_picsum(query)
-        resp = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=10)
-        resp.raise_for_status()
-        return io.BytesIO(resp.content)
-    except Exception as e:
-        logger.debug("Picsum fallback failed: %s", e)
+    for query in _english_queries(keywords) + [" ".join(keywords[:3]), keywords[0]]:
+        found = _search_openverse(query)
+        if not found:
+            continue
+        image = _download(found[0])
+        if image:
+            return image, found[1]
 
-    return None
+    for query in (" ".join(keywords[:3]), keywords[0]):
+        image = _download(_search_picsum(query))
+        if image:
+            return image, ""
+
+    return None, ""
+
+
+def find_image_for_topic(text: str) -> io.BytesIO | None:
+    image, _ = find_image_with_credit(text)
+    return image

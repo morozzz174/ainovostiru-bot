@@ -169,6 +169,16 @@ def _echo(signal: np.ndarray, taps) -> np.ndarray:
     return out
 
 
+ARP_PATTERNS = (
+    (0, 1, 2, 1, 2, 0, 1, 2),
+    (0, 2, 1, 2, 0, 2, 1, 2),
+    (0, 1, 2, 2, 1, 0, 2, 1),
+    (2, 1, 0, 1, 2, 1, 0, 1),
+)
+
+TRANSPOSITIONS = (-4, -3, -2, -1, 0, 0, 1, 2, 3)
+
+
 def synthesize(duration: float, style: str, seed: int) -> np.ndarray:
     cfg = STYLES.get(style, STYLES["calm"])
     rng = np.random.default_rng(seed)
@@ -176,7 +186,18 @@ def synthesize(duration: float, style: str, seed: int) -> np.ndarray:
     left = np.zeros(total, dtype=np.float32)
     right = np.zeros(total, dtype=np.float32)
 
-    beat = 60.0 / cfg["bpm"]
+    # Every clip of the same style sounded identical, so the seed also picks the
+    # key, the tempo and whether drums and the arpeggio are present at all.
+    transpose = TRANSPOSITIONS[int(rng.integers(0, len(TRANSPOSITIONS)))]
+    root = cfg["root"] * (2.0 ** (transpose / 12.0))
+    bpm = cfg["bpm"] * float(rng.uniform(0.92, 1.08))
+    with_drums = bool(cfg["drums"]) and bool(rng.random() > 0.25)
+    with_arp = bool(rng.random() > 0.15)
+    pad_gain = cfg["pad"] * float(rng.uniform(0.78, 1.18))
+    arp_gain = cfg["arp"] * float(rng.uniform(0.75, 1.2))
+    pattern = ARP_PATTERNS[int(rng.integers(0, len(ARP_PATTERNS)))]
+
+    beat = 60.0 / bpm
     bar = beat * 4
     chords = cfg["chords"]
     bright = cfg["bright"]
@@ -206,8 +227,8 @@ def synthesize(duration: float, style: str, seed: int) -> np.ndarray:
             break
         chord = chords[i % len(chords)]
         for j, semis in enumerate(chord):
-            freq = cfg["root"] * (2.0 ** (semis / 12.0))
-            seg = _pad(freq, bar * 1.15, cfg["pad"] / len(chord), bright)
+            freq = root * (2.0 ** (semis / 12.0))
+            seg = _pad(freq, bar * 1.15, pad_gain / len(chord), bright)
             pan = -0.55 if j % 2 == 0 else 0.55
             spread = 0.016 if j % 2 == 0 else 0.011
             if j == 2:
@@ -215,19 +236,19 @@ def synthesize(duration: float, style: str, seed: int) -> np.ndarray:
                 spread = 0.0
             mix(seg, start, pan, spread)
 
-    step = beat / 2.0
-    pattern = (0, 1, 2, 1, 2, 0, 1, 2)
-    for k in range(int(duration / step)):
-        start = int(k * step * SAMPLE_RATE)
-        if start >= total:
-            break
-        chord = chords[int(k * step / bar) % len(chords)]
-        semis = chord[pattern[k % len(pattern)]]
-        freq = cfg["root"] * (2.0 ** (semis / 12.0)) * (1.0 + rng.uniform(-0.004, 0.004))
-        seg = _pluck(freq, min(step * 1.6, duration), cfg["arp"], cfg["pluck_decay"])
-        mix(seg, start, 0.3 if k % 2 == 0 else -0.3)
+    if with_arp:
+        step = beat / 2.0
+        for k in range(int(duration / step)):
+            start = int(k * step * SAMPLE_RATE)
+            if start >= total:
+                break
+            chord = chords[int(k * step / bar) % len(chords)]
+            semis = chord[pattern[k % len(pattern)]]
+            freq = root * (2.0 ** (semis / 12.0)) * (1.0 + rng.uniform(-0.004, 0.004))
+            seg = _pluck(freq, min(step * 1.6, duration), arp_gain, cfg["pluck_decay"])
+            mix(seg, start, 0.3 if k % 2 == 0 else -0.3)
 
-    if cfg["drums"]:
+    if with_drums:
         for b in range(int(duration / beat)):
             start = int(b * beat * SAMPLE_RATE)
             if start >= total:

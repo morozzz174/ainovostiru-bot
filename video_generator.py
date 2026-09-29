@@ -1,3 +1,4 @@
+import hashlib
 import io
 import logging
 import math
@@ -116,7 +117,7 @@ def _draw_particles(draw: ImageDraw, w: int, h: int, frame: int, count: int = 30
         draw.ellipse([px, py, px + 2, py + 2], fill=(255, 255, 255, alpha))
 
 
-def _wrap_text(text: str, max_chars: int = 30) -> list[str]:
+def _wrap_text(text: str, max_chars: int = 30, max_lines: int = 6) -> list[str]:
     text = text.replace("\n", " ")
     words = text.split()
     lines = []
@@ -130,14 +131,59 @@ def _wrap_text(text: str, max_chars: int = 30) -> list[str]:
             current = word
     if current:
         lines.append(current)
-    return lines[:4]
+
+    if len(lines) <= max_lines:
+        return lines
+
+    kept = lines[:max_lines]
+    tail = " ".join(lines[max_lines:])
+    if len(tail) > 12:
+        tail = tail[:12].rsplit(" ", 1)[0] + "…"
+    kept[-1] = f"{kept[-1]} {tail}"
+    return kept
+
+
+PALETTES = (
+    {"accent": (100, 180, 255), "brand": (200, 200, 225), "source": (180, 205, 255), "shade": 190},
+    {"accent": (255, 176, 92), "brand": (228, 208, 188), "source": (255, 198, 150), "shade": 175},
+    {"accent": (140, 255, 186), "brand": (198, 230, 210), "source": (168, 245, 205), "shade": 185},
+    {"accent": (255, 122, 170), "brand": (232, 200, 215), "source": (255, 165, 200), "shade": 180},
+    {"accent": (196, 158, 255), "brand": (214, 202, 236), "source": (206, 178, 255), "shade": 195},
+    {"accent": (255, 232, 120), "brand": (232, 224, 190), "source": (255, 240, 160), "shade": 170},
+)
+
+TITLE_POSITIONS = ("center", "center", "top", "bottom")
+REVEALS = ("typewriter", "typewriter", "fade", "slide")
+
+
+def _variant_for(title: str) -> dict:
+    """Per-post look, seeded by the headline so both renderers agree.
+
+    Without this every clip looked identical: same accent colour, same centred
+    block, same typewriter. The seed keeps a given article looking the same
+    across the Telegram and TikTok versions of it.
+    """
+    digest = int(hashlib.md5((title or "").strip().lower().encode("utf-8")).hexdigest()[:8], 16)
+    rng = random.Random(digest)
+    palette = rng.choice(PALETTES)
+    return {
+        "accent": palette["accent"],
+        "brand": palette["brand"],
+        "source": palette["source"],
+        "shade": palette["shade"],
+        "position": rng.choice(TITLE_POSITIONS),
+        "reveal": rng.choice(REVEALS),
+        "bokeh": max(0, config.VIDEO_BOKEH + rng.randint(-7, 8)),
+        "sweep": rng.random() > 0.3,
+    }
 
 
 def _soft_sprite(radius: int, alpha: int) -> Image.Image:
     size = radius * 2
+    margin = max(2, int(radius * 0.45))
     mask = Image.new("L", (size, size), 0)
-    ImageDraw.Draw(mask).ellipse([1, 1, size - 2, size - 2], fill=255)
-    mask = mask.filter(ImageFilter.GaussianBlur(radius=max(2, radius * 0.32)))
+    ImageDraw.Draw(mask).ellipse([margin, margin, size - margin, size - margin], fill=255)
+    mask = mask.filter(ImageFilter.GaussianBlur(radius=max(2, radius * 0.4)))
     mask = mask.point(lambda value: int(value * alpha / 255))
     sprite = Image.new("RGBA", (size, size), (255, 255, 255, 0))
     sprite.putalpha(mask)
@@ -163,7 +209,7 @@ class Overlay:
     alpha composite per frame.
     """
 
-    def __init__(self, width: int, height: int, count: int, seed: int = 20260928):
+    def __init__(self, width: int, height: int, count: int, seed: int = 20260928, sweep: bool = True):
         rng = random.Random(seed)
         self.width = width
         self.height = height
@@ -182,7 +228,7 @@ class Overlay:
                 "depth": rng.uniform(0.45, 1.35),
             })
         self.bokeh.sort(key=lambda item: item["depth"])
-        self.sweep = _sweep_sprite(width, height, int(width * 0.55))
+        self.sweep = _sweep_sprite(width, height, int(width * 0.55)) if sweep else None
         self.sweep_period = max(config.VIDEO_SWEEP_PERIOD, 3.0)
 
     def draw(self, frame: Image.Image, progress: float, duration: float) -> None:
@@ -198,6 +244,8 @@ class Overlay:
             y = int(y % (h + sprite.height)) - sprite.height // 2
             frame.paste(sprite, (x, y), sprite)
 
+        if self.sweep is None:
+            return
         phase = (t % self.sweep_period) / self.sweep_period
         span = w + self.sweep.width
         offset = int(-self.sweep.width + span * phase)
@@ -290,7 +338,7 @@ def make_frame(
     duration: float = 0.0,
 ) -> Image.Image:
     w, h = VIDEO_WIDTH, VIDEO_HEIGHT
-    levels, pad_x, pad_y, overlay = canvas
+    levels, pad_x, pad_y, overlay, variant, credit = canvas
     progress = frame / max(total_frames - 1, 1)
 
     base = _frame_window(levels, w, h, pad_x, pad_y, progress, duration)
@@ -302,7 +350,7 @@ def make_frame(
     font_brand = _get_font(FONT_SIZE_BRAND)
     font_small = _get_font(FONT_SIZE_SMALL)
 
-    lines = _wrap_text(title)
+    lines = _wrap_text(title, max_chars=30, max_lines=4)
     line_h = font_title.getbbox("Ay")[3] - font_title.getbbox("Ay")[1]
     line_gap = 10
     total_text_h = len(lines) * (line_h + line_gap) - line_gap
@@ -336,6 +384,25 @@ def make_frame(
             overlay_draw.text((lx, ly), ch, font=font_title, fill=(255, 255, 255, ch_alpha))
             ch_bbox = font_title.getbbox(ch)
             lx += ch_bbox[2] - ch_bbox[0]
+
+    brand_alpha = min(1.0, (progress - 0.7) / 0.2) if progress > 0.7 else 0
+    if brand_alpha > 0:
+        brand_text = config.BRAND_NAME or "NEWS"
+        brand_bbox = font_brand.getbbox(brand_text)
+        bx = (w - (brand_bbox[2] - brand_bbox[0])) // 2
+        by = h - 45
+        alpha = int(brand_alpha * 180)
+        overlay_draw.text((bx, by), brand_text, font=font_brand, fill=variant["brand"] + (alpha,))
+
+    source_alpha = min(1.0, (progress - 0.6) / 0.2) if progress > 0.6 else 0
+    if source_alpha > 0:
+        alpha = int(source_alpha * 150)
+        overlay_draw.text((30, h - 45), f"Источник: {source}", font=font_small, fill=variant["source"] + (alpha,))
+    if credit and source_alpha > 0:
+        overlay_draw.text((VIDEO_WIDTH - 8 - font_small.getbbox(f"Фото: {credit}")[2], h - 45),
+                          f"Фото: {credit}", font=font_small, fill=(150, 150, 165, int(alpha * 0.7)))
+
+    return base
 
     brand_alpha = min(1.0, (progress - 0.7) / 0.2) if progress > 0.7 else 0
     if brand_alpha > 0:
@@ -382,13 +449,15 @@ def _vertical_background(bg: Image.Image) -> Image.Image:
 VERTICAL_ZOOM_STEPS = 4
 
 
-def prepare_vertical_canvas(bg: Image.Image):
+def prepare_vertical_canvas(bg: Image.Image, title: str, credit: str = ""):
     w, h = VERTICAL_WIDTH, VERTICAL_HEIGHT
+    variant = _variant_for(title)
     pad_x = max(2, int(w * config.VIDEO_SWAY_X / 100))
     pad_y = max(2, int(h * config.VIDEO_SWAY_Y / 100))
-    graded = _grade(_vertical_background(bg), 40, 190)
+    graded = _grade(_vertical_background(bg), 40, variant["shade"])
     levels = _build_levels(graded, config.VIDEO_ZOOM, VERTICAL_ZOOM_STEPS, pad_x, pad_y)
-    return levels, pad_x, pad_y, Overlay(w, h, config.VIDEO_BOKEH)
+    overlay = Overlay(w, h, variant["bokeh"], sweep=variant["sweep"])
+    return levels, pad_x, pad_y, overlay, variant, credit
 
 
 def _line_entrance(reveal: float, line_start: int, line_len: int, total_chars: int) -> float:
@@ -397,6 +466,73 @@ def _line_entrance(reveal: float, line_start: int, line_len: int, total_chars: i
     start_at = line_start / total_chars
     local = (reveal - start_at) / max(1.0 - start_at, 0.001)
     return min(1.0, max(0.0, local))
+
+
+def _wrap_block(
+    title: str,
+    font,
+    w: int,
+    h: int,
+    max_lines: int,
+    gap: int,
+    position: str,
+) -> tuple[list[str], int, int]:
+    lines = _wrap_text(title, max_chars=18)[:max_lines]
+    if not lines:
+        return [], 0, 0
+    line_h = font.getbbox("Ay")[3] - font.getbbox("Ay")[1]
+    block_h = len(lines) * (line_h + gap) - gap
+    if position == "top":
+        y = int(h * 0.26)
+    elif position == "bottom":
+        y = h - block_h - int(h * 0.22)
+    else:
+        y = (h - block_h) // 2
+    return lines, line_h, y
+
+
+def _draw_block(
+    draw: ImageDraw.ImageDraw,
+    lines: list[str],
+    line_h: int,
+    y: int,
+    gap: int,
+    w: int,
+    font,
+    total_chars: int,
+    reveal: float,
+    mode: str,
+    color=(255, 255, 255),
+) -> None:
+    seen = 0
+    for line in lines:
+        local = _line_entrance(reveal, seen, len(line), total_chars)
+        seen += len(line)
+        if local <= 0.0:
+            y += line_h + gap
+            continue
+        line_w = font.getbbox(line)[2]
+        x = (w - line_w) // 2
+        alpha = int(255 * min(1.0, 0.15 + local * 1.5))
+        shadow = int(alpha * 0.7)
+
+        if mode == "typewriter":
+            take = max(0, min(len(line), int(len(line) * min(1.0, reveal * 1.2 - 0.1))))
+            visible = line[:take]
+            if not visible:
+                y += line_h + gap
+                continue
+        else:
+            visible = line
+
+        if mode == "slide":
+            offset = int((1.0 - local) * 70)
+            draw.text((x + 4 + offset, y + 4), visible, font=font, fill=(0, 0, 0, shadow))
+            draw.text((x + offset, y), visible, font=font, fill=color + (alpha,))
+        else:
+            draw.text((x + 4, y + 4), visible, font=font, fill=(0, 0, 0, shadow))
+            draw.text((x, y), visible, font=font, fill=color + (alpha,))
+        y += line_h + gap
 
 
 def make_vertical_frame(
@@ -408,7 +544,7 @@ def make_vertical_frame(
     duration: float = 0.0,
 ) -> Image.Image:
     w, h = VERTICAL_WIDTH, VERTICAL_HEIGHT
-    levels, pad_x, pad_y, overlay = canvas
+    levels, pad_x, pad_y, overlay, variant, credit = canvas
     progress = frame / max(total_frames - 1, 1)
 
     base = _frame_window(levels, w, h, pad_x, pad_y, progress, duration)
@@ -419,71 +555,61 @@ def make_vertical_frame(
     font_title = _get_font(76)
     font_brand = _get_font(44)
     font_small = _get_font(36)
+    font_credit = _get_font(26)
 
-    lines = _wrap_text(title, max_chars=18)[:6]
-    line_h = font_title.getbbox("Ay")[3] - font_title.getbbox("Ay")[1]
-    gap = 18
-    block_h = len(lines) * (line_h + gap) - gap
-    y = (h - block_h) // 2
-
+    lines, line_h, y = _wrap_block(title, font_title, w, h, 6, 18, variant["position"])
     total_chars = sum(len(line) for line in lines)
     reveal = min(1.0, progress * 1.9)
-    chars_to_show = int(total_chars * reveal)
-    seen = 0
-    for line in lines:
-        take = max(0, min(len(line), chars_to_show - seen))
-        start_at = seen
-        seen += len(line)
-        if not take:
-            y += line_h + gap
-            continue
-        visible = line[:take]
-        local = _line_entrance(reveal, start_at, len(line), total_chars)
-        slide = int((1.0 - local) * 30)
-        alpha = int(245 * min(1.0, 0.3 + local * 1.6))
-        line_w = font_title.getbbox(line)[2]
-        tx = (w - line_w) // 2
-        ty = y + slide
-        draw.text((tx + 3, ty + 3), visible, font=font_title, fill=(0, 0, 0, int(alpha * 0.7)))
-        draw.text((tx, ty), visible, font=font_title, fill=(255, 255, 255, alpha))
-        y += line_h + gap
+    _draw_block(draw, lines, line_h, y, 18, w, font_title, total_chars, reveal, variant["reveal"])
 
     brand = config.BRAND_NAME or "NEWS"
     if progress > 0.15:
         alpha = int(200 * min(1.0, (progress - 0.15) / 0.25))
         draw.text((63, 93), brand, font=font_brand, fill=(0, 0, 0, 140))
-        draw.text((60, 90), brand, font=font_brand, fill=(200, 200, 225, alpha))
+        draw.text((60, 90), brand, font=font_brand, fill=variant["brand"] + (alpha,))
 
     if progress > 0.55:
         alpha = int(190 * min(1.0, (progress - 0.55) / 0.25))
         draw.text((63, h - 147), f"Источник: {source}", font=font_small, fill=(0, 0, 0, 140))
-        draw.text((60, h - 150), f"Источник: {source}", font=font_small, fill=(180, 205, 255, alpha))
+        draw.text((60, h - 150), f"Источник: {source}", font=font_small, fill=variant["source"] + (alpha,))
+
+    if credit and progress > 0.7:
+        alpha = int(120 * min(1.0, (progress - 0.7) / 0.25))
+        draw.text((60, h - 104), f"Фото: {credit}", font=font_credit, fill=(170, 170, 185, alpha))
 
     return base
 
 
-def _clean_background(topic: str = "") -> Image.Image:
-    """Text-free backdrop for the animated title.
+def _clean_background(topic: str = "", image_buf=None) -> tuple[Image.Image, str]:
+    """A text-free backdrop plus the photo credit.
 
-    The poster image already carries the headline, so reusing it underneath
-    the animated text produced two overlapping copies of the same words. With
-    a topic and image search enabled, a real photo replaces the flat
-    gradient. Imported lazily: publisher imports this module at load time.
+    The poster already carries the headline, so reusing the article image as
+    the backdrop printed the same words twice. A searched photo is preferred,
+    the article image heavily blurred comes second (it still gives every post
+    its own colours), and the brand gradient is the last resort.
     """
     if topic and config.USE_THEMED_IMAGES:
         try:
-            from image_finder import find_image_for_topic
+            from image_finder import find_image_with_credit
 
-            found = find_image_for_topic(topic)
+            found, credit = find_image_with_credit(topic)
             if found:
                 found.seek(0)
-                return Image.open(found).convert("RGB")
+                return Image.open(found).convert("RGB"), credit
         except Exception as e:
-            logger.info("Themed background unavailable, using gradient: %s", e)
+            logger.info("Themed background unavailable, using the article image: %s", e)
+
+    if image_buf is not None:
+        try:
+            image_buf.seek(0)
+            source = Image.open(image_buf).convert("RGB")
+            return source.filter(ImageFilter.GaussianBlur(radius=18)), ""
+        except Exception as e:
+            logger.info("Article image unusable for the backdrop: %s", e)
 
     from publisher import generate_image_background
 
-    return Image.open(generate_image_background()).convert("RGB")
+    return Image.open(generate_image_background()).convert("RGB"), ""
 
 
 def iter_vertical_frames(
@@ -492,8 +618,8 @@ def iter_vertical_frames(
     source: str,
     duration: float,
 ):
-    bg = _clean_background(title)
-    canvas = prepare_vertical_canvas(bg)
+    bg, credit = _clean_background(title, image_buf)
+    canvas = prepare_vertical_canvas(bg, title, credit)
 
     total_frames = max(int(FPS * duration), 1)
     for i in range(total_frames):
@@ -661,15 +787,19 @@ def iter_frames(
     source: str,
     duration: float,
 ):
-    bg = _clean_background(title)
-    pad_x = max(2, int(VIDEO_WIDTH * config.VIDEO_SWAY_X / 100))
-    pad_y = max(2, int(VIDEO_HEIGHT * config.VIDEO_SWAY_Y / 100))
-    graded = _grade(_cover(bg, VIDEO_WIDTH, VIDEO_HEIGHT), 80, 200)
+    bg, credit = _clean_background(title, image_buf)
+    variant = _variant_for(title)
+    w, h = VIDEO_WIDTH, VIDEO_HEIGHT
+    pad_x = max(2, int(w * config.VIDEO_SWAY_X / 100))
+    pad_y = max(2, int(h * config.VIDEO_SWAY_Y / 100))
+    graded = _grade(_cover(bg, w, h), 80, variant["shade"])
     canvas = (
         _build_levels(graded, config.VIDEO_ZOOM, VERTICAL_ZOOM_STEPS, pad_x, pad_y),
         pad_x,
         pad_y,
-        Overlay(VIDEO_WIDTH, VIDEO_HEIGHT, config.VIDEO_BOKEH),
+        Overlay(w, h, variant["bokeh"], sweep=variant["sweep"]),
+        variant,
+        credit,
     )
 
     total_frames = max(int(FPS * duration), 1)
