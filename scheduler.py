@@ -53,11 +53,21 @@ async def run_once(bot: Bot, storage: Storage) -> dict:
         return {"collected": 0, "new": 0, "posted": 0}
 
     new_articles: list[Article] = []
+    skipped_dupe = 0
     for art in all_articles:
-        if not storage.is_posted(art.url):
-            new_articles.append(art)
+        if storage.is_posted(art.url):
+            continue
+        # Same story republished under a different headline.
+        if storage.is_duplicate_title(art.title):
+            skipped_dupe += 1
+            logger.info("Skipped as already covered: %s", art.title[:70])
+            storage.mark_posted(art.url, art.title)
+            continue
+        new_articles.append(art)
 
     logger.info("New articles: %d out of %d", len(new_articles), len(all_articles))
+    if skipped_dupe:
+        logger.info("Skipped %d already-covered stories", skipped_dupe)
 
     if not new_articles:
         logger.info("No new articles to post")
@@ -89,6 +99,10 @@ async def run_once(bot: Bot, storage: Storage) -> dict:
     failed = 0
     for i, article in enumerate(selected):
         try:
+            if i > 0 and storage.is_duplicate_title(selected[i - 1].title):
+                logger.info("Skipped, same story as the previous post: %s", article.title[:60])
+                continue
+
             if article.lang == "en":
                 title_ru, desc_ru = translate_article(article.title, article.description)
                 article.title = title_ru

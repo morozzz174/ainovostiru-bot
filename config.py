@@ -262,6 +262,45 @@ NEWS_SOURCES_BEAUTY = {
         "url": "https://tass.ru/rss/v2.xml?category=science",
         "lang": "ru",
     },
+    "gazeta_science_beauty": {
+        "name": "Газета Наука",
+        "url": "https://www.gazeta.ru/export/rss/science.xml",
+        "lang": "ru",
+    },
+
+    # Питание и образ жизни - основной вклад в долголетие (80% попадание)
+    "sciencedaily_nutrition": {
+        "name": "ScienceDaily Nutrition",
+        "url": "https://www.sciencedaily.com/rss/health_medicine/nutrition.xml",
+        "lang": "en",
+    },
+    "sciencedaily_health": {
+        "name": "ScienceDaily Health",
+        "url": "https://www.sciencedaily.com/rss/health_medicine.xml",
+        "lang": "en",
+    },
+    # Дерматология и эстетическая медицина
+    "plos_one": {
+        "name": "PLOS ONE",
+        "url": "https://journals.plos.org/plosone/feed/atom",
+        "lang": "en",
+    },
+    # Здоровье и долголетие
+    "guardian_health": {
+        "name": "The Guardian Health",
+        "url": "https://www.theguardian.com/society/health/rss",
+        "lang": "en",
+    },
+    "science_news": {
+        "name": "Science Magazine",
+        "url": "https://www.science.org/rss/news_current.xml",
+        "lang": "en",
+    },
+    "lemonde_sante": {
+        "name": "Le Monde Santé",
+        "url": "https://www.lemonde.fr/sante/rss_full.xml",
+        "lang": "fr",
+    },
 }
 
 THEMES = {
