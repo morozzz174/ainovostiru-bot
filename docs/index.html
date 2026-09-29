@@ -36,7 +36,7 @@ footer { margin-top: 40px; color: #6e6e73; font-size: 14px; }
 <p>The bot uses the official <b>Content Posting API</b> with the <code>video.publish</code> scope.</p>
 <div class="box">
 <ul>
-<li>Authorization: <b>Login Kit</b> OAuth authorization page, scope <code>video.publish</code>.</li>
+<li>Authorization: OAuth authorization page requesting the single scope <code>video.publish</code>.</li>
 <li>Publishing: <b>Direct Post</b> endpoint with <code>push_by_file</code> source and chunked upload.</li>
 <li>Status: the bot polls the publish status endpoint until <code>PUBLISH_COMPLETE</code>.</li>
 <li>Tokens: the 24 hour access token is renewed once per run with the <code>refresh_token</code> grant.</li>
