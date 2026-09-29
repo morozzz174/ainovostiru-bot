@@ -32,6 +32,12 @@ def clean_text(text: str) -> str:
 
 
 def build_speech_text(title: str, description: str = "", max_chars: int = 0) -> str:
+    """Title plus as much of the summary as fits in the character budget.
+
+    Taking only the first sentence capped every clip at the minimum length, so
+    the whole budget is filled sentence by sentence instead: a short summary
+    yields a short clip and a long one stretches the video.
+    """
     limit = max_chars or config.VOICE_MAX_CHARS
     title = clean_text(title)
     if not title:
@@ -41,19 +47,28 @@ def build_speech_text(title: str, description: str = "", max_chars: int = 0) -> 
     if not desc:
         return title[:limit]
 
-    parts = [p for p in _SENTENCE_SPLIT.split(desc) if p]
-    first = parts[0] if parts else ""
-    room = limit - len(title) - 1
-    if len(first) > room:
-        first = first[:max(20, room)]
-        if " " in first:
-            first = first[: first.rfind(" ")]
-        first = first.rstrip(" ,;:-—…")
-    if len(first) < 20:
+    head = title if title[-1] in ".!?…" else title + "."
+    budget = limit - len(head) - 1
+    if budget < 20:
         return title[:limit]
 
-    title = title if title[-1] in ".!?…" else title + "."
-    return (title + " " + first)[:limit]
+    picked = ""
+    for sentence in (part for part in _SENTENCE_SPLIT.split(desc) if part):
+        candidate = f"{picked} {sentence}".strip() if picked else sentence
+        if len(candidate) <= budget:
+            picked = candidate
+            continue
+        if not picked:
+            cut = candidate[:budget]
+            if " " in cut:
+                cut = cut[: cut.rfind(" ")]
+            picked = cut.rstrip(" ,;:-—…")
+        break
+
+    if len(picked) < 20:
+        return title[:limit]
+
+    return (head + " " + picked)[:limit]
 
 
 async def _synthesize(text: str, voice: str) -> bytes:
