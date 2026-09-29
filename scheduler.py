@@ -44,6 +44,29 @@ def _post_to_tiktok(article: Article, text: str, image_buf):
         logger.error("TikTok: error: %s", e)
 
 
+def _draw_candidates(new_articles: list[Article], count: int) -> list[Article]:
+    """Round-robin across sources so a single busy feed cannot fill the run."""
+    by_source = defaultdict(list)
+    for art in new_articles:
+        by_source[art.source].append(art)
+
+    sources = list(by_source.keys())
+    random.shuffle(sources)
+    for bucket in by_source.values():
+        random.shuffle(bucket)
+
+    picked: list[Article] = []
+    while len(picked) < count and sources:
+        for source in list(sources):
+            if by_source[source]:
+                picked.append(by_source[source].pop(0))
+                if len(picked) >= count:
+                    break
+            if not by_source[source]:
+                sources.remove(source)
+    return picked
+
+
 async def run_once(bot: Bot, storage: Storage) -> dict:
     logger.info("=== Starting news collection ===")
 
@@ -73,34 +96,22 @@ async def run_once(bot: Bot, storage: Storage) -> dict:
         logger.info("No new articles to post")
         return {"collected": len(all_articles), "new": 0, "posted": 0}
 
-    random.shuffle(new_articles)
-
-    by_source = defaultdict(list)
-    for art in new_articles:
-        by_source[art.source].append(art)
-
-    sources = list(by_source.keys())
-    random.shuffle(sources)
-
-    selected = []
-    used_sources = set()
-    while len(selected) < config.MAX_POSTS_PER_RUN and sources:
-        next_sources = [s for s in sources if s not in used_sources] or sources
-        src = random.choice(next_sources)
-        if by_source[src]:
-            selected.append(by_source[src].pop(0))
-            used_sources.add(src)
-        if not by_source[src]:
-            sources.remove(src)
-        if len(used_sources) >= len(sources):
-            used_sources.clear()
+    # Draw a wider pool than MAX_POSTS_PER_RUN. The duplicate-story filter is
+    # worth keeping, but stopping at the first rejected article was costing a
+    # post on nearly every run, so the loop now keeps drawing until the quota
+    # is filled or the pool runs out.
+    pool = _draw_candidates(new_articles, config.MAX_POSTS_PER_RUN * 5)
 
     posted = 0
     failed = 0
-    for i, article in enumerate(selected):
+    skipped_story = 0
+    for article in pool:
+        if posted >= config.MAX_POSTS_PER_RUN:
+            break
         try:
-            if i > 0 and storage.is_duplicate_title(selected[i - 1].title):
-                logger.info("Skipped, same story as the previous post: %s", article.title[:60])
+            if storage.is_duplicate_title(article.title):
+                skipped_story += 1
+                logger.info("Skipped, same story as an earlier post: %s", article.title[:60])
                 continue
 
             if article.lang == "en":
@@ -120,13 +131,15 @@ async def run_once(bot: Bot, storage: Storage) -> dict:
             _post_to_instagram(text, image_buf)
             _post_to_tiktok(article, text, image_buf)
 
-            if i < len(selected) - 1:
+            if posted < config.MAX_POSTS_PER_RUN:
                 await asyncio.sleep(config.POST_DELAY_SECONDS)
         except Exception as e:
             failed += 1
             logger.error("Error posting article %s: %s", article.url, e)
 
-    logger.info("=== Collection finished: posted %d/%d, failed %d ===", posted, len(selected), failed)
+    if skipped_story:
+        logger.info("Skipped %d stories already covered", skipped_story)
+    logger.info("=== Collection finished: posted %d/%d, failed %d ===", posted, config.MAX_POSTS_PER_RUN, failed)
     return {"collected": len(all_articles), "new": len(new_articles), "posted": posted, "failed": failed}
 
 

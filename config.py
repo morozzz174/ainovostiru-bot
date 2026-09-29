@@ -165,8 +165,8 @@ NEWS_SOURCES_FACTS = {
         "lang": "ru",
     },
     "newscientist": {
-        "name": "New Scientist",
-        "url": "https://www.newscientist.com/feed/home",
+        "name": "Phys.org",
+        "url": "https://phys.org/rss-feed/",
         "lang": "en",
     },
     "sciencedaily": {
@@ -302,14 +302,24 @@ NEWS_SOURCES_BEAUTY = {
         "lang": "en",
     },
     "science_news": {
-        "name": "Science Magazine",
-        "url": "https://www.science.org/rss/news_current.xml",
+        "name": "Phys.org",
+        "url": "https://phys.org/rss-feed/",
         "lang": "en",
     },
     "lemonde_sante": {
         "name": "Le Monde Santé",
         "url": "https://www.lemonde.fr/sante/rss_full.xml",
         "lang": "fr",
+    },
+    "premium_beauty": {
+        "name": "Premium Beauty News",
+        "url": "https://www.premiumbeautynews.com/spip.php?page=backend&lang=en",
+        "lang": "en",
+    },
+    "glossy": {
+        "name": "Glossy",
+        "url": "https://www.glossy.co/feed/",
+        "lang": "en",
     },
 }
 

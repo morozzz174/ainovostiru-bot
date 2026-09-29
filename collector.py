@@ -1,5 +1,6 @@
 import logging
 import re
+import time
 from html import unescape
 
 import feedparser
@@ -73,12 +74,40 @@ def _is_relevant(title: str, description: str) -> bool:
     return False
 
 
+def _fetch_feed(url: str, attempts: int = 3) -> bytes | None:
+    """Fetch a feed, retrying the rate limits and blocks publishers hand out.
+
+    VentureBeat answered 429 and science.org 403 on the GitHub runners, so a
+    single request was not enough: back off, drop a browser Accept header in
+    and try again. Connection timeouts are not retried, an unreachable host
+    stays unreachable and the retry would only triple the wait.
+    """
+    headers = {
+        "User-Agent": USER_AGENT,
+        "Accept": "application/rss+xml, application/atom+xml, application/xml;q=0.9, */*;q=0.8",
+    }
+    for attempt in range(attempts):
+        try:
+            resp = SESSION.get(url, timeout=20, headers=headers)
+        except requests.RequestException:
+            raise
+        if resp.status_code == 200:
+            return resp.content
+        if resp.status_code in (429, 403, 503) and attempt + 1 < attempts:
+            logger.info("Feed %s answered %s, retry %d", url[:60], resp.status_code, attempt + 1)
+            time.sleep(2.0 * (attempt + 1))
+            continue
+        resp.raise_for_status()
+    return None
+
+
 def _parse_rss(source_key: str, source_cfg: dict) -> list[Article]:
     articles = []
     try:
-        resp = SESSION.get(source_cfg["url"], timeout=20)
-        resp.raise_for_status()
-        feed = feedparser.parse(resp.content)
+        content = _fetch_feed(source_cfg["url"])
+        if not content:
+            return articles
+        feed = feedparser.parse(content)
         for entry in feed.entries[:12]:
             title = entry.get("title", "")
             link = entry.get("link", "")
