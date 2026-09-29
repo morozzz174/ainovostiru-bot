@@ -1,3 +1,5 @@
+import base64
+import hashlib
 import logging
 import os
 import re
@@ -6,7 +8,7 @@ import subprocess
 import sys
 import tempfile
 import webbrowser
-from urllib.parse import parse_qs, urlparse
+from urllib.parse import parse_qs, urlencode, urlparse
 
 import requests
 
@@ -52,14 +54,31 @@ def update_env_file(values: dict, path: str = "") -> None:
     print(f"Записано в {path}: {', '.join(values)}")
 
 
-def build_authorize_url(client_key: str, redirect_uri: str, state: str) -> str:
-    return (
-        f"{AUTHORIZE_URL}?client_key={client_key}"
-        f"&response_type=code"
-        f"&scope={SCOPE}"
-        f"&redirect_uri={redirect_uri}"
-        f"&state={state}"
-    )
+def make_code_verifier() -> str:
+    """Random PKCE verifier, 43-128 chars from the unreserved set."""
+    return secrets.token_urlsafe(64)[:128]
+
+
+def make_code_challenge(verifier: str) -> str:
+    """S256 challenge: base64url(sha256(verifier)) without padding."""
+    digest = hashlib.sha256(verifier.encode("ascii")).digest()
+    return base64.urlsafe_b64encode(digest).decode("ascii").rstrip("=")
+
+
+def build_authorize_url(client_key: str, redirect_uri: str, state: str,
+                        code_challenge: str = "") -> str:
+    """Authorization URL. TikTok rejects the request without code_challenge."""
+    query = {
+        "client_key": client_key,
+        "response_type": "code",
+        "scope": SCOPE,
+        "redirect_uri": redirect_uri,
+        "state": state,
+    }
+    if code_challenge:
+        query["code_challenge"] = code_challenge
+        query["code_challenge_method"] = "S256"
+    return f"{AUTHORIZE_URL}?{urlencode(query)}"
 
 
 def extract_code(raw: str, expected_state: str) -> str:
@@ -89,16 +108,20 @@ def extract_code(raw: str, expected_state: str) -> str:
     return query["code"][0]
 
 
-def exchange_code(code: str, client_key: str, client_secret: str, redirect_uri: str) -> dict:
+def exchange_code(code: str, client_key: str, client_secret: str, redirect_uri: str,
+                  code_verifier: str = "") -> dict:
+    payload = {
+        "client_key": client_key,
+        "client_secret": client_secret,
+        "code": code,
+        "grant_type": "authorization_code",
+        "redirect_uri": redirect_uri,
+    }
+    if code_verifier:
+        payload["code_verifier"] = code_verifier
     resp = requests.post(
         TOKEN_URL,
-        data={
-            "client_key": client_key,
-            "client_secret": client_secret,
-            "code": code,
-            "grant_type": "authorization_code",
-            "redirect_uri": redirect_uri,
-        },
+        data=payload,
         headers={"Content-Type": "application/x-www-form-urlencoded", "Cache-Control": "no-cache"},
         timeout=30,
     )
@@ -121,10 +144,12 @@ def main() -> int:
         return 1
 
     state = secrets.token_urlsafe(24)
+    code_verifier = make_code_verifier()
+    code_challenge = make_code_challenge(code_verifier)
     with open(STATE_FILE, "w", encoding="utf-8") as f:
         f.write(state)
 
-    url = build_authorize_url(client_key, redirect_uri, state)
+    url = build_authorize_url(client_key, redirect_uri, state, code_challenge)
     print("Открываю страницу авторизации...")
     print(url)
     print()
@@ -147,7 +172,7 @@ def main() -> int:
     code = extract_code(raw, state)
     print("Код получен, обмениваю на токены...")
 
-    data = exchange_code(code, client_key, client_secret, redirect_uri)
+    data = exchange_code(code, client_key, client_secret, redirect_uri, code_verifier)
     print(f"scope: {data.get('scope')}")
     print(f"access_token: {len(data.get('access_token', ''))} симв., живёт {data.get('expires_in')} c")
     print(f"refresh_token: живёт {data.get('refresh_expires_in')} c")
