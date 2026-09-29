@@ -58,6 +58,8 @@ TT_STATUS_INTERVAL = int(os.getenv("TT_STATUS_INTERVAL", "6"))
 TT_DISABLE_DUET = os.getenv("TT_DISABLE_DUET", "true").lower() == "true"
 TT_DISABLE_COMMENT = os.getenv("TT_DISABLE_COMMENT", "false").lower() == "true"
 TT_DISABLE_STITCH = os.getenv("TT_DISABLE_STITCH", "true").lower() == "true"
+
+DZEN_ENABLED = os.getenv("DZEN_ENABLED", "false").lower() == "true"
 USE_THEMED_IMAGES = os.getenv("USE_THEMED_IMAGES", "true").lower() == "true"
 # Ориентация искомых фото: portrait (9:16, для видео) или landscape (для постов)
 IMAGE_ORIENTATION = os.getenv("IMAGE_ORIENTATION", "portrait")

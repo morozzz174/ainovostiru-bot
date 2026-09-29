@@ -15,6 +15,8 @@ jobs:
   post-news:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v7
 
@@ -45,6 +47,30 @@ jobs:
           BRAND_NAME: FACTUM.RU
           DATABASE_PATH: bot_facts.db
         run: python main.py --once --strict
+
+      - name: Build Dzen RSS feed
+        if: always()
+        env:
+          DZEN_ENABLED: ${{ vars.DZEN_ENABLED }}
+        run: |
+          if [ "$DZEN_ENABLED" = "true" ]; then
+            python dzen_feed.py flush
+          else
+            echo "DZEN_ENABLED is not true, skipping the feed"
+          fi
+
+      - name: Commit Dzen feed
+        if: always()
+        run: |
+          git config user.name "ainovostiru-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add docs .dzen_pending.json
+          if git diff --staged --quiet; then
+            echo "feed unchanged"
+          else
+            git commit -m "dzen: update RSS feed"
+            git push
+          fi
 
       - name: Save posted articles DB
         if: always()

@@ -6,4 +6,5 @@ __pycache__/
 *.db
 instagram_session.pkl
 logs/
+.dzen_pending.json
 nul

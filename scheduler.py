@@ -67,6 +67,17 @@ def _draw_candidates(new_articles: list[Article], count: int) -> list[Article]:
     return picked
 
 
+def _queue_to_dzen(article: Article, image_buf) -> None:
+    if not config.DZEN_ENABLED:
+        return
+    try:
+        from dzen_feed import add_article
+
+        add_article(article, image_buf)
+    except Exception as e:
+        logger.error("Dzen: queue failed: %s", e)
+
+
 async def run_once(bot: Bot, storage: Storage) -> dict:
     logger.info("=== Starting news collection ===")
 
@@ -130,6 +141,7 @@ async def run_once(bot: Bot, storage: Storage) -> dict:
                 logger.error("Post NOT delivered: %s", article.url)
             _post_to_instagram(text, image_buf)
             _post_to_tiktok(article, text, image_buf)
+            _queue_to_dzen(article, image_buf)
 
             if posted < config.MAX_POSTS_PER_RUN:
                 await asyncio.sleep(config.POST_DELAY_SECONDS)
