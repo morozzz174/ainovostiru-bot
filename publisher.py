@@ -64,6 +64,22 @@ def _draw_hex_grid(draw: ImageDraw):
             draw.ellipse([x - 1, y - 1, x + 1, y + 1], fill=(255, 255, 255, 20))
 
 
+def generate_image_background() -> io.BytesIO:
+    """Gradient + hex grid with no text on it.
+
+    The video renderer draws the title itself, animated. Feeding it a poster
+    that already contains the title produced two overlapping copies.
+    """
+    img = Image.new("RGB", (CANVAS_W, CANVAS_H), COLOR_BG_TOP)
+    draw = ImageDraw.Draw(img)
+    _draw_gradient(draw)
+    _draw_hex_grid(draw)
+    buf = io.BytesIO()
+    img.save(buf, format="PNG")
+    buf.seek(0)
+    return buf
+
+
 def generate_image(title: str, source: str) -> io.BytesIO:
     img = Image.new("RGB", (CANVAS_W, CANVAS_H), COLOR_BG_TOP)
     draw = ImageDraw.Draw(img)

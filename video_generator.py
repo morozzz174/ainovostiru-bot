@@ -303,16 +303,22 @@ def make_vertical_frame(
             y += line_h + gap
             continue
         line_w = font_title.getbbox(line)[2]
-        draw.text(((w - line_w) // 2, y), visible, font=font_title, fill=(255, 255, 255, 235))
+        tx = (w - line_w) // 2
+        # Dark shadow keeps the headline readable over a light photo
+        # background, where white-on-white would disappear.
+        draw.text((tx + 3, y + 3), visible, font=font_title, fill=(0, 0, 0, 170))
+        draw.text((tx, y), visible, font=font_title, fill=(255, 255, 255, 245))
         y += line_h + gap
 
     brand = config.BRAND_NAME or "NEWS"
     if progress > 0.15:
         alpha = int(200 * min(1.0, (progress - 0.15) / 0.25))
+        draw.text((63, 93), brand, font=font_brand, fill=(0, 0, 0, 140))
         draw.text((60, 90), brand, font=font_brand, fill=(200, 200, 225, alpha))
 
     if progress > 0.55:
         alpha = int(190 * min(1.0, (progress - 0.55) / 0.25))
+        draw.text((63, h - 147), f"Источник: {source}", font=font_small, fill=(0, 0, 0, 140))
         draw.text((60, h - 150), f"Источник: {source}", font=font_small, fill=(180, 205, 255, alpha))
 
     bar_top = h - 46
@@ -322,14 +328,25 @@ def make_vertical_frame(
     return canvas
 
 
+def _clean_background() -> Image.Image:
+    """Text-free backdrop for the animated title.
+
+    The poster image already carries the headline, so reusing it underneath
+    the animated text produced two overlapping copies of the same words.
+    Imported lazily: publisher imports this module at load time.
+    """
+    from publisher import generate_image_background
+
+    return Image.open(generate_image_background()).convert("RGB")
+
+
 def iter_vertical_frames(
     image_buf: io.BytesIO,
     title: str,
     source: str,
     duration: float,
 ):
-    image_buf.seek(0)
-    bg = Image.open(image_buf).convert("RGB")
+    bg = _clean_background()
     canvas = prepare_vertical_canvas(bg)
 
     total_frames = max(int(FPS * duration), 1)
@@ -493,8 +510,7 @@ def iter_frames(
     source: str,
     duration: float,
 ):
-    image_buf.seek(0)
-    bg = Image.open(image_buf).convert("RGB")
+    bg = _clean_background()
 
     total_frames = max(int(FPS * duration), 1)
     for i in range(total_frames):
