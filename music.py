@@ -94,12 +94,52 @@ STYLES = {
         "drums": True,
         "bright": (1.0, 0.24, 0.38),
     },
+    "pulse": {
+        "root": 174.61,
+        "chords": ((0, 7, 10), (-2, 5, 8), (-4, 3, 7), (-5, 2, 5)),
+        "bpm": 104,
+        "pad": 0.16,
+        "arp": 0.26,
+        "pluck_decay": 9.0,
+        "drums": True,
+        "bright": (1.0, 0.62, 0.34),
+    },
+    "trailer": {
+        "root": 130.81,
+        "chords": ((0, 7, 12), (-5, 0, 7), (-3, 4, 11), (-7, 0, 5)),
+        "bpm": 88,
+        "pad": 0.46,
+        "arp": 0.30,
+        "pluck_decay": 3.4,
+        "drums": True,
+        "bright": (1.0, 0.70, 0.42),
+    },
+    "documentary": {
+        "root": 164.81,
+        "chords": ((0, 5, 10), (0, 7, 12), (-4, 3, 7), (2, 5, 9)),
+        "bpm": 82,
+        "pad": 0.38,
+        "arp": 0.18,
+        "pluck_decay": 4.6,
+        "drums": True,
+        "bright": (1.0, 0.34, 0.22),
+    },
+    "spark": {
+        "root": 329.63,
+        "chords": ((0, 4, 9), (2, 7, 11), (4, 9, 14), (7, 12, 16)),
+        "bpm": 122,
+        "pad": 0.14,
+        "arp": 0.34,
+        "pluck_decay": 10.0,
+        "drums": True,
+        "bright": (1.0, 0.58, 0.48),
+    },
 }
 
 THEME_STYLES = {
-    "ai": ("upbeat", "calm", "epic", "mystery"),
-    "facts": ("calm", "mystery", "epic"),
-    "beauty": ("tender", "ambient", "inspiring", "calm", "lofi", "mystery"),
+    "ai": ("upbeat", "pulse", "calm", "epic", "spark", "mystery", "documentary"),
+    "facts": ("calm", "mystery", "documentary", "ambient", "epic", "trailer"),
+    "beauty": ("tender", "ambient", "inspiring", "lofi", "calm", "mystery", "spark"),
 }
 
 
@@ -169,6 +209,39 @@ def _echo(signal: np.ndarray, taps) -> np.ndarray:
     return out
 
 
+def _bass(freq: float, dur: float, amp: float) -> np.ndarray:
+    n = max(1, int(dur * SAMPLE_RATE))
+    tone = _sine(freq, n) + 0.22 * _sine(freq * 2.0, n)
+    return tone * _adsr(n, 0.012, dur * 0.3, 0.62, dur * 0.35) * amp
+
+
+def _riser(rng: np.random.Generator, dur: float = 1.5, amp: float = 0.16) -> np.ndarray:
+    n = max(1, int(dur * SAMPLE_RATE))
+    noise = rng.standard_normal(n).astype(np.float32)
+    for _ in range(4):
+        noise = np.diff(noise, prepend=np.float32(0.0))
+    env = (np.linspace(0.0, 1.0, n, dtype=np.float32) ** 2.4) * np.exp(-np.linspace(0, 1, n) * 0.6)
+    return (noise * env * amp).astype(np.float32)
+
+
+def _impulse_response(rng: np.random.Generator, seconds: float = 1.2, decay: float = 3.4) -> np.ndarray:
+    n = max(16, int(seconds * SAMPLE_RATE))
+    t = np.arange(n, dtype=np.float32) / SAMPLE_RATE
+    ir = (rng.standard_normal(n).astype(np.float32) * np.exp(-decay * t))
+    ir[0] = 0.0
+    pre = max(4, int(0.006 * SAMPLE_RATE))
+    ir[:pre] *= np.linspace(0.0, 1.0, pre, dtype=np.float32)
+    return ir
+
+
+def _convolve(signal: np.ndarray, ir: np.ndarray) -> np.ndarray:
+    if not len(signal) or ir is None or not len(ir):
+        return signal
+    size = 1 << (len(signal) + len(ir) - 1).bit_length()
+    spectrum = np.fft.rfft(signal, size) * np.fft.rfft(ir, size)
+    return np.fft.irfft(spectrum, size)[: len(signal)].astype(np.float32)
+
+
 ARP_PATTERNS = (
     (0, 1, 2, 1, 2, 0, 1, 2),
     (0, 2, 1, 2, 0, 2, 1, 2),
@@ -202,13 +275,28 @@ def synthesize(duration: float, style: str, seed: int) -> np.ndarray:
     chords = cfg["chords"]
     bright = cfg["bright"]
 
-    def mix(mono: np.ndarray, start: int, pan: float, spread: float = 0.0) -> None:
+    wet_left = np.zeros(total, dtype=np.float32)
+    wet_right = np.zeros(total, dtype=np.float32)
+    kick_times: list[int] = []
+
+    def mix(
+        mono: np.ndarray,
+        start: int,
+        pan: float,
+        spread: float = 0.0,
+        send: float = 0.0,
+    ) -> None:
         if start >= total or not len(mono):
             return
         end = min(total, start + len(mono))
         part = mono[: end - start]
-        left[start:end] += part * (1.0 - pan * 0.5)
-        right[start:end] += part * (1.0 + pan * 0.5)
+        left_gain = 1.0 - pan * 0.5
+        right_gain = 1.0 + pan * 0.5
+        left[start:end] += part * left_gain
+        right[start:end] += part * right_gain
+        if send > 0.0:
+            wet_left[start:end] += part * left_gain * send
+            wet_right[start:end] += part * right_gain * send
         if spread > 0.0 and part.any():
             d = int(spread * SAMPLE_RATE)
             tap = start + d
@@ -234,7 +322,21 @@ def synthesize(duration: float, style: str, seed: int) -> np.ndarray:
             if j == 2:
                 pan *= 0.35
                 spread = 0.0
-            mix(seg, start, pan, spread)
+            mix(seg, start, pan, spread, send=0.85)
+
+    with_bass = bool(rng.random() > 0.2)
+    if with_bass:
+        bass_amp = float(rng.uniform(0.10, 0.2))
+        for i in range(n_bars):
+            start = int(i * bar * SAMPLE_RATE)
+            if start >= total:
+                break
+            chord = chords[i % len(chords)]
+            for offset_beat, length in ((0.0, beat * 1.6), (beat * 2.0, beat * 1.1)):
+                at = int((start + offset_beat * SAMPLE_RATE))
+                if at >= total:
+                    break
+                mix(_bass(root * 0.5 * (2.0 ** (chord[0] / 12.0)), length, bass_amp), at, 0.0, send=0.12)
 
     if with_arp:
         step = beat / 2.0
@@ -246,7 +348,7 @@ def synthesize(duration: float, style: str, seed: int) -> np.ndarray:
             semis = chord[pattern[k % len(pattern)]]
             freq = root * (2.0 ** (semis / 12.0)) * (1.0 + rng.uniform(-0.004, 0.004))
             seg = _pluck(freq, min(step * 1.6, duration), arp_gain, cfg["pluck_decay"])
-            mix(seg, start, 0.3 if k % 2 == 0 else -0.3)
+            mix(seg, start, 0.3 if k % 2 == 0 else -0.3, send=0.4)
 
     if with_drums:
         for b in range(int(duration / beat)):
@@ -255,6 +357,7 @@ def synthesize(duration: float, style: str, seed: int) -> np.ndarray:
                 break
             if b % 4 in (0, 2):
                 mix(_kick(), start, 0.0)
+                kick_times.append(start)
             if b % 4 in (1, 3):
                 mix(_snare(rng), start, -0.12)
         eighth = beat / 2.0
@@ -263,6 +366,32 @@ def synthesize(duration: float, style: str, seed: int) -> np.ndarray:
             if start >= total:
                 break
             mix(_hat(rng, amp=0.10 if h % 2 else 0.06), start, 0.4 if h % 2 == 0 else -0.4)
+
+    if bool(rng.random() > 0.4) and total > int(3.0 * SAMPLE_RATE):
+        rise = _riser(rng, dur=1.4, amp=0.14)
+        mix(rise, 0, 0.0)
+        stab_at = int(1.4 * SAMPLE_RATE)
+        for semis in chords[0]:
+            note = _pluck(root * (2.0 ** (semis / 12.0)), 0.9, 0.16, 6.0)
+            mix(note, stab_at, rng.uniform(-0.4, 0.4), send=0.5)
+
+    if kick_times and len(wet_left) > 0:
+        duck = np.ones(total, dtype=np.float32)
+        span = int(0.26 * SAMPLE_RATE)
+        for at in kick_times:
+            end = min(total, at + span)
+            if end <= at:
+                continue
+            shape = np.exp(-np.arange(end - at, dtype=np.float32) / SAMPLE_RATE * 16.0)
+            duck[at:end] *= 0.62 + 0.38 * shape
+        wet_left *= duck
+        wet_right *= duck
+
+    wet_ir = _impulse_response(rng, seconds=float(rng.uniform(0.9, 1.6)), decay=float(rng.uniform(2.8, 4.2)))
+    if np.abs(wet_left).max() > 0 or np.abs(wet_right).max() > 0:
+        wet_gain = float(rng.uniform(0.24, 0.4))
+        left += _convolve(wet_left, wet_ir) * wet_gain
+        right += _convolve(wet_right, wet_ir) * wet_gain
 
     haas = int(0.018 * SAMPLE_RATE)
     if 0 < haas < total:
