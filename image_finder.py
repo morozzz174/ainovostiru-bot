@@ -48,7 +48,7 @@ def _search_pexels(query: str) -> str | None:
         resp = requests.get(
             PEXELS_API,
             headers={"Authorization": config.PEXELS_API_KEY},
-            params={"query": query, "per_page": 5, "orientation": "landscape"},
+            params={"query": query, "per_page": 5, "orientation": config.IMAGE_ORIENTATION},
             timeout=10,
         )
         resp.raise_for_status()
@@ -68,7 +68,7 @@ def _search_unsplash(query: str) -> str | None:
         resp = requests.get(
             UNSPLASH_API,
             headers={"Authorization": f"Client-ID {config.UNSPLASH_ACCESS_KEY}"},
-            params={"query": query, "per_page": 5, "orientation": "landscape"},
+            params={"query": query, "per_page": 5, "orientation": config.IMAGE_ORIENTATION},
             timeout=10,
         )
         resp.raise_for_status()

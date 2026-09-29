@@ -49,6 +49,8 @@ TT_DISABLE_DUET = os.getenv("TT_DISABLE_DUET", "true").lower() == "true"
 TT_DISABLE_COMMENT = os.getenv("TT_DISABLE_COMMENT", "false").lower() == "true"
 TT_DISABLE_STITCH = os.getenv("TT_DISABLE_STITCH", "true").lower() == "true"
 USE_THEMED_IMAGES = os.getenv("USE_THEMED_IMAGES", "true").lower() == "true"
+# Ориентация искомых фото: portrait (9:16, для видео) или landscape (для постов)
+IMAGE_ORIENTATION = os.getenv("IMAGE_ORIENTATION", "portrait")
 PEXELS_API_KEY = os.getenv("PEXELS_API_KEY", "")
 UNSPLASH_ACCESS_KEY = os.getenv("UNSPLASH_ACCESS_KEY", "")
 
