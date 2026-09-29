@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:media="http://search.yahoo.com/mrss/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>AINOVOSTI.RU</title>
+    <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
+    <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
+    <language>ru</language>
+    <generator>ainovostiru-bot</generator>
+    <lastBuildDate>Tue, 29 Sep 2026 17:30:26 +0000</lastBuildDate>
+    <image>
+      <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
+      <title>AINOVOSTI.RU</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
+    </image>
+
+  </channel>
+</rss>
