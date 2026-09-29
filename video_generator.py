@@ -11,7 +11,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 import config
 from music import SAMPLE_RATE, build_music_track
-from voice import synthesize_voice
+from voice import speech_duration, synthesize_voice
 
 logger = logging.getLogger(__name__)
 
@@ -321,20 +321,28 @@ def make_vertical_frame(
         draw.text((63, h - 147), f"Источник: {source}", font=font_small, fill=(0, 0, 0, 140))
         draw.text((60, h - 150), f"Источник: {source}", font=font_small, fill=(180, 205, 255, alpha))
 
-    bar_top = h - 46
-    draw.rectangle([60, bar_top, w - 60, bar_top + 8], fill=(255, 255, 255, 45))
-    draw.rectangle([60, bar_top, 60 + int((w - 120) * progress), bar_top + 8], fill=(110, 190, 255, 230))
-
     return canvas
 
 
-def _clean_background() -> Image.Image:
+def _clean_background(topic: str = "") -> Image.Image:
     """Text-free backdrop for the animated title.
 
     The poster image already carries the headline, so reusing it underneath
-    the animated text produced two overlapping copies of the same words.
-    Imported lazily: publisher imports this module at load time.
+    the animated text produced two overlapping copies of the same words. With
+    a topic and image search enabled, a real photo replaces the flat
+    gradient. Imported lazily: publisher imports this module at load time.
     """
+    if topic and config.USE_THEMED_IMAGES:
+        try:
+            from image_finder import find_image_for_topic
+
+            found = find_image_for_topic(topic)
+            if found:
+                found.seek(0)
+                return Image.open(found).convert("RGB")
+        except Exception as e:
+            logger.info("Themed background unavailable, using gradient: %s", e)
+
     from publisher import generate_image_background
 
     return Image.open(generate_image_background()).convert("RGB")
@@ -346,7 +354,7 @@ def iter_vertical_frames(
     source: str,
     duration: float,
 ):
-    bg = _clean_background()
+    bg = _clean_background(title)
     canvas = prepare_vertical_canvas(bg)
 
     total_frames = max(int(FPS * duration), 1)
@@ -364,9 +372,6 @@ def image_to_video_vertical(
     if not _ffmpeg_ready():
         return None
 
-    if duration <= 0:
-        duration = config.VIDEO_DURATION
-
     tmp_dir = tempfile.mkdtemp()
     tmp_video = tempfile.NamedTemporaryFile(delete=False, suffix=".mp4")
     err_log = os.path.join(tmp_dir, "ffmpeg.log")
@@ -374,13 +379,21 @@ def image_to_video_vertical(
     voice_path = None
 
     try:
+        speech = synthesize_voice(title, description)
+        if duration <= 0:
+            # Match the clip to the narration plus a short tail, instead of
+            # always running the full VIDEO_DURATION and trailing silence.
+            narration = speech_duration(speech) if speech else 0.0
+            duration = min(max(narration + 1.5, 6.0), config.VIDEO_DURATION)
+        else:
+            duration = config.VIDEO_DURATION
+
         audio = build_music_track(duration)
         if audio:
             music_path = os.path.join(tmp_dir, "music.wav")
             with open(music_path, "wb") as f:
                 f.write(audio)
 
-        speech = synthesize_voice(title, description)
         if speech:
             voice_path = os.path.join(tmp_dir, "voice.mp3")
             with open(voice_path, "wb") as f:
@@ -510,7 +523,7 @@ def iter_frames(
     source: str,
     duration: float,
 ):
-    bg = _clean_background()
+    bg = _clean_background(title)
 
     total_frames = max(int(FPS * duration), 1)
     for i in range(total_frames):
@@ -538,9 +551,6 @@ def image_to_video(
     if not _ffmpeg_ready():
         return None
 
-    if duration <= 0:
-        duration = config.VIDEO_DURATION
-
     tmp_dir = tempfile.mkdtemp()
     tmp_video = tempfile.NamedTemporaryFile(delete=False, suffix=".mp4")
     err_log = os.path.join(tmp_dir, "ffmpeg.log")
@@ -548,13 +558,21 @@ def image_to_video(
     voice_path = None
 
     try:
+        speech = synthesize_voice(title, description)
+        if duration <= 0:
+            # Match the clip to the narration plus a short tail, instead of
+            # always running the full VIDEO_DURATION and trailing silence.
+            narration = speech_duration(speech) if speech else 0.0
+            duration = min(max(narration + 1.5, 6.0), config.VIDEO_DURATION)
+        else:
+            duration = config.VIDEO_DURATION
+
         audio = build_music_track(duration)
         if audio:
             music_path = os.path.join(tmp_dir, "music.wav")
             with open(music_path, "wb") as f:
                 f.write(audio)
 
-        speech = synthesize_voice(title, description)
         if speech:
             voice_path = os.path.join(tmp_dir, "voice.mp3")
             with open(voice_path, "wb") as f:

@@ -95,3 +95,16 @@ def synthesize_voice(title: str, description: str = "") -> bytes | None:
 
     logger.warning("Voice: unavailable, video stays music-only")
     return None
+
+
+def speech_duration(audio: bytes) -> float:
+    """Length of the generated narration in seconds.
+
+    edge-tts returns 24 kHz mono MP3, so a constant bitrate lets us size the
+    clip from the payload without spawning ffprobe. Used to stop a short
+    voiceover from leaving a long silent tail in the video.
+    """
+    if not audio:
+        return 0.0
+    bitrate_kbps = 48
+    return (len(audio) * 8) / (bitrate_kbps * 1000)
