@@ -107,16 +107,28 @@ def refresh_access_token() -> bool:
 
 
 _TOKEN_READY = False
+_RETRY_AFTER = 0.0
+_RETRY_DELAY = 300.0
 
 
 def ensure_access_token() -> bool:
-    global _TOKEN_READY
+    """Return a usable access token, refreshing at most once per cooldown.
+
+    A dead refresh token fails on every call, so without the cooldown each
+    status poll hit TikTok again and filled the log with the same error.
+    """
+    global _TOKEN_READY, _RETRY_AFTER
     if _TOKEN_READY and config.TT_ACCESS_TOKEN:
         return True
     if config.TT_REFRESH_TOKEN and config.TT_CLIENT_KEY and config.TT_CLIENT_SECRET:
+        if time.monotonic() < _RETRY_AFTER:
+            return bool(config.TT_ACCESS_TOKEN)
         if refresh_access_token():
             _TOKEN_READY = True
+            _RETRY_AFTER = 0.0
             return True
+        _RETRY_AFTER = time.monotonic() + _RETRY_DELAY
+        return bool(config.TT_ACCESS_TOKEN)
     return bool(config.TT_ACCESS_TOKEN)
 
 
