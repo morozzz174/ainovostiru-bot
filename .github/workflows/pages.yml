@@ -29,9 +29,6 @@ jobs:
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
-        with:
-          # Enables GitHub Pages automatically, no manual change in Settings required.
-          enablement: true
 
       - name: Upload docs folder
         uses: actions/upload-pages-artifact@v4
