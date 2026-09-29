@@ -128,6 +128,11 @@ def index() -> HTMLResponse:
         return HTMLResponse(f.read())
 
 
+@app.get("/api/health")
+async def health() -> dict:
+    return {"ok": True}
+
+
 @app.post("/api/login")
 async def login(payload: dict) -> dict:
     if not WEB_PASSWORD:
