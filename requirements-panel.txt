@@ -1,0 +1,22 @@
+# Зависимости для веб-панели публикации в TikTok (Render).
+#
+# Отдельный файл намеренно: панели не нужен Instagram, а instagrapi тянет
+# pydantic-core, для которого на свежих версиях Python нет готовых wheels и
+# pip пытается собрать его из исходников через Rust, что падает на read-only
+# FS. Основной requirements.txt остаётся без изменений для CI-воркфлоу.
+
+python-telegram-bot[job-queue]==21.10
+feedparser==6.0.11
+requests==2.32.4
+numpy>=1.26,<3
+edge-tts>=7.2,<8
+
+beautifulsoup4==4.13.3
+lxml==5.3.1
+Pillow==11.1.0
+python-dotenv==1.1.0
+deep-translator==1.11.4
+
+fastapi==0.141.1
+uvicorn[standard]==0.54.0
+imageio-ffmpeg==0.6.0

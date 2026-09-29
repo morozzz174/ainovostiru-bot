@@ -3,7 +3,7 @@ services:
     name: morozmax-panel
     runtime: python
     plan: free
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install -r requirements-panel.txt
     startCommand: uvicorn webapp.app:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /api/health
     envVars:
