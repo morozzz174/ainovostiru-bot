@@ -9,7 +9,7 @@
     <description>Наука, история, космос и открытия — коротко и по делу.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Wed, 30 Sep 2026 10:40:50 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2026 18:06:51 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>FACTUM.RU</title>
@@ -74,6 +74,26 @@
       <description>Исследователи покрыли митохондрии инновационными материалами без ущерба для их функции, согласно исследованию IRCCS Fondazione Istituto Neurologico Carlo Besta (FINCB) и Politecnico di Milano. Исследование проводилось в рамках совместной лаборатории BraiNs, открытой в 2023 году.</description>
       <content:encoded><![CDATA[<p>Исследователи покрыли митохондрии инновационными материалами без ущерба для их функции, согласно исследованию IRCCS Fondazione Istituto Neurologico Carlo Besta (FINCB) и Politecnico di Milano.</p><p>Исследование проводилось в рамках совместной лаборатории BraiNs, открытой в 2023 году.</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/557a5d64c0e2.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Биология может быть не квантовой, но ее математика квантовоподобна</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/4d0a4f98c7ee.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/4d0a4f98c7ee.html</guid>
+      <pubDate>Wed, 30 Sep 2026 18:05:04 +0000</pubDate>
+      <category>Quanta Magazine</category>
+      <description>У ученых есть история попыток — и неудач — связать биологию и квантовую механику. Реальная связь между ними может быть в математике. Сообщение Biology Might Not Be Quantum, but Its Math Is Quantumlike впервые появилось в Quanta Magazine</description>
+      <content:encoded><![CDATA[<p>У ученых есть история попыток — и неудач — связать биологию и квантовую механику.</p><p>Реальная связь между ними может быть в математике.</p><p>Сообщение Biology Might Not Be Quantum, but Its Math Is Quantumlike впервые появилось в Quanta Magazine</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/4d0a4f98c7ee.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>NASA добавляет Blue Origin New Glenn 9×4 к контракту на оказание услуг по запуску</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/4e9513b879a1.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/4e9513b879a1.html</guid>
+      <pubDate>Wed, 30 Sep 2026 18:06:50 +0000</pubDate>
+      <category>NASA</category>
+      <description>В соответствии с пунктом контракта на рампе NASA добавило услугу запуска New Glenn 9×4 Blue Origin к контракту NASA Launch Services (NLS) II. Служба запуска New Glenn 9x4 будет доступна в офисе программы NASA Launch Services для использования в будущих миссиях. Контракты NLS II представляют собой…</description>
+      <content:encoded><![CDATA[<p>В соответствии с пунктом контракта на рампе NASA добавило услугу запуска New Glenn 9×4 Blue Origin к контракту NASA Launch Services (NLS) II.</p><p>Служба запуска New Glenn 9x4 будет доступна в офисе программы NASA Launch Services для использования в будущих миссиях.</p><p>Контракты NLS II представляют собой контракты с множественными вознаграждениями, бессрочной доставкой/бессрочным количеством с ...</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/4e9513b879a1.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
