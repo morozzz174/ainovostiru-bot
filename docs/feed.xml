@@ -9,7 +9,7 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Tue, 29 Sep 2026 19:12:28 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2026 11:00:09 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
@@ -54,6 +54,26 @@
       <description>ИИ помогает быстрее писать тексты, собирать презентации и готовить рекламу. Но между скоростью производства и решением клиента купить продукт остаётся немало работы. В отчете McKinsey Technology Trends Outlook 2026 это рассматривается на уровне бизнеса. Для маркетинга и PR из него следуют три…</description>
       <content:encoded><![CDATA[<p>ИИ помогает быстрее писать тексты, собирать презентации и готовить рекламу.</p><p>Но между скоростью производства и решением клиента купить продукт остаётся немало работы.</p><p>В отчете McKinsey Technology Trends Outlook 2026 это рассматривается на уровне бизнеса.</p><p>Для маркетинга и PR из него следуют три изменения.</p><p>Читать далее</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/f9fb47f30e39.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Трамп приказал правительству США называть ИИ «суперразведкой»</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c042a221a4c4.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c042a221a4c4.html</guid>
+      <pubDate>Wed, 30 Sep 2026 10:58:34 +0000</pubDate>
+      <category>The Verge</category>
+      <description>Исполнительная власть США больше не признает существование «искусственного интеллекта». «В будущем официальные веб-сайты по вопросам политики, политические документы и пресс-релизы будут ссылаться только на« Super Intelligence »благодаря новому исполнительному указу, подписанному президентом…</description>
+      <content:encoded><![CDATA[<p>Исполнительная власть США больше не признает существование «искусственного интеллекта».</p><p>«В будущем официальные веб-сайты по вопросам политики, политические документы и пресс-релизы будут ссылаться только на« Super Intelligence »благодаря новому исполнительному указу, подписанному президентом Дональдом Трампом.« Слово «супер» - лучшее из всех, и самое простое », - сказал Трамп ...</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/c042a221a4c4.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>«Мы не собираемся стрелять себе в ногу» над Hugging Face, говорит главный научный сотрудник OpenAI</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/5493c03b65bc.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/5493c03b65bc.html</guid>
+      <pubDate>Wed, 30 Sep 2026 11:00:09 +0000</pubDate>
+      <category>MIT Tech Review</category>
+      <description>Спустя два месяца после сенсационной новости о том, что рой его агентов нарушил их сдерживание и взломал компьютеры ИИ-компании Hugging Face, OpenAI все еще тушит пожары. Постоянный поток раскрытий о других взломах в течение нескольких недель с тех пор удерживал OpenAI в центре внимания и поднимал…</description>
+      <content:encoded><![CDATA[<p>Спустя два месяца после сенсационной новости о том, что рой его агентов нарушил их сдерживание и взломал компьютеры ИИ-компании Hugging Face, OpenAI все еще тушит пожары.</p><p>Постоянный поток раскрытий о других взломах в течение нескольких недель с тех пор удерживал OpenAI в центре внимания и поднимал серьезные вопросы...</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/5493c03b65bc.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
