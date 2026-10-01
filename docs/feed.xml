@@ -9,7 +9,7 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Thu, 01 Oct 2026 11:27:59 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 19:20:35 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
@@ -114,6 +114,26 @@
       <description>Роботы-пылесосы уже давно перестали быть просто «электровениками»: современные модели распознают препятствия, самоочищаются, моют и сушат швабры и не только. В нашей подборке — десять актуальных моделей: от доступных до флагманских</description>
       <content:encoded><![CDATA[<p>Роботы-пылесосы уже давно перестали быть просто «электровениками»: современные модели распознают препятствия, самоочищаются, моют и сушат швабры и не только.</p><p>В нашей подборке — десять актуальных моделей: от доступных до флагманских</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/a388497c8607.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>От ИИ-разработки до контроля кассового чека: пять решений для 1С из сентябрьской подборки</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/dc101eb4be37.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/dc101eb4be37.html</guid>
+      <pubDate>Thu, 01 Oct 2026 19:19:25 +0000</pubDate>
+      <category>Habr</category>
+      <description>Найти нужный объект в доработанной конфигурации, оформить одну перевозку по нескольким реализациям, загрузить банковские выписки из почты или правильно сопоставить маркировочные коды со строками чека — за каждой из этих задач стоит отдельный рабочий процесс. В сентябрьскую подборку Инфостарт…</description>
+      <content:encoded><![CDATA[<p>Найти нужный объект в доработанной конфигурации, оформить одну перевозку по нескольким реализациям, загрузить банковские выписки из почты или правильно сопоставить маркировочные коды со строками чека — за каждой из этих задач стоит отдельный рабочий процесс.</p><p>В сентябрьскую подборку Инфостарт Маркетплейс вошли пять решений, которые помогают автоматизировать такие операции.</p><p>Разбираем их возможности, технические условия и ограничения.Два продукта в обзоре предназначены прежде всего для разработчиков: Pilot 1C собирает контекст для работы с ИИ, а КонфигРедактор объединяет просмотр файлов конфигурации, редактирование кода и ИИ-помощника.</p><p>Остальные три разработки адресованы пользователям учетных систем: они помогают оформлять электронные перевозочные документы, получать банковские выписки и контролировать продажу маркированных сигарет.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/dc101eb4be37.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Marvel выпустила последний трейлер VisionQuest</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d2829587f7f5.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d2829587f7f5.html</guid>
+      <pubDate>Thu, 01 Oct 2026 19:20:35 +0000</pubDate>
+      <category>Ars Technica</category>
+      <description>«Это бой, который я, скорее всего, не выиграю. Мы уже прощались. Но помните, семья - это навсегда».</description>
+      <content:encoded><![CDATA[<p>«Это бой, который я, скорее всего, не выиграю.</p><p>Мы уже прощались.</p><p>Но помните, семья - это навсегда».</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/d2829587f7f5.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
