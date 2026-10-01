@@ -9,7 +9,7 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Wed, 30 Sep 2026 16:48:31 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 11:27:59 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
@@ -94,6 +94,26 @@
       <description>DoorDash запускает новые способы использования местной платформы доставки, включая заказ текстовых сообщений, доставку с помощью дронов и розничную доставку. Новая функция заказа сообщений основана на возможностях, которые чат-бот Ask DoorDash AI представил в приложении DoorDash в июне, позволяя…</description>
       <content:encoded><![CDATA[<p>DoorDash запускает новые способы использования местной платформы доставки, включая заказ текстовых сообщений, доставку с помощью дронов и розничную доставку.</p><p>Новая функция заказа сообщений основана на возможностях, которые чат-бот Ask DoorDash AI представил в приложении DoorDash в июне, позволяя вам получать рекомендации и разгружать просмотр, полностью пропуская приложение.</p><p>...</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/24c9efa3a2da.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Google анонсирует модель Gemini 4 Argon AI, но использовать ее пока нельзя</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/8e94f3c8da9c.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/8e94f3c8da9c.html</guid>
+      <pubDate>Thu, 01 Oct 2026 11:26:32 +0000</pubDate>
+      <category>Ars Technica</category>
+      <description>Вот вам и Gemini 3.5 Pro.</description>
+      <content:encoded><![CDATA[<p>Вот вам и Gemini 3.5 Pro.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/8e94f3c8da9c.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>10 новых роботов-пылесосов 2026 года: от доступных моделей до флагманов с роликовыми швабрами</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/a388497c8607.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/a388497c8607.html</guid>
+      <pubDate>Thu, 01 Oct 2026 11:27:59 +0000</pubDate>
+      <category>3DNews</category>
+      <description>Роботы-пылесосы уже давно перестали быть просто «электровениками»: современные модели распознают препятствия, самоочищаются, моют и сушат швабры и не только. В нашей подборке — десять актуальных моделей: от доступных до флагманских</description>
+      <content:encoded><![CDATA[<p>Роботы-пылесосы уже давно перестали быть просто «электровениками»: современные модели распознают препятствия, самоочищаются, моют и сушат швабры и не только.</p><p>В нашей подборке — десять актуальных моделей: от доступных до флагманских</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/a388497c8607.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
