@@ -9,7 +9,7 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Thu, 01 Oct 2026 19:20:35 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Oct 2026 10:57:56 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
@@ -134,6 +134,26 @@
       <description>«Это бой, который я, скорее всего, не выиграю. Мы уже прощались. Но помните, семья - это навсегда».</description>
       <content:encoded><![CDATA[<p>«Это бой, который я, скорее всего, не выиграю.</p><p>Мы уже прощались.</p><p>Но помните, семья - это навсегда».</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/d2829587f7f5.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Доклад о внедрении ИИ, похожий на правду</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/6f3b16aa9a2e.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/6f3b16aa9a2e.html</guid>
+      <pubDate>Fri, 02 Oct 2026 10:56:22 +0000</pubDate>
+      <category>Habr</category>
+      <description>Массачусетский Технологический Институт (MIT) выпустил тут доклад об использовании ИИ в их практике, описывающий текущее состояние и некоторые планы на будущее. Это единственный известный мне взвешенный документ на тему внедрения ИИ, который не впадает ни в чрезвычайный оптимизм, ни в фатализм.Хотя…</description>
+      <content:encoded><![CDATA[<p>Массачусетский Технологический Институт (MIT) выпустил тут доклад об использовании ИИ в их практике, описывающий текущее состояние и некоторые планы на будущее.</p><p>Это единственный известный мне взвешенный документ на тему внедрения ИИ, который не впадает ни в чрезвычайный оптимизм, ни в фатализм.Хотя MIT не является IT-компанией, это довольно крупная ( 13.000 человек) технологическая организация.</p><p>Полагаю, большинство читателей Хабра работают примерно в таких же.</p><p>Так что многие изложенные принципы применимы ко многим из нас.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/6f3b16aa9a2e.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Google выпускает Gemini 4 Argon, названную самой мощной моделью</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/989069253213.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/989069253213.html</guid>
+      <pubDate>Fri, 02 Oct 2026 10:57:56 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>Google выпустила свою последнюю модель Gemini, рекламируя ее как рабочую лошадку для кодирования и кибербезопасности.</description>
+      <content:encoded><![CDATA[<p>Google выпустила свою последнюю модель Gemini, рекламируя ее как рабочую лошадку для кодирования и кибербезопасности.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/989069253213.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
