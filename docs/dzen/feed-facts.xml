@@ -9,7 +9,7 @@
     <description>Наука, история, космос и открытия — коротко и по делу.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Fri, 02 Oct 2026 10:40:39 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Oct 2026 18:00:17 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>FACTUM.RU</title>
@@ -154,6 +154,26 @@
       <description>В последний десяток лет государственные космические агентства много рассказывали о том, что космическая радиация при полете к Марсу убьет или инвалидизирует путешественников. Проблемой оказалось то, что эксперименты на животных с галактическим уровнем радиации показали обратное. Американские ученые…</description>
       <content:encoded><![CDATA[<p>В последний десяток лет государственные космические агентства много рассказывали о том, что космическая радиация при полете к Марсу убьет или инвалидизирует путешественников.</p><p>Проблемой оказалось то, что эксперименты на животных с галактическим уровнем радиации показали обратное.</p><p>Американские ученые придумали способ, как решить вопрос: они стали облучать подопытных дозами, для получения которых им пришлось бы провести в космосе несколько жизней.</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/3f94a949e22d.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Вы знаете знаменитые цитаты из истории — но понимаете ли вы их?</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/227ea313cb2a.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/227ea313cb2a.html</guid>
+      <pubDate>Fri, 02 Oct 2026 17:58:59 +0000</pubDate>
+      <category>Big Think</category>
+      <description>Мария-Антуанетта была грязной. Нет, это не отсылка к ее обезглавливанию по усердным прихотям французских революционеров. Обезглавливание гильотиной заканчивается в одно мгновение. Клевета, с другой стороны, длится веками. Поскольку диссиденты успешно возбуждали общественный пыл против аристократии…</description>
+      <content:encoded><![CDATA[<p>Мария-Антуанетта была грязной.</p><p>Нет, это не отсылка к ее обезглавливанию по усердным прихотям французских революционеров.</p><p>Обезглавливание гильотиной заканчивается в одно мгновение.</p><p>Клевета, с другой стороны, длится веками.</p><p>Поскольку диссиденты успешно возбуждали общественный пыл против аристократии в конце XVIII века, они начали клеветническую кампанию против своей известной королевы.</p><p>Антуанетту оклеветали как австрийскую шпионку, распутницу и</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/227ea313cb2a.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Любимова: кинообмен России и КНДР укрепит взаимопонимание между народами</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/66793acddac6.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/66793acddac6.html</guid>
+      <pubDate>Fri, 02 Oct 2026 18:00:17 +0000</pubDate>
+      <category>ТАСС Наука</category>
+      <description>Министр культуры отметила, что Москву и Пхеньян связывают общая история, взаимное уважение и крепкая дружба</description>
+      <content:encoded><![CDATA[<p>Министр культуры отметила, что Москву и Пхеньян связывают общая история, взаимное уважение и крепкая дружба</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/66793acddac6.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
