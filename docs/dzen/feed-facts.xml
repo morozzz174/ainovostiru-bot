@@ -9,7 +9,7 @@
     <description>Наука, история, космос и открытия — коротко и по делу.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Fri, 02 Oct 2026 18:00:17 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Oct 2026 10:01:18 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>FACTUM.RU</title>
@@ -174,6 +174,26 @@
       <description>Министр культуры отметила, что Москву и Пхеньян связывают общая история, взаимное уважение и крепкая дружба</description>
       <content:encoded><![CDATA[<p>Министр культуры отметила, что Москву и Пхеньян связывают общая история, взаимное уважение и крепкая дружба</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/66793acddac6.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Десятилетний эксперимент раскрывает тайны «глубоких рифов» океана</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/a36d23666cb5.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/a36d23666cb5.html</guid>
+      <pubDate>Sat, 03 Oct 2026 09:59:25 +0000</pubDate>
+      <category>Wired</category>
+      <description>Ученые оставили сооружения на глубине до 100 метров под поверхностью. Вот что они обнаружили, когда забрали их 10 лет спустя.</description>
+      <content:encoded><![CDATA[<p>Ученые оставили сооружения на глубине до 100 метров под поверхностью.</p><p>Вот что они обнаружили, когда забрали их 10 лет спустя.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/a36d23666cb5.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Домой: Экипаж SpaceX-12 НАСА завершает научную миссию станции</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/a694a2317c85.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/a694a2317c85.html</guid>
+      <pubDate>Sat, 03 Oct 2026 10:01:18 +0000</pubDate>
+      <category>NASA</category>
+      <description>Миссия НАСА SpaceX Crew-12 завершается, и экипаж должен вернуться в начале октября. Астронавты НАСА Джессика Меир и Джек Хэтэуэй, астронавт ЕКА (Европейского космического агентства) Софи Аденот и космонавт Роскосмоса Андрей Федяев отправятся домой с Международной космической станции после поддержки…</description>
+      <content:encoded><![CDATA[<p>Миссия НАСА SpaceX Crew-12 завершается, и экипаж должен вернуться в начале октября.</p><p>Астронавты НАСА Джессика Меир и Джек Хэтэуэй, астронавт ЕКА (Европейского космического агентства) Софи Аденот и космонавт Роскосмоса Андрей Федяев отправятся домой с Международной космической станции после поддержки исследований, которые приносят пользу жизни на Земле и готовят людей к миссиям.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/a694a2317c85.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
