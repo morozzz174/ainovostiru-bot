@@ -9,7 +9,7 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Fri, 02 Oct 2026 16:34:37 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Oct 2026 10:17:25 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
@@ -174,6 +174,26 @@
       <description>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий. «Мы не собираемся стрелять себе в ногу» из-за последствий взлома, говорит главный научный сотрудник OpenAI Через два месяца после того,…</description>
       <content:encoded><![CDATA[<p>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий.</p><p>«Мы не собираемся стрелять себе в ногу» из-за последствий взлома, говорит главный научный сотрудник OpenAI Через два месяца после того, как агенты OpenAI взломали компьютеры компании Hugging Face,...</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/6331cad46be7.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Создатели Beehiiv гудят о новом повышении цен</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ade581597519.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ade581597519.html</guid>
+      <pubDate>Sat, 03 Oct 2026 10:15:51 +0000</pubDate>
+      <category>The Verge</category>
+      <description>Beehiiv, креативная платформа, которая выросла в популярности в качестве альтернативы Substack, увеличивает свои цены - и многие пользователи недовольны. В посте, объясняющем увеличение, соучредитель и генеральный директор Beehiiv Тайлер Денк говорит, что это позволит компании «продолжать…</description>
+      <content:encoded><![CDATA[<p>Beehiiv, креативная платформа, которая выросла в популярности в качестве альтернативы Substack, увеличивает свои цены - и многие пользователи недовольны.</p><p>В посте, объясняющем увеличение, соучредитель и генеральный директор Beehiiv Тайлер Денк говорит, что это позволит компании «продолжать инвестировать в нашу основную платформу.« В рамках изменений …</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/ade581597519.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Apple изменяет разрешения на доступ к полному диску, чтобы пресечь злоупотребления со стороны ИИ-агентов</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/dcd7e34100d5.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/dcd7e34100d5.html</guid>
+      <pubDate>Sat, 03 Oct 2026 10:17:24 +0000</pubDate>
+      <category>Ars Technica</category>
+      <description>Мета говорит, что FDA недостаточно для чтения сообщений Muse. Apple просит не соглашаться.</description>
+      <content:encoded><![CDATA[<p>Мета говорит, что FDA недостаточно для чтения сообщений Muse.</p><p>Apple просит не соглашаться.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/dcd7e34100d5.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
