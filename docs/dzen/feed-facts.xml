@@ -9,32 +9,12 @@
     <description>Наука, история, космос и открытия — коротко и по делу.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Sat, 03 Oct 2026 16:36:41 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Oct 2026 10:44:10 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>FACTUM.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Этот исполнитель викторианской эпохи узнал, что сценическая жизнь на американском Западе - это не только аплодисменты и букеты</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/38606473dd7e.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/38606473dd7e.html</guid>
-      <pubDate>Tue, 29 Sep 2026 17:43:07 +0000</pubDate>
-      <category>HistoryNet</category>
-      <description>Сью Робинсон выросла из странствующей жизни гастролирующей детской исполнительницы, чтобы стать известной драматической актрисой.</description>
-      <content:encoded><![CDATA[<p>Сью Робинсон выросла из странствующей жизни гастролирующей детской исполнительницы, чтобы стать известной драматической актрисой.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/38606473dd7e.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Ваш мозг о книгах</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/e69d5650f160.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/e69d5650f160.html</guid>
-      <pubDate>Tue, 29 Sep 2026 17:45:01 +0000</pubDate>
-      <category>Big Think</category>
-      <description>Что происходит в вашем мозгу и теле, когда вы теряетесь в великой книге? Чтение печати принципиально отличается от чтения на экране? И как вы можете получить максимальную восстановительную пользу от своих привычек чтения? Мы освещаем эти вопросы и многое другое в предстоящем мероприятии Big Think…</description>
-      <content:encoded><![CDATA[<p>Что происходит в вашем мозгу и теле, когда вы теряетесь в великой книге?</p><p>Чтение печати принципиально отличается от чтения на экране?</p><p>И как вы можете получить максимальную восстановительную пользу от своих привычек чтения?</p><p>Мы освещаем эти вопросы и многое другое в предстоящем мероприятии Big Think только для участников, Your Brain on Books.</p><p>Присоединяйтесь к режиссеру Big Think Дэну Хейсу, когда он разговаривает с нейробиологом Анн-Лор Ле Кунфф и писателем и книжным обозревателем Алексом У.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/e69d5650f160.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Как младенческая Вселенная получила свои первые тяжелые элементы</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/425479d94e98.html</link>
@@ -214,6 +194,26 @@
       <description></description>
       <content:encoded><![CDATA[<p></p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/cc9c31c79de5.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Штайнмайер предостерег Германию от повторения судьбы Веймарской республики</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/6293da0bbac0.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/6293da0bbac0.html</guid>
+      <pubDate>Sun, 04 Oct 2026 10:42:59 +0000</pubDate>
+      <category>РГ Наука</category>
+      <description>Президент Германии Франк-Вальтер Штайнмайер предрек Германии масштабный раскол. Он указал, что сейчас ФРГ очень напоминает Веймарскую республику перед приходом нацистов к власти.</description>
+      <content:encoded><![CDATA[<p>Президент Германии Франк-Вальтер Штайнмайер предрек Германии масштабный раскол.</p><p>Он указал, что сейчас ФРГ очень напоминает Веймарскую республику перед приходом нацистов к власти.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/6293da0bbac0.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Сельские дата-центры ждут большие налоговые льготы</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/10b997fd2937.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/10b997fd2937.html</guid>
+      <pubDate>Sun, 04 Oct 2026 10:44:09 +0000</pubDate>
+      <category>Wired</category>
+      <description>В соответствии с Законом об одном большом красивом законопроекте, проекты центров обработки данных в сельских районах могут иметь право на крупные налоговые льготы, начиная со следующего года. Некоторые гиперскалеры, похоже, не хотят брать свободные деньги.</description>
+      <content:encoded><![CDATA[<p>В соответствии с Законом об одном большом красивом законопроекте, проекты центров обработки данных в сельских районах могут иметь право на крупные налоговые льготы, начиная со следующего года.</p><p>Некоторые гиперскалеры, похоже, не хотят брать свободные деньги.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/10b997fd2937.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
