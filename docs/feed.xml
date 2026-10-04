@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Sat, 03 Oct 2026 15:07:02 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Oct 2026 11:00:38 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Сделать ИИ активом, а не расходом</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/21b9ac3d365b.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/21b9ac3d365b.html</guid>
-      <pubDate>Tue, 29 Sep 2026 17:42:36 +0000</pubDate>
-      <category>MIT Tech Review</category>
-      <description>Когда клиенты говорят о затратах на ИИ, разговор обычно начинается с цен на токены и заканчивается доступом к последней, наиболее способной модели в облаке. Всегда ли им нужен такой уровень возможностей? Необязательно. Но это часто то, о чем идет разговор. По мере того, как ИИ переходит от…</description>
-      <content:encoded><![CDATA[<p>Когда клиенты говорят о затратах на ИИ, разговор обычно начинается с цен на токены и заканчивается доступом к последней, наиболее способной модели в облаке.</p><p>Всегда ли им нужен такой уровень возможностей?</p><p>Необязательно.</p><p>Но это часто то, о чем идет разговор.</p><p>По мере того, как ИИ переходит от экспериментов к производству, выбор модели - это только...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/21b9ac3d365b.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>BB изнутри: как устроена открытая IDE для Claude Code и Codex, которая обновляет себя без перезапуска</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/9e4ba653a755.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/9e4ba653a755.html</guid>
-      <pubDate>Tue, 29 Sep 2026 17:44:51 +0000</pubDate>
-      <category>Habr</category>
-      <description>BB - это открытая программа под лицензией MIT, в которой Claude Code, Codex, Pi и ACP-агенты работают в одном окне. За 7 месяцев репозиторий собрал около 4 тысяч звёзд. Главное в BB не окно, а то, что его интерфейс достраивается плагинами и новый плагин подхватывается без перезапуска…</description>
-      <content:encoded><![CDATA[<p>BB - это открытая программа под лицензией MIT, в которой Claude Code, Codex, Pi и ACP-агенты работают в одном окне.</p><p>За 7 месяцев репозиторий собрал около 4 тысяч звёзд.</p><p>Главное в BB не окно, а то, что его интерфейс достраивается плагинами и новый плагин подхватывается без перезапуска программы.Недавно я снимал про BB ролик.</p><p>Там агент за 20 минут и два промпта собрал плагин, который расшифровывает запись созвона, выделяет договорённости со сроками и пишет письмо клиенту.</p><p>Ролик был про то, что это даёт пользователю, а в этой статье я разберу код и покажу, за счёт чего это работает.</p><p>Всё ниже проверено по репозиторию get-bb/bb по состоянию на конец сентября 2026.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/9e4ba653a755.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Исследователи ИИ выпускают видеоролики, в которых говорится, что суперинтеллект «так же опасен, как и звучит»</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/2dfd3783842b.html</link>
@@ -214,6 +194,26 @@
       <description>Китайские производители чипов накопили сотни иммерсионных литографических установок ASML, работающих в глубоком ультрафиолете (DUV). Хотя они уступают передовым EUV-системам, такое оборудование можно использовать для выпуска 7-нм логических чипов и памяти для ИИ-ускорителей. Часть установок,…</description>
       <content:encoded><![CDATA[<p>Китайские производители чипов накопили сотни иммерсионных литографических установок ASML, работающих в глубоком ультрафиолете (DUV).</p><p>Хотя они уступают передовым EUV-системам, такое оборудование можно использовать для выпуска 7-нм логических чипов и памяти для ИИ-ускорителей.</p><p>Часть установок, приобретённых для зрелых техпроцессов, может быть перепрофилирована под более передовое производство — это поддерживает полупроводниковые амбиции Китая даже в условиях экспортных ограничений.</p><p>Источник изображений: asml.com</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/b6f025b77021.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Как Cursor заменил мне Stack Overflow, ускорил отладку и вернул интерес к пет-проектам</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/7cc7bad6f704.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/7cc7bad6f704.html</guid>
+      <pubDate>Sun, 04 Oct 2026 10:59:27 +0000</pubDate>
+      <category>Habr</category>
+      <description>В самом начале, когда начали появляться первые ИИ-агенты и плагины для IDE-шек, я думал: а, очередная новомодная фишка. Надо будет как-нибудь посмотреть, когда время будет. Тогда я еще не подозревал, насколько мощные эти инструменты, а ChatGPT и прочие генеративные нейросети воспринимал как…</description>
+      <content:encoded><![CDATA[<p>В самом начале, когда начали появляться первые ИИ-агенты и плагины для IDE-шек, я думал: а, очередная новомодная фишка.</p><p>Надо будет как-нибудь посмотреть, когда время будет.</p><p>Тогда я еще не подозревал, насколько мощные эти инструменты, а ChatGPT и прочие генеративные нейросети воспринимал как «прикольную игрушку».В то время я искал решения на Stack Overflow, адаптировал и вставлял в код, вручную отлаживал.</p><p>Тогда ИИ для меня был просто нейросетями на Keras, которые еще надо обучать и которые годятся только для кредитного скоринга или подобных задач.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/7cc7bad6f704.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Скачать: конкурс биологического старения и почему LLM не рассуждают</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c92d45fdd2a2.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c92d45fdd2a2.html</guid>
+      <pubDate>Sun, 04 Oct 2026 11:00:37 +0000</pubDate>
+      <category>MIT Tech Review</category>
+      <description>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий. Новый конкурс сталкивает участников друг с другом в гонке на биологическую молодость - Джессика Хамзелу На этой неделе я официально…</description>
+      <content:encoded><![CDATA[<p>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий.</p><p>Новый конкурс сталкивает участников друг с другом в гонке на биологическую молодость - Джессика Хамзелу На этой неделе я официально записалась на необычное соревнование.</p><p>Тот, который вознаграждает конкурентов за...</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/c92d45fdd2a2.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
