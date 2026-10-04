@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Sun, 04 Oct 2026 11:00:38 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Oct 2026 15:48:15 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Исследователи ИИ выпускают видеоролики, в которых говорится, что суперинтеллект «так же опасен, как и звучит»</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/2dfd3783842b.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/2dfd3783842b.html</guid>
-      <pubDate>Tue, 29 Sep 2026 19:10:47 +0000</pubDate>
-      <category>The Verge</category>
-      <description>«На мой взгляд, вероятность вымирания человека - это подбрасывание монеты», - сказал в новом интервью Джеффри Ирвинг, бывший сотрудник OpenAI и Google DeepMind. Это одно из дюжины интервью с исследователями ИИ, включая нынешних и бывших сотрудников OpenAI, Google и Anthropic. Palisade Research, в…</description>
-      <content:encoded><![CDATA[<p>«На мой взгляд, вероятность вымирания человека - это подбрасывание монеты», - сказал в новом интервью Джеффри Ирвинг, бывший сотрудник OpenAI и Google DeepMind.</p><p>Это одно из дюжины интервью с исследователями ИИ, включая нынешних и бывших сотрудников OpenAI, Google и Anthropic.</p><p>Palisade Research, в котором говорится, что это некоммерческая организация, изучающая …</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/2dfd3783842b.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>ИИ есть, но есть ли преимущество? Что изменилось для маркетинга и PR</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f9fb47f30e39.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f9fb47f30e39.html</guid>
-      <pubDate>Tue, 29 Sep 2026 19:12:28 +0000</pubDate>
-      <category>Habr</category>
-      <description>ИИ помогает быстрее писать тексты, собирать презентации и готовить рекламу. Но между скоростью производства и решением клиента купить продукт остаётся немало работы. В отчете McKinsey Technology Trends Outlook 2026 это рассматривается на уровне бизнеса. Для маркетинга и PR из него следуют три…</description>
-      <content:encoded><![CDATA[<p>ИИ помогает быстрее писать тексты, собирать презентации и готовить рекламу.</p><p>Но между скоростью производства и решением клиента купить продукт остаётся немало работы.</p><p>В отчете McKinsey Technology Trends Outlook 2026 это рассматривается на уровне бизнеса.</p><p>Для маркетинга и PR из него следуют три изменения.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/f9fb47f30e39.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Трамп приказал правительству США называть ИИ «суперразведкой»</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c042a221a4c4.html</link>
@@ -214,6 +194,26 @@
       <description>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий. Новый конкурс сталкивает участников друг с другом в гонке на биологическую молодость - Джессика Хамзелу На этой неделе я официально…</description>
       <content:encoded><![CDATA[<p>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий.</p><p>Новый конкурс сталкивает участников друг с другом в гонке на биологическую молодость - Джессика Хамзелу На этой неделе я официально записалась на необычное соревнование.</p><p>Тот, который вознаграждает конкурентов за...</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/c92d45fdd2a2.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>ИИ не смог победить людей в StarCraft, поэтому решил обмануть</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/a6d1cf7547d4.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/a6d1cf7547d4.html</guid>
+      <pubDate>Sun, 04 Oct 2026 15:46:33 +0000</pubDate>
+      <category>The Verge</category>
+      <description>StarSkirmish натравливает искусственных ботов StarCraft друг на друга, а также на ботов, созданных человеком. GPT-6 Astra от OpenAI и Claude Opus 5.5 были, по сути, связаны как самые эффективные боты, созданные ИИ, но они не смогли превзойти Stardust, самого рейтингового бота, созданного человеком.…</description>
+      <content:encoded><![CDATA[<p>StarSkirmish натравливает искусственных ботов StarCraft друг на друга, а также на ботов, созданных человеком.</p><p>GPT-6 Astra от OpenAI и Claude Opus 5.5 были, по сути, связаны как самые эффективные боты, созданные ИИ, но они не смогли превзойти Stardust, самого рейтингового бота, созданного человеком.</p><p>В пятницу GPT столкнулась с Клодом и созданным человеком ботом Плутоном, но, по словам Котаку, …</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/a6d1cf7547d4.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Не обманывайтесь - LLM не рассуждают</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/0e65614ea617.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/0e65614ea617.html</guid>
+      <pubDate>Sun, 04 Oct 2026 15:48:15 +0000</pubDate>
+      <category>MIT Tech Review</category>
+      <description>Во второй половине дня в Сеуле в марте 2016 года я смотрел программу, которую я помог построить, поставил камень на пятую строчку доски для го, что выглядело как подарок его человеческому противнику. Ход 37 во второй игре пятиматчевого матча выглядел настолько абсурдно, что некоторые комментаторы…</description>
+      <content:encoded><![CDATA[<p>Во второй половине дня в Сеуле в марте 2016 года я смотрел программу, которую я помог построить, поставил камень на пятую строчку доски для го, что выглядело как подарок его человеческому противнику.</p><p>Ход 37 во второй игре пятиматчевого матча выглядел настолько абсурдно, что некоторые комментаторы думали, что это...</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/0e65614ea617.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
