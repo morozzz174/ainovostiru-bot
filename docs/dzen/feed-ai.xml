@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Sun, 04 Oct 2026 15:48:15 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Oct 2026 12:07:54 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Трамп приказал правительству США называть ИИ «суперразведкой»</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c042a221a4c4.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c042a221a4c4.html</guid>
-      <pubDate>Wed, 30 Sep 2026 10:58:34 +0000</pubDate>
-      <category>The Verge</category>
-      <description>Исполнительная власть США больше не признает существование «искусственного интеллекта». «В будущем официальные веб-сайты по вопросам политики, политические документы и пресс-релизы будут ссылаться только на« Super Intelligence »благодаря новому исполнительному указу, подписанному президентом…</description>
-      <content:encoded><![CDATA[<p>Исполнительная власть США больше не признает существование «искусственного интеллекта».</p><p>«В будущем официальные веб-сайты по вопросам политики, политические документы и пресс-релизы будут ссылаться только на« Super Intelligence »благодаря новому исполнительному указу, подписанному президентом Дональдом Трампом.« Слово «супер» - лучшее из всех, и самое простое », - сказал Трамп ...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/c042a221a4c4.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>«Мы не собираемся стрелять себе в ногу» над Hugging Face, говорит главный научный сотрудник OpenAI</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/5493c03b65bc.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/5493c03b65bc.html</guid>
-      <pubDate>Wed, 30 Sep 2026 11:00:09 +0000</pubDate>
-      <category>MIT Tech Review</category>
-      <description>Спустя два месяца после сенсационной новости о том, что рой его агентов нарушил их сдерживание и взломал компьютеры ИИ-компании Hugging Face, OpenAI все еще тушит пожары. Постоянный поток раскрытий о других взломах в течение нескольких недель с тех пор удерживал OpenAI в центре внимания и поднимал…</description>
-      <content:encoded><![CDATA[<p>Спустя два месяца после сенсационной новости о том, что рой его агентов нарушил их сдерживание и взломал компьютеры ИИ-компании Hugging Face, OpenAI все еще тушит пожары.</p><p>Постоянный поток раскрытий о других взломах в течение нескольких недель с тех пор удерживал OpenAI в центре внимания и поднимал серьезные вопросы...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/5493c03b65bc.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Скачать: климатические технологические компании для наблюдения и проблема обнаружения ИИ</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/44799b3be001.html</link>
@@ -214,6 +194,26 @@
       <description>Во второй половине дня в Сеуле в марте 2016 года я смотрел программу, которую я помог построить, поставил камень на пятую строчку доски для го, что выглядело как подарок его человеческому противнику. Ход 37 во второй игре пятиматчевого матча выглядел настолько абсурдно, что некоторые комментаторы…</description>
       <content:encoded><![CDATA[<p>Во второй половине дня в Сеуле в марте 2016 года я смотрел программу, которую я помог построить, поставил камень на пятую строчку доски для го, что выглядело как подарок его человеческому противнику.</p><p>Ход 37 во второй игре пятиматчевого матча выглядел настолько абсурдно, что некоторые комментаторы думали, что это...</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/0e65614ea617.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Amazon реагирует на негативную реакцию центра обработки данных, заявляя, что больше не использует соглашения о неразглашении</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c3a4b9437cfc.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c3a4b9437cfc.html</guid>
+      <pubDate>Mon, 05 Oct 2026 12:06:44 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>Генеральный директор Amazon Web Services попытался противостоять широко распространенным подозрениям в отношении центров обработки данных.</description>
+      <content:encoded><![CDATA[<p>Генеральный директор Amazon Web Services попытался противостоять широко распространенным подозрениям в отношении центров обработки данных.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/c3a4b9437cfc.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Новые судебно-медицинские доказательства подтверждают египетскую «жертву фиксатора»</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/42417ec4fd9c.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/42417ec4fd9c.html</guid>
+      <pubDate>Mon, 05 Oct 2026 12:07:54 +0000</pubDate>
+      <category>Ars Technica</category>
+      <description>Свежий анализ массовых захоронений Первой династии находит признаки смертельной травмы тупым предметом на 39 процентах черепов</description>
+      <content:encoded><![CDATA[<p>Свежий анализ массовых захоронений Первой династии находит признаки смертельной травмы тупым предметом на 39 процентах черепов</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/42417ec4fd9c.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
