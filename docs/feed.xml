@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Mon, 05 Oct 2026 12:07:54 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Oct 2026 21:27:00 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Скачать: климатические технологические компании для наблюдения и проблема обнаружения ИИ</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/44799b3be001.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/44799b3be001.html</guid>
-      <pubDate>Wed, 30 Sep 2026 16:47:20 +0000</pubDate>
-      <category>MIT Tech Review</category>
-      <description>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий. Скоро: наш список компаний по климатическим технологиям 2026 года, за которыми стоит следить: планета приближается к 1,5° C потепления,…</description>
-      <content:encoded><![CDATA[<p>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий.</p><p>Скоро: наш список компаний по климатическим технологиям 2026 года, за которыми стоит следить: планета приближается к 1,5° C потепления, климатическая политика распутывается, а Big Tech отступает от своих климатических амбиций...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/44799b3be001.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Вы можете отправить сообщение ИИ-боту DoorDash, чтобы «заказать мой обычный», и он разберется с остальным</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/24c9efa3a2da.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/24c9efa3a2da.html</guid>
-      <pubDate>Wed, 30 Sep 2026 16:48:31 +0000</pubDate>
-      <category>The Verge</category>
-      <description>DoorDash запускает новые способы использования местной платформы доставки, включая заказ текстовых сообщений, доставку с помощью дронов и розничную доставку. Новая функция заказа сообщений основана на возможностях, которые чат-бот Ask DoorDash AI представил в приложении DoorDash в июне, позволяя…</description>
-      <content:encoded><![CDATA[<p>DoorDash запускает новые способы использования местной платформы доставки, включая заказ текстовых сообщений, доставку с помощью дронов и розничную доставку.</p><p>Новая функция заказа сообщений основана на возможностях, которые чат-бот Ask DoorDash AI представил в приложении DoorDash в июне, позволяя вам получать рекомендации и разгружать просмотр, полностью пропуская приложение.</p><p>...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/24c9efa3a2da.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Google анонсирует модель Gemini 4 Argon AI, но использовать ее пока нельзя</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/8e94f3c8da9c.html</link>
@@ -214,6 +194,26 @@
       <description>Свежий анализ массовых захоронений Первой династии находит признаки смертельной травмы тупым предметом на 39 процентах черепов</description>
       <content:encoded><![CDATA[<p>Свежий анализ массовых захоронений Первой династии находит признаки смертельной травмы тупым предметом на 39 процентах черепов</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/42417ec4fd9c.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Российские беспилотники атакуют центры обработки данных Украины, используя пробелы в противовоздушной обороне</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/e4007e2d4e1f.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/e4007e2d4e1f.html</guid>
+      <pubDate>Mon, 05 Oct 2026 21:24:56 +0000</pubDate>
+      <category>Ars Technica</category>
+      <description>Российские атаки на интернет, телефонные услуги угрожают экономике военного времени Украины.</description>
+      <content:encoded><![CDATA[<p>Российские атаки на интернет, телефонные услуги угрожают экономике военного времени Украины.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/e4007e2d4e1f.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>ИИ завалил arXiv нейрослопом — теперь учёным разрешат публиковать не более двух препринтов в месяц</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/48133893f428.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/48133893f428.html</guid>
+      <pubDate>Mon, 05 Oct 2026 21:27:00 +0000</pubDate>
+      <category>3DNews</category>
+      <description>arXiv — это открытый репозиторий, где исследователи публикуют препринты научных работ. На днях сервис объявил о введении ограничений на количество подаваемых материалов из-за наплыва нейрослопа — статей, полностью сгенерированных ИИ. Нейросети настолько упростили подачу материалов, что команда…</description>
+      <content:encoded><![CDATA[<p>arXiv — это открытый репозиторий, где исследователи публикуют препринты научных работ.</p><p>На днях сервис объявил о введении ограничений на количество подаваемых материалов из-за наплыва нейрослопа — статей, полностью сгенерированных ИИ.</p><p>Нейросети настолько упростили подачу материалов, что команда модераторов оказалась перегружена.</p><p>Теперь можно отправить не более двух работ в месяц и одновременно иметь не более трёх активных заявок на рассмотрении.</p><p>Источник изображения: unsplash.com</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/48133893f428.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
