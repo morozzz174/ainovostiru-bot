@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Thu, 08 Oct 2026 11:52:31 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2026 19:45:15 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Переосмысление корпоративного интеллекта с помощью автономного ИИ</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f21db46a0df8.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f21db46a0df8.html</guid>
-      <pubDate>Sat, 03 Oct 2026 15:06:00 +0000</pubDate>
-      <category>MIT Tech Review</category>
-      <description>Корпоративный ИИ больше не является будущей целью. Он находится в полном оперативном полете. Возможности модели развиваются быстрее, чем большинство организаций могут поглотить, в то время как стоимость производительности продолжает падать. Во всем мире инвестиции в ИИ достигнут $ 2,5 трлн в 2026…</description>
-      <content:encoded><![CDATA[<p>Корпоративный ИИ больше не является будущей целью.</p><p>Он находится в полном оперативном полете.</p><p>Возможности модели развиваются быстрее, чем большинство организаций могут поглотить, в то время как стоимость производительности продолжает падать.</p><p>Во всем мире инвестиции в ИИ достигнут $ 2,5 трлн в 2026 году, что на 44% больше, чем в предыдущем году.</p><p>Для многих предприятий эта инвестиция...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/f21db46a0df8.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Китай запасся сотнями литографов ASML — их хватит для массового выпуска 7-нм ИИ-ускорителей на годы вперёд</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/b6f025b77021.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/b6f025b77021.html</guid>
-      <pubDate>Sat, 03 Oct 2026 15:07:02 +0000</pubDate>
-      <category>3DNews</category>
-      <description>Китайские производители чипов накопили сотни иммерсионных литографических установок ASML, работающих в глубоком ультрафиолете (DUV). Хотя они уступают передовым EUV-системам, такое оборудование можно использовать для выпуска 7-нм логических чипов и памяти для ИИ-ускорителей. Часть установок,…</description>
-      <content:encoded><![CDATA[<p>Китайские производители чипов накопили сотни иммерсионных литографических установок ASML, работающих в глубоком ультрафиолете (DUV).</p><p>Хотя они уступают передовым EUV-системам, такое оборудование можно использовать для выпуска 7-нм логических чипов и памяти для ИИ-ускорителей.</p><p>Часть установок, приобретённых для зрелых техпроцессов, может быть перепрофилирована под более передовое производство — это поддерживает полупроводниковые амбиции Китая даже в условиях экспортных ограничений.</p><p>Источник изображений: asml.com</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/b6f025b77021.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Как Cursor заменил мне Stack Overflow, ускорил отладку и вернул интерес к пет-проектам</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/7cc7bad6f704.html</link>
@@ -214,6 +194,26 @@
       <description>История представляет собой сотрудничество между MIT Technology Review и Aventine, некоммерческим исследовательским фондом, который создает и поддерживает контент о том, как технологии и наука меняют наш образ жизни. Робот в форме человека - белый с черной головой и туловищем - появляется на…</description>
       <content:encoded><![CDATA[<p>История представляет собой сотрудничество между MIT Technology Review и Aventine, некоммерческим исследовательским фондом, который создает и поддерживает контент о том, как технологии и наука меняют наш образ жизни.</p><p>Робот в форме человека - белый с черной головой и туловищем - появляется на видеоканалах.</p><p>Возможно, вы видели, как он танцует или...</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/12bbf0b4c8f9.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Тим Кук говорит: «Я не вмешиваюсь» в бизнес нового генерального директора Apple</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/435dd462e13a.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/435dd462e13a.html</guid>
+      <pubDate>Thu, 08 Oct 2026 19:44:04 +0000</pubDate>
+      <category>The Verge</category>
+      <description>Тим Кук ушел с поста генерального директора Apple в сентябре, передав высшую должность бывшему руководителю аппаратного обеспечения Джону Тернусу и взяв на себя роль исполнительного председателя. Кук по-прежнему является заметным представителем компании, недавно он был сфотографирован на…</description>
+      <content:encoded><![CDATA[<p>Тим Кук ушел с поста генерального директора Apple в сентябре, передав высшую должность бывшему руководителю аппаратного обеспечения Джону Тернусу и взяв на себя роль исполнительного председателя.</p><p>Кук по-прежнему является заметным представителем компании, недавно он был сфотографирован на государственном ужине в Белом доме.</p><p>Но в интервью The Independent Кук говорит, что …</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/435dd462e13a.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Узнайте от руководителей Ambrosia Energy и Bloom Energy, где бум инфраструктуры ИИ создает возможности на TechCrunch Disrupt 2026</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/66552e4a6d15.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/66552e4a6d15.html</guid>
+      <pubDate>Thu, 08 Oct 2026 19:45:15 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>Генеральный директор Ambrosia Energy Бен Лонгмьер и старший вице-президент Bloom Energy Билл Тайер присоединяются к этапу Smart Systems в TechCrunch Disrupt. Зарегистрируйтесь и сэкономьте до $ 100. Возьмите вторую часть того же абонемента, чтобы сэкономить 50%.</description>
+      <content:encoded><![CDATA[<p>Генеральный директор Ambrosia Energy Бен Лонгмьер и старший вице-президент Bloom Energy Билл Тайер присоединяются к этапу Smart Systems в TechCrunch Disrupt.</p><p>Зарегистрируйтесь и сэкономьте до $ 100.</p><p>Возьмите вторую часть того же абонемента, чтобы сэкономить 50%.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/66552e4a6d15.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
