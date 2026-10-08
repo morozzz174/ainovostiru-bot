@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Wed, 07 Oct 2026 19:50:01 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2026 11:52:31 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Создатели Beehiiv гудят о новом повышении цен</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ade581597519.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ade581597519.html</guid>
-      <pubDate>Sat, 03 Oct 2026 10:15:51 +0000</pubDate>
-      <category>The Verge</category>
-      <description>Beehiiv, креативная платформа, которая выросла в популярности в качестве альтернативы Substack, увеличивает свои цены - и многие пользователи недовольны. В посте, объясняющем увеличение, соучредитель и генеральный директор Beehiiv Тайлер Денк говорит, что это позволит компании «продолжать…</description>
-      <content:encoded><![CDATA[<p>Beehiiv, креативная платформа, которая выросла в популярности в качестве альтернативы Substack, увеличивает свои цены - и многие пользователи недовольны.</p><p>В посте, объясняющем увеличение, соучредитель и генеральный директор Beehiiv Тайлер Денк говорит, что это позволит компании «продолжать инвестировать в нашу основную платформу.« В рамках изменений …</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/ade581597519.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Apple изменяет разрешения на доступ к полному диску, чтобы пресечь злоупотребления со стороны ИИ-агентов</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/dcd7e34100d5.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/dcd7e34100d5.html</guid>
-      <pubDate>Sat, 03 Oct 2026 10:17:24 +0000</pubDate>
-      <category>Ars Technica</category>
-      <description>Мета говорит, что FDA недостаточно для чтения сообщений Muse. Apple просит не соглашаться.</description>
-      <content:encoded><![CDATA[<p>Мета говорит, что FDA недостаточно для чтения сообщений Muse.</p><p>Apple просит не соглашаться.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/dcd7e34100d5.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Переосмысление корпоративного интеллекта с помощью автономного ИИ</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f21db46a0df8.html</link>
@@ -214,6 +194,26 @@
       <description>Google во вторник запустил новый сайт, который позволяет любому проверить, генерируется ли медиафайл, будь то изображение, видео или аудиоклип, с помощью ИИ.</description>
       <content:encoded><![CDATA[<p>Google во вторник запустил новый сайт, который позволяет любому проверить, генерируется ли медиафайл, будь то изображение, видео или аудиоклип, с помощью ИИ.</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/66b8b7448544.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Большая ставка Nvidia на физический ИИ направлена на более безопасное роботизированное такси, гуманоидных роботов</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/8043d44318d8.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/8043d44318d8.html</guid>
+      <pubDate>Thu, 08 Oct 2026 11:50:43 +0000</pubDate>
+      <category>Ars Technica</category>
+      <description>Полнотекстовое решение безопасности для физического ИИ используется робототехническими компаниями.</description>
+      <content:encoded><![CDATA[<p>Полнотекстовое решение безопасности для физического ИИ используется робототехническими компаниями.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/8043d44318d8.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Прорывы ИИ в робототехнике не изменят вашу жизнь в ближайшее время</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/12bbf0b4c8f9.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/12bbf0b4c8f9.html</guid>
+      <pubDate>Thu, 08 Oct 2026 11:52:31 +0000</pubDate>
+      <category>MIT Tech Review</category>
+      <description>История представляет собой сотрудничество между MIT Technology Review и Aventine, некоммерческим исследовательским фондом, который создает и поддерживает контент о том, как технологии и наука меняют наш образ жизни. Робот в форме человека - белый с черной головой и туловищем - появляется на…</description>
+      <content:encoded><![CDATA[<p>История представляет собой сотрудничество между MIT Technology Review и Aventine, некоммерческим исследовательским фондом, который создает и поддерживает контент о том, как технологии и наука меняют наш образ жизни.</p><p>Робот в форме человека - белый с черной головой и туловищем - появляется на видеоканалах.</p><p>Возможно, вы видели, как он танцует или...</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/12bbf0b4c8f9.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
