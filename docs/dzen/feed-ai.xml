@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Fri, 09 Oct 2026 11:43:28 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 19:21:37 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>ИИ не смог победить людей в StarCraft, поэтому решил обмануть</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/a6d1cf7547d4.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/a6d1cf7547d4.html</guid>
-      <pubDate>Sun, 04 Oct 2026 15:46:33 +0000</pubDate>
-      <category>The Verge</category>
-      <description>StarSkirmish натравливает искусственных ботов StarCraft друг на друга, а также на ботов, созданных человеком. GPT-6 Astra от OpenAI и Claude Opus 5.5 были, по сути, связаны как самые эффективные боты, созданные ИИ, но они не смогли превзойти Stardust, самого рейтингового бота, созданного человеком.…</description>
-      <content:encoded><![CDATA[<p>StarSkirmish натравливает искусственных ботов StarCraft друг на друга, а также на ботов, созданных человеком.</p><p>GPT-6 Astra от OpenAI и Claude Opus 5.5 были, по сути, связаны как самые эффективные боты, созданные ИИ, но они не смогли превзойти Stardust, самого рейтингового бота, созданного человеком.</p><p>В пятницу GPT столкнулась с Клодом и созданным человеком ботом Плутоном, но, по словам Котаку, …</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/a6d1cf7547d4.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Не обманывайтесь - LLM не рассуждают</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/0e65614ea617.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/0e65614ea617.html</guid>
-      <pubDate>Sun, 04 Oct 2026 15:48:15 +0000</pubDate>
-      <category>MIT Tech Review</category>
-      <description>Во второй половине дня в Сеуле в марте 2016 года я смотрел программу, которую я помог построить, поставил камень на пятую строчку доски для го, что выглядело как подарок его человеческому противнику. Ход 37 во второй игре пятиматчевого матча выглядел настолько абсурдно, что некоторые комментаторы…</description>
-      <content:encoded><![CDATA[<p>Во второй половине дня в Сеуле в марте 2016 года я смотрел программу, которую я помог построить, поставил камень на пятую строчку доски для го, что выглядело как подарок его человеческому противнику.</p><p>Ход 37 во второй игре пятиматчевого матча выглядел настолько абсурдно, что некоторые комментаторы думали, что это...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/0e65614ea617.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Amazon реагирует на негативную реакцию центра обработки данных, заявляя, что больше не использует соглашения о неразглашении</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c3a4b9437cfc.html</link>
@@ -214,6 +194,26 @@
       <description>Мы работаем на крупном проекте, где присутствует десятки интеграций, сотни бизнес-сценариев, документация в Confluence, а теперь ещё и описания бизнес-сценариев с помощью ИИ прямо в репозиториях. Это здорово выручает для погружения в проект, но всё равно не покрывает всю картину при работе над…</description>
       <content:encoded><![CDATA[<p>Мы работаем на крупном проекте, где присутствует десятки интеграций, сотни бизнес-сценариев, документация в Confluence, а теперь ещё и описания бизнес-сценариев с помощью ИИ прямо в репозиториях.</p><p>Это здорово выручает для погружения в проект, но всё равно не покрывает всю картину при работе над конкретной доработкой.</p><p>Поэтому в команде аналитиков мы начали заводить собственных ИИ-агентов: собираем в папку нужные репозитории из Git, БФТ от заказчика, заметки со встреч, и вместе с агентом проектируем и анализируем.Дальше в статье мы разберём полный конвейер: как готовим данные для ИИ-агента, передаём ему контекст и затем превращаем результат анализа в готовое ЧТЗ.</p><p>Без нормальной подготовки на входе даже самый умный агент выдаст ерунду, а Markdown-результат на выходе ещё нужно оформить в корпоративный .docx.</p><p>Читать далее</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/6e980a333c00.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Загрузка: проблема отказа ИИ и побочные эффекты препарата для похудения</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/6929ee0a1f37.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/6929ee0a1f37.html</guid>
+      <pubDate>Fri, 09 Oct 2026 19:20:06 +0000</pubDate>
+      <category>MIT Tech Review</category>
+      <description>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий. Мы слишком сильно верим в способность ИИ сказать «нет». Сегодняшние модели ИИ обучены отказываться от огромного количества подсказок.…</description>
+      <content:encoded><![CDATA[<p>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий.</p><p>Мы слишком сильно верим в способность ИИ сказать «нет».</p><p>Сегодняшние модели ИИ обучены отказываться от огромного количества подсказок.</p><p>Если вы спросите своего чат-бота, как отравить…</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/6929ee0a1f37.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Математический прорыв OpenAI оказался под вопросом — учёные нашли расхождение в доказательстве</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/e6bd5ddb41d2.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/e6bd5ddb41d2.html</guid>
+      <pubDate>Fri, 09 Oct 2026 19:21:37 +0000</pubDate>
+      <category>3DNews</category>
+      <description>Математический прорыв OpenAI начал вызывать вопросы. Учёные сравнили опубликованное доказательство по уравнениям Навье — Стокса с его алгоритмической Lean-версией и нашли расхождения: в нескольких ключевых местах машинный вариант, проверяемый на компьютере, содержит более слабые утверждения. Это…</description>
+      <content:encoded><![CDATA[<p>Математический прорыв OpenAI начал вызывать вопросы.</p><p>Учёные сравнили опубликованное доказательство по уравнениям Навье — Стокса с его алгоритмической Lean-версией и нашли расхождения: в нескольких ключевых местах машинный вариант, проверяемый на компьютере, содержит более слабые утверждения.</p><p>Это ещё не опровержение, но почва для сомнений уже вполне плодородная Источник изображения: Thomas T /unsplash.com</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/e6bd5ddb41d2.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
