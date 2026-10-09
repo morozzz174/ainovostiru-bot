@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Thu, 08 Oct 2026 19:45:15 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 11:43:28 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Как Cursor заменил мне Stack Overflow, ускорил отладку и вернул интерес к пет-проектам</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/7cc7bad6f704.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/7cc7bad6f704.html</guid>
-      <pubDate>Sun, 04 Oct 2026 10:59:27 +0000</pubDate>
-      <category>Habr</category>
-      <description>В самом начале, когда начали появляться первые ИИ-агенты и плагины для IDE-шек, я думал: а, очередная новомодная фишка. Надо будет как-нибудь посмотреть, когда время будет. Тогда я еще не подозревал, насколько мощные эти инструменты, а ChatGPT и прочие генеративные нейросети воспринимал как…</description>
-      <content:encoded><![CDATA[<p>В самом начале, когда начали появляться первые ИИ-агенты и плагины для IDE-шек, я думал: а, очередная новомодная фишка.</p><p>Надо будет как-нибудь посмотреть, когда время будет.</p><p>Тогда я еще не подозревал, насколько мощные эти инструменты, а ChatGPT и прочие генеративные нейросети воспринимал как «прикольную игрушку».В то время я искал решения на Stack Overflow, адаптировал и вставлял в код, вручную отлаживал.</p><p>Тогда ИИ для меня был просто нейросетями на Keras, которые еще надо обучать и которые годятся только для кредитного скоринга или подобных задач.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/7cc7bad6f704.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Скачать: конкурс биологического старения и почему LLM не рассуждают</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c92d45fdd2a2.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c92d45fdd2a2.html</guid>
-      <pubDate>Sun, 04 Oct 2026 11:00:37 +0000</pubDate>
-      <category>MIT Tech Review</category>
-      <description>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий. Новый конкурс сталкивает участников друг с другом в гонке на биологическую молодость - Джессика Хамзелу На этой неделе я официально…</description>
-      <content:encoded><![CDATA[<p>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий.</p><p>Новый конкурс сталкивает участников друг с другом в гонке на биологическую молодость - Джессика Хамзелу На этой неделе я официально записалась на необычное соревнование.</p><p>Тот, который вознаграждает конкурентов за...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/c92d45fdd2a2.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>ИИ не смог победить людей в StarCraft, поэтому решил обмануть</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/a6d1cf7547d4.html</link>
@@ -214,6 +194,26 @@
       <description>Генеральный директор Ambrosia Energy Бен Лонгмьер и старший вице-президент Bloom Energy Билл Тайер присоединяются к этапу Smart Systems в TechCrunch Disrupt. Зарегистрируйтесь и сэкономьте до $ 100. Возьмите вторую часть того же абонемента, чтобы сэкономить 50%.</description>
       <content:encoded><![CDATA[<p>Генеральный директор Ambrosia Energy Бен Лонгмьер и старший вице-президент Bloom Energy Билл Тайер присоединяются к этапу Smart Systems в TechCrunch Disrupt.</p><p>Зарегистрируйтесь и сэкономьте до $ 100.</p><p>Возьмите вторую часть того же абонемента, чтобы сэкономить 50%.</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/66552e4a6d15.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Построение более безопасного пути к автономному промышленному ИИ</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/cc21bdc31bf0.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/cc21bdc31bf0.html</guid>
+      <pubDate>Fri, 09 Oct 2026 11:42:26 +0000</pubDate>
+      <category>MIT Tech Review</category>
+      <description>Промышленный ИИ вступает в новую фазу. После десятилетий прогнозной аналитики и других специализированных приложений достижения в базовых моделях, физическом ИИ и агентном ИИ позволяют автоматизировать более сложные задачи в промышленных средах. Но в отличие от ИИ, который работает исключительно в…</description>
+      <content:encoded><![CDATA[<p>Промышленный ИИ вступает в новую фазу.</p><p>После десятилетий прогнозной аналитики и других специализированных приложений достижения в базовых моделях, физическом ИИ и агентном ИИ позволяют автоматизировать более сложные задачи в промышленных средах.</p><p>Но в отличие от ИИ, который работает исключительно в цифровом мире, промышленный ИИ может напрямую взаимодействовать с физическими системами,…</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/cc21bdc31bf0.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Аналитик и ИИ: три инструмента, которые превращают хаос в требования</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/6e980a333c00.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/6e980a333c00.html</guid>
+      <pubDate>Fri, 09 Oct 2026 11:43:28 +0000</pubDate>
+      <category>Habr</category>
+      <description>Мы работаем на крупном проекте, где присутствует десятки интеграций, сотни бизнес-сценариев, документация в Confluence, а теперь ещё и описания бизнес-сценариев с помощью ИИ прямо в репозиториях. Это здорово выручает для погружения в проект, но всё равно не покрывает всю картину при работе над…</description>
+      <content:encoded><![CDATA[<p>Мы работаем на крупном проекте, где присутствует десятки интеграций, сотни бизнес-сценариев, документация в Confluence, а теперь ещё и описания бизнес-сценариев с помощью ИИ прямо в репозиториях.</p><p>Это здорово выручает для погружения в проект, но всё равно не покрывает всю картину при работе над конкретной доработкой.</p><p>Поэтому в команде аналитиков мы начали заводить собственных ИИ-агентов: собираем в папку нужные репозитории из Git, БФТ от заказчика, заметки со встреч, и вместе с агентом проектируем и анализируем.Дальше в статье мы разберём полный конвейер: как готовим данные для ИИ-агента, передаём ему контекст и затем превращаем результат анализа в готовое ЧТЗ.</p><p>Без нормальной подготовки на входе даже самый умный агент выдаст ерунду, а Markdown-результат на выходе ещё нужно оформить в корпоративный .docx.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/6e980a333c00.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
