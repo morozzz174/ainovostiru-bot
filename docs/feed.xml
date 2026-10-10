@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Sat, 10 Oct 2026 11:02:22 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 16:15:19 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Российские беспилотники атакуют центры обработки данных Украины, используя пробелы в противовоздушной обороне</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/e4007e2d4e1f.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/e4007e2d4e1f.html</guid>
-      <pubDate>Mon, 05 Oct 2026 21:24:56 +0000</pubDate>
-      <category>Ars Technica</category>
-      <description>Российские атаки на интернет, телефонные услуги угрожают экономике военного времени Украины.</description>
-      <content:encoded><![CDATA[<p>Российские атаки на интернет, телефонные услуги угрожают экономике военного времени Украины.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/e4007e2d4e1f.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>ИИ завалил arXiv нейрослопом — теперь учёным разрешат публиковать не более двух препринтов в месяц</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/48133893f428.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/48133893f428.html</guid>
-      <pubDate>Mon, 05 Oct 2026 21:27:00 +0000</pubDate>
-      <category>3DNews</category>
-      <description>arXiv — это открытый репозиторий, где исследователи публикуют препринты научных работ. На днях сервис объявил о введении ограничений на количество подаваемых материалов из-за наплыва нейрослопа — статей, полностью сгенерированных ИИ. Нейросети настолько упростили подачу материалов, что команда…</description>
-      <content:encoded><![CDATA[<p>arXiv — это открытый репозиторий, где исследователи публикуют препринты научных работ.</p><p>На днях сервис объявил о введении ограничений на количество подаваемых материалов из-за наплыва нейрослопа — статей, полностью сгенерированных ИИ.</p><p>Нейросети настолько упростили подачу материалов, что команда модераторов оказалась перегружена.</p><p>Теперь можно отправить не более двух работ в месяц и одновременно иметь не более трёх активных заявок на рассмотрении.</p><p>Источник изображения: unsplash.com</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/48133893f428.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Как убедить людей в том, чего нет, или кризис свободы слова</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/be78aab12d77.html</link>
@@ -214,6 +194,26 @@
       <description>Согласно отчету 6abc, модель антропного ИИ предоставила ложную информацию о нераскрытом убийстве в отдел полиции Филадельфии (PPD). В заявлении, опубликованном в пятницу, PPD заявила, что модель ИИ отправила подсказку через PhillyUnsolvedMurders.com 18 июля, но следователи никогда не рассматривали…</description>
       <content:encoded><![CDATA[<p>Согласно отчету 6abc, модель антропного ИИ предоставила ложную информацию о нераскрытом убийстве в отдел полиции Филадельфии (PPD).</p><p>В заявлении, опубликованном в пятницу, PPD заявила, что модель ИИ отправила подсказку через PhillyUnsolvedMurders.com 18 июля, но следователи никогда не рассматривали ее, потому что она была помечена как ...</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/45b4b227c289.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Производители ИИ-агентов обещают конфиденциальность — смогут ли они ее обеспечить?</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/66a8269d27f9.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/66a8269d27f9.html</guid>
+      <pubDate>Sat, 10 Oct 2026 16:13:28 +0000</pubDate>
+      <category>The Verge</category>
+      <description>В этом году на OpenAI DevDay генеральный директор Сэм Альтман представил нового ИИ-агента компании Dots - и сказал толпе, что компания хочет «установить новый стандарт конфиденциальности в пограничном ИИ.« OpenAI проведет день, делая завуалированные снимки Muse Meta, своего основного конкурента, за…</description>
+      <content:encoded><![CDATA[<p>В этом году на OpenAI DevDay генеральный директор Сэм Альтман представил нового ИИ-агента компании Dots - и сказал толпе, что компания хочет «установить новый стандарт конфиденциальности в пограничном ИИ.« OpenAI проведет день, делая завуалированные снимки Muse Meta, своего основного конкурента, за то, что он не смог сохранить данные пользователей в безопасности.</p><p>...</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/66a8269d27f9.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Круглые столы: разговор с создателем вирусов с искусственным интеллектом</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f9d9fb2eb3d7.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f9d9fb2eb3d7.html</guid>
+      <pubDate>Sat, 10 Oct 2026 16:15:19 +0000</pubDate>
+      <category>MIT Tech Review</category>
+      <description>Пятница, 16 октября 2026 Может ли ИИ создавать новые формы жизни? В 2025 году аспирант Стэнфордского университета Сэмюэль Кинг придумал предварительный ответ, когда он использовал генеративную модель ИИ, чтобы предложить генетические чертежи микроскопических вирусов. Это еще не пример жизни,…</description>
+      <content:encoded><![CDATA[<p>Пятница, 16 октября 2026 Может ли ИИ создавать новые формы жизни?</p><p>В 2025 году аспирант Стэнфордского университета Сэмюэль Кинг придумал предварительный ответ, когда он использовал генеративную модель ИИ, чтобы предложить генетические чертежи микроскопических вирусов.</p><p>Это еще не пример жизни, созданной ИИ, но это может быть следующим.</p><p>Присоединяйтесь к старшему ИИ-репортеру...</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/f9d9fb2eb3d7.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
