@@ -9,32 +9,12 @@
     <description>Наука, история, космос и открытия — коротко и по делу.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Sat, 10 Oct 2026 10:47:42 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 17:28:07 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>FACTUM.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>На Солнце впервые с начала сентября произошла сильная вспышка</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/11b35daa3282.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/11b35daa3282.html</guid>
-      <pubDate>Mon, 05 Oct 2026 20:49:47 +0000</pubDate>
-      <category>ТАСС Наука</category>
-      <description>Она была предпоследнего класса мощности</description>
-      <content:encoded><![CDATA[<p>Она была предпоследнего класса мощности</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/11b35daa3282.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Морские обезьяны показывают ученым, как переписать правило турбулентности</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/50d916a2fabd.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/50d916a2fabd.html</guid>
-      <pubDate>Mon, 05 Oct 2026 20:51:25 +0000</pubDate>
-      <category>Quanta Magazine</category>
-      <description>Ученые предположили, что в турбулентной системе энергия течет только в одном направлении. Чего они не знали, пока не присмотрелись к рассольным креветкам, так это того, что простой фактор может обратить вспять поток. Пост Sea Monkeys Show Scientists How To Rewrite a Rule of Turbulence впервые…</description>
-      <content:encoded><![CDATA[<p>Ученые предположили, что в турбулентной системе энергия течет только в одном направлении.</p><p>Чего они не знали, пока не присмотрелись к рассольным креветкам, так это того, что простой фактор может обратить вспять поток.</p><p>Пост Sea Monkeys Show Scientists How To Rewrite a Rule of Turbulence впервые появился в журнале Quanta</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/50d916a2fabd.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Ученый Нохрина: IceCube заложила фундамент для появления многоканальной астрономии</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f24da326b69a.html</link>
@@ -214,6 +194,26 @@
       <description>В 1901 году Коди заставил своих сиу-исполнителей надеть китайскую одежду и изобразить повстанцев.</description>
       <content:encoded><![CDATA[<p>В 1901 году Коди заставил своих сиу-исполнителей надеть китайскую одежду и изобразить повстанцев.</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/ddcbecb6c6e4.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>«Роскосмос» показал первую художественную визуализацию снимков российского космического рентгеновского телескопа</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/632d5997d2e2.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/632d5997d2e2.html</guid>
+      <pubDate>Sat, 10 Oct 2026 17:26:30 +0000</pubDate>
+      <category>Naked Science</category>
+      <description>«Роскосмос» показал первую художественную визуализацию снимков российского космического рентгеновского телескопа</description>
+      <content:encoded><![CDATA[<p>«Роскосмос» показал первую художественную визуализацию снимков российского космического рентгеновского телескопа</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/632d5997d2e2.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Эволюция Манхэттена</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/50e709c048e6.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/50e709c048e6.html</guid>
+      <pubDate>Sat, 10 Oct 2026 17:28:07 +0000</pubDate>
+      <category>Aeon</category>
+      <description>От земли Ленапе до разросшегося мегаполиса - эта подробная анимация запечатлела создание Манхэттена от Aeon VideoWatch на Aeon</description>
+      <content:encoded><![CDATA[<p>От земли Ленапе до разросшегося мегаполиса - эта подробная анимация запечатлела создание Манхэттена от Aeon VideoWatch на Aeon</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/50e709c048e6.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
