@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Fri, 09 Oct 2026 19:21:37 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 11:02:22 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Amazon реагирует на негативную реакцию центра обработки данных, заявляя, что больше не использует соглашения о неразглашении</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c3a4b9437cfc.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c3a4b9437cfc.html</guid>
-      <pubDate>Mon, 05 Oct 2026 12:06:44 +0000</pubDate>
-      <category>TechCrunch</category>
-      <description>Генеральный директор Amazon Web Services попытался противостоять широко распространенным подозрениям в отношении центров обработки данных.</description>
-      <content:encoded><![CDATA[<p>Генеральный директор Amazon Web Services попытался противостоять широко распространенным подозрениям в отношении центров обработки данных.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/c3a4b9437cfc.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Новые судебно-медицинские доказательства подтверждают египетскую «жертву фиксатора»</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/42417ec4fd9c.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/42417ec4fd9c.html</guid>
-      <pubDate>Mon, 05 Oct 2026 12:07:54 +0000</pubDate>
-      <category>Ars Technica</category>
-      <description>Свежий анализ массовых захоронений Первой династии находит признаки смертельной травмы тупым предметом на 39 процентах черепов</description>
-      <content:encoded><![CDATA[<p>Свежий анализ массовых захоронений Первой династии находит признаки смертельной травмы тупым предметом на 39 процентах черепов</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/42417ec4fd9c.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Российские беспилотники атакуют центры обработки данных Украины, используя пробелы в противовоздушной обороне</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/e4007e2d4e1f.html</link>
@@ -214,6 +194,26 @@
       <description>Математический прорыв OpenAI начал вызывать вопросы. Учёные сравнили опубликованное доказательство по уравнениям Навье — Стокса с его алгоритмической Lean-версией и нашли расхождения: в нескольких ключевых местах машинный вариант, проверяемый на компьютере, содержит более слабые утверждения. Это…</description>
       <content:encoded><![CDATA[<p>Математический прорыв OpenAI начал вызывать вопросы.</p><p>Учёные сравнили опубликованное доказательство по уравнениям Навье — Стокса с его алгоритмической Lean-версией и нашли расхождения: в нескольких ключевых местах машинный вариант, проверяемый на компьютере, содержит более слабые утверждения.</p><p>Это ещё не опровержение, но почва для сомнений уже вполне плодородная Источник изображения: Thomas T /unsplash.com</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/e6bd5ddb41d2.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Устроил маленьким моделям проектный институт: слабой деление на разделы дало вчетверо, рой пять пунктов</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d2fd7e395432.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d2fd7e395432.html</guid>
+      <pubDate>Sat, 10 Oct 2026 11:01:11 +0000</pubDate>
+      <category>Habr</category>
+      <description>Я тепломеханик, начальник отдела в проектной организации, в проектировании четырнадцать лет. Программистом не был ни дня, с нейросетями вожусь меньше года. Весной взялся вырастить из слабых локальных моделей рой, который окажется умнее самой сильной из них. Рой не поумнел. Зато по дороге я разложил…</description>
+      <content:encoded><![CDATA[<p>Я тепломеханик, начальник отдела в проектной организации, в проектировании четырнадцать лет.</p><p>Программистом не был ни дня, с нейросетями вожусь меньше года.</p><p>Весной взялся вырастить из слабых локальных моделей рой, который окажется умнее самой сильной из них.</p><p>Рой не поумнел.</p><p>Зато по дороге я разложил шесть маленьких моделей по схеме, по которой работает любой проектный институт, и замерил, что из этой схемы держит нагрузку.</p><p>Держит одно деление на разделы, и слабой модели оно дает больше, чем сильной.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/d2fd7e395432.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Искусственный интеллект Anthropic дал полиции Филадельфии поддельный совет о нераскрытом убийстве</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/45b4b227c289.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/45b4b227c289.html</guid>
+      <pubDate>Sat, 10 Oct 2026 11:02:22 +0000</pubDate>
+      <category>The Verge</category>
+      <description>Согласно отчету 6abc, модель антропного ИИ предоставила ложную информацию о нераскрытом убийстве в отдел полиции Филадельфии (PPD). В заявлении, опубликованном в пятницу, PPD заявила, что модель ИИ отправила подсказку через PhillyUnsolvedMurders.com 18 июля, но следователи никогда не рассматривали…</description>
+      <content:encoded><![CDATA[<p>Согласно отчету 6abc, модель антропного ИИ предоставила ложную информацию о нераскрытом убийстве в отдел полиции Филадельфии (PPD).</p><p>В заявлении, опубликованном в пятницу, PPD заявила, что модель ИИ отправила подсказку через PhillyUnsolvedMurders.com 18 июля, но следователи никогда не рассматривали ее, потому что она была помечена как ...</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/45b4b227c289.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
