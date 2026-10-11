@@ -9,32 +9,12 @@
     <description>Наука, история, космос и открытия — коротко и по делу.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Sat, 10 Oct 2026 17:28:07 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2026 10:59:21 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>FACTUM.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Ученый Нохрина: IceCube заложила фундамент для появления многоканальной астрономии</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f24da326b69a.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f24da326b69a.html</guid>
-      <pubDate>Tue, 06 Oct 2026 11:26:18 +0000</pubDate>
-      <category>ТАСС Наука</category>
-      <description>Это представляет особенную ценность для науки, отметила заведующая лабораторией фундаментальных и прикладных исследований релятивистских объектов Вселенной МФТИ</description>
-      <content:encoded><![CDATA[<p>Это представляет особенную ценность для науки, отметила заведующая лабораторией фундаментальных и прикладных исследований релятивистских объектов Вселенной МФТИ</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/f24da326b69a.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>«Роскосмос» начал изготовление батареи «Экспресса-40»</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/470f6fa81c77.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/470f6fa81c77.html</guid>
-      <pubDate>Tue, 06 Oct 2026 11:27:20 +0000</pubDate>
-      <category>Lenta Наука</category>
-      <description></description>
-      <content:encoded><![CDATA[<p></p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/470f6fa81c77.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Художники Фрида Кало и Диего Ривера в гостях у Льва Троцкого в Мексике: старинные кадры 1938 года</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/40a14279a872.html</link>
@@ -214,6 +194,26 @@
       <description>От земли Ленапе до разросшегося мегаполиса - эта подробная анимация запечатлела создание Манхэттена от Aeon VideoWatch на Aeon</description>
       <content:encoded><![CDATA[<p>От земли Ленапе до разросшегося мегаполиса - эта подробная анимация запечатлела создание Манхэттена от Aeon VideoWatch на Aeon</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/50e709c048e6.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Как собрать науку</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/62cb2117d64e.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/62cb2117d64e.html</guid>
+      <pubDate>Sun, 11 Oct 2026 10:58:07 +0000</pubDate>
+      <category>Aeon</category>
+      <description>Человечество производит ошеломляющее количество новых знаний каждый день. Вопрос в том, как понять все это - Хелен Пирсон Читать на Aeon</description>
+      <content:encoded><![CDATA[<p>Человечество производит ошеломляющее количество новых знаний каждый день.</p><p>Вопрос в том, как понять все это - Хелен Пирсон Читать на Aeon</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/62cb2117d64e.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Семинолы научили американских солдат одной или двум вещам о партизанской войне</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/da82b6b68a65.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/da82b6b68a65.html</guid>
+      <pubDate>Sun, 11 Oct 2026 10:59:21 +0000</pubDate>
+      <category>HistoryNet</category>
+      <description>Во время Второй семинольской войны 1835-1842 годов и в то время, когда армия разведывала Запад, эти воины с Юга оказались грозными.</description>
+      <content:encoded><![CDATA[<p>Во время Второй семинольской войны 1835-1842 годов и в то время, когда армия разведывала Запад, эти воины с Юга оказались грозными.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/da82b6b68a65.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
