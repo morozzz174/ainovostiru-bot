@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Mon, 12 Oct 2026 12:51:26 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 22:02:46 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Загрузка: препараты для похудения, замедляющие старение, и углекислотные батареи</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f3143cc396f4.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f3143cc396f4.html</guid>
-      <pubDate>Wed, 07 Oct 2026 19:48:16 +0000</pubDate>
-      <category>MIT Tech Review</category>
-      <description>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий. Препараты для похудения демонстрируют признаки замедления биологического старения, говорят производители лекарств. Популярные препараты…</description>
-      <content:encoded><![CDATA[<p>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий.</p><p>Препараты для похудения демонстрируют признаки замедления биологического старения, говорят производители лекарств.</p><p>Популярные препараты для похудения могут сделать больше, чем просто помочь людям сбросить лишние килограммы.</p><p>Они также могут замедлить процесс старения.</p><p>Производители лекарств Eli Lilly...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/f3143cc396f4.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Новый веб-сайт Google SynthID может идентифицировать медиа, сгенерированные ИИ</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/66b8b7448544.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/66b8b7448544.html</guid>
-      <pubDate>Wed, 07 Oct 2026 19:50:00 +0000</pubDate>
-      <category>TechCrunch</category>
-      <description>Google во вторник запустил новый сайт, который позволяет любому проверить, генерируется ли медиафайл, будь то изображение, видео или аудиоклип, с помощью ИИ.</description>
-      <content:encoded><![CDATA[<p>Google во вторник запустил новый сайт, который позволяет любому проверить, генерируется ли медиафайл, будь то изображение, видео или аудиоклип, с помощью ИИ.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/66b8b7448544.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Большая ставка Nvidia на физический ИИ направлена на более безопасное роботизированное такси, гуманоидных роботов</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/8043d44318d8.html</link>
@@ -214,6 +194,26 @@
       <description>Если вы проезжаете по обширному кампусу GM в Уоррене, штат Мичиган, вы, вероятно, проигнорируете пару соседних анонимных белых зданий, спрятанных в верхнем течении пространства площадью 710 акров. Внутри этих зданий, общая площадь которых составляет полмиллиона квадратных футов, находится массивный…</description>
       <content:encoded><![CDATA[<p>Если вы проезжаете по обширному кампусу GM в Уоррене, штат Мичиган, вы, вероятно, проигнорируете пару соседних анонимных белых зданий, спрятанных в верхнем течении пространства площадью 710 акров.</p><p>Внутри этих зданий, общая площадь которых составляет полмиллиона квадратных футов, находится массивный строительный проект, который все еще находится в стадии реализации.</p><p>После завершения строительства в нем будет …</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/e336c2b791af.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Отключение Яндекса, вероятно, не обрушилось на российских ботов</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/337603351c1c.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/337603351c1c.html</guid>
+      <pubDate>Mon, 12 Oct 2026 22:01:07 +0000</pubDate>
+      <category>The Verge</category>
+      <description>Многочисленные удары украинских беспилотников за последнюю неделю отключили российские центры обработки данных и, как сообщается, привели к резкому падению трафика онлайн-ботов, но на самом деле это, вероятно, не та активность ботов, которую большинство людей связывают с Россией. График со ссылкой…</description>
+      <content:encoded><![CDATA[<p>Многочисленные удары украинских беспилотников за последнюю неделю отключили российские центры обработки данных и, как сообщается, привели к резкому падению трафика онлайн-ботов, но на самом деле это, вероятно, не та активность ботов, которую большинство людей связывают с Россией.</p><p>График со ссылкой на данные Cloudflare циркулирует на платформах социальных сетей, демонстрируя резкое снижение ...</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/337603351c1c.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>В Amazon работает более 1 миллиона роботов. Что дальше для сотрудников-людей?</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/b4712aa43193.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/b4712aa43193.html</guid>
+      <pubDate>Mon, 12 Oct 2026 22:02:45 +0000</pubDate>
+      <category>Ars Technica</category>
+      <description>Второй по величине корпоративный работодатель сделал большую ставку на масштабирование работников-роботов.</description>
+      <content:encoded><![CDATA[<p>Второй по величине корпоративный работодатель сделал большую ставку на масштабирование работников-роботов.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/b4712aa43193.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
