@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Mon, 12 Oct 2026 22:02:46 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Oct 2026 12:33:09 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Большая ставка Nvidia на физический ИИ направлена на более безопасное роботизированное такси, гуманоидных роботов</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/8043d44318d8.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/8043d44318d8.html</guid>
-      <pubDate>Thu, 08 Oct 2026 11:50:43 +0000</pubDate>
-      <category>Ars Technica</category>
-      <description>Полнотекстовое решение безопасности для физического ИИ используется робототехническими компаниями.</description>
-      <content:encoded><![CDATA[<p>Полнотекстовое решение безопасности для физического ИИ используется робототехническими компаниями.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/8043d44318d8.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Прорывы ИИ в робототехнике не изменят вашу жизнь в ближайшее время</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/12bbf0b4c8f9.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/12bbf0b4c8f9.html</guid>
-      <pubDate>Thu, 08 Oct 2026 11:52:31 +0000</pubDate>
-      <category>MIT Tech Review</category>
-      <description>История представляет собой сотрудничество между MIT Technology Review и Aventine, некоммерческим исследовательским фондом, который создает и поддерживает контент о том, как технологии и наука меняют наш образ жизни. Робот в форме человека - белый с черной головой и туловищем - появляется на…</description>
-      <content:encoded><![CDATA[<p>История представляет собой сотрудничество между MIT Technology Review и Aventine, некоммерческим исследовательским фондом, который создает и поддерживает контент о том, как технологии и наука меняют наш образ жизни.</p><p>Робот в форме человека - белый с черной головой и туловищем - появляется на видеоканалах.</p><p>Возможно, вы видели, как он танцует или...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/12bbf0b4c8f9.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Тим Кук говорит: «Я не вмешиваюсь» в бизнес нового генерального директора Apple</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/435dd462e13a.html</link>
@@ -214,6 +194,26 @@
       <description>Второй по величине корпоративный работодатель сделал большую ставку на масштабирование работников-роботов.</description>
       <content:encoded><![CDATA[<p>Второй по величине корпоративный работодатель сделал большую ставку на масштабирование работников-роботов.</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/b4712aa43193.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Meta выпускает свою первую фронтирную модель Muse Wonder</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/cfdd8b43aa7d.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/cfdd8b43aa7d.html</guid>
+      <pubDate>Tue, 13 Oct 2026 12:31:19 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>В то время как Muse Spark стремилась быть легкой моделью, которая могла бы работать с низкой задержкой, модели Wonder больше и, как говорят, более способны, с более высокими оценками тестов и лучшими результатами в сложных задачах, таких как кодирование.</description>
+      <content:encoded><![CDATA[<p>В то время как Muse Spark стремилась быть легкой моделью, которая могла бы работать с низкой задержкой, модели Wonder больше и, как говорят, более способны, с более высокими оценками тестов и лучшими результатами в сложных задачах, таких как кодирование.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/cfdd8b43aa7d.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Скачать: компромиссы открытой модели и обещание геотермальной энергии</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/4c6f8b643bcc.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/4c6f8b643bcc.html</guid>
+      <pubDate>Tue, 13 Oct 2026 12:33:09 +0000</pubDate>
+      <category>MIT Tech Review</category>
+      <description>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий. Открытые модели имеют реальные преимущества. Перевешивают ли они риски? Недавно Anthropic опубликовала отчет, в котором утверждается,…</description>
+      <content:encoded><![CDATA[<p>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий.</p><p>Открытые модели имеют реальные преимущества.</p><p>Перевешивают ли они риски?</p><p>Недавно Anthropic опубликовала отчет, в котором утверждается, что мощная новая модель, выпущенная китайской компанией Z.ai, представляет собой крупную кибератаку...</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/4c6f8b643bcc.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
