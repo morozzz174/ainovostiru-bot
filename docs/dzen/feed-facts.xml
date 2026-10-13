@@ -9,22 +9,12 @@
     <description>Наука, история, космос и открытия — коротко и по делу.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Tue, 13 Oct 2026 12:03:36 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Oct 2026 19:29:06 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>FACTUM.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Могут ли эти американские десантники помешать немцам добраться до пляжа Юты в день «Д»?</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/79274bc6982f.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/79274bc6982f.html</guid>
-      <pubDate>Thu, 08 Oct 2026 18:58:14 +0000</pubDate>
-      <category>HistoryNet</category>
-      <description>Мирная французская сельская местность вокруг моста Ла-Фьер переросла в отчаянную перестрелку 6 июня 1944 года.</description>
-      <content:encoded><![CDATA[<p>Мирная французская сельская местность вокруг моста Ла-Фьер переросла в отчаянную перестрелку 6 июня 1944 года.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/79274bc6982f.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Webb НАСА находит признаки столкновения миров размером с Марс</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/288c299bfe66.html</link>
@@ -214,6 +204,16 @@
       <description>Рифовые рыбы продолжают жить даже у сильно застроенных и загрязненных берегов, но само их присутствие не говорит о благополучии экосистемы. Исследование ученых из Японии показало, что признаки обильного питания у таких рыб сочетаются с молекулярными признаками физиологического стресса — «эффектом…</description>
       <content:encoded><![CDATA[<p>Рифовые рыбы продолжают жить даже у сильно застроенных и загрязненных берегов, но само их присутствие не говорит о благополучии экосистемы.</p><p>Исследование ученых из Японии показало, что признаки обильного питания у таких рыб сочетаются с молекулярными признаками физиологического стресса — «эффектом фастфуда».</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/1f79614cc76f.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Физики обнаружили «удивительное» свойство света, которое не поддается ожиданиям</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ea17fd74049f.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ea17fd74049f.html</guid>
+      <pubDate>Tue, 13 Oct 2026 19:29:06 +0000</pubDate>
+      <category>ScienceDaily</category>
+      <description>Ученые обнаружили удивительную скрытую способность света, которая позволяет ему развивать вращающееся, скручивающееся поведение, когда он путешествует через пустое пространство, без специальных линз, зеркал или материалов. Исследователи обнаружили, что внутренняя геометрия света может естественным…</description>
+      <content:encoded><![CDATA[<p>Ученые обнаружили удивительную скрытую способность света, которая позволяет ему развивать вращающееся, скручивающееся поведение, когда он путешествует через пустое пространство, без специальных линз, зеркал или материалов.</p><p>Исследователи обнаружили, что внутренняя геометрия света может естественным образом создавать лево- и правосторонние узоры, бросая вызов давним предположениям о том, как ведет себя свет.</p><p>Тщательно организуя структуру луча, ученые могут контролировать, где и как</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/ea17fd74049f.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
