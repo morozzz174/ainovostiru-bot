@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Thu, 15 Oct 2026 09:41:53 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 15:33:17 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Производители ИИ-агентов обещают конфиденциальность — смогут ли они ее обеспечить?</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/66a8269d27f9.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/66a8269d27f9.html</guid>
-      <pubDate>Sat, 10 Oct 2026 16:13:28 +0000</pubDate>
-      <category>The Verge</category>
-      <description>В этом году на OpenAI DevDay генеральный директор Сэм Альтман представил нового ИИ-агента компании Dots - и сказал толпе, что компания хочет «установить новый стандарт конфиденциальности в пограничном ИИ.« OpenAI проведет день, делая завуалированные снимки Muse Meta, своего основного конкурента, за…</description>
-      <content:encoded><![CDATA[<p>В этом году на OpenAI DevDay генеральный директор Сэм Альтман представил нового ИИ-агента компании Dots - и сказал толпе, что компания хочет «установить новый стандарт конфиденциальности в пограничном ИИ.« OpenAI проведет день, делая завуалированные снимки Muse Meta, своего основного конкурента, за то, что он не смог сохранить данные пользователей в безопасности.</p><p>...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/66a8269d27f9.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Круглые столы: разговор с создателем вирусов с искусственным интеллектом</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f9d9fb2eb3d7.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f9d9fb2eb3d7.html</guid>
-      <pubDate>Sat, 10 Oct 2026 16:15:19 +0000</pubDate>
-      <category>MIT Tech Review</category>
-      <description>Пятница, 16 октября 2026 Может ли ИИ создавать новые формы жизни? В 2025 году аспирант Стэнфордского университета Сэмюэль Кинг придумал предварительный ответ, когда он использовал генеративную модель ИИ, чтобы предложить генетические чертежи микроскопических вирусов. Это еще не пример жизни,…</description>
-      <content:encoded><![CDATA[<p>Пятница, 16 октября 2026 Может ли ИИ создавать новые формы жизни?</p><p>В 2025 году аспирант Стэнфордского университета Сэмюэль Кинг придумал предварительный ответ, когда он использовал генеративную модель ИИ, чтобы предложить генетические чертежи микроскопических вирусов.</p><p>Это еще не пример жизни, созданной ИИ, но это может быть следующим.</p><p>Присоединяйтесь к старшему ИИ-репортеру...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/f9d9fb2eb3d7.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>НАСА опубликовало долгожданный призыв к промышленности для частных космических станций</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/2d571965ba7f.html</link>
@@ -214,6 +194,26 @@
       <description>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий. Марс может быть адской дырой, но Луна не отстает. США и Китай спешат построить базы на Луне, а НАСА надеется создать небольшую...</description>
       <content:encoded><![CDATA[<p>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий.</p><p>Марс может быть адской дырой, но Луна не отстает.</p><p>США и Китай спешат построить базы на Луне, а НАСА надеется создать небольшую...</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/10dcbb55dab1.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Deezer скоро позволит вам фильтровать музыку, сгенерированную ИИ</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/28ebdc897a51.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/28ebdc897a51.html</guid>
+      <pubDate>Thu, 15 Oct 2026 15:32:06 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>Deezer заявил, что новый тумблер будет развернут к концу года.</description>
+      <content:encoded><![CDATA[<p>Deezer заявил, что новый тумблер будет развернут к концу года.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/28ebdc897a51.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Подготовьте корзину перед завтрашним открытием предварительных заказов iPhone Duo</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/27c6c43ef8d2.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/27c6c43ef8d2.html</guid>
+      <pubDate>Thu, 15 Oct 2026 15:33:17 +0000</pubDate>
+      <category>The Verge</category>
+      <description>Складной телефон Apple iPhone Duo открывается для предварительного заказа завтра, 16 октября, в 8:00 по восточному времени / 5:00 по тихоокеанскому времени, но вам не нужно ждать до тех пор, пока ваш заказ будет в основном отсортирован. На странице продукта компании для телефона теперь можно…</description>
+      <content:encoded><![CDATA[<p>Складной телефон Apple iPhone Duo открывается для предварительного заказа завтра, 16 октября, в 8:00 по восточному времени / 5:00 по тихоокеанскому времени, но вам не нужно ждать до тех пор, пока ваш заказ будет в основном отсортирован.</p><p>На странице продукта компании для телефона теперь можно выбрать нужный цвет, а также объем памяти, предпочтения оператора и то, ...</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/27c6c43ef8d2.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
