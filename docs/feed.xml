@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Fri, 16 Oct 2026 15:19:39 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 17 Oct 2026 09:04:56 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>В Санкт-Петербурге завершился INFOSTART TECH EVENT 2026</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/2820d437ff85.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/2820d437ff85.html</guid>
-      <pubDate>Mon, 12 Oct 2026 12:50:14 +0000</pubDate>
-      <category>Habr</category>
-      <description>8–10 октября в отеле «Санкт-Петербург» прошла INFOSTART TECH EVENT 2026 - профессиональная техническая конференция для специалистов по 1С и автоматизации бизнеса. Три дня докладов, дискуссий и демонстраций были посвящены развитию корпоративных систем: от применения ИИ в разработке и тестировании до…</description>
-      <content:encoded><![CDATA[<p>8–10 октября в отеле «Санкт-Петербург» прошла INFOSTART TECH EVENT 2026 - профессиональная техническая конференция для специалистов по 1С и автоматизации бизнеса.</p><p>Три дня докладов, дискуссий и демонстраций были посвящены развитию корпоративных систем: от применения ИИ в разработке и тестировании до архитектуры, интеграций и производительности.</p><p>Программу дополнили оформление в стиле тёмного фэнтези и INFOSTART PARTY.</p><p>Участники отмечали высокий уровень организации конференции.Программа включала более 130 докладов и круглых столов.</p><p>Основные направления охватывали приёмы и практики разработки, идеи и технологические тренды, интеграцию и обмен данными, администрирование СУБД и HighLoad, DevOps, тестирование и качество ПО, техническое развитие команды и личную эффективность разработчика.</p><p>Такой состав позволял рассматривать задачи автоматизации вместе с требованиями к качеству, инфраструктуре и организации работы.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/2820d437ff85.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Внутри мини-завода, где GM строит свое будущее электромобилей</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/e336c2b791af.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/e336c2b791af.html</guid>
-      <pubDate>Mon, 12 Oct 2026 12:51:26 +0000</pubDate>
-      <category>The Verge</category>
-      <description>Если вы проезжаете по обширному кампусу GM в Уоррене, штат Мичиган, вы, вероятно, проигнорируете пару соседних анонимных белых зданий, спрятанных в верхнем течении пространства площадью 710 акров. Внутри этих зданий, общая площадь которых составляет полмиллиона квадратных футов, находится массивный…</description>
-      <content:encoded><![CDATA[<p>Если вы проезжаете по обширному кампусу GM в Уоррене, штат Мичиган, вы, вероятно, проигнорируете пару соседних анонимных белых зданий, спрятанных в верхнем течении пространства площадью 710 акров.</p><p>Внутри этих зданий, общая площадь которых составляет полмиллиона квадратных футов, находится массивный строительный проект, который все еще находится в стадии реализации.</p><p>После завершения строительства в нем будет …</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/e336c2b791af.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Отключение Яндекса, вероятно, не обрушилось на российских ботов</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/337603351c1c.html</link>
@@ -214,6 +194,26 @@
       <description>Медицинские эксперты недвусмысленно рекомендуют не проводить общий скрининг.</description>
       <content:encoded><![CDATA[<p>Медицинские эксперты недвусмысленно рекомендуют не проводить общий скрининг.</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/1a2ab2aab868.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Баг превращает один из самых больших страхов по поводу умных очков Ray-Ban Meta в реальность</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1be4c9d15c66.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1be4c9d15c66.html</guid>
+      <pubDate>Sat, 17 Oct 2026 09:03:54 +0000</pubDate>
+      <category>Ars Technica</category>
+      <description>Ошибка исправлена, но проблемы с конфиденциальностью остаются.</description>
+      <content:encoded><![CDATA[<p>Ошибка исправлена, но проблемы с конфиденциальностью остаются.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/1be4c9d15c66.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Лимиты ChatGPT и локальные LLM: мой эксперимент с Hermes Agent</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d00c0e4b5f5b.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d00c0e4b5f5b.html</guid>
+      <pubDate>Sat, 17 Oct 2026 09:04:56 +0000</pubDate>
+      <category>Habr</category>
+      <description>Проверил, можно ли разгрузить Hermes Agent с помощью локальных LLM на домашнем ПК с RTX 3080 и 32 ГБ RAM. Сравнил Qwen и GLM на архитектурных задачах, редактуре и извлечении данных, испытал разные квантования и подключил Hermes на Mac к модели на Windows. В статье — условия испытаний, замеры…</description>
+      <content:encoded><![CDATA[<p>Проверил, можно ли разгрузить Hermes Agent с помощью локальных LLM на домашнем ПК с RTX 3080 и 32 ГБ RAM.</p><p>Сравнил Qwen и GLM на архитектурных задачах, редактуре и извлечении данных, испытал разные квантования и подключил Hermes на Mac к модели на Windows.</p><p>В статье — условия испытаний, замеры скорости и памяти, конкретные ошибки и причины итогового выбора Qwen3.5 9B.</p><p>Подключение заработало, но получить привычное качество ответов и подтвердить экономию облачного лимита пока не удалось.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/d00c0e4b5f5b.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
