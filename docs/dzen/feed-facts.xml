@@ -9,32 +9,12 @@
     <description>Наука, история, космос и открытия — коротко и по делу.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Sat, 17 Oct 2026 08:45:16 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 17 Oct 2026 15:51:42 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>FACTUM.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Смотрите рукописные заметки экипажа Artemis II, документирующие лунную поверхность</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/4ddef1c91f81.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/4ddef1c91f81.html</guid>
-      <pubDate>Mon, 12 Oct 2026 12:21:20 +0000</pubDate>
-      <category>Nautilus</category>
-      <description>Людям нравится говорить, что в наших карманах больше вычислительных мощностей, чем НАСА раньше, чтобы добраться до Луны, но даже это недооценивает вещи. У управляющего компьютера Apollo было всего четыре килобайта оперативной памяти, в то время как у iPhone 17 Pro Max - 12 гигабайт, что примерно в…</description>
-      <content:encoded><![CDATA[<p>Людям нравится говорить, что в наших карманах больше вычислительных мощностей, чем НАСА раньше, чтобы добраться до Луны, но даже это недооценивает вещи.</p><p>У управляющего компьютера Apollo было всего четыре килобайта оперативной памяти, в то время как у iPhone 17 Pro Max - 12 гигабайт, что примерно в три миллиона раз больше.</p><p>Конечно, астронавты Артемиды II, которые посетили Луну в начале этого года, обладали самыми современными технологиями, не только размещенными в транспортном средстве, но и в их карманах.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/4ddef1c91f81.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Является ли « внимание» сущностью интеллекта?</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ebfa02dbecaa.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ebfa02dbecaa.html</guid>
-      <pubDate>Mon, 12 Oct 2026 21:22:10 +0000</pubDate>
-      <category>Quanta Magazine</category>
-      <description>Математический механизм позволяет моделям ИИ обрабатывать язык в масштабе, поддерживая текущую революцию ИИ. Наш обозреватель спрашивает: Почему внимание - это ключ? The post Is ‘Attention’ the Essence of Intelligence? first appeared on Quanta Magazine</description>
-      <content:encoded><![CDATA[<p>Математический механизм позволяет моделям ИИ обрабатывать язык в масштабе, поддерживая текущую революцию ИИ.</p><p>Наш обозреватель спрашивает: Почему внимание - это ключ?</p><p>The post Is ‘Attention’ the Essence of Intelligence?</p><p>first appeared on Quanta Magazine</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/ebfa02dbecaa.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Глобальные спутниковые данные свидетельствуют о расширении разрыва в восстановлении между городской и сельской растительностью</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/8a1092808a3f.html</link>
@@ -214,6 +194,26 @@
       <description>Ученые выяснили, что из-за остывания недр Луна продолжает сжиматься и уменьшаться в размерах. К такому выводу пришли астрономы, детально изучившие тысячи молодых разломов и хребтов на поверхности спутника Земли.</description>
       <content:encoded><![CDATA[<p>Ученые выяснили, что из-за остывания недр Луна продолжает сжиматься и уменьшаться в размерах.</p><p>К такому выводу пришли астрономы, детально изучившие тысячи молодых разломов и хребтов на поверхности спутника Земли.</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/c7a7b7ae6962.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Секреты пещеры Холе-Фельс</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1e15f7e6ff2c.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1e15f7e6ff2c.html</guid>
+      <pubDate>Sat, 17 Oct 2026 15:49:50 +0000</pubDate>
+      <category>Aeon</category>
+      <description>Почему мы не все неандертальцы? Эти древние фигурки птиц свидетельствуют о том, что искусство имело важное значение для нашего эволюционного успеха - Aeon VideoWatch на Aeon</description>
+      <content:encoded><![CDATA[<p>Почему мы не все неандертальцы?</p><p>Эти древние фигурки птиц свидетельствуют о том, что искусство имело важное значение для нашего эволюционного успеха - Aeon VideoWatch на Aeon</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/1e15f7e6ff2c.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>900-страничное предварительное руководство по цвету от 1692 года: полное цифровое сканирование с высоким разрешением</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c20839b0b257.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c20839b0b257.html</guid>
+      <pubDate>Sat, 17 Oct 2026 15:51:42 +0000</pubDate>
+      <category>Open Culture</category>
+      <description>Это опережает свое время, тогда есть Traité des couleurs servant à la peinture à l&#x27;eau — или, в своем первоначальном голландском названии, Klaer Lightende Spiegel der Verfkonst, 900-страничная книга цветов краски, сделанная до того, как любые такие вещи стали обычными инструментами ремесла…</description>
+      <content:encoded><![CDATA[<p>Это опережает свое время, тогда есть Traité des couleurs servant à la peinture à l&#x27;eau — или, в своем первоначальном голландском названии, Klaer Lightende Spiegel der Verfkonst, 900-страничная книга цветов краски, сделанная до того, как любые такие вещи стали обычными инструментами ремесла художника, ученого и промышленного дизайнера.</p><p>Автор и художник А.Богерт создал один, и …</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/c20839b0b257.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
