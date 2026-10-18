@@ -9,32 +9,12 @@
     <description>Наука, история, космос и открытия — коротко и по делу.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Sun, 18 Oct 2026 16:06:10 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2026 18:50:25 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>FACTUM.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Далекая NGC 3137 раскрывает подсказки о нашей собственной галактике</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/12b896d78a72.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/12b896d78a72.html</guid>
-      <pubDate>Wed, 14 Oct 2026 17:28:11 +0000</pubDate>
-      <category>Astronomy.com</category>
-      <description>Блестящие звездные скопления и эмиссионные туманности рубинового цвета покрывают усыпанные звездами спиральные рукава NGC 3137. Галактика, которая простирается почти на 140 000 световых лет, выплескивается из рамки этого изображения Хаббла. Туманности - это звездные ясли, светящиеся излучением…</description>
-      <content:encoded><![CDATA[<p>Блестящие звездные скопления и эмиссионные туманности рубинового цвета покрывают усыпанные звездами спиральные рукава NGC 3137.</p><p>Галактика, которая простирается почти на 140 000 световых лет, выплескивается из рамки этого изображения Хаббла.</p><p>Туманности - это звездные ясли, светящиеся излучением атомов водорода, возбуждаемых массивными звездами, образующимися внутри.</p><p>Голубоватые звездные скопления представляют собой следующий этап.</p><p>Продолжение читайте «Далекая NGC 3137 раскрывает подсказки о нашей собственной галактике».</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/12b896d78a72.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Новый анализ показал, что у женщин с аутоиммунными болезнями диагноз нередко ошибочно относят к психике</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/369766410aa7.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/369766410aa7.html</guid>
-      <pubDate>Wed, 14 Oct 2026 17:29:13 +0000</pubDate>
-      <category>Naked Science</category>
-      <description>Пациенты с аутоиммунными заболеваниями — особенно женщины — часто сталкиваются с ошибочной постановкой психиатрических и психосоматических диагнозов. Новое международное исследование показало, что женщинам значительно чаще, чем мужчинам, ставили ошибочные психиатрические диагнозы вместо поиска…</description>
-      <content:encoded><![CDATA[<p>Пациенты с аутоиммунными заболеваниями — особенно женщины — часто сталкиваются с ошибочной постановкой психиатрических и психосоматических диагнозов.</p><p>Новое международное исследование показало, что женщинам значительно чаще, чем мужчинам, ставили ошибочные психиатрические диагнозы вместо поиска аутоиммунной патологии.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/369766410aa7.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Путешествие на Марс может разбить ваше сердце - в буквальном смысле</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f05ee84f8b6e.html</link>
@@ -214,6 +194,26 @@
       <description>По мнению нашей команды археологов, кораблекрушение у берегов Турции является самым старым кораблекрушением в мире. От самого корабля мало что осталось, но, основываясь на подсказках из его груза, включая керамические сосуды, исследовательская группа, в которой я был, предварительно датировала…</description>
       <content:encoded><![CDATA[<p>По мнению нашей команды археологов, кораблекрушение у берегов Турции является самым старым кораблекрушением в мире.</p><p>От самого корабля мало что осталось, но, основываясь на подсказках из его груза, включая керамические сосуды, исследовательская группа, в которой я был, предварительно датировала крушение примерно 2700-2400 годами до нашей эры.</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/8f5b43952e2d.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Новая монолитная ионная ловушка открывает квантовое моделирование для большего числа исследователей</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/be3d1fcf817a.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/be3d1fcf817a.html</guid>
+      <pubDate>Sun, 18 Oct 2026 18:47:59 +0000</pubDate>
+      <category>Phys.org</category>
+      <description>Некоторые квантовые системы настолько сложны, что даже самые мощные суперкомпьютеры изо всех сил пытаются имитировать их поведение. Одним из решений является квантовое моделирование: создание управляемой квантовой системы в лаборатории и настройка ее на имитацию той, которую хотят понять…</description>
+      <content:encoded><![CDATA[<p>Некоторые квантовые системы настолько сложны, что даже самые мощные суперкомпьютеры изо всех сил пытаются имитировать их поведение.</p><p>Одним из решений является квантовое моделирование: создание управляемой квантовой системы в лаборатории и настройка ее на имитацию той, которую хотят понять исследователи.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/be3d1fcf817a.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Новый препарат обращает вспять тяжелую жировую болезнь печени, восстанавливая кишечник</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/be84283e6e2b.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/be84283e6e2b.html</guid>
+      <pubDate>Sun, 18 Oct 2026 18:50:25 +0000</pubDate>
+      <category>ScienceDaily</category>
+      <description>Ученые обнаружили, что потенциально новый препарат может обратить вспять тяжелую жировую болезнь печени на животных моделях, восстанавливая здоровье кишечника и блокируя попадание вредных веществ в печень. Этот прорыв может проложить путь к новым методам лечения заболеваний печени и, возможно,…</description>
+      <content:encoded><![CDATA[<p>Ученые обнаружили, что потенциально новый препарат может обратить вспять тяжелую жировую болезнь печени на животных моделях, восстанавливая здоровье кишечника и блокируя попадание вредных веществ в печень.</p><p>Этот прорыв может проложить путь к новым методам лечения заболеваний печени и, возможно, других серьезных заболеваний, включая сердечно-сосудистые заболевания.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/be84283e6e2b.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
