@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Sun, 18 Oct 2026 09:24:03 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2026 14:23:00 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Должности будущего: Авиадиспетчер доставки беспилотников</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ac1bf18ae108.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ac1bf18ae108.html</guid>
-      <pubDate>Tue, 13 Oct 2026 20:08:43 +0000</pubDate>
-      <category>MIT Tech Review</category>
-      <description>В тот момент, когда Тревор Вишневски услышал, что дроны доставляют пиццу и суши по его району в Техасе, он принял решение. «Это было очень увлекательно», - говорит он. «Я просто сразу захотел быть частью этого.« Вишневский теперь является RPIC, или «дистанционным пилотом», в компании под названием…</description>
-      <content:encoded><![CDATA[<p>В тот момент, когда Тревор Вишневски услышал, что дроны доставляют пиццу и суши по его району в Техасе, он принял решение.</p><p>«Это было очень увлекательно», - говорит он.</p><p>«Я просто сразу захотел быть частью этого.« Вишневский теперь является RPIC, или «дистанционным пилотом», в компании под названием FlyTrex.</p><p>RPIC - это...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/ac1bf18ae108.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Xbox официально погружается в хаос игровых портов на базе ИИ</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/fd981c644200.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/fd981c644200.html</guid>
-      <pubDate>Tue, 13 Oct 2026 20:10:19 +0000</pubDate>
-      <category>The Verge</category>
-      <description>В настоящее время ретро-игры переживают дикие времена благодаря декомпиляциям и перекомпиляциям, которые позволяют игрокам переносить классические игры на новые устройства или объединять код из двух разных игр в один новый опыт. Microsoft стала свидетелем того, как скейтбординг был модифицирован в…</description>
-      <content:encoded><![CDATA[<p>В настоящее время ретро-игры переживают дикие времена благодаря декомпиляциям и перекомпиляциям, которые позволяют игрокам переносить классические игры на новые устройства или объединять код из двух разных игр в один новый опыт.</p><p>Microsoft стала свидетелем того, как скейтбординг был модифицирован в Call of Duty и Halo, в которые играли в сети ...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/fd981c644200.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Федералы изучают сообщения о том, что робототехника Tesla ускоряется в школьных зонах</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/279a6e89ec79.html</link>
@@ -214,6 +194,26 @@
       <description>В этом уроке я расскажу как можно использовать ComfyUI в роли API и быстро создать веб-приложение с доступом из мира. В приложении я смогу оперативно настраивать интерфейс под меняющиеся задачи без программирования. Читать далее</description>
       <content:encoded><![CDATA[<p>В этом уроке я расскажу как можно использовать ComfyUI в роли API и быстро создать веб-приложение с доступом из мира.</p><p>В приложении я смогу оперативно настраивать интерфейс под меняющиеся задачи без программирования.</p><p>Читать далее</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/e149b9a69dc0.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>По словам генерального директора, Replit делает OpenAI своим дефолтом по сравнению с Anthropic</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/3ebfc0a8f582.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/3ebfc0a8f582.html</guid>
+      <pubDate>Sun, 18 Oct 2026 14:21:56 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>На выходных Масад уточнил, что OpenAI заменит Anthropic в качестве поставщика моделей по умолчанию. Клод по-прежнему будет доступен клиентам на платформе.</description>
+      <content:encoded><![CDATA[<p>На выходных Масад уточнил, что OpenAI заменит Anthropic в качестве поставщика моделей по умолчанию.</p><p>Клод по-прежнему будет доступен клиентам на платформе.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/3ebfc0a8f582.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Высокие цены на память позволили китайской CXMT выйти в прибыль по итогам трёх первых кварталов этого года</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/012ec590df35.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/012ec590df35.html</guid>
+      <pubDate>Sun, 18 Oct 2026 14:23:00 +0000</pubDate>
+      <category>3DNews</category>
+      <description>Первые девять месяцев прошлого года CXMT завершила с многомиллионными убытками, но аналогичный период текущего года удалось завершить с прибылью в размере почти $20 млрд. Выручка компании также выросла более чем в восемь раз. Источник изображения: CXMT</description>
+      <content:encoded><![CDATA[<p>Первые девять месяцев прошлого года CXMT завершила с многомиллионными убытками, но аналогичный период текущего года удалось завершить с прибылью в размере почти $20 млрд.</p><p>Выручка компании также выросла более чем в восемь раз.</p><p>Источник изображения: CXMT</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/012ec590df35.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
