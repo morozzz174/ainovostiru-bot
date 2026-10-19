@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Sun, 18 Oct 2026 14:23:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 10:35:12 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Федералы изучают сообщения о том, что робототехника Tesla ускоряется в школьных зонах</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/279a6e89ec79.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/279a6e89ec79.html</guid>
-      <pubDate>Wed, 14 Oct 2026 09:58:47 +0000</pubDate>
-      <category>The Verge</category>
-      <description>Национальная администрация безопасности дорожного движения заявляет, что она оценивает утверждения о том, что около 1000 роботов Tesla, использующих свою автоматизированную систему вождения, превышают «установленные ограничения скорости в активных школьных зонах.« Робототакси Waymo также…</description>
-      <content:encoded><![CDATA[<p>Национальная администрация безопасности дорожного движения заявляет, что она оценивает утверждения о том, что около 1000 роботов Tesla, использующих свою автоматизированную систему вождения, превышают «установленные ограничения скорости в активных школьных зонах.« Робототакси Waymo также столкнулись с аналогичными запросами, в том числе о незаконном проезде школьных автобусов и нападении на ребенка возле начальной школы в Калифорнии.</p><p>НАБДД: Офис …</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/279a6e89ec79.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>За литографами — очередь до 2030 года: ASML не успевает за аппетитами ИИ-индустрии</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1a717e26bffb.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1a717e26bffb.html</guid>
-      <pubDate>Wed, 14 Oct 2026 10:00:32 +0000</pubDate>
-      <category>3DNews</category>
-      <description>В условиях бума ИИ компания ASML не сможет удовлетворить спрос на своё оборудование ни в 2027, ни в 2028 году. Фактически, она уже сейчас начинает принимать заказы на поставку оборудования в 2029 и 2030 годах. Запланированного увеличения объёма производства на 30 % может не хватить для…</description>
-      <content:encoded><![CDATA[<p>В условиях бума ИИ компания ASML не сможет удовлетворить спрос на своё оборудование ни в 2027, ни в 2028 году.</p><p>Фактически, она уже сейчас начинает принимать заказы на поставку оборудования в 2029 и 2030 годах.</p><p>Запланированного увеличения объёма производства на 30 % может не хватить для удовлетворения спроса.</p><p>Источник изображения: ASML</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/1a717e26bffb.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Скачать: фальшивая кровь и будущее батареек</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1c92bc36e64e.html</link>
@@ -214,6 +194,26 @@
       <description>Первые девять месяцев прошлого года CXMT завершила с многомиллионными убытками, но аналогичный период текущего года удалось завершить с прибылью в размере почти $20 млрд. Выручка компании также выросла более чем в восемь раз. Источник изображения: CXMT</description>
       <content:encoded><![CDATA[<p>Первые девять месяцев прошлого года CXMT завершила с многомиллионными убытками, но аналогичный период текущего года удалось завершить с прибылью в размере почти $20 млрд.</p><p>Выручка компании также выросла более чем в восемь раз.</p><p>Источник изображения: CXMT</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/012ec590df35.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Инсайдер Nvidia, ставший венчурным капиталистом, рассказал, почему робототехника еще не достигла своего момента ChatGPT</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d7cad3c3128e.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d7cad3c3128e.html</guid>
+      <pubDate>Mon, 19 Oct 2026 10:34:10 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>Амуля Вишванат, которая семь лет занималась маркетингом продуктов для робототехнических платформ NVIDIA, говорит, что робототехника в настоящее время находится в своей «эре Лего», а основные строительные блоки, такие как приводы, роботизированные руки, программное обеспечение и стандарты…</description>
+      <content:encoded><![CDATA[<p>Амуля Вишванат, которая семь лет занималась маркетингом продуктов для робототехнических платформ NVIDIA, говорит, что робототехника в настоящее время находится в своей «эре Лего», а основные строительные блоки, такие как приводы, роботизированные руки, программное обеспечение и стандарты безопасности, все еще перестраиваются.</p><p>Эта точка зрения противоречит тем, кто считает, что робототехника, основанная на общей базовой модели, вот-вот ...</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/d7cad3c3128e.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>MCP как новая поверхность атаки: как контролировать серверы, skills и tool calls, а не только промпты</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/4799bc6e073b.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/4799bc6e073b.html</guid>
+      <pubDate>Mon, 19 Oct 2026 10:35:12 +0000</pubDate>
+      <category>Habr</category>
+      <description>ИИ-агент на рабочей станции работает с правами локального пользователя. Он может читать почту и ходить в SharePoint, запускать команды, работать с файлами и вызывать инструменты через MCP. Это означает, что защита «на уровне промпта» через LLM Firewall и фильтрацию запросов к модели закрывает…</description>
+      <content:encoded><![CDATA[<p>ИИ-агент на рабочей станции работает с правами локального пользователя.</p><p>Он может читать почту и ходить в SharePoint, запускать команды, работать с файлами и вызывать инструменты через MCP.</p><p>Это означает, что защита «на уровне промпта» через LLM Firewall и фильтрацию запросов к модели закрывает только часть поверхности.</p><p>Основной риск теперь в действиях агента: вызов инструментов (tool call), вызов MCP-сервера, skills или доступ к корпоративным ресурсам.Ниже разбираем, как именно выглядит атака через косвенную инъекцию, какие механизмы INFERA AI.SafeAgent её останавливают и почему требуется именно такой класс контроля, а также разберем сценарии, по которым заказчики проверяют как срабатывает контроль ИИ-агентов.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/4799bc6e073b.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
