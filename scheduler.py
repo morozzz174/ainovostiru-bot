@@ -8,7 +8,7 @@ from telegram import Bot
 from telegram.error import InvalidToken
 
 import config
-from collector import collect_news, Article
+from collector import collect_news, enrich_description, Article
 from publisher import prepare_post, send_post
 from storage import Storage
 from translator import translate_article
@@ -63,7 +63,12 @@ def _post_to_tiktok(article: Article, text: str, image_buf):
 
 
 def _draw_candidates(new_articles: list[Article], count: int) -> list[Article]:
-    """Round-robin across sources so a single busy feed cannot fill the run."""
+    """Round-robin across sources so a single busy feed cannot fill the run.
+
+    Paywalled feeds only give a headline, so stories that come with a teaser
+    are drawn first; bare headlines are kept as a fallback when a run has
+    nothing else, not as the default post.
+    """
     by_source = defaultdict(list)
     for art in new_articles:
         by_source[art.source].append(art)
@@ -72,16 +77,26 @@ def _draw_candidates(new_articles: list[Article], count: int) -> list[Article]:
     random.shuffle(sources)
     for bucket in by_source.values():
         random.shuffle(bucket)
+        bucket.sort(
+            key=lambda a: len((a.description or "").strip()) >= 120,
+            reverse=True,
+        )
 
     picked: list[Article] = []
-    while len(picked) < count and sources:
-        for source in list(sources):
-            if by_source[source]:
-                picked.append(by_source[source].pop(0))
-                if len(picked) >= count:
-                    break
-            if not by_source[source]:
-                sources.remove(source)
+    for minimum in (120, 0):
+        while len(picked) < count:
+            advanced = False
+            for source in list(sources):
+                bucket = by_source[source]
+                while bucket and len((bucket[0].description or "").strip()) < minimum:
+                    bucket.pop(0)
+                if bucket:
+                    picked.append(bucket.pop(0))
+                    advanced = True
+                    if len(picked) >= count:
+                        break
+            if not advanced:
+                break
     return picked
 
 
@@ -142,6 +157,13 @@ async def run_once(bot: Bot, storage: Storage) -> dict:
                 skipped_story += 1
                 logger.info("Skipped, same story as an earlier post: %s", article.title[:60])
                 continue
+
+            # A headline alone says little, so pull the opening sentences from
+            # the article page when the feed did not carry a teaser.
+            enriched = enrich_description(article)
+            if enriched != article.description:
+                logger.info("Expanded description: %d chars", len(enriched))
+                article.description = enriched
 
             if article.lang == "en":
                 title_ru, desc_ru = translate_article(article.title, article.description)

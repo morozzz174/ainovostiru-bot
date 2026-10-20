@@ -176,9 +176,21 @@ def _prepare_image(article) -> io.BytesIO:
     return image_buf
 
 
+def _trim_description(text: str, limit: int = 500) -> str:
+    """Cut a teaser at the last sentence that fits, not mid-word."""
+    text = (text or "").strip()
+    if len(text) <= limit:
+        return text
+    cut = text[:limit]
+    stop = max(cut.rfind("."), cut.rfind("!"), cut.rfind("?"))
+    if stop >= limit // 2:
+        return cut[: stop + 1]
+    return cut.rsplit(" ", 1)[0].rstrip(" ,;:-") + "…"
+
+
 def prepare_post(article) -> tuple[str, io.BytesIO, str]:
     title = _escape_md(article.title)
-    description = _escape_md(article.description[:500])
+    description = _escape_md(_trim_description(article.description))
     url = _escape_md_url(article.url)
     source = _escape_md(article.source)
 

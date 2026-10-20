@@ -393,17 +393,6 @@ NEWS_SOURCES_METAL = {
         # материалы с явной привязкой к РФ/СНГ.
         "require_geo": True,
     },
-    "metalbulletin_black": {
-        "name": "МеталлБюллетин / чёрные металлы",
-        "type": "html",
-        "url": "https://www.metalbulletin.ru/news/black/",
-        "lang": "ru",
-        "mode": "pairs",
-        "title_selector": "a.normal_news1",
-        "desc_selector": "a.normal_news",
-        "link_contains": "/news/",
-        "require_keyword": False,
-    },
     "metallurgprom": {
         "name": "Металлургпром",
         "type": "html",
@@ -435,15 +424,10 @@ NEWS_SOURCES_METAL = {
     },
     "rusmet": {
         "name": "Русмет",
-        "type": "html",
-        "url": "https://www.rusmet.ru/press-center/",
+        "type": "rss",
+        "url": "https://www.rusmet.ru/feed/",
         "lang": "ru",
-        "mode": "list",
-        "title_selector": "a.card-news__link",
-        "image_selector": "img.card-news__image",
-        "link_regex": r"/press-center/[a-z0-9-]+/$",
-        # "19 октября 2026 180 Заголовок" -> "Заголовок"
-        "title_strip_regex": r"^\d{1,2}\s+\S+\s+\d{4}\s+\d+\s+",
+        # RSS отдаёт первые абзацы новости, HTML-лента - только заголовки.
         "require_keyword": False,
     },
     "minpromtorg": {

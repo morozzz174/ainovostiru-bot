@@ -87,6 +87,91 @@ def _fetch_image_from_page(url: str) -> str | None:
     return None
 
 
+# MetalTorg and MetalBulletin keep the body behind a paywall: their pages show
+# the headline plus a subscriber stub, so fetching them only wastes a request.
+_PAYWALLED_HOSTS = ("metaltorg.ru", "metalbulletin.ru")
+_PAYWALL_MARKERS = ("только подписчики", "доступ к полному тексту")
+_BOILERPLATE_RE = re.compile(
+    r"(подпиш|подробнее с тарифом|читайте также|смотрите также|источник:|фото:|"
+    r"телеграм-канал|оформить подписку|коммент|реклама|\+7 ?\d|©|"
+    r"все права защищены|материал подготовлен)",
+    re.I,
+)
+_CONTENT_SELECTORS = (
+    "article",
+    "div.article-body",
+    "div.article__body",
+    "div.news-body",
+    "div.news-text",
+    "div.entry-content",
+    "div.post-content",
+    "div.text-content",
+    "main",
+)
+
+
+def _page_paragraphs(url: str) -> list[str]:
+    """Readable paragraphs of an article page, boilerplate removed."""
+    try:
+        resp = SESSION.get(url, timeout=12)
+        resp.raise_for_status()
+        html = resp.text
+    except Exception as e:
+        logger.debug("Body fetch failed for %s: %s", url, e)
+        return []
+    if any(marker in html.lower() for marker in _PAYWALL_MARKERS):
+        return []
+
+    soup = BeautifulSoup(html, "lxml")
+    for bad in soup(
+        ["script", "style", "noscript", "nav", "header", "footer", "aside", "form", "figure"]
+    ):
+        bad.decompose()
+
+    best: list[str] = []
+    for selector in _CONTENT_SELECTORS:
+        for container in soup.select(selector):
+            paras = []
+            for p in container.find_all("p"):
+                text = re.sub(r"\s+", " ", p.get_text(" ", strip=True))
+                if len(text) < 60 or _BOILERPLATE_RE.search(text):
+                    continue
+                paras.append(text)
+            if sum(map(len, paras)) > sum(map(len, best)):
+                best = paras
+    return best
+
+
+def enrich_description(article: Article, min_chars: int = 120, max_chars: int = 600) -> str:
+    """Turn a bare headline into the opening sentences of the article.
+
+    Feeds that carry a teaser already say enough, and paywalled outlets cannot
+    give more, so only the remaining short descriptions cost a page fetch.
+    """
+    current = (article.description or "").strip()
+    if len(current) >= min_chars:
+        return current
+    if any(host in article.url for host in _PAYWALLED_HOSTS):
+        return current
+
+    pieces: list[str] = []
+    for paragraph in _page_paragraphs(article.url):
+        if paragraph in current or paragraph.startswith(article.title[:40]):
+            continue
+        pieces.append(paragraph)
+        if sum(map(len, pieces)) >= max_chars:
+            break
+
+    body = " ".join(pieces).strip()
+    if len(body) < min_chars:
+        return current
+    if len(body) > max_chars:
+        cut = body[:max_chars]
+        stop = max(cut.rfind("."), cut.rfind("!"), cut.rfind("?"))
+        body = cut[: stop + 1] if stop >= min_chars else cut.rsplit(" ", 1)[0] + "…"
+    return body
+
+
 def _matched_keywords(text: str, keywords=None) -> set[str]:
     """Keywords found in a text, matched on a stem prefix.
 
