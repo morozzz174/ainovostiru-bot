@@ -1,0 +1,62 @@
+name: Metal Pipe News Bot
+on:
+  schedule:
+    # 10:00, 12:00, 14:00, 16:00 по Екатеринбургу (UTC+5) = 05:00, 07:00, 09:00, 11:00 UTC.
+    # GitHub запускает scheduled-задачи с задержкой до 60 минут при нагрузке,
+    # а после 60 дней без активности в репозитории отключает их ("disabled_inactivity").
+    - cron: '0 5,7,9,11 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: metal-news-bot
+  cancel-in-progress: false
+
+jobs:
+  post-news:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Restore posted articles DB
+        uses: actions/cache/restore@v6
+        with:
+          path: bot_metal.db
+          key: metal-db-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            metal-db-
+
+      - name: Install system fonts
+        run: sudo apt-get update && sudo apt-get install -y fonts-dejavu-core
+
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run metal collector
+        env:
+          BOT_TOKEN: ${{ secrets.METAL_BOT_TOKEN }}
+          CHANNEL_ID: ${{ secrets.METAL_CHANNEL_ID }}
+          THEME: metal
+          BRAND_NAME: NOVOSTI TRUBY METALL
+          DATABASE_PATH: bot_metal.db
+          MAX_POSTS_PER_RUN: 1
+          POST_MODE: mixed
+          VIDEO_ORIENTATION: vertical
+          MUSIC_STYLE: auto
+          USE_THEMED_IMAGES: "true"
+          IMAGE_ORIENTATION: portrait
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+        run: python main.py --once --strict
+
+      - name: Save posted articles DB
+        if: always()
+        uses: actions/cache/save@v6
+        with:
+          path: bot_metal.db
+          key: metal-db-${{ github.run_id }}-${{ github.run_attempt }}

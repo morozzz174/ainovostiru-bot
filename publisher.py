@@ -29,6 +29,15 @@ COLOR_TEXT = (255, 255, 255)
 COLOR_ACCENT = (100, 180, 255)
 COLOR_BRAND = (150, 150, 200)
 
+# A theme may override the palette and turn the hex grid off. The default
+# values above keep the original look for every theme that does not.
+PALETTE = getattr(config, "PALETTE", None) or {}
+COLOR_BG_TOP = PALETTE.get("bg_top", COLOR_BG_TOP)
+COLOR_BG_BOTTOM = PALETTE.get("bg_bottom", COLOR_BG_BOTTOM)
+COLOR_ACCENT = PALETTE.get("accent", COLOR_ACCENT)
+COLOR_BRAND = PALETTE.get("brand", COLOR_BRAND)
+USE_HEX_GRID = PALETTE.get("hex_grid", True)
+
 _MD_SPECIAL = re.compile(r"([_*\[\]()`\\])")
 
 
@@ -59,6 +68,8 @@ def _draw_gradient(draw: ImageDraw):
 
 
 def _draw_hex_grid(draw: ImageDraw):
+    if not USE_HEX_GRID:
+        return
     for x in range(0, CANVAS_W, 40):
         for y in range(0, CANVAS_H, 40):
             draw.ellipse([x - 1, y - 1, x + 1, y + 1], fill=(255, 255, 255, 20))
@@ -171,7 +182,10 @@ def prepare_post(article) -> tuple[str, io.BytesIO, str]:
     url = _escape_md_url(article.url)
     source = _escape_md(article.source)
 
-    text = f"🤖 *{title}*\n\n{description}\n\n📅 Источник: [{source}]({url})\n{' '.join(config.HASHTAGS)}"
+    # MetalTorg publishes headlines only (the body is paywalled), so an empty
+    # teaser must not leave a blank line in the post.
+    body = f"{title}\n\n{description}" if description else title
+    text = f"🤖 *{body}*\n\n📅 Источник: [{source}]({url})\n{' '.join(config.HASHTAGS)}"
 
     image_buf = _prepare_image(article)
 

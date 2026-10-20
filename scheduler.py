@@ -2,6 +2,7 @@ import asyncio
 import logging
 import random
 from collections import defaultdict
+from datetime import datetime, timedelta
 
 from telegram import Bot
 from telegram.error import InvalidToken
@@ -13,6 +14,23 @@ from storage import Storage
 from translator import translate_article
 
 logger = logging.getLogger(__name__)
+
+
+def create_bot(token: str) -> Bot:
+    """Build a Bot, routing through TELEGRAM_PROXY when one is configured."""
+    if not config.TELEGRAM_PROXY:
+        return Bot(token=token)
+    from telegram.request import HTTPXRequest
+
+    request = HTTPXRequest(
+        proxy=config.TELEGRAM_PROXY,
+        connect_timeout=config.TG_CONNECT_TIMEOUT,
+        read_timeout=config.TG_READ_TIMEOUT,
+        write_timeout=config.TG_READ_TIMEOUT,
+        pool_timeout=config.TG_CONNECT_TIMEOUT,
+    )
+    logger.info("Telegram proxy: %s", config.TELEGRAM_PROXY)
+    return Bot(token=token, request=request)
 
 
 def _post_to_instagram(text: str, image_buf):
@@ -127,6 +145,12 @@ async def run_once(bot: Bot, storage: Storage) -> dict:
 
             if article.lang == "en":
                 title_ru, desc_ru = translate_article(article.title, article.description)
+                # A Russian channel should never carry raw English text. If every
+                # translator is rate limited, translate_article hands the original
+                # back unchanged, so drop the article instead of posting it.
+                if title_ru.strip() == article.title.strip():
+                    logger.info("Skipped, translation unavailable: %s", article.title[:60])
+                    continue
                 article.title = title_ru
                 article.description = desc_ru
                 article.lang = "ru"
@@ -155,7 +179,76 @@ async def run_once(bot: Bot, storage: Storage) -> dict:
     return {"collected": len(all_articles), "new": len(new_articles), "posted": posted, "failed": failed}
 
 
+def _local_now() -> datetime:
+    """Current time in POST_TIMEZONE, or machine-local time when unset."""
+    if config.POST_TIMEZONE:
+        try:
+            from zoneinfo import ZoneInfo
+
+            return datetime.now(ZoneInfo(config.POST_TIMEZONE))
+        except Exception as e:
+            logger.warning(
+                "Bad POST_TIMEZONE %r (%s), using local time",
+                config.POST_TIMEZONE,
+                e,
+            )
+    return datetime.now()
+
+
+def _slot_times() -> list[float]:
+    """Evenly spaced posting hours inside the window, as decimal hours."""
+    start = config.POSTING_START_HOUR
+    end = config.POSTING_END_HOUR
+    count = max(config.POSTS_PER_DAY, 1)
+    span = max(end - start, 1)
+    return [start + span * i / count for i in range(count)]
+
+
+def _at_hour(day: datetime, hour: float) -> datetime:
+    whole = int(hour)
+    minutes = int(round((hour - whole) * 60))
+    if minutes >= 60:
+        whole += 1
+        minutes -= 60
+    return day.replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(
+        hours=whole, minutes=minutes
+    )
+
+
+def next_slot(now: datetime) -> datetime:
+    """Next posting time strictly after ``now``."""
+    for hour in _slot_times():
+        candidate = _at_hour(now, hour)
+        if candidate > now:
+            return candidate
+    return _at_hour(now + timedelta(days=1), _slot_times()[0])
+
+
 async def scheduler_loop(bot: Bot, storage: Storage):
+    if config.POSTS_PER_DAY > 0:
+        logger.info(
+            "Scheduler started. %d posts/day between %02d:00 and %02d:00 (%s)",
+            config.POSTS_PER_DAY,
+            config.POSTING_START_HOUR,
+            config.POSTING_END_HOUR,
+            config.POST_TIMEZONE or "local time",
+        )
+        while True:
+            now = _local_now()
+            target = next_slot(now)
+            wait = max((target - now).total_seconds(), 0)
+            logger.info(
+                "Next post at %s (in %.1f h)",
+                target.strftime("%d.%m.%Y %H:%M"),
+                wait / 3600,
+            )
+            await asyncio.sleep(wait)
+            try:
+                await run_once(bot, storage)
+            except Exception as e:
+                logger.exception("Scheduler error: %s", e)
+        return
+
     logger.info(
         "Scheduler started. Interval: %d hours",
         config.SCHEDULE_INTERVAL_HOURS,
@@ -174,11 +267,15 @@ async def run_scheduler(bot_token: str):
         return
 
     try:
-        bot = Bot(token=bot_token)
+        bot = create_bot(bot_token)
         me = await bot.get_me()
         logger.info("Bot authorized: @%s", me.username)
     except InvalidToken:
         logger.error("Invalid BOT_TOKEN. Check your .env file")
+        return
+    except Exception as e:
+        logger.error("Cannot reach Telegram API: %s", e)
+        logger.error("If the network blocks Telegram, set TELEGRAM_PROXY in your .env file")
         return
 
     storage = Storage(config.DATABASE_PATH)

@@ -9,10 +9,25 @@ load_dotenv(dotenv_path)
 
 BOT_TOKEN = os.getenv("BOT_TOKEN", "")
 CHANNEL_ID = os.getenv("CHANNEL_ID", "")
+# Прокси для Telegram API, например socks5://127.0.0.1:10809 или
+# http://user:pass@host:port. Нужен там, где api.telegram.org недоступен
+# напрямую (приложение должно быть запущено).
+TELEGRAM_PROXY = os.getenv("TELEGRAM_PROXY", "")
+TG_CONNECT_TIMEOUT = float(os.getenv("TG_CONNECT_TIMEOUT", "30"))
+TG_READ_TIMEOUT = float(os.getenv("TG_READ_TIMEOUT", "60"))
 DATABASE_PATH = os.getenv("DATABASE_PATH") or os.path.join(BASE_DIR, "bot_data.db")
 MAX_POSTS_PER_RUN = int(os.getenv("MAX_POSTS_PER_RUN", "2"))
 SCHEDULE_INTERVAL_HOURS = int(os.getenv("SCHEDULE_INTERVAL_HOURS", "3"))
 POST_DELAY_SECONDS = int(os.getenv("POST_DELAY_SECONDS", "60"))
+
+# Постинг по расписанию: N постов в день, равномерно внутри окна.
+# 10-18 и 4 поста дают слоты 10:00, 12:00, 14:00, 16:00.
+# 0 = старый режим "каждые SCHEDULE_INTERVAL_HOURS часов".
+POSTING_START_HOUR = int(os.getenv("POSTING_START_HOUR", "10"))
+POSTING_END_HOUR = int(os.getenv("POSTING_END_HOUR", "18"))
+POSTS_PER_DAY = int(os.getenv("POSTS_PER_DAY", "0"))
+# Пусто = локальное время машины. Пример: Europe/Moscow
+POST_TIMEZONE = os.getenv("POST_TIMEZONE", "").strip()
 
 THEME = os.getenv("THEME", "ai")
 BRAND_NAME = os.getenv("BRAND_NAME", "AINOVOSTI.RU")
@@ -279,6 +294,26 @@ NEWS_SOURCES_BEAUTY = {
         "url": "https://www.gazeta.ru/export/rss/science.xml",
         "lang": "ru",
     },
+    "tass_health_beauty": {
+        "name": "ТАСС Здоровье",
+        "url": "https://tass.ru/rss/v2.xml?category=zdorovie",
+        "lang": "ru",
+    },
+    "lenta_science_beauty": {
+        "name": "Lenta.ru Наука",
+        "url": "https://lenta.ru/rss/news/science/",
+        "lang": "ru",
+    },
+    "interfax_science_beauty": {
+        "name": "Интерфакс Наука",
+        "url": "https://www.interfax.ru/rss.asp?cat=science",
+        "lang": "ru",
+    },
+    "ixbt_beauty": {
+        "name": "iXBT",
+        "url": "https://www.ixbt.com/export/news.rss",
+        "lang": "ru",
+    },
 
     # Питание и образ жизни - основной вклад в долголетие (80% попадание)
     "sciencedaily_nutrition": {
@@ -322,6 +357,143 @@ NEWS_SOURCES_BEAUTY = {
         "name": "Glossy",
         "url": "https://www.glossy.co/feed/",
         "lang": "en",
+    },
+}
+
+NEWS_SOURCES_METAL = {
+    # Канал русскоязычный и сфокусирован на РФ и СНГ, поэтому источники
+    # подобраны по региону: российские отраслевые порталы, украинские и
+    # белорусские/казахстанские ленты, плюс деловые СМИ РФ. Глобальные
+    # англоязычные ленты (World Steel, Stainless Steel World, Investing)
+    # убраны - они давали новости про США и Европу.
+    #
+    # Отраслевые HTML-источники: главный контент для труб и металлопроката.
+    "metaltorg": {
+        "name": "MetalTorg.Ru",
+        "type": "html",
+        "url": "https://www.metaltorg.ru/news/",
+        "lang": "ru",
+        "mode": "block",
+        "item_selector": "td.txt",
+        "title_selector": "a.news[href^='/n/']",
+        "link_regex": r"/n/[0-9A-Z]+$",
+        "require_keyword": False,
+    },
+    "metalbulletin": {
+        "name": "МеталлБюллетин",
+        "type": "html",
+        "url": "https://www.metalbulletin.ru/",
+        "lang": "ru",
+        "mode": "pairs",
+        "title_selector": "a.mainnews, a.news",
+        "desc_selector": "a.normal_news",
+        "link_contains": "/news/",
+        "require_keyword": False,
+        # Лента сильно разбавлена мировыми рынками, поэтому берём только
+        # материалы с явной привязкой к РФ/СНГ.
+        "require_geo": True,
+    },
+    "metalbulletin_black": {
+        "name": "МеталлБюллетин / чёрные металлы",
+        "type": "html",
+        "url": "https://www.metalbulletin.ru/news/black/",
+        "lang": "ru",
+        "mode": "pairs",
+        "title_selector": "a.normal_news1",
+        "desc_selector": "a.normal_news",
+        "link_contains": "/news/",
+        "require_keyword": False,
+    },
+    "metallurgprom": {
+        "name": "Металлургпром",
+        "type": "html",
+        "url": "https://metallurgprom.org/news",
+        "lang": "ru",
+        "mode": "block",
+        "item_selector": "div.news-item",
+        "title_selector": "h3.entry-title-index a[href]",
+        "desc_selector": "div.entry-content-index",
+        "image_style_selector": "a.news-item-img",
+        "image_style_regex": r"background-image:url\('([^']+)'\)",
+        "link_contains": "/news/",
+        "require_keyword": False,
+    },
+    "metalinfo": {
+        "name": "Металлосфера (МеталлИнфо)",
+        "type": "html",
+        "url": "https://www.metalinfo.ru/",
+        "lang": "ru",
+        "mode": "block",
+        "item_selector": "div.news-list p, div.col-md-9",
+        "title_selector": "a[href*='/ru/news/']",
+        "desc_selector": "div.news-body",
+        "image_selector": "img.news-image",
+        "link_contains": "/ru/news/",
+        "link_regex": r"/ru/news/\d+$",
+        "require_keyword": True,
+    },
+    "rusmet": {
+        "name": "Русмет",
+        "type": "html",
+        "url": "https://www.rusmet.ru/press-center/",
+        "lang": "ru",
+        "mode": "list",
+        "title_selector": "a.card-news__link",
+        "image_selector": "img.card-news__image",
+        "link_regex": r"/press-center/[a-z0-9-]+/$",
+        # "19 октября 2026 180 Заголовок" -> "Заголовок"
+        "title_strip_regex": r"^\d{1,2}\s+\S+\s+\d{4}\s+\d+\s+",
+        "require_keyword": False,
+    },
+    "minpromtorg": {
+        "name": "Минпромторг России",
+        "type": "html",
+        "url": "https://minpromtorg.gov.ru/press-centre/news/",
+        "lang": "ru",
+        "mode": "list",
+        "title_selector": "a[href*='/press-centre/news/']",
+        "link_regex": r"/press-centre/news/[0-9a-f-]{10,}$",
+        # "19.10.2026 Заголовок" -> "Заголовок"
+        "title_strip_regex": r"^\d{2}\.\d{2}\.\d{4}\s+",
+        "require_keyword": True,
+        "strong": True,
+    },
+
+    # Деловые RSS: фильтруются по ключевым словам отрасли.
+    # Общие ленты дают шум, поэтому берём только экономические/сырьевые
+    # и держим список ключевых слов строго отраслевым.
+    "vedomosti": {
+        "name": "Ведомости",
+        "url": "https://www.vedomosti.ru/rss/news",
+        "lang": "ru",
+        "strong": True,
+    },
+    "interfax": {
+        "name": "Интерфакс",
+        "url": "https://www.interfax.ru/rss.asp",
+        "lang": "ru",
+        "strong": True,
+    },
+    "kommersant_economics": {
+        "name": "Коммерсантъ",
+        "url": "https://www.kommersant.ru/RSS/section-economics.xml",
+        "lang": "ru",
+        "strong": True,
+    },
+    "gmk_center": {
+        "name": "GMK Center",
+        "url": "https://gmk.center/feed/",
+        "lang": "ru",
+        "require_keyword": True,
+        "require_geo": True,
+    },
+    # Казахстан: деловая лента, берём только отраслевые материалы.
+    "kursiv_kz": {
+        "name": "Kursiv.kz",
+        "url": "https://kursiv.kz/rss",
+        "lang": "ru",
+        "require_keyword": True,
+        "strong": True,
     },
 }
 
@@ -381,7 +553,64 @@ THEMES = {
             # русский
             "косметолог", "дерматолог", "омоложен", "долголет", "старени",
             "кожа", "морщин", "коллаген", "ретинол", "гиалурон",
-            "антиоксид", "регенерац", "стелл", "восстановлен", "здоровье",
+            "антиоксид", "регенерац", "стелл", "здоровье",
+        ],
+    },
+    "metal": {
+        "sources": NEWS_SOURCES_METAL,
+        "hashtags": [
+            "#Металлопрокат", "#Трубы", "#Сталь", "#Прокат",
+            "#Металлургия", "#ЧерныеМеталлы", "#Промышленность",
+        ],
+        "brand": "NOVOSTI TRUBY METALL",
+        "stem": 7,
+        "geo_filter": True,
+        "palette": {
+            "bg_top": (28, 33, 41),
+            "bg_bottom": (12, 14, 18),
+            "accent": (255, 176, 46),
+            "brand": (148, 156, 168),
+            "hex_grid": False,
+        },
+        "keywords": [
+            # Ключи намеренно строгие: общие слова ("экспорт", "лист",
+            # "строительство") в общих новостных лентах тянут за собой
+            # пожары, iPhone и магнитные бури, а не металлургию.
+            # трубы и трубный прокат
+            "труб", "трубопровод", "бесшов", "сварн", "муфт", "флан",
+            "фитин", "тройник", "катанк",
+            # сталь и прокат
+            "стал", "прокат", "сортовой", "рулон", "арматур", "оцинков",
+            "нержаве", "швеллер", "двутавр", "листовой", "рифлен",
+            # металлургия и сырьё
+            "металл", "металлург", "чугун", "домен", "выплавк",
+            "ферросплав", "руда", "кокс",
+            # цветные металлы
+            "медь", "цинк", "никел", "алюмин", "свинец",
+            # инфраструктура и энергетика (потребление проката)
+            "нефт", "газопровод", "скважин", "резервуар", "компрессор",
+            # экспорт / таможня (в связке со сталью и трубами)
+            "пошлин", "антидемпинг", "квот",
+            # компании отрасли
+            "северст", "евраз", "русал", "нлмк", "арселор", "метинвест",
+            # english
+            "steel", "pipe", "tube", "tubular", "metal", "alloy",
+            "iron", "scrap", "coil", "rebar", "section", "hollow",
+            "seamless", "welded", "aluminium", "aluminum", "billet", "slab",
+        ],
+        # Строгий набор для общих деловых лент (Ведомости, Интерфакс,
+        # Коммерсантъ). "стал" там ловит "стало любопытство", поэтому в
+        # строгом списке только однозначные отраслевые корни.
+        "strong_keywords": [
+            "металлург", "металлопрокат", "металлообработ", "металлолом",
+            "трубопрокат", "трубопровод", "трубн", "труб", "газопровод",
+            "чугун", "доменн", "выплавк", "ферросплав", "рудн", "кокс",
+            "прокатн", "сортамент", "арматур",
+            "нержаве", "оцинков", "алюмин", "цинк", "никел", "медн",
+            "пошлин", "антидемпинг", "квот", "стальн", "сталь", "сталей",
+            "сталелитей", "горнорудн", "горнометаллург", "комбинат",
+            "северстал", "евраз", "русал", "нлмк", "ммк", "тмк", "омк",
+            "пмх", "мечел", "норильск", "металлоинвест", "русская сталь",
         ],
     },
 }
@@ -390,5 +619,11 @@ _theme_config = THEMES.get(THEME, THEMES["ai"])
 NEWS_SOURCES = _theme_config["sources"]
 HASHTAGS = _theme_config["hashtags"]
 KEYWORDS = _theme_config["keywords"]
+STRONG_KEYWORDS = _theme_config.get("strong_keywords") or KEYWORDS
+# Длина стемма для поиска по ключевым словам. 4 - как раньше, 6 - строже
+# для отраслей, где 4-символьные стеммы дают ложные срабатывания.
+STEM_LEN = _theme_config.get("stem", 4)
+GEO_FILTER = _theme_config.get("geo_filter", False)
+PALETTE = _theme_config.get("palette")
 if not BRAND_NAME:
     BRAND_NAME = _theme_config["brand"]
