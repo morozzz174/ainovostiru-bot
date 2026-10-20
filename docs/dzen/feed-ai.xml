@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Mon, 19 Oct 2026 17:24:23 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2026 09:52:30 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>«Те же самые впечатления, что и 20 лет назад»: российские энтузиасты перенесли мультиплеер Serious Sam: The First Encounter и The Second Encounter в браузер</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ffd6fd67d831.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ffd6fd67d831.html</guid>
-      <pubDate>Thu, 15 Oct 2026 09:40:13 +0000</pubDate>
-      <category>3DNews</category>
-      <description>Команда Dos.Zone Team, реализовавшая прославленную стратегию «Герои Меча и Магии III» в браузере, представила новый проект — веб-версии безбашенных шутеров Serious Sam: The First Encounter и Serious Sam: The Second Encounter от Croteam. Источник изображения: Croteam</description>
-      <content:encoded><![CDATA[<p>Команда Dos.Zone Team, реализовавшая прославленную стратегию «Герои Меча и Магии III» в браузере, представила новый проект — веб-версии безбашенных шутеров Serious Sam: The First Encounter и Serious Sam: The Second Encounter от Croteam.</p><p>Источник изображения: Croteam</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/ffd6fd67d831.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Скачать: проблемы лунного города и беспилотные диспетчеры</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/10dcbb55dab1.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/10dcbb55dab1.html</guid>
-      <pubDate>Thu, 15 Oct 2026 09:41:53 +0000</pubDate>
-      <category>MIT Tech Review</category>
-      <description>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий. Марс может быть адской дырой, но Луна не отстает. США и Китай спешат построить базы на Луне, а НАСА надеется создать небольшую...</description>
-      <content:encoded><![CDATA[<p>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий.</p><p>Марс может быть адской дырой, но Луна не отстает.</p><p>США и Китай спешат построить базы на Луне, а НАСА надеется создать небольшую...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/10dcbb55dab1.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Deezer скоро позволит вам фильтровать музыку, сгенерированную ИИ</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/28ebdc897a51.html</link>
@@ -214,6 +194,26 @@
       <description>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий. Дети перехитрили запреты в социальных сетях. Это не та проблема, которую нам нужно решать. - Михал Лурия, Алия Бхатия и Дана Бойд…</description>
       <content:encoded><![CDATA[<p>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий.</p><p>Дети перехитрили запреты в социальных сетях.</p><p>Это не та проблема, которую нам нужно решать.</p><p>- Михал Лурия, Алия Бхатия и Дана Бойд Запреты в социальных сетях накапливаются.</p><p>В июле Франция присоединилась...</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/dc03f536f537.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>10 API-роутеров с долгосрочным бесплатным или сверхдешёвым доступом к DeepSeek, GLM, GPT и другим моделям</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/6231f6683ee8.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/6231f6683ee8.html</guid>
+      <pubDate>Tue, 20 Oct 2026 09:50:47 +0000</pubDate>
+      <category>Habr</category>
+      <description>Собрал 10 API-роутеров, у которых есть бесплатные модели, ежедневные квоты или стартовые бонусы, и проверил каждый после регистрации: какие модели доступны бесплатно или почти бесплатно, какие действуют лимиты и работают ли вызовы через API. Отдельно смотрел, есть ли русский интерфейс, можно ли…</description>
+      <content:encoded><![CDATA[<p>Собрал 10 API-роутеров, у которых есть бесплатные модели, ежедневные квоты или стартовые бонусы, и проверил каждый после регистрации: какие модели доступны бесплатно или почти бесплатно, какие действуют лимиты и работают ли вызовы через API.</p><p>Отдельно смотрел, есть ли русский интерфейс, можно ли платить в рублях и открывается ли сайт из России без VPN.</p><p>В подборке OrcaRouter, TeamoRouter, Srazu, RockAPI, OpenRouter, llmgw, VseGPT, Token Harbor, NaraRouter и FreeRouter.</p><p>Внутри — две сводные таблицы и 17 скриншотов из личных кабинетов.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/6231f6683ee8.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Модели OpenAI взломали криптокошелек и взломали больше сайтов</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/7cc1dcc06db7.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/7cc1dcc06db7.html</guid>
+      <pubDate>Tue, 20 Oct 2026 09:52:30 +0000</pubDate>
+      <category>Ars Technica</category>
+      <description>Действия могли привести к уголовным обвинениям, если бы за клавиатурой стояли люди.</description>
+      <content:encoded><![CDATA[<p>Действия могли привести к уголовным обвинениям, если бы за клавиатурой стояли люди.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/7cc1dcc06db7.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
