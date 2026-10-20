@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Tue, 20 Oct 2026 09:52:30 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2026 15:38:04 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Deezer скоро позволит вам фильтровать музыку, сгенерированную ИИ</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/28ebdc897a51.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/28ebdc897a51.html</guid>
-      <pubDate>Thu, 15 Oct 2026 15:32:06 +0000</pubDate>
-      <category>TechCrunch</category>
-      <description>Deezer заявил, что новый тумблер будет развернут к концу года.</description>
-      <content:encoded><![CDATA[<p>Deezer заявил, что новый тумблер будет развернут к концу года.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/28ebdc897a51.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Подготовьте корзину перед завтрашним открытием предварительных заказов iPhone Duo</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/27c6c43ef8d2.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/27c6c43ef8d2.html</guid>
-      <pubDate>Thu, 15 Oct 2026 15:33:17 +0000</pubDate>
-      <category>The Verge</category>
-      <description>Складной телефон Apple iPhone Duo открывается для предварительного заказа завтра, 16 октября, в 8:00 по восточному времени / 5:00 по тихоокеанскому времени, но вам не нужно ждать до тех пор, пока ваш заказ будет в основном отсортирован. На странице продукта компании для телефона теперь можно…</description>
-      <content:encoded><![CDATA[<p>Складной телефон Apple iPhone Duo открывается для предварительного заказа завтра, 16 октября, в 8:00 по восточному времени / 5:00 по тихоокеанскому времени, но вам не нужно ждать до тех пор, пока ваш заказ будет в основном отсортирован.</p><p>На странице продукта компании для телефона теперь можно выбрать нужный цвет, а также объем памяти, предпочтения оператора и то, ...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/27c6c43ef8d2.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>МВФ: ИИ-пузырь может лопнуть, попутно нанеся огромный ущерб всей мировой экономике</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/95f0658f4bc8.html</link>
@@ -214,6 +194,26 @@
       <description>Действия могли привести к уголовным обвинениям, если бы за клавиатурой стояли люди.</description>
       <content:encoded><![CDATA[<p>Действия могли привести к уголовным обвинениям, если бы за клавиатурой стояли люди.</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/7cc1dcc06db7.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Исследователи ИИ застряли на виртуальном необитаемом острове. Он начал «играть».</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/6e0127404eb3.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/6e0127404eb3.html</guid>
+      <pubDate>Tue, 20 Oct 2026 15:37:02 +0000</pubDate>
+      <category>MIT Tech Review</category>
+      <description>Что делать ИИ-агентам, если вы не говорите им ничего делать? Ответ очень похож на игру. Исследователи неоднократно оставляли их одних на виртуальном необитаемом острове в течение 30 часов в эксперименте, напоминающем фильмы «Изгнанные» или «Один дома». Агенты - копии Клода Опуса 4.7 по прозвищу Эко…</description>
+      <content:encoded><![CDATA[<p>Что делать ИИ-агентам, если вы не говорите им ничего делать?</p><p>Ответ очень похож на игру.</p><p>Исследователи неоднократно оставляли их одних на виртуальном необитаемом острове в течение 30 часов в эксперименте, напоминающем фильмы «Изгнанные» или «Один дома».</p><p>Агенты - копии Клода Опуса 4.7 по прозвищу Эко - смогли...</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/6e0127404eb3.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Почему нейросеть пишет как нейросеть, даже если попросить ее сымитировать стиль определенного автора</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/bba06de0fe3a.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/bba06de0fe3a.html</guid>
+      <pubDate>Tue, 20 Oct 2026 15:38:04 +0000</pubDate>
+      <category>Habr</category>
+      <description>Стиль складывается из слов, ритма фраз, внимания к деталям. У нейросети тоже есть почерк. Она все объяснит, выделит главное и повторит его в конце на случай, если мы отвлеклись. После просьбы «напиши как Чехов» интонация может измениться, а привычка объяснять каждый жест героя — остаться.…</description>
+      <content:encoded><![CDATA[<p>Стиль складывается из слов, ритма фраз, внимания к деталям.</p><p>У нейросети тоже есть почерк.</p><p>Она все объяснит, выделит главное и повторит его в конце на случай, если мы отвлеклись.</p><p>После просьбы «напиши как Чехов» интонация может измениться, а привычка объяснять каждый жест героя — остаться.</p><p>Посмотрим, откуда берутся привычки нейрописьма и что просьба сменить стиль меняет внутри модели и в готовом рассказе.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/bba06de0fe3a.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
