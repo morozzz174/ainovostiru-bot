@@ -227,7 +227,13 @@ def find_image_with_credit(text: str) -> tuple[io.BytesIO | None, str]:
 
     candidates = []
     for word in keywords[:3]:
-        candidates.append(_search_pexels(word) or _search_unsplash(word))
+        url = _search_pexels(word)
+        if url:
+            candidates.append((url, "Pexels"))
+            continue
+        url = _search_unsplash(word)
+        if url:
+            candidates.append((url, "Unsplash"))
 
     for query in _english_queries(keywords):
         found = _search_openverse(query)
