@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Wed, 21 Oct 2026 09:54:56 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 15:54:57 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Этот имплантат может восстановить зрение у пациентов с макулярной дегенерацией</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/701b1284f0dd.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/701b1284f0dd.html</guid>
-      <pubDate>Fri, 16 Oct 2026 15:18:28 +0000</pubDate>
-      <category>MIT Tech Review</category>
-      <description>Возрастная макулярная дегенерация (ВМД) затрагивает более 5 миллионов человек во всем мире. И до сих пор никакое лечение не могло восстановить их зрение. Система Prima, которая была одобрена в Европе в июле и ожидает одобрения FDA в США, меняет это. Он сочетает в себе имплантат сетчатки с…</description>
-      <content:encoded><![CDATA[<p>Возрастная макулярная дегенерация (ВМД) затрагивает более 5 миллионов человек во всем мире.</p><p>И до сих пор никакое лечение не могло восстановить их зрение.</p><p>Система Prima, которая была одобрена в Европе в июле и ожидает одобрения FDA в США, меняет это.</p><p>Он сочетает в себе имплантат сетчатки с очками,оборудованными камерой, для улучшения зрения у пациентов...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/701b1284f0dd.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Сомнительный скрининг Хегсета с низким уровнем Т может пометить до 25 процентов армии</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1a2ab2aab868.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1a2ab2aab868.html</guid>
-      <pubDate>Fri, 16 Oct 2026 15:19:39 +0000</pubDate>
-      <category>Ars Technica</category>
-      <description>Медицинские эксперты недвусмысленно рекомендуют не проводить общий скрининг.</description>
-      <content:encoded><![CDATA[<p>Медицинские эксперты недвусмысленно рекомендуют не проводить общий скрининг.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/1a2ab2aab868.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Баг превращает один из самых больших страхов по поводу умных очков Ray-Ban Meta в реальность</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1be4c9d15c66.html</link>
@@ -214,6 +194,26 @@
       <description>Компания из Редвуд-Сити (США) представила диффузионную большую языковую модель (dLLM) Mercury 3, которая в 40 раз больше предшественницы Mercury 1, но при этом отличается высокой скоростью работы — свыше 1000 токенов/с. В ряде тестов Mercury 3 превосходит GPT-6 Luna и Claude Haiku 5.5, работая при…</description>
       <content:encoded><![CDATA[<p>Компания из Редвуд-Сити (США) представила диффузионную большую языковую модель (dLLM) Mercury 3, которая в 40 раз больше предшественницы Mercury 1, но при этом отличается высокой скоростью работы — свыше 1000 токенов/с.</p><p>В ряде тестов Mercury 3 превосходит GPT-6 Luna и Claude Haiku 5.5, работая при этом гораздо быстрее.</p><p>Источник изображения: Inception</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/8cd7c6684b35.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Антропный законопроект о безопасности ИИ, который может заблокировать модель, если могут погибнуть более50 человек</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/3e3ad8f9249b.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/3e3ad8f9249b.html</guid>
+      <pubDate>Wed, 21 Oct 2026 15:53:55 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>Предлагаемая политика, по-видимому, предлагает защиту от безумного ИИ, но на самом деле запрещает федеральным агентствам блокировать выпуск модели без разрешения судьи.</description>
+      <content:encoded><![CDATA[<p>Предлагаемая политика, по-видимому, предлагает защиту от безумного ИИ, но на самом деле запрещает федеральным агентствам блокировать выпуск модели без разрешения судьи.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/3e3ad8f9249b.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Перевод Мы скормили Claude три года комментариев к PR. Теперь он ревьюит код как наша команда</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/73ec292680e6.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/73ec292680e6.html</guid>
+      <pubDate>Wed, 21 Oct 2026 15:54:57 +0000</pubDate>
+      <category>Habr</category>
+      <description>Искусственный интеллект помог нашей команде писать код быстрее, но ревью по-прежнему тормозило разработку. Тогда мы взяли три года комментариев к PR и собрали на их основе ИИ-ревьюера, который знает, к чему обычно придирается каждый из коллег. Рассказываем, как устроен этот инструмент, почему…</description>
+      <content:encoded><![CDATA[<p>Искусственный интеллект помог нашей команде писать код быстрее, но ревью по-прежнему тормозило разработку.</p><p>Тогда мы взяли три года комментариев к PR и собрали на их основе ИИ-ревьюера, который знает, к чему обычно придирается каждый из коллег.</p><p>Рассказываем, как устроен этот инструмент, почему первая мультиагентная версия оказалась слишком дорогой и как удалось снизить стоимость проверки почти в семь раз.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/73ec292680e6.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
