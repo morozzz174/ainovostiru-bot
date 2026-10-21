@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Tue, 20 Oct 2026 15:38:04 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 09:54:56 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>МВФ: ИИ-пузырь может лопнуть, попутно нанеся огромный ущерб всей мировой экономике</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/95f0658f4bc8.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/95f0658f4bc8.html</guid>
-      <pubDate>Fri, 16 Oct 2026 09:33:14 +0000</pubDate>
-      <category>3DNews</category>
-      <description>Международный валютный фонд (IMF) предупредил о рисках, связанных с возможным схлопыванием ИИ-пузыря, вызванного огромными финансовыми вливаниями. Последствия, как ожидается, могут распространиться далеко за пределы технологического сектора, сообщает The Register. В новейшем докладе Global…</description>
-      <content:encoded><![CDATA[<p>Международный валютный фонд (IMF) предупредил о рисках, связанных с возможным схлопыванием ИИ-пузыря, вызванного огромными финансовыми вливаниями.</p><p>Последствия, как ожидается, могут распространиться далеко за пределы технологического сектора, сообщает The Register.</p><p>В новейшем докладе Global Financial Stability Report, опубликованном на днях, МВФ предупредил, что финансовые рынки всё более уязвимы к возможной коррекции, драйвером которой выступает развитие ИИ.</p><p>Особенно это вероятно, если колоссальные инвестиции в отрасль не принесут ожидаемой инвесторами финансовой отдачи.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/95f0658f4bc8.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>В США запущен универсальный инструмент Google для покупок в корзине</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/da7494f573f9.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/da7494f573f9.html</guid>
-      <pubDate>Fri, 16 Oct 2026 09:34:24 +0000</pubDate>
-      <category>TechCrunch</category>
-      <description>Новый инструмент для покупок доступен в США через Google Search и приложение Gemini.</description>
-      <content:encoded><![CDATA[<p>Новый инструмент для покупок доступен в США через Google Search и приложение Gemini.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/da7494f573f9.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Этот имплантат может восстановить зрение у пациентов с макулярной дегенерацией</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/701b1284f0dd.html</link>
@@ -214,6 +194,26 @@
       <description>Стиль складывается из слов, ритма фраз, внимания к деталям. У нейросети тоже есть почерк. Она все объяснит, выделит главное и повторит его в конце на случай, если мы отвлеклись. После просьбы «напиши как Чехов» интонация может измениться, а привычка объяснять каждый жест героя — остаться.…</description>
       <content:encoded><![CDATA[<p>Стиль складывается из слов, ритма фраз, внимания к деталям.</p><p>У нейросети тоже есть почерк.</p><p>Она все объяснит, выделит главное и повторит его в конце на случай, если мы отвлеклись.</p><p>После просьбы «напиши как Чехов» интонация может измениться, а привычка объяснять каждый жест героя — остаться.</p><p>Посмотрим, откуда берутся привычки нейрописьма и что просьба сменить стиль меняет внутри модели и в готовом рассказе.</p><p>Читать далее</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/bba06de0fe3a.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Это птица, это самолет ... это роботизированный тупик?</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/34d00602b715.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/34d00602b715.html</guid>
+      <pubDate>Wed, 21 Oct 2026 09:52:56 +0000</pubDate>
+      <category>MIT Tech Review</category>
+      <description>Учитывая, что вода в 1000 раз плотнее воздуха, перемещение по этим двум средам требует совершенно другой механики - или так можно предположить. Тем не менее, такие птицы, как чайки и тупики, могут погружаться в море, плавать под водой и прыгать обратно в воздух, чтобы улететь. И теперь инженеры…</description>
+      <content:encoded><![CDATA[<p>Учитывая, что вода в 1000 раз плотнее воздуха, перемещение по этим двум средам требует совершенно другой механики - или так можно предположить.</p><p>Тем не менее, такие птицы, как чайки и тупики, могут погружаться в море, плавать под водой и прыгать обратно в воздух, чтобы улететь.</p><p>И теперь инженеры МАССАЧУСЕТСКОГО ТЕХНОЛОГИЧЕСКОГО ИНСТИТУТА и EPFL в Лозанне, Швейцария,...</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/34d00602b715.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>ИИ, который пишет не последовательно, а параллельно: диффузионная модель Mercury 3 в 6–8 раз быстрее GPT-6 Luna</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/8cd7c6684b35.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/8cd7c6684b35.html</guid>
+      <pubDate>Wed, 21 Oct 2026 09:54:55 +0000</pubDate>
+      <category>3DNews</category>
+      <description>Компания из Редвуд-Сити (США) представила диффузионную большую языковую модель (dLLM) Mercury 3, которая в 40 раз больше предшественницы Mercury 1, но при этом отличается высокой скоростью работы — свыше 1000 токенов/с. В ряде тестов Mercury 3 превосходит GPT-6 Luna и Claude Haiku 5.5, работая при…</description>
+      <content:encoded><![CDATA[<p>Компания из Редвуд-Сити (США) представила диффузионную большую языковую модель (dLLM) Mercury 3, которая в 40 раз больше предшественницы Mercury 1, но при этом отличается высокой скоростью работы — свыше 1000 токенов/с.</p><p>В ряде тестов Mercury 3 превосходит GPT-6 Luna и Claude Haiku 5.5, работая при этом гораздо быстрее.</p><p>Источник изображения: Inception</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/8cd7c6684b35.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
