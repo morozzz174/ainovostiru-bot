@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Thu, 22 Oct 2026 09:54:28 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 15:50:07 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Сайты закрывают свои двери для ИИ-агентов</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/572e6eb644b8.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/572e6eb644b8.html</guid>
-      <pubDate>Sat, 17 Oct 2026 14:06:23 +0000</pubDate>
-      <category>The Verge</category>
-      <description>Автономные агенты - самая горячая вещь в ИИ. OpenAI, Meta, Google, Instinct и другие обещают, что их агенты могут просматривать Интернет от вашего имени, делая что угодно, от бронирования ужина и очистки вашего почтового ящика до покупки новой обуви. Но что произойдет, когда остальная часть…</description>
-      <content:encoded><![CDATA[<p>Автономные агенты - самая горячая вещь в ИИ.</p><p>OpenAI, Meta, Google, Instinct и другие обещают, что их агенты могут просматривать Интернет от вашего имени, делая что угодно, от бронирования ужина и очистки вашего почтового ящика до покупки новой обуви.</p><p>Но что произойдет, когда остальная часть интернета не будет играть хорошо?</p><p>В последние недели …</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/572e6eb644b8.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Meta запускает модель ИИ с открытым весом, которая работает на компьютерах Mac</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/bcb40dbbd0c5.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/bcb40dbbd0c5.html</guid>
-      <pubDate>Sat, 17 Oct 2026 14:08:07 +0000</pubDate>
-      <category>TechCrunch</category>
-      <description>Meta и Apple объединились для запуска новейшей модели гиганта социальных сетей Muse Spark Open, которая будет работать локально на кремнии Apple.</description>
-      <content:encoded><![CDATA[<p>Meta и Apple объединились для запуска новейшей модели гиганта социальных сетей Muse Spark Open, которая будет работать локально на кремнии Apple.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/bcb40dbbd0c5.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Наука говорит, что ваш босс должен меньше говорить на совещаниях</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/85b142d1b6f0.html</link>
@@ -214,6 +194,26 @@
       <description>По сообщениям, Anthropic изо всех сил пытается обеспечить достаточное количество вычислений от облачных провайдеров, которые все чаще рассматривают его как конкурента, даже несмотря на то, что его инфраструктура расходует воздушные шары в преддверии запланированного на ноябрь IPO.</description>
       <content:encoded><![CDATA[<p>По сообщениям, Anthropic изо всех сил пытается обеспечить достаточное количество вычислений от облачных провайдеров, которые все чаще рассматривают его как конкурента, даже несмотря на то, что его инфраструктура расходует воздушные шары в преддверии запланированного на ноябрь IPO.</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/4d4afc839209.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>DeepSeek привлекла $15 млрд на борьбу с OpenAI и Anthropic</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/187ae6e678ac.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/187ae6e678ac.html</guid>
+      <pubDate>Thu, 22 Oct 2026 15:49:06 +0000</pubDate>
+      <category>3DNews</category>
+      <description>Китайская ИИ-компания DeepSeek привлекла около 100 млрд юаней ($15 млрд) в рамках очередного раунда финансирования, ставшего одним из крупнейших в стране. Столь внушительные инвестиции указывают на намерение стартапа конкурировать на глобальном рынке с западными разработчиками, такими как OpenAI и…</description>
+      <content:encoded><![CDATA[<p>Китайская ИИ-компания DeepSeek привлекла около 100 млрд юаней ($15 млрд) в рамках очередного раунда финансирования, ставшего одним из крупнейших в стране.</p><p>Столь внушительные инвестиции указывают на намерение стартапа конкурировать на глобальном рынке с западными разработчиками, такими как OpenAI и Anthropic.</p><p>Источник изображения: DeepSeek</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/187ae6e678ac.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Длинный контекст в open-source моделях 2026 и обвязка под него</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/db18ddb53c1f.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/db18ddb53c1f.html</guid>
+      <pubDate>Thu, 22 Oct 2026 15:50:07 +0000</pubDate>
+      <category>Habr</category>
+      <description>Привет, Хабр! Я Владимир Лушин, делаю ИИ-агенты и инструменты для работы с кодом. Статья, вроде, серьёзная, но с пуделями. Так уж вышло, что дрессировка собаки объясняет внимание в LLM понятнее любых формул с softmax.В карточках свежих open-source моделей везде написано «1 млн контекста». Внутри…</description>
+      <content:encoded><![CDATA[<p>Привет, Хабр!</p><p>Я Владимир Лушин, делаю ИИ-агенты и инструменты для работы с кодом.</p><p>Статья, вроде, серьёзная, но с пуделями.</p><p>Так уж вышло, что дрессировка собаки объясняет внимание в LLM понятнее любых формул с softmax.В карточках свежих open-source моделей везде написано «1 млн контекста».</p><p>Внутри при этом точно читается совсем другое количество токенов: GLM-5.3 выбирает для каждого шага 2048 токенов из истории, DeepSeek-V4-Pro — 1024 сжатых блока, а у Qwen3.8 и Kimi K3 всю историю целиком видит лишь каждый четвёртый слой.Для агента это быстро становится вполне практической проблемой: правило из AGENTS.md к сотому вызову инструмента тихо перестаёт работать, и «ну вот же оно, в контексте!» уже не аргумент.</p><p>Я полез разбираться, как устроено внимание в открытых моделях 2026 года и что с этим делать в обвязке, чтобы агент не забывал правила к середине сессии.Примечание:- Все свежие открытые модели читают длинный контекст выборочно.</p><p>Три семейства: разрежённое top-k (GLM-5.x, DeepSeek-V4, MiniMax M3), гибриды «3 линейных + 1 полный» (Qwen3.5—3.8, Kimi K3, GLM-5.3-Flash), скользящее окно + глобальные слои (Gemma 4).- Гарантированно точно читаются только последние сотни токенов.</p><p>Всё остальное должно либо «выиграть отбор» по релевантности, либо дожить в сжатом виде.- У большинства моделей качество ломается где-то в районе 128—256 тыс., а Kimi K3 с компактизацией на 300 тыс.</p><p>обгоняет саму себя с полным окном в 1 млн.- Обвязке важнее, куда положить текст, чем что в нём написать.</p><p>Лучше всего работают чистка старого вывода инструментов, поиск по запросу вместо «залить всё», постепенное раскрытие, состояние вне окна, повтор правил в конце.- А то, что нельзя нарушать никогда, закрывайте хуками и правами доступа, вниманию такое доверять не стоит.Сразу поясню: часть конфигураций я читал прямо из config.json на Hugging Face, часть — из карточек и техотчётов.</p><p>Где данные вторичные, я это помечаю.</p><p>А всё про «что модель читает» я вывожу сам из архитектуры, разработчики такого нигде не заявляли.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/db18ddb53c1f.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
