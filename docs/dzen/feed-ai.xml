@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Wed, 21 Oct 2026 15:54:57 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 09:54:28 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Баг превращает один из самых больших страхов по поводу умных очков Ray-Ban Meta в реальность</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1be4c9d15c66.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1be4c9d15c66.html</guid>
-      <pubDate>Sat, 17 Oct 2026 09:03:54 +0000</pubDate>
-      <category>Ars Technica</category>
-      <description>Ошибка исправлена, но проблемы с конфиденциальностью остаются.</description>
-      <content:encoded><![CDATA[<p>Ошибка исправлена, но проблемы с конфиденциальностью остаются.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/1be4c9d15c66.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Лимиты ChatGPT и локальные LLM: мой эксперимент с Hermes Agent</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d00c0e4b5f5b.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d00c0e4b5f5b.html</guid>
-      <pubDate>Sat, 17 Oct 2026 09:04:56 +0000</pubDate>
-      <category>Habr</category>
-      <description>Проверил, можно ли разгрузить Hermes Agent с помощью локальных LLM на домашнем ПК с RTX 3080 и 32 ГБ RAM. Сравнил Qwen и GLM на архитектурных задачах, редактуре и извлечении данных, испытал разные квантования и подключил Hermes на Mac к модели на Windows. В статье — условия испытаний, замеры…</description>
-      <content:encoded><![CDATA[<p>Проверил, можно ли разгрузить Hermes Agent с помощью локальных LLM на домашнем ПК с RTX 3080 и 32 ГБ RAM.</p><p>Сравнил Qwen и GLM на архитектурных задачах, редактуре и извлечении данных, испытал разные квантования и подключил Hermes на Mac к модели на Windows.</p><p>В статье — условия испытаний, замеры скорости и памяти, конкретные ошибки и причины итогового выбора Qwen3.5 9B.</p><p>Подключение заработало, но получить привычное качество ответов и подтвердить экономию облачного лимита пока не удалось.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/d00c0e4b5f5b.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Сайты закрывают свои двери для ИИ-агентов</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/572e6eb644b8.html</link>
@@ -214,6 +194,26 @@
       <description>Искусственный интеллект помог нашей команде писать код быстрее, но ревью по-прежнему тормозило разработку. Тогда мы взяли три года комментариев к PR и собрали на их основе ИИ-ревьюера, который знает, к чему обычно придирается каждый из коллег. Рассказываем, как устроен этот инструмент, почему…</description>
       <content:encoded><![CDATA[<p>Искусственный интеллект помог нашей команде писать код быстрее, но ревью по-прежнему тормозило разработку.</p><p>Тогда мы взяли три года комментариев к PR и собрали на их основе ИИ-ревьюера, который знает, к чему обычно придирается каждый из коллег.</p><p>Рассказываем, как устроен этот инструмент, почему первая мультиагентная версия оказалась слишком дорогой и как удалось снизить стоимость проверки почти в семь раз.</p><p>Читать далее</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/73ec292680e6.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Airbnb запрещает гостям мыть посуду и выносить мусор</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c9b9ff3f955e.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c9b9ff3f955e.html</guid>
+      <pubDate>Thu, 22 Oct 2026 09:53:18 +0000</pubDate>
+      <category>The Verge</category>
+      <description>Теперь, когда компания запрещает хозяевам включать трудоемкие хлопоты в правила дома, выезд со следующего Airbnb может быть менее хлопотным. В обновленных Правилах дома Airbnb, действие которых начинается с бронирований, оформленных 20 ноября или позже, говорится, что хозяева не могут просить…</description>
+      <content:encoded><![CDATA[<p>Теперь, когда компания запрещает хозяевам включать трудоемкие хлопоты в правила дома, выезд со следующего Airbnb может быть менее хлопотным.</p><p>В обновленных Правилах дома Airbnb, действие которых начинается с бронирований, оформленных 20 ноября или позже, говорится, что хозяева не могут просить гостей «выполнять задачи, требующие значительных усилий или …</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/c9b9ff3f955e.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Облачные партнерские отношения Anthropic становятся запутанными</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/4d4afc839209.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/4d4afc839209.html</guid>
+      <pubDate>Thu, 22 Oct 2026 09:54:28 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>По сообщениям, Anthropic изо всех сил пытается обеспечить достаточное количество вычислений от облачных провайдеров, которые все чаще рассматривают его как конкурента, даже несмотря на то, что его инфраструктура расходует воздушные шары в преддверии запланированного на ноябрь IPO.</description>
+      <content:encoded><![CDATA[<p>По сообщениям, Anthropic изо всех сил пытается обеспечить достаточное количество вычислений от облачных провайдеров, которые все чаще рассматривают его как конкурента, даже несмотря на то, что его инфраструктура расходует воздушные шары в преддверии запланированного на ноябрь IPO.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/4d4afc839209.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
