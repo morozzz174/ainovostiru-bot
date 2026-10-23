@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Fri, 23 Oct 2026 09:48:28 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 23 Oct 2026 15:41:06 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>По словам генерального директора, Replit делает OpenAI своим дефолтом по сравнению с Anthropic</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/3ebfc0a8f582.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/3ebfc0a8f582.html</guid>
-      <pubDate>Sun, 18 Oct 2026 14:21:56 +0000</pubDate>
-      <category>TechCrunch</category>
-      <description>На выходных Масад уточнил, что OpenAI заменит Anthropic в качестве поставщика моделей по умолчанию. Клод по-прежнему будет доступен клиентам на платформе.</description>
-      <content:encoded><![CDATA[<p>На выходных Масад уточнил, что OpenAI заменит Anthropic в качестве поставщика моделей по умолчанию.</p><p>Клод по-прежнему будет доступен клиентам на платформе.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/3ebfc0a8f582.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Высокие цены на память позволили китайской CXMT выйти в прибыль по итогам трёх первых кварталов этого года</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/012ec590df35.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/012ec590df35.html</guid>
-      <pubDate>Sun, 18 Oct 2026 14:23:00 +0000</pubDate>
-      <category>3DNews</category>
-      <description>Первые девять месяцев прошлого года CXMT завершила с многомиллионными убытками, но аналогичный период текущего года удалось завершить с прибылью в размере почти $20 млрд. Выручка компании также выросла более чем в восемь раз. Источник изображения: CXMT</description>
-      <content:encoded><![CDATA[<p>Первые девять месяцев прошлого года CXMT завершила с многомиллионными убытками, но аналогичный период текущего года удалось завершить с прибылью в размере почти $20 млрд.</p><p>Выручка компании также выросла более чем в восемь раз.</p><p>Источник изображения: CXMT</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/012ec590df35.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Инсайдер Nvidia, ставший венчурным капиталистом, рассказал, почему робототехника еще не достигла своего момента ChatGPT</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d7cad3c3128e.html</link>
@@ -214,6 +194,26 @@
       <description>Сообщается, что DeepSeek привлекла $ 15 млрд в одном из крупнейших раундов финансирования в Китае, всего через несколько дней после того, как США приказали федеральным агентствам удалить свои технологии из-за проблем национальной безопасности.</description>
       <content:encoded><![CDATA[<p>Сообщается, что DeepSeek привлекла $ 15 млрд в одном из крупнейших раундов финансирования в Китае, всего через несколько дней после того, как США приказали федеральным агентствам удалить свои технологии из-за проблем национальной безопасности.</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/c7c13b106c9c.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Федералы хотят, чтобы роботизированная ось сигнализировала «Я за рулем» с помощью ламп голубого цвета</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/16c9c9ff9ab0.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/16c9c9ff9ab0.html</guid>
+      <pubDate>Fri, 23 Oct 2026 15:40:04 +0000</pubDate>
+      <category>The Verge</category>
+      <description>После многих лет дебатов о том, как беспилотные автомобили должны рассказывать миру, что за рулем никого нет - мигающий текст, звуковые оповещения, пользовательские огни - федералы просто вмешались с одним ответом: голубой. Национальная администрация безопасности дорожного движения выпустила…</description>
+      <content:encoded><![CDATA[<p>После многих лет дебатов о том, как беспилотные автомобили должны рассказывать миру, что за рулем никого нет - мигающий текст, звуковые оповещения, пользовательские огни - федералы просто вмешались с одним ответом: голубой.</p><p>Национальная администрация безопасности дорожного движения выпустила предлагаемые изменения к Федеральному стандарту безопасности автотранспортных средств (FMVSS) № 108, в частности, переписав ...</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/16c9c9ff9ab0.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Асимметрия как свойство жизни и решение &#x27;Cat-Belling problems&#x27; искусственного суперинтеллекта</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/0487904bfaf6.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/0487904bfaf6.html</guid>
+      <pubDate>Fri, 23 Oct 2026 15:41:06 +0000</pubDate>
+      <category>Habr</category>
+      <description>Данный текст является конкретным техническим решением и ответом на вопросы, поставленные Элиэзером Юдковски в статье «Cat-Belling Problems», опубликованной 4 сентября по итогу его дебатов с Джеффри Ирвингом, прошедших 3-7 августа на международной конференции ILIAD-2026, посвященной теоретическим и…</description>
+      <content:encoded><![CDATA[<p>Данный текст является конкретным техническим решением и ответом на вопросы, поставленные Элиэзером Юдковски в статье «Cat-Belling Problems», опубликованной 4 сентября по итогу его дебатов с Джеффри Ирвингом, прошедших 3-7 августа на международной конференции ILIAD-2026, посвященной теоретическим и математическим проблемам безопасности и контроля искусственного интеллекта.Чтобы лучше было понятно, о каких проблемах и вопросах идет речь, я опубликовал на Хабре свой перевод.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/0487904bfaf6.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
