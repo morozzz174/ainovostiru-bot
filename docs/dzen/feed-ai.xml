@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Thu, 22 Oct 2026 15:50:07 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 23 Oct 2026 09:48:28 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Наука говорит, что ваш босс должен меньше говорить на совещаниях</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/85b142d1b6f0.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/85b142d1b6f0.html</guid>
-      <pubDate>Sun, 18 Oct 2026 09:23:01 +0000</pubDate>
-      <category>Ars Technica</category>
-      <description>Исследования показывают, что нужно больше слушать, а меньше говорить. Убийство бесцельных встреч тоже может помочь.</description>
-      <content:encoded><![CDATA[<p>Исследования показывают, что нужно больше слушать, а меньше говорить.</p><p>Убийство бесцельных встреч тоже может помочь.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/85b142d1b6f0.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>api2app: Использование совместно с ComfyUI</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/e149b9a69dc0.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/e149b9a69dc0.html</guid>
-      <pubDate>Sun, 18 Oct 2026 09:24:03 +0000</pubDate>
-      <category>Habr</category>
-      <description>В этом уроке я расскажу как можно использовать ComfyUI в роли API и быстро создать веб-приложение с доступом из мира. В приложении я смогу оперативно настраивать интерфейс под меняющиеся задачи без программирования. Читать далее</description>
-      <content:encoded><![CDATA[<p>В этом уроке я расскажу как можно использовать ComfyUI в роли API и быстро создать веб-приложение с доступом из мира.</p><p>В приложении я смогу оперативно настраивать интерфейс под меняющиеся задачи без программирования.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/e149b9a69dc0.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>По словам генерального директора, Replit делает OpenAI своим дефолтом по сравнению с Anthropic</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/3ebfc0a8f582.html</link>
@@ -214,6 +194,26 @@
       <description>Привет, Хабр! Я Владимир Лушин, делаю ИИ-агенты и инструменты для работы с кодом. Статья, вроде, серьёзная, но с пуделями. Так уж вышло, что дрессировка собаки объясняет внимание в LLM понятнее любых формул с softmax.В карточках свежих open-source моделей везде написано «1 млн контекста». Внутри…</description>
       <content:encoded><![CDATA[<p>Привет, Хабр!</p><p>Я Владимир Лушин, делаю ИИ-агенты и инструменты для работы с кодом.</p><p>Статья, вроде, серьёзная, но с пуделями.</p><p>Так уж вышло, что дрессировка собаки объясняет внимание в LLM понятнее любых формул с softmax.В карточках свежих open-source моделей везде написано «1 млн контекста».</p><p>Внутри при этом точно читается совсем другое количество токенов: GLM-5.3 выбирает для каждого шага 2048 токенов из истории, DeepSeek-V4-Pro — 1024 сжатых блока, а у Qwen3.8 и Kimi K3 всю историю целиком видит лишь каждый четвёртый слой.Для агента это быстро становится вполне практической проблемой: правило из AGENTS.md к сотому вызову инструмента тихо перестаёт работать, и «ну вот же оно, в контексте!» уже не аргумент.</p><p>Я полез разбираться, как устроено внимание в открытых моделях 2026 года и что с этим делать в обвязке, чтобы агент не забывал правила к середине сессии.Примечание:- Все свежие открытые модели читают длинный контекст выборочно.</p><p>Три семейства: разрежённое top-k (GLM-5.x, DeepSeek-V4, MiniMax M3), гибриды «3 линейных + 1 полный» (Qwen3.5—3.8, Kimi K3, GLM-5.3-Flash), скользящее окно + глобальные слои (Gemma 4).- Гарантированно точно читаются только последние сотни токенов.</p><p>Всё остальное должно либо «выиграть отбор» по релевантности, либо дожить в сжатом виде.- У большинства моделей качество ломается где-то в районе 128—256 тыс., а Kimi K3 с компактизацией на 300 тыс.</p><p>обгоняет саму себя с полным окном в 1 млн.- Обвязке важнее, куда положить текст, чем что в нём написать.</p><p>Лучше всего работают чистка старого вывода инструментов, поиск по запросу вместо «залить всё», постепенное раскрытие, состояние вне окна, повтор правил в конце.- А то, что нельзя нарушать никогда, закрывайте хуками и правами доступа, вниманию такое доверять не стоит.Сразу поясню: часть конфигураций я читал прямо из config.json на Hugging Face, часть — из карточек и техотчётов.</p><p>Где данные вторичные, я это помечаю.</p><p>А всё про «что модель читает» я вывожу сам из архитектуры, разработчики такого нигде не заявляли.</p><p>Читать далее</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/db18ddb53c1f.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Искусственный интеллект в управлении проектами: магия, помощник или генератор новых проблем?</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/32281dada74e.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/32281dada74e.html</guid>
+      <pubDate>Fri, 23 Oct 2026 09:47:17 +0000</pubDate>
+      <category>Habr</category>
+      <description>На сцене — руководитель проекта. В отчете, который он через несколько часов предоставит топам, все хорошо: задачи выполняются, бюджет под контролем, критических рисков нет. Только вот за кулисами скрывается одна большая проблема — ключевой разработчик ждет доступы от заказчика уже неделю. Из-за…</description>
+      <content:encoded><![CDATA[<p>На сцене — руководитель проекта.</p><p>В отчете, который он через несколько часов предоставит топам, все хорошо: задачи выполняются, бюджет под контролем, критических рисков нет.</p><p>Только вот за кулисами скрывается одна большая проблема — ключевой разработчик ждет доступы от заказчика уже неделю.</p><p>Из-за этого тестирование не началось, а команда продолжает планировать работы так, будто ничего не произошло.</p><p>Добро пожаловать на голодные игры в мир управления проектами, где между статусом в системе и реальным положением дел иногда простирается пропасть.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/32281dada74e.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Сообщается, что DeepSeek поднимает $ 15B ЧЕРЕЗ 15 дней после ограничений в США</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c7c13b106c9c.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c7c13b106c9c.html</guid>
+      <pubDate>Fri, 23 Oct 2026 09:48:28 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>Сообщается, что DeepSeek привлекла $ 15 млрд в одном из крупнейших раундов финансирования в Китае, всего через несколько дней после того, как США приказали федеральным агентствам удалить свои технологии из-за проблем национальной безопасности.</description>
+      <content:encoded><![CDATA[<p>Сообщается, что DeepSeek привлекла $ 15 млрд в одном из крупнейших раундов финансирования в Китае, всего через несколько дней после того, как США приказали федеральным агентствам удалить свои технологии из-за проблем национальной безопасности.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/c7c13b106c9c.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
