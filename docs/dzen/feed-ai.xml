@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Sat, 24 Oct 2026 09:22:38 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 14:20:27 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>DIY VR: как создать собственную гарнитуру и почему вы, вероятно, не захотите</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/cab07bb470c5.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/cab07bb470c5.html</guid>
-      <pubDate>Mon, 19 Oct 2026 17:23:12 +0000</pubDate>
-      <category>Ars Technica</category>
-      <description>Букварь о радостях и трудностях создания собственного дисплея на голове.</description>
-      <content:encoded><![CDATA[<p>Букварь о радостях и трудностях создания собственного дисплея на голове.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/cab07bb470c5.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Загрузка: неудавшиеся запреты в социальных сетях и продление жизни домашних животных</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/dc03f536f537.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/dc03f536f537.html</guid>
-      <pubDate>Mon, 19 Oct 2026 17:24:22 +0000</pubDate>
-      <category>MIT Tech Review</category>
-      <description>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий. Дети перехитрили запреты в социальных сетях. Это не та проблема, которую нам нужно решать. - Михал Лурия, Алия Бхатия и Дана Бойд…</description>
-      <content:encoded><![CDATA[<p>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий.</p><p>Дети перехитрили запреты в социальных сетях.</p><p>Это не та проблема, которую нам нужно решать.</p><p>- Михал Лурия, Алия Бхатия и Дана Бойд Запреты в социальных сетях накапливаются.</p><p>В июле Франция присоединилась...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/dc03f536f537.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>10 API-роутеров с долгосрочным бесплатным или сверхдешёвым доступом к DeepSeek, GLM, GPT и другим моделям</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/6231f6683ee8.html</link>
@@ -214,6 +194,26 @@
       <description>Инженеры Anthropic изучили с помощью модели искусственного интеллекта Claude 25 крупных проектов с открытым исходным кодом, написанных на языках C, C++, Java, PHP и Python, на предмет проблем в области безопасности. Были обнаружены почти 500 угроз, в том числе отключённые механизмы защиты из-за…</description>
       <content:encoded><![CDATA[<p>Инженеры Anthropic изучили с помощью модели искусственного интеллекта Claude 25 крупных проектов с открытым исходным кодом, написанных на языках C, C++, Java, PHP и Python, на предмет проблем в области безопасности.</p><p>Были обнаружены почти 500 угроз, в том числе отключённые механизмы защиты из-за конфликтов в настройках, доступ к критически важным фрагментам кода до аутентификации и даже уязвимость, которой уже 21 год.</p><p>Источник изображения: Mohammad Rahmani / unsplash.com</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/43a952c5d726.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>OpenAI работает над новым повышением на $ 30 млрд на уровне $ 1,25T в преддверии IPO</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/03de7112bdc7.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/03de7112bdc7.html</guid>
+      <pubDate>Sat, 24 Oct 2026 14:19:21 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>Если в этом раунде OpenAI получит оценку более 1 триллиона $, это побьет рекорды как самая высоко оцененная частная компания за всю историю.</description>
+      <content:encoded><![CDATA[<p>Если в этом раунде OpenAI получит оценку более 1 триллиона $, это побьет рекорды как самая высоко оцененная частная компания за всю историю.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/03de7112bdc7.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>В пять раз быстрее: основатель Unitree ждёт прорыва в человекоподобных роботах уже через два года</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/45ec54b4c878.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/45ec54b4c878.html</guid>
+      <pubDate>Sat, 24 Oct 2026 14:20:27 +0000</pubDate>
+      <category>3DNews</category>
+      <description>Уже через пару лет человекоподобные роботы смогут успешно выполнять до 80 % команд на производстве и в быту, которые человек будет отдавать им в устной форме. Так считает основатель китайской компании Unitree Robotics. Ещё летом он полагал, что на это потребуется до десяти лет. Источник…</description>
+      <content:encoded><![CDATA[<p>Уже через пару лет человекоподобные роботы смогут успешно выполнять до 80 % команд на производстве и в быту, которые человек будет отдавать им в устной форме.</p><p>Так считает основатель китайской компании Unitree Robotics.</p><p>Ещё летом он полагал, что на это потребуется до десяти лет.</p><p>Источник изображения: Unitree Robotics</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/45ec54b4c878.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
