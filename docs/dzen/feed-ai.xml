@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Fri, 23 Oct 2026 15:41:06 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 09:22:38 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Инсайдер Nvidia, ставший венчурным капиталистом, рассказал, почему робототехника еще не достигла своего момента ChatGPT</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d7cad3c3128e.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d7cad3c3128e.html</guid>
-      <pubDate>Mon, 19 Oct 2026 10:34:10 +0000</pubDate>
-      <category>TechCrunch</category>
-      <description>Амуля Вишванат, которая семь лет занималась маркетингом продуктов для робототехнических платформ NVIDIA, говорит, что робототехника в настоящее время находится в своей «эре Лего», а основные строительные блоки, такие как приводы, роботизированные руки, программное обеспечение и стандарты…</description>
-      <content:encoded><![CDATA[<p>Амуля Вишванат, которая семь лет занималась маркетингом продуктов для робототехнических платформ NVIDIA, говорит, что робототехника в настоящее время находится в своей «эре Лего», а основные строительные блоки, такие как приводы, роботизированные руки, программное обеспечение и стандарты безопасности, все еще перестраиваются.</p><p>Эта точка зрения противоречит тем, кто считает, что робототехника, основанная на общей базовой модели, вот-вот ...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/d7cad3c3128e.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>MCP как новая поверхность атаки: как контролировать серверы, skills и tool calls, а не только промпты</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/4799bc6e073b.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/4799bc6e073b.html</guid>
-      <pubDate>Mon, 19 Oct 2026 10:35:12 +0000</pubDate>
-      <category>Habr</category>
-      <description>ИИ-агент на рабочей станции работает с правами локального пользователя. Он может читать почту и ходить в SharePoint, запускать команды, работать с файлами и вызывать инструменты через MCP. Это означает, что защита «на уровне промпта» через LLM Firewall и фильтрацию запросов к модели закрывает…</description>
-      <content:encoded><![CDATA[<p>ИИ-агент на рабочей станции работает с правами локального пользователя.</p><p>Он может читать почту и ходить в SharePoint, запускать команды, работать с файлами и вызывать инструменты через MCP.</p><p>Это означает, что защита «на уровне промпта» через LLM Firewall и фильтрацию запросов к модели закрывает только часть поверхности.</p><p>Основной риск теперь в действиях агента: вызов инструментов (tool call), вызов MCP-сервера, skills или доступ к корпоративным ресурсам.Ниже разбираем, как именно выглядит атака через косвенную инъекцию, какие механизмы INFERA AI.SafeAgent её останавливают и почему требуется именно такой класс контроля, а также разберем сценарии, по которым заказчики проверяют как срабатывает контроль ИИ-агентов.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/4799bc6e073b.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>DIY VR: как создать собственную гарнитуру и почему вы, вероятно, не захотите</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/cab07bb470c5.html</link>
@@ -214,6 +194,26 @@
       <description>Данный текст является конкретным техническим решением и ответом на вопросы, поставленные Элиэзером Юдковски в статье «Cat-Belling Problems», опубликованной 4 сентября по итогу его дебатов с Джеффри Ирвингом, прошедших 3-7 августа на международной конференции ILIAD-2026, посвященной теоретическим и…</description>
       <content:encoded><![CDATA[<p>Данный текст является конкретным техническим решением и ответом на вопросы, поставленные Элиэзером Юдковски в статье «Cat-Belling Problems», опубликованной 4 сентября по итогу его дебатов с Джеффри Ирвингом, прошедших 3-7 августа на международной конференции ILIAD-2026, посвященной теоретическим и математическим проблемам безопасности и контроля искусственного интеллекта.Чтобы лучше было понятно, о каких проблемах и вопросах идет речь, я опубликовал на Хабре свой перевод.</p><p>Читать далее</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/0487904bfaf6.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Как добавить свою LLM в aish</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/a8a276c395e3.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/a8a276c395e3.html</guid>
+      <pubDate>Sat, 24 Oct 2026 09:20:28 +0000</pubDate>
+      <category>Habr</category>
+      <description>Привет, меня зовут Наташа, я менеджер проектов в Selectel. Недавно я рассказывала, как и зачем мы создавали aish — ИИ-агента в терминале серверной ОС. Предлагаю перейти к практике и подключить к нему стороннюю LLM. В этой статье покажу, как выбрать подходящую модель, правильно ее настроить и…</description>
+      <content:encoded><![CDATA[<p>Привет, меня зовут Наташа, я менеджер проектов в Selectel.</p><p>Недавно я рассказывала, как и зачем мы создавали aish — ИИ-агента в терминале серверной ОС.</p><p>Предлагаю перейти к практике и подключить к нему стороннюю LLM.</p><p>В этой статье покажу, как выбрать подходящую модель, правильно ее настроить и избежать типичных ошибок при интеграции.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/a8a276c395e3.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Claude нашёл почти 500 дыр в популярном ПО — одной из них оказался 21 год</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/43a952c5d726.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/43a952c5d726.html</guid>
+      <pubDate>Sat, 24 Oct 2026 09:22:38 +0000</pubDate>
+      <category>3DNews</category>
+      <description>Инженеры Anthropic изучили с помощью модели искусственного интеллекта Claude 25 крупных проектов с открытым исходным кодом, написанных на языках C, C++, Java, PHP и Python, на предмет проблем в области безопасности. Были обнаружены почти 500 угроз, в том числе отключённые механизмы защиты из-за…</description>
+      <content:encoded><![CDATA[<p>Инженеры Anthropic изучили с помощью модели искусственного интеллекта Claude 25 крупных проектов с открытым исходным кодом, написанных на языках C, C++, Java, PHP и Python, на предмет проблем в области безопасности.</p><p>Были обнаружены почти 500 угроз, в том числе отключённые механизмы защиты из-за конфликтов в настройках, доступ к критически важным фрагментам кода до аутентификации и даже уязвимость, которой уже 21 год.</p><p>Источник изображения: Mohammad Rahmani / unsplash.com</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/43a952c5d726.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
