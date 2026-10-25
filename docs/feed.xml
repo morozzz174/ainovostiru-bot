@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Sat, 24 Oct 2026 14:20:27 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 25 Oct 2026 09:39:20 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>10 API-роутеров с долгосрочным бесплатным или сверхдешёвым доступом к DeepSeek, GLM, GPT и другим моделям</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/6231f6683ee8.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/6231f6683ee8.html</guid>
-      <pubDate>Tue, 20 Oct 2026 09:50:47 +0000</pubDate>
-      <category>Habr</category>
-      <description>Собрал 10 API-роутеров, у которых есть бесплатные модели, ежедневные квоты или стартовые бонусы, и проверил каждый после регистрации: какие модели доступны бесплатно или почти бесплатно, какие действуют лимиты и работают ли вызовы через API. Отдельно смотрел, есть ли русский интерфейс, можно ли…</description>
-      <content:encoded><![CDATA[<p>Собрал 10 API-роутеров, у которых есть бесплатные модели, ежедневные квоты или стартовые бонусы, и проверил каждый после регистрации: какие модели доступны бесплатно или почти бесплатно, какие действуют лимиты и работают ли вызовы через API.</p><p>Отдельно смотрел, есть ли русский интерфейс, можно ли платить в рублях и открывается ли сайт из России без VPN.</p><p>В подборке OrcaRouter, TeamoRouter, Srazu, RockAPI, OpenRouter, llmgw, VseGPT, Token Harbor, NaraRouter и FreeRouter.</p><p>Внутри — две сводные таблицы и 17 скриншотов из личных кабинетов.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/6231f6683ee8.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Модели OpenAI взломали криптокошелек и взломали больше сайтов</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/7cc1dcc06db7.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/7cc1dcc06db7.html</guid>
-      <pubDate>Tue, 20 Oct 2026 09:52:30 +0000</pubDate>
-      <category>Ars Technica</category>
-      <description>Действия могли привести к уголовным обвинениям, если бы за клавиатурой стояли люди.</description>
-      <content:encoded><![CDATA[<p>Действия могли привести к уголовным обвинениям, если бы за клавиатурой стояли люди.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/7cc1dcc06db7.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Исследователи ИИ застряли на виртуальном необитаемом острове. Он начал «играть».</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/6e0127404eb3.html</link>
@@ -214,6 +194,26 @@
       <description>Уже через пару лет человекоподобные роботы смогут успешно выполнять до 80 % команд на производстве и в быту, которые человек будет отдавать им в устной форме. Так считает основатель китайской компании Unitree Robotics. Ещё летом он полагал, что на это потребуется до десяти лет. Источник…</description>
       <content:encoded><![CDATA[<p>Уже через пару лет человекоподобные роботы смогут успешно выполнять до 80 % команд на производстве и в быту, которые человек будет отдавать им в устной форме.</p><p>Так считает основатель китайской компании Unitree Robotics.</p><p>Ещё летом он полагал, что на это потребуется до десяти лет.</p><p>Источник изображения: Unitree Robotics</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/45ec54b4c878.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Glafira for Apache Kafka: открытый desktop-клиент на Rust, который даёт LLM читать кластер, но не трогать его</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/496fd9a3b1ef.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/496fd9a3b1ef.html</guid>
+      <pubDate>Sun, 25 Oct 2026 09:38:06 +0000</pubDate>
+      <category>Habr</category>
+      <description>Glafira for Apache Kafka — бесплатный desktop-клиент для Kafka под macOS, Windows и Linux: Tauri 2, Rust, librdkafka, код открыт под Apache 2.0. Просмотр сообщений с фильтрами и JSONPath, Producer с шаблонами, consumer-сессии, топики, группы, сброс оффсетов и встроенная проверка кластера.Самое…</description>
+      <content:encoded><![CDATA[<p>Glafira for Apache Kafka — бесплатный desktop-клиент для Kafka под macOS, Windows и Linux: Tauri 2, Rust, librdkafka, код открыт под Apache 2.0.</p><p>Просмотр сообщений с фильтрами и JSONPath, Producer с шаблонами, consumer-сессии, топики, группы, сброс оффсетов и встроенная проверка кластера.Самое интересное — MCP-шлюз для LLM.</p><p>Claude, GigaCode, Cursor или любой другой клиент с поддержкой MCP подключается к Glafira, читает метаданные кластера, находит проблемы, оставляет замечания и предлагает изменения.</p><p>Применить что-либо модель не может: у неё физически нет ни одного изменяющего инструмента, а предложение открывается заполненной формой, где кнопку нажимает человек.</p><p>В статье — как это устроено, почему это гарантия, а не обещание, и два настоящих диалога с Claude Code.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/496fd9a3b1ef.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Вынужденная выбирать, модель ИИ Грока выбирает республиканцев. OpenAI выбирает демократов.</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ebfd6ceebea0.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ebfd6ceebea0.html</guid>
+      <pubDate>Sun, 25 Oct 2026 09:39:20 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>Новое исследование показало, что ИИ Грока в подавляющем большинстве рекомендует кандидатов-республиканцев, в то время как GPT OpenAI поддерживает демократов, причем две модели ИИ расходятся более чем в 90% из почти 500 предвыборных гонок.</description>
+      <content:encoded><![CDATA[<p>Новое исследование показало, что ИИ Грока в подавляющем большинстве рекомендует кандидатов-республиканцев, в то время как GPT OpenAI поддерживает демократов, причем две модели ИИ расходятся более чем в 90% из почти 500 предвыборных гонок.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/ebfd6ceebea0.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
