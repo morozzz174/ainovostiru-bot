@@ -9,32 +9,12 @@
     <description>Наука, история, космос и открытия — коротко и по делу.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Sat, 24 Oct 2026 18:58:11 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 25 Oct 2026 09:20:21 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>FACTUM.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>«Это похоже на научную фантастику»: астрономы нашли первую зеленую звезду</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/07ecc5a155ec.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/07ecc5a155ec.html</guid>
-      <pubDate>Tue, 20 Oct 2026 17:26:08 +0000</pubDate>
-      <category>Nautilus</category>
-      <description>Вселенная только что стала немного красочнее Сообщение «It Feels Like Something Out of Science Fiction»: Astronomers Find First Green Star впервые появилось на Nautilus.</description>
-      <content:encoded><![CDATA[<p>Вселенная только что стала немного красочнее Сообщение «It Feels Like Something Out of Science Fiction»: Astronomers Find First Green Star впервые появилось на Nautilus.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/07ecc5a155ec.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Скидки Mint Mobile на октябрь 2026 года</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/40e51c91168f.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/40e51c91168f.html</guid>
-      <pubDate>Tue, 20 Oct 2026 17:27:19 +0000</pubDate>
-      <category>Wired</category>
-      <description>Сократите ежемесячный счет за мобильный телефон с помощью действующих купонов и промоакций Mint Mobile, ограниченных по времени промоакций и экономии на тарифах 5G.</description>
-      <content:encoded><![CDATA[<p>Сократите ежемесячный счет за мобильный телефон с помощью действующих купонов и промоакций Mint Mobile, ограниченных по времени промоакций и экономии на тарифах 5G.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/40e51c91168f.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Спросите Итана: Каким должно быть послание человечества Вселенной?</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/43b66a7ee3d1.html</link>
@@ -214,6 +194,26 @@
       <description>НАСА быстро продвигается к своим планам по строительству лунной базы и возвращению астронавтов на лунную поверхность всего за два года.</description>
       <content:encoded><![CDATA[<p>НАСА быстро продвигается к своим планам по строительству лунной базы и возвращению астронавтов на лунную поверхность всего за два года.</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/8f3b8a74d05d.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Биологи показали, что происходит под кожей во время укуса малярийного комара</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/13882486744b.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/13882486744b.html</guid>
+      <pubDate>Sun, 25 Oct 2026 09:18:30 +0000</pubDate>
+      <category>Naked Science</category>
+      <description>Ученым впервые удалось в деталях проследить за тем, что происходит над кожей и под ней во время укуса малярийного комара. С помощью высокоскоростной съемки и чувствительных микродатчиков исследователи зафиксировали сложную координацию движений насекомого, а также сравнили его поведение с другими…</description>
+      <content:encoded><![CDATA[<p>Ученым впервые удалось в деталях проследить за тем, что происходит над кожей и под ней во время укуса малярийного комара.</p><p>С помощью высокоскоростной съемки и чувствительных микродатчиков исследователи зафиксировали сложную координацию движений насекомого, а также сравнили его поведение с другими видами и генетически измененными комарами.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/13882486744b.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Обзор Samsung Galaxy Z Flip8: самый маленький смартфон, который мог</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/faebf76ca67f.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/faebf76ca67f.html</guid>
+      <pubDate>Sun, 25 Oct 2026 09:20:21 +0000</pubDate>
+      <category>Wired</category>
+      <description>Симпатичный компакт Samsung предназначен для тех, кто хочет самый маленький телефон. Производительность и камера солидны, но дороже, чем у предшественника.</description>
+      <content:encoded><![CDATA[<p>Симпатичный компакт Samsung предназначен для тех, кто хочет самый маленький телефон.</p><p>Производительность и камера солидны, но дороже, чем у предшественника.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/faebf76ca67f.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
