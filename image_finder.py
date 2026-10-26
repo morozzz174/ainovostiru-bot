@@ -42,7 +42,19 @@ def _extract_keywords(text: str) -> list[str]:
     }
     words = text.split()
     keywords = [w for w in words if w not in stopwords and len(w) > 3]
+
+    # Отраслевые слова важнее глаголов и числительных. Раньше список брался
+    # просто с начала заголовка, и запрос «значительно вырос» приносил в
+    # металлургический канал кофе, закаты и собак.
+    def rank(word: str):
+        return (0 if _is_known_term(word) else 1, 1 if word.isdigit() else 0, -len(word))
+
+    keywords.sort(key=rank)
     return keywords[:5]
+
+
+def _is_known_term(word: str) -> bool:
+    return any(word.startswith(stem) for stem in RU_TO_EN)
 
 
 def _search_pexels(query: str) -> str | None:
@@ -143,11 +155,91 @@ RU_TO_EN = {
     "автомобил": "car",
     "самолет": "aircraft",
     "еда": "food",
+
+    # металлургия и трубный прокат (тема metal)
+    # Ключи идут от частного к общему: поиск останавливается на первом
+    # совпадении, поэтому «металлолом» должен стоять раньше «металл».
+    "трубопровод": "steel pipeline",
+    "газопровод": "gas pipeline",
+    "нефтепровод": "oil pipeline",
+    "труб": "steel pipes",
+    "прокатн": "steel rolling mill",
+    "прокат": "steel rolling mill",
+    "стальн": "steel",
+    "стал": "steel",
+    "металлург": "metallurgy plant",
+    "металлолом": "scrap metal yard",
+    "металл": "metal industry",
+    "чугун": "cast iron foundry",
+    "руд": "iron ore mine",
+    "лом": "scrap metal",
+    "арматур": "steel rebar",
+    "заготовк": "steel billet",
+    "сортамент": "steel products",
+    "листов": "steel sheet",
+    "проволок": "steel wire",
+    "рельс": "railway rails",
+    "цинк": "zinc",
+    "медн": "copper",
+    "медь": "copper",
+    "алюмин": "aluminium smelter",
+    "никел": "nickel",
+    "золот": "gold mining",
+    "угол": "coal",
+    "угля": "coal",
+    "уголь": "coal",
+    "кокс": "coke plant",
+    "домен": "blast furnace",
+    "печ": "furnace",
+    "завод": "steel plant",
+    "комбинат": "steelworks",
+    "отгрузк": "freight train",
+    "экспорт": "cargo ship",
+    "порт": "port terminal",
+    "сварк": "welding",
+    "коррози": "rusty metal",
+    "шахт": "mine shaft",
+    "карьер": "quarry",
+    "конвейер": "conveyor belt",
+    "энергетик": "power plant",
+    "производств": "steel production line",
+    "литей": "foundry",
+    "отрасл": "steel industry",
+    "импорт": "cargo port",
+    "пошлин": "cargo port",
+    "цен": "steel market",
+    "рынк": "steel market",
+    "поставк": "freight logistics",
+    "мощност": "factory",
+    "модернизац": "factory modernization",
+    "ремонт": "industrial maintenance",
+    "авари": "industrial accident",
+    "пожар": "industrial fire",
+    "выброс": "smokestack",
+    "тариф": "freight train",
+    "вагон": "freight train",
+    "логистик": "logistics trucks",
+    "склад": "warehouse",
+    "плавк": "molten metal",
+    "слит": "steel ingot",
+    "штрипс": "steel strip",
+    "балк": "steel beam",
+    "емкост": "storage tank",
+    "резервуар": "storage tank",
+    "котел": "industrial boiler",
+    "турбин": "turbine",
+    "буров": "drilling rig",
+    "скважин": "oil well",
 }
 
 
 def _english_queries(keywords: list[str]) -> list[str]:
-    """Openverse has almost no Russian coverage, so map stems to English."""
+    """Translate stems to English and top up with the theme's stock queries.
+
+    A headline made of generic words ("значительно вырос", "чистая прибыль")
+    maps to nothing, and searching stock sites with those words returns
+    random life-style photos. The theme fallback keeps the picture on topic.
+    """
     queries = []
     for word in keywords:
         for stem, english in RU_TO_EN.items():
@@ -155,6 +247,11 @@ def _english_queries(keywords: list[str]) -> list[str]:
                 if english not in queries:
                     queries.append(english)
                 break
+    for fallback in getattr(config, "IMAGE_QUERIES", []):
+        if len(queries) >= 3:
+            break
+        if fallback not in queries:
+            queries.append(fallback)
     return queries[:3]
 
 
@@ -197,11 +294,6 @@ def _search_openverse(query: str) -> tuple[str, str] | None:
     return None
 
 
-def _search_picsum(query: str) -> str:
-    seed = re.sub(r"\s+", "-", query.strip()[:50])
-    return f"https://picsum.photos/seed/{seed}/1200/630"
-
-
 def _download(url: str) -> io.BytesIO | None:
     try:
         resp = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=15)
@@ -216,26 +308,28 @@ def _download(url: str) -> io.BytesIO | None:
 def find_image_with_credit(text: str) -> tuple[io.BytesIO | None, str]:
     """Return a photo for the topic plus a short attribution line.
 
-    picsum.photos answers 403 for datacenter and cloud IPs, which is where the
-    bot runs, so Openverse (WordPress, CC licensed, no key) is the primary
-    source. Attribution matters for CC-BY images, so the credit is returned
-    instead of being dropped.
+    Only sources that actually match the query are used: Pexels and Unsplash
+    first, then Openverse (CC licensed, no key). picsum.photos used to be the
+    last resort, but it serves a random photo for any seed, which is how a
+    steel news channel ended up with pictures of coffee and sunsets. When
+    nothing matches, returning None lets the publisher draw a branded poster.
     """
     keywords = _extract_keywords(text)
-    if not keywords:
+    queries = _english_queries(keywords)
+    if not queries:
         return None, ""
 
     candidates = []
-    for word in keywords[:3]:
-        url = _search_pexels(word)
+    for query in queries:
+        url = _search_pexels(query)
         if url:
             candidates.append((url, "Pexels"))
             continue
-        url = _search_unsplash(word)
+        url = _search_unsplash(query)
         if url:
             candidates.append((url, "Unsplash"))
 
-    for query in _english_queries(keywords):
+    for query in queries:
         found = _search_openverse(query)
         if found:
             candidates.append(found)
@@ -247,19 +341,6 @@ def find_image_with_credit(text: str) -> tuple[io.BytesIO | None, str]:
         image = _download(url)
         if image:
             return image, credit
-
-    for query in _english_queries(keywords) + [" ".join(keywords[:3]), keywords[0]]:
-        found = _search_openverse(query)
-        if not found:
-            continue
-        image = _download(found[0])
-        if image:
-            return image, found[1]
-
-    for query in (" ".join(keywords[:3]), keywords[0]):
-        image = _download(_search_picsum(query))
-        if image:
-            return image, ""
 
     return None, ""
 

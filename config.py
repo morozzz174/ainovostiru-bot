@@ -488,6 +488,7 @@ THEMES = {
         "sources": NEWS_SOURCES_AI,
         "hashtags": ["#ИИ", "#AI", "#Новости", "#Технологии", "#ИскусственныйИнтеллект"],
         "brand": "AINOVOSTI.RU",
+        "image_queries": ["artificial intelligence", "data center", "technology"],
         "keywords": [
             "ai", "artificial intelligence", "machine learning", "deep learning",
             "neural network", "llm", "gpt", "openai", "anthropic", "gemini",
@@ -524,6 +525,7 @@ THEMES = {
             "#Кожа", "#Антиэйджинг", "#Наука", "#Красота",
         ],
         "brand": "AESTHETIC.RU",
+        "image_queries": ["skincare", "cosmetics laboratory", "wellness"],
         "keywords": [
             # косметология и дерматология
             "cosmetic", "dermatolog", "skin", "skin barrier", "wrinkle",
@@ -551,6 +553,12 @@ THEMES = {
         "brand": "NOVOSTI TRUBY METALL",
         "stem": 7,
         "geo_filter": True,
+        "image_queries": [
+            "steel pipes",
+            "metallurgy plant",
+            "steel rolling mill",
+            "scrap metal yard",
+        ],
         "palette": {
             "bg_top": (28, 33, 41),
             "bg_bottom": (12, 14, 18),
@@ -611,5 +619,9 @@ STRONG_KEYWORDS = _theme_config.get("strong_keywords") or KEYWORDS
 STEM_LEN = _theme_config.get("stem", 4)
 GEO_FILTER = _theme_config.get("geo_filter", False)
 PALETTE = _theme_config.get("palette")
+# Английские запросы для стоковых фото. Нужны, когда из заголовка не
+# вытащить ни одного отраслевого слова: без них Pexels искал по случайному
+# глаголу и присылал кофе, закаты и собак.
+IMAGE_QUERIES = _theme_config.get("image_queries") or ["industry", "technology"]
 if not BRAND_NAME:
     BRAND_NAME = _theme_config["brand"]
