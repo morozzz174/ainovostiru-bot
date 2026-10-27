@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Mon, 26 Oct 2026 17:12:22 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 Oct 2026 10:16:27 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Airbnb запрещает гостям мыть посуду и выносить мусор</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c9b9ff3f955e.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c9b9ff3f955e.html</guid>
-      <pubDate>Thu, 22 Oct 2026 09:53:18 +0000</pubDate>
-      <category>The Verge</category>
-      <description>Теперь, когда компания запрещает хозяевам включать трудоемкие хлопоты в правила дома, выезд со следующего Airbnb может быть менее хлопотным. В обновленных Правилах дома Airbnb, действие которых начинается с бронирований, оформленных 20 ноября или позже, говорится, что хозяева не могут просить…</description>
-      <content:encoded><![CDATA[<p>Теперь, когда компания запрещает хозяевам включать трудоемкие хлопоты в правила дома, выезд со следующего Airbnb может быть менее хлопотным.</p><p>В обновленных Правилах дома Airbnb, действие которых начинается с бронирований, оформленных 20 ноября или позже, говорится, что хозяева не могут просить гостей «выполнять задачи, требующие значительных усилий или …</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/c9b9ff3f955e.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Облачные партнерские отношения Anthropic становятся запутанными</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/4d4afc839209.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/4d4afc839209.html</guid>
-      <pubDate>Thu, 22 Oct 2026 09:54:28 +0000</pubDate>
-      <category>TechCrunch</category>
-      <description>По сообщениям, Anthropic изо всех сил пытается обеспечить достаточное количество вычислений от облачных провайдеров, которые все чаще рассматривают его как конкурента, даже несмотря на то, что его инфраструктура расходует воздушные шары в преддверии запланированного на ноябрь IPO.</description>
-      <content:encoded><![CDATA[<p>По сообщениям, Anthropic изо всех сил пытается обеспечить достаточное количество вычислений от облачных провайдеров, которые все чаще рассматривают его как конкурента, даже несмотря на то, что его инфраструктура расходует воздушные шары в преддверии запланированного на ноябрь IPO.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/4d4afc839209.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>DeepSeek привлекла $15 млрд на борьбу с OpenAI и Anthropic</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/187ae6e678ac.html</link>
@@ -214,6 +194,26 @@
       <description>Сегодня генеративный ИИ меняет жизнь даже тех людей, кто не знает, что такое «генеративный ИИ». И не всегда эти изменения во благо. Например, мошенники уже научились применять генеративные аудиомодели, чтобы обманывать доверчивых граждан, имитируя голоса их близких и уговаривая расстаться с…</description>
       <content:encoded><![CDATA[<p>Сегодня генеративный ИИ меняет жизнь даже тех людей, кто не знает, что такое «генеративный ИИ».</p><p>И не всегда эти изменения во благо.</p><p>Например, мошенники уже научились применять генеративные аудиомодели, чтобы обманывать доверчивых граждан, имитируя голоса их близких и уговаривая расстаться с крупными суммами денег.</p><p>А это значит, что создание методов надежного обнаружения речевых дипфейков (Speech Deepfake Detection, SDD) — это уже больше, чем просто академическая задача.</p><p>К сожалению, существующие SDD зачастую недостаточно универсальны: они плохо адаптируются к новым аудиодоменам и типам генераторов.</p><p>Но, что самое неприятное, им недостает интерпретируемости — то есть способности объяснить, почему аудио является подлинным или поддельным, предоставляя при этом понятные человеку признаки.Озаботившись этим вопросом, мы коллегами из AIRI, МФТИ, МТУСИ и ВШЭ придумали новый подход к обнаружению речевых дипфейков, который объединяет возможности больших аудиоязыковых моделей с пошаговым рассуждением, полученным на основе набора данных с человеческой разметкой.</p><p>Метод получил название HIR‑SDD и съездил постером в Австралию на Interspeech в конце сентября (статью можно посмотреть здесь).Ниже расскажу, как устроен наш подход, что дали эксперименты и почему, если фраза «я не слышу признаков синтеза» еще не означает, что на записи точно живой человек.</p><p>Читать далее</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/757f08c506fe.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Anthropic сжигает газ, чтобы питать стрелу ИИ</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d7ad25ada18a.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d7ad25ada18a.html</guid>
+      <pubDate>Tue, 27 Oct 2026 10:15:26 +0000</pubDate>
+      <category>The Verge</category>
+      <description>По мере того, как он готовится к обнародованию, ЗАЯВКА Anthropic S-1 делает зависимость генеративного ИИ от метана очевидной. «Конкуренция за доступ к электроснабжению и местам расположения центров обработки данных с достаточной доступностью электроэнергии является интенсивной.« В документах,…</description>
+      <content:encoded><![CDATA[<p>По мере того, как он готовится к обнародованию, ЗАЯВКА Anthropic S-1 делает зависимость генеративного ИИ от метана очевидной.</p><p>«Конкуренция за доступ к электроснабжению и местам расположения центров обработки данных с достаточной доступностью электроэнергии является интенсивной.« В документах, поданных в Комиссию по ценным бумагам и биржам США в понедельник, Anthropic признает, что центры обработки данных становятся все более зависимыми от «природного газа» ...</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/d7ad25ada18a.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Keystone 1.0: LLM-шлюз, который не хардкодит модели, держит свои GPU и не теряет ключи</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/3ce2eddbc81e.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/3ce2eddbc81e.html</guid>
+      <pubDate>Tue, 27 Oct 2026 10:16:27 +0000</pubDate>
+      <category>Habr</category>
+      <description>Имя модели в коде устаревает в день выхода следующей модели. Если у вас десять сервисов, вы перепишете его десять раз и десять раз разнесёте по конфигам ключи вендоров.Keystone. The Model Switchboard. (KTMS) убирает это из кода. Сервис говорит, насколько сложна задача, а шлюз решает, какую модель…</description>
+      <content:encoded><![CDATA[<p>Имя модели в коде устаревает в день выхода следующей модели.</p><p>Если у вас десять сервисов, вы перепишете его десять раз и десять раз разнесёте по конфигам ключи вендоров.Keystone.</p><p>The Model Switchboard.</p><p>(KTMS) убирает это из кода.</p><p>Сервис говорит, насколько сложна задача, а шлюз решает, какую модель позвать, с каким ключом и не отдать ли запрос вашей собственной GPU.</p><p>В простое он занимает 7 МиБ памяти, а с версии 1.0 его API в пределах 1.x не ломается.Вместе со шлюзом 1.0 вышли веб-консоль ktms-admin и учёт расходов light-tokenmeter, все три на Go и под Apache 2.0.</p><p>Возможности ниже описаны по актуальной версии 1.3.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/3ce2eddbc81e.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
