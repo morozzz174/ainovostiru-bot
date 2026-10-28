@@ -546,6 +546,58 @@ THEMES = {
             "гидроз", "блефаропласт", "пластическ", "липосакц", "омолож",
             "сыворотк", "спф",
         ],
+        # Процедуры и уход за кожей: такие материалы идут первыми. Это не
+        # фильтр, а рейтинг - он поднимает криолиполиз и лазеры выше
+        # упаковки, премий и квартальных отчётов.
+        "priority_keywords": [
+            "cryolip", "lipolys", "lpg", "laser", "peel", "filler",
+            "botox", "botulin", "biorevit", "mesother", "microneedl",
+            "dermabras", "injectab", "skinbooster", "pdrn", "exosome",
+            "polynucleotide", "thread lift", "smas", "blepharo",
+            "rhinoplast", "liposuct", "bbl", "body contour", "cellulit",
+            "rejuvenat", "anti-ag", "wrinkle", "collagen", "elastin",
+            "skin tightening", "skin quality", "pigment", "melasma",
+            "acne", "rosacea", "couperose", "hyperhidro", "alopecia",
+            "hair restoration", "procedure", "dermatolog", "cosmet",
+            "криолип", "липолиз", "lpg", "лазер", "пилинг", "филлер",
+            "ботокс", "ботулот", "биоревит", "мезотер", "микроигл",
+            "дермабрази", "инъекц", "скинбустер", "pdrn", "экзосом",
+            "полинуклеотид", "нитев", "smas", "блефаропласт",
+            "ринопласт", "липосакц", "bbl", "целлюлит", "омолож",
+            "антиэйдж", "морщин", "коллаг", "эластин", "тургор",
+            "пигмент", "мелазм", "акне", "розацеа", "купероз",
+            "гипергидр", "алопеци", "процедур", "космет", "дермат",
+        ],
+        # Чисто деловые и шопинговые материалы: упаковка, M&A, отчёты,
+        # подарочные подборки, обзоры кремов. Отбрасываются, только если в
+        # заголовке нет ни одного слова из priority_keywords.
+        "demote_keywords": [
+            "packag", "acquir", "acquis", "merger", "revenu", "sales",
+            "quarter", "profit", "ceo", "executive", "appointment",
+            "hires", "gift", "award", "campaign", "ipo", "valuation",
+            "stock", "best", "review", "tested", "loyalt", "retail",
+            "store", "distribution", "partnership", "collaboration",
+            "brand", "names", "joins", "launches",
+            "упаков", "приобре", "покупк", "выручк", "продаж", "кварта",
+            "назнач", "кампани", "преми", "акци", "стоимо", "инвест",
+            "рейтин", "ретейл", "магази", "бренд", "новинк", "обзор",
+            "тест", "скидк", "распро", "постав", "контра", "произв",
+            "сотруд", "руково", "директ",
+        ],
+        # Шопинг-подборки и деловые новости не спасает даже упоминание
+        # процедуры: «5 лучших кремов от дерматологов» - не новость канала.
+        "hard_demote_keywords": [
+            "best", "review", "tested", "gift", "packag", "watchlist",
+            "retail", "store", "sales", "discount", "loyalt", "award",
+            "campaign", "launches", "names", "joins", "brand",
+            "acquir", "acquis", "merger", "ceo", "quarter", "revenu",
+            "profit", "valuation", "ipo", "stock", "pricing",
+            "лучш", "обзор", "тест", "новинк", "скидк", "распро",
+            "подар", "упаков", "рейтин", "преми", "акци", "магази",
+            "бренд", "приобре", "покупк", "выручк", "продаж", "кварта",
+            "назнач", "кампани", "инвест", "ретейл", "стоимо", "директ",
+            "руково", "сотруд", "контра", "постав", "произв", "подборк",
+        ],
     },
     "metal": {
         "sources": NEWS_SOURCES_METAL,
@@ -617,6 +669,11 @@ NEWS_SOURCES = _theme_config["sources"]
 HASHTAGS = _theme_config["hashtags"]
 KEYWORDS = _theme_config["keywords"]
 STRONG_KEYWORDS = _theme_config.get("strong_keywords") or KEYWORDS
+# Процедурные слова поднимают материал в очереди, а деловые/шопинговые
+# (упаковка, M&A, отчёты) отбрасываются, если рядом нет процедурного слова.
+PRIORITY_KEYWORDS = _theme_config.get("priority_keywords") or []
+DEMOTE_KEYWORDS = _theme_config.get("demote_keywords") or []
+HARD_DEMOTE_KEYWORDS = _theme_config.get("hard_demote_keywords") or []
 # Длина стемма для поиска по ключевым словам. 4 - как раньше, 6 - строже
 # для отраслей, где 4-символьные стеммы дают ложные срабатывания.
 STEM_LEN = _theme_config.get("stem", 4)

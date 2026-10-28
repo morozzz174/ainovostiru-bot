@@ -8,7 +8,7 @@ from telegram import Bot
 from telegram.error import InvalidToken
 
 import config
-from collector import collect_news, enrich_description, Article
+from collector import collect_news, enrich_description, Article, _matched_keywords
 from publisher import prepare_post, send_post
 from storage import Storage
 from translator import translate_article
@@ -62,6 +62,19 @@ def _post_to_tiktok(article: Article, text: str, image_buf):
         logger.error("TikTok: error: %s", e)
 
 
+def _priority_score(article: Article) -> int:
+    """How many procedure/anti-ageing words a story carries.
+
+    Zero for themes without a priority list, so metal and the others keep
+    their old draw order.
+    """
+    priority = getattr(config, "PRIORITY_KEYWORDS", ())
+    if not priority:
+        return 0
+    text = f"{article.title} {article.description or ''}"
+    return len(_matched_keywords(text, priority))
+
+
 def _draw_candidates(new_articles: list[Article], count: int) -> list[Article]:
     """Round-robin across sources so a single busy feed cannot fill the run.
 
@@ -78,9 +91,17 @@ def _draw_candidates(new_articles: list[Article], count: int) -> list[Article]:
     for bucket in by_source.values():
         random.shuffle(bucket)
         bucket.sort(
-            key=lambda a: len((a.description or "").strip()) >= 120,
+            key=lambda a: (
+                len((a.description or "").strip()) >= 120,
+                _priority_score(a),
+            ),
             reverse=True,
         )
+
+    # Put the best procedure stories in front. Within a source the bucket is
+    # already ranked, so comparing first items is enough.
+    if getattr(config, "PRIORITY_KEYWORDS", ()):
+        sources.sort(key=lambda s: _priority_score(by_source[s][0]), reverse=True)
 
     picked: list[Article] = []
     for minimum in (120, 0):

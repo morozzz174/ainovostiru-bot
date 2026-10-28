@@ -211,7 +211,23 @@ def _is_relevant(title: str, source_cfg: dict) -> bool:
     words = (
         config.STRONG_KEYWORDS if source_cfg.get("strong") else config.KEYWORDS
     )
-    return bool(_matched_keywords(title, words))
+    matched = _matched_keywords(title, words)
+    if not matched:
+        return False
+
+    # Product packaging, M&A, quarterly reports and gift guides pass the skin
+    # keywords ("skincare", "aesthetics") but are not what the channel is
+    # about. Keep them only when the headline also names a real procedure.
+    hard = getattr(config, "HARD_DEMOTE_KEYWORDS", ())
+    if hard and _matched_keywords(title, hard):
+        return False
+
+    demote = getattr(config, "DEMOTE_KEYWORDS", ())
+    if demote and _matched_keywords(title, demote):
+        priority = getattr(config, "PRIORITY_KEYWORDS", ())
+        if not _matched_keywords(title, priority):
+            return False
+    return True
 
 
 # RF and CIS markers: a story that mentions any of them is kept even when it
