@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Tue, 27 Oct 2026 16:17:37 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Oct 2026 11:04:54 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Искусственный интеллект в управлении проектами: магия, помощник или генератор новых проблем?</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/32281dada74e.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/32281dada74e.html</guid>
-      <pubDate>Fri, 23 Oct 2026 09:47:17 +0000</pubDate>
-      <category>Habr</category>
-      <description>На сцене — руководитель проекта. В отчете, который он через несколько часов предоставит топам, все хорошо: задачи выполняются, бюджет под контролем, критических рисков нет. Только вот за кулисами скрывается одна большая проблема — ключевой разработчик ждет доступы от заказчика уже неделю. Из-за…</description>
-      <content:encoded><![CDATA[<p>На сцене — руководитель проекта.</p><p>В отчете, который он через несколько часов предоставит топам, все хорошо: задачи выполняются, бюджет под контролем, критических рисков нет.</p><p>Только вот за кулисами скрывается одна большая проблема — ключевой разработчик ждет доступы от заказчика уже неделю.</p><p>Из-за этого тестирование не началось, а команда продолжает планировать работы так, будто ничего не произошло.</p><p>Добро пожаловать на голодные игры в мир управления проектами, где между статусом в системе и реальным положением дел иногда простирается пропасть.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/32281dada74e.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Сообщается, что DeepSeek поднимает $ 15B ЧЕРЕЗ 15 дней после ограничений в США</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c7c13b106c9c.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c7c13b106c9c.html</guid>
-      <pubDate>Fri, 23 Oct 2026 09:48:28 +0000</pubDate>
-      <category>TechCrunch</category>
-      <description>Сообщается, что DeepSeek привлекла $ 15 млрд в одном из крупнейших раундов финансирования в Китае, всего через несколько дней после того, как США приказали федеральным агентствам удалить свои технологии из-за проблем национальной безопасности.</description>
-      <content:encoded><![CDATA[<p>Сообщается, что DeepSeek привлекла $ 15 млрд в одном из крупнейших раундов финансирования в Китае, всего через несколько дней после того, как США приказали федеральным агентствам удалить свои технологии из-за проблем национальной безопасности.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/c7c13b106c9c.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Федералы хотят, чтобы роботизированная ось сигнализировала «Я за рулем» с помощью ламп голубого цвета</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/16c9c9ff9ab0.html</link>
@@ -214,6 +194,26 @@
       <description>Привет, Хабр! Меня зовут Егор Шлюпиков, и я работаю старшим бизнес-аналитиком в YADRO в большой команде, которая менеджерит IT-оборудование. Мы следим за парком готовой техники и комплектующих, нужных для работы сотрудников. Сколько нужно купить, что залежалось, что в ремонте и утилизации и так…</description>
       <content:encoded><![CDATA[<p>Привет, Хабр!</p><p>Меня зовут Егор Шлюпиков, и я работаю старшим бизнес-аналитиком в YADRO в большой команде, которая менеджерит IT-оборудование.</p><p>Мы следим за парком готовой техники и комплектующих, нужных для работы сотрудников.</p><p>Сколько нужно купить, что залежалось, что в ремонте и утилизации и так далее — плюс финансовая аналитика.В статье расскажу, как мы собрали сервис, который снял с нас немалую часть рутины: каждое утро он без участия человека выпускает более десятка отчетов с выводами от нейросети.</p><p>При этом ни одно число в отчете не проходит через модель — все считает код, а она только пишет текст.</p><p>Раскрою, как мы к этому пришли, зачем понадобился Trino и что делать, когда нужных данных в учетной системе просто нет.</p><p>Читать далее</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/1431a36a362a.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>OpenAI представила GPT-6.1 Terra — быструю модель для самостоятельной работы на компьютере</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1292e2957390.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1292e2957390.html</guid>
+      <pubDate>Wed, 28 Oct 2026 11:03:07 +0000</pubDate>
+      <category>3DNews</category>
+      <description>Компания OpenAI выпустила GPT-6.1 Terra — новую языковую модель с поддержкой визуального анализа, ориентированную на автоматизацию рабочих задач и быстрое управление компьютером. Нейросеть представляет собой значительный шаг вперёд по сравнению с моделью предыдущего поколения GPT-5.6 Terra и…</description>
+      <content:encoded><![CDATA[<p>Компания OpenAI выпустила GPT-6.1 Terra — новую языковую модель с поддержкой визуального анализа, ориентированную на автоматизацию рабочих задач и быстрое управление компьютером.</p><p>Нейросеть представляет собой значительный шаг вперёд по сравнению с моделью предыдущего поколения GPT-5.6 Terra и предлагает пользователям повышенную скорость работы.</p><p>Источник изображений: OpenAI</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/1292e2957390.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Родители подали в суд на OpenAI, утверждая, что GPT-4o научил их дочь принимать лекарства от припадков</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/8f8053a8c3c7.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/8f8053a8c3c7.html</guid>
+      <pubDate>Wed, 28 Oct 2026 11:04:54 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>Семья подала в суд на OpenAI, заявив, что ChatGPT научил их дочь спокойно принимать лекарства от припадков и скрывать их от врачей, прежде чем она умерла в феврале.</description>
+      <content:encoded><![CDATA[<p>Семья подала в суд на OpenAI, заявив, что ChatGPT научил их дочь спокойно принимать лекарства от припадков и скрывать их от врачей, прежде чем она умерла в феврале.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/8f8053a8c3c7.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
