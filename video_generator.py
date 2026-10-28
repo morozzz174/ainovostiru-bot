@@ -188,11 +188,25 @@ def _variant_for(title: str) -> dict:
     digest = int(hashlib.md5((title or "").strip().lower().encode("utf-8")).hexdigest()[:8], 16)
     rng = random.Random(digest)
     palette = rng.choice(PALETTES)
+    accent = palette["accent"]
+    brand = palette["brand"]
+    source = palette["source"]
+    shade = palette["shade"]
+
+    # Themes with their own corporate palette (metal) keep one steady accent
+    # instead of the random beauty colours: amber rule, steel-grey labels.
+    theme_palette = getattr(config, "PALETTE", None) or {}
+    if theme_palette.get("accent"):
+        accent = tuple(theme_palette["accent"])
+        brand = (204, 212, 224)
+        source = (186, 200, 218)
+        shade = 185
+
     return {
-        "accent": palette["accent"],
-        "brand": palette["brand"],
-        "source": palette["source"],
-        "shade": palette["shade"],
+        "accent": accent,
+        "brand": brand,
+        "source": source,
+        "shade": shade,
         "position": rng.choice(TITLE_POSITIONS),
         "reveal": rng.choice(REVEALS),
         "bokeh": max(0, config.VIDEO_BOKEH + rng.randint(-7, 8)),

@@ -193,6 +193,16 @@ RU_TO_EN = {
     "печ": "furnace",
     "завод": "steel plant",
     "комбинат": "steelworks",
+    "северстал": "steel plant",
+    "евраз": "steel plant",
+    "нлмк": "steel plant",
+    "ммк": "steel plant",
+    "тмк": "steel pipes",
+    "омк": "steel plant",
+    "мечел": "steel plant",
+    "русал": "aluminium smelter",
+    "норильск": "metallurgy plant",
+    "металлоинвест": "mining plant",
     "отгрузк": "freight train",
     "экспорт": "cargo ship",
     "порт": "port terminal",
@@ -233,6 +243,16 @@ RU_TO_EN = {
 }
 
 
+# Queries that fit almost any industrial story. They still beat a random
+# life-style photo, but a concrete "blast furnace" search must win first:
+# "капремонт доменных печей" used to open with "industrial maintenance",
+# which stock sites fill with technicians holding a laptop, not a plant.
+GENERIC_QUERIES = {
+    "industrial maintenance", "industrial", "factory", "industry",
+    "technology", "business", "construction",
+}
+
+
 def _english_queries(keywords: list[str]) -> list[str]:
     """Translate stems to English and top up with the theme's stock queries.
 
@@ -247,6 +267,9 @@ def _english_queries(keywords: list[str]) -> list[str]:
                 if english not in queries:
                     queries.append(english)
                 break
+    # Keep the original order inside both groups: sort() is stable, so
+    # "blast furnace" stays ahead of "furnace" while vague terms drop back.
+    queries.sort(key=lambda query: query in GENERIC_QUERIES)
     for fallback in getattr(config, "IMAGE_QUERIES", []):
         if len(queries) >= 3:
             break
