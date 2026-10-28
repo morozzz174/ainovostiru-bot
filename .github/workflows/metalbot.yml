@@ -6,6 +6,13 @@ on:
     # а после 60 дней без активности в репозитории отключает их ("disabled_inactivity").
     - cron: '0 5,7,9,11 * * *'
   workflow_dispatch:
+    inputs:
+      # Ручной запуск обычно нужен, чтобы проверить именно видео.
+      post_mode:
+        description: "Формат поста"
+        type: choice
+        options: [mixed, video, image]
+        default: mixed
 
 concurrency:
   group: metal-news-bot
@@ -45,7 +52,7 @@ jobs:
           BRAND_NAME: NOVOSTI TRUBY METALL
           DATABASE_PATH: bot_metal.db
           MAX_POSTS_PER_RUN: 1
-          POST_MODE: mixed
+          POST_MODE: ${{ inputs.post_mode || 'mixed' }}
           VIDEO_ORIENTATION: vertical
           MUSIC_STYLE: auto
           USE_THEMED_IMAGES: "true"
