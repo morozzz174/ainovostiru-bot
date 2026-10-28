@@ -33,10 +33,32 @@ except Exception:
     pass
 
 _FONT_CACHE = None
+_FONT_BOLD_CACHE = None
 
 
-def _get_font(size: int):
-    global _FONT_CACHE
+def _find_bold_font() -> str | None:
+    candidates = [
+        "C:\\Windows\\Fonts\\arialbd.ttf",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+        "/usr/share/fonts/truetype/msttcorefonts/Arial_Bold.ttf",
+        "/usr/share/fonts/opentype/noto/NotoSans-Bold.ttf",
+    ]
+    for path in candidates:
+        if os.path.exists(path):
+            return path
+    return None
+
+
+def _get_font(size: int, bold: bool = False):
+    global _FONT_CACHE, _FONT_BOLD_CACHE
+    if bold:
+        if _FONT_BOLD_CACHE is None:
+            _FONT_BOLD_CACHE = _find_bold_font() or ""
+        if _FONT_BOLD_CACHE:
+            return ImageFont.truetype(_FONT_BOLD_CACHE, size)
+        return _get_font(size)
+
     if _FONT_CACHE:
         return ImageFont.truetype(_FONT_CACHE, size)
 
@@ -404,22 +426,6 @@ def make_frame(
 
     return base
 
-    brand_alpha = min(1.0, (progress - 0.7) / 0.2) if progress > 0.7 else 0
-    if brand_alpha > 0:
-        brand_text = config.BRAND_NAME or "NEWS"
-        brand_bbox = font_brand.getbbox(brand_text)
-        bx = (w - (brand_bbox[2] - brand_bbox[0])) // 2
-        by = h - 45
-        alpha = int(brand_alpha * 180)
-        overlay_draw.text((bx, by), brand_text, font=font_brand, fill=(200, 200, 220, alpha))
-
-    source_alpha = min(1.0, (progress - 0.6) / 0.2) if progress > 0.6 else 0
-    if source_alpha > 0:
-        alpha = int(source_alpha * 150)
-        overlay_draw.text((30, h - 45), f"Источник: {source}", font=font_small, fill=(180, 200, 255, alpha))
-
-    return base
-
 
 def _remove_tree(path: str) -> None:
     for root, dirs, files in os.walk(path, topdown=False):
@@ -457,7 +463,9 @@ def prepare_vertical_canvas(bg: Image.Image, title: str, credit: str = ""):
     graded = _grade(_vertical_background(bg), 40, variant["shade"])
     levels = _build_levels(graded, config.VIDEO_ZOOM, VERTICAL_ZOOM_STEPS, pad_x, pad_y)
     overlay = Overlay(w, h, variant["bokeh"], sweep=variant["sweep"])
-    return levels, pad_x, pad_y, overlay, variant, credit
+    layout = _build_vertical_layout(title, w)
+    scrim = _vertical_scrim(w, h, layout["top"])
+    return levels, pad_x, pad_y, overlay, variant, credit, layout, scrim
 
 
 def _line_entrance(reveal: float, line_start: int, line_len: int, total_chars: int) -> float:
@@ -468,71 +476,242 @@ def _line_entrance(reveal: float, line_start: int, line_len: int, total_chars: i
     return min(1.0, max(0.0, local))
 
 
-def _wrap_block(
-    title: str,
-    font,
+VERTICAL_MARGIN = 84
+VERTICAL_TEXT_BOTTOM = VERTICAL_HEIGHT - 300
+VERTICAL_TITLE_MAX_LINES = 6
+VERTICAL_TITLE_SIZES = (88, 84, 80, 76, 72, 68, 64, 60, 56)
+
+
+def _ease_out(value: float) -> float:
+    value = min(1.0, max(0.0, value))
+    return 1.0 - (1.0 - value) ** 3
+
+
+def _ellipsize(text: str, font, max_width: int) -> str:
+    if font.getlength(text) <= max_width:
+        return text
+    text = text.rstrip()
+    while text and font.getlength(text + "…") > max_width:
+        text = text[:-1].rstrip()
+    return (text + "…") if text else "…"
+
+
+def _wrap_pixels(text: str, font, max_width: int, max_lines=None) -> list[str]:
+    """Wrap by measured width, not by character count.
+
+    Counting characters made wide letters ("Ш", "Ж", "M") overflow the frame
+    while narrow ones left a ragged hole, which is what made the old vertical
+    titles look hand-made. getlength() measures the actual glyphs.
+    """
+    words = text.replace("\n", " ").split()
+    lines: list[str] = []
+    current = ""
+    for word in words:
+        probe = f"{current} {word}".strip()
+        if not current or font.getlength(probe) <= max_width:
+            current = probe
+        else:
+            lines.append(current)
+            current = word
+    if current:
+        lines.append(current)
+
+    if max_lines is not None and len(lines) > max_lines:
+        lines = lines[:max_lines]
+        lines[-1] = _ellipsize(lines[-1] + " …", font, max_width)
+    return lines
+
+
+def _wrap_balanced(text: str, font, max_width: int, line_count: int) -> list[str]:
+    """Narrow the measure as far as possible without adding a line.
+
+    This evens out line lengths and gets rid of orphans like a lone "лет"
+    under an otherwise full headline.
+    """
+    best = _wrap_pixels(text, font, max_width)
+    if line_count <= 1:
+        return best
+    low, high = max(1, int(max_width * 0.42)), max_width
+    while low <= high:
+        mid = (low + high) // 2
+        candidate = _wrap_pixels(text, font, mid)
+        if len(candidate) <= line_count:
+            best = candidate
+            high = mid - 1
+        else:
+            low = mid + 1
+    return best
+
+
+def _is_orphan(lines: list[str], font, max_width: int) -> bool:
+    if len(lines) < 2:
+        return False
+    return font.getlength(lines[-1]) < max_width * 0.3
+
+
+def _build_vertical_layout(title: str, w: int) -> dict:
+    """Pick the largest font size whose wrapped title still fits the frame."""
+    max_width = w - 2 * VERTICAL_MARGIN - 34
+    fallback = None
+    chosen = None
+    for size in VERTICAL_TITLE_SIZES:
+        font = _get_font(size, bold=True)
+        raw = _wrap_pixels(title, font, max_width)
+        if len(raw) > VERTICAL_TITLE_MAX_LINES:
+            continue
+        if any(font.getlength(line) > max_width for line in raw):
+            continue
+        lines = _wrap_balanced(title, font, max_width, len(raw))
+        if any(font.getlength(line) > max_width for line in lines):
+            lines = raw
+        candidate = (font, lines)
+        fallback = fallback or candidate
+        if not _is_orphan(lines, font, max_width):
+            chosen = candidate
+            break
+    if chosen is None:
+        chosen = fallback
+    if chosen is None:
+        font = _get_font(VERTICAL_TITLE_SIZES[-1], bold=True)
+        lines = _wrap_pixels(title, font, max_width, max_lines=VERTICAL_TITLE_MAX_LINES)
+        lines = [_ellipsize(line, font, max_width) for line in lines]
+    else:
+        font, lines = chosen
+
+    if not lines:
+        return {"font": font, "lines": [], "step": 0, "y": VERTICAL_TEXT_BOTTOM,
+                "block_h": 0, "top": VERTICAL_TEXT_BOTTOM, "line_h": 0, "pad_top": 0}
+
+    bbox = font.getbbox("Ay")
+    line_h = bbox[3] - bbox[1]
+    pad_top = bbox[1]
+    size = getattr(font, "size", 64)
+    step = line_h + max(10, int(size * 0.16))
+    block_h = (len(lines) - 1) * step + line_h
+    y = VERTICAL_TEXT_BOTTOM - block_h
+    return {
+        "font": font,
+        "lines": lines,
+        "step": step,
+        "y": y,
+        "block_h": block_h,
+        "top": y + pad_top,
+        "line_h": line_h,
+        "pad_top": pad_top,
+    }
+
+
+def _vertical_scrim(w: int, h: int, text_top: int) -> Image.Image:
+    """Soft dark wash behind the headline and footer.
+
+    A translucent panel with hard edges looked like a pasted rectangle; a
+    gradient keeps the photo visible while guaranteeing contrast for white
+    type.
+    """
+    scrim = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(scrim)
+    top = max(0, min(int(h * 0.62), text_top - 170))
+    span = max(1, h - top)
+    for i in range(span):
+        t = i / span
+        edge = min(1.0, i / 140)
+        alpha = int((105 + 115 * t) * edge)
+        if alpha:
+            draw.line([(0, top + i), (w, top + i)], fill=(8, 12, 20, alpha))
+
+    brand_span = int(h * 0.16)
+    for i in range(brand_span):
+        alpha = int(110 * (1 - i / brand_span) ** 1.6)
+        if alpha:
+            draw.line([(0, i), (w, i)], fill=(8, 12, 20, alpha))
+    return scrim
+
+
+def _draw_vertical_text(
+    draw: ImageDraw.ImageDraw,
     w: int,
     h: int,
-    max_lines: int,
-    gap: int,
-    position: str,
-) -> tuple[list[str], int, int]:
-    lines = _wrap_text(title, max_chars=18)[:max_lines]
-    if not lines:
-        return [], 0, 0
-    line_h = font.getbbox("Ay")[3] - font.getbbox("Ay")[1]
-    block_h = len(lines) * (line_h + gap) - gap
-    if position == "top":
-        y = int(h * 0.26)
-    elif position == "bottom":
-        y = h - block_h - int(h * 0.22)
-    else:
-        y = (h - block_h) // 2
-    return lines, line_h, y
-
-
-def _draw_block(
-    draw: ImageDraw.ImageDraw,
-    lines: list[str],
-    line_h: int,
-    y: int,
-    gap: int,
-    w: int,
-    font,
-    total_chars: int,
-    reveal: float,
-    mode: str,
-    color=(255, 255, 255),
+    layout: dict,
+    variant: dict,
+    source: str,
+    credit: str,
+    elapsed: float,
 ) -> None:
-    seen = 0
-    for line in lines:
-        local = _line_entrance(reveal, seen, len(line), total_chars)
-        seen += len(line)
-        if local <= 0.0:
-            y += line_h + gap
-            continue
-        line_w = font.getbbox(line)[2]
-        x = (w - line_w) // 2
-        alpha = int(255 * min(1.0, 0.15 + local * 1.5))
-        shadow = int(alpha * 0.7)
+    lines = layout["lines"]
+    if lines:
+        font = layout["font"]
+        step = layout["step"]
+        y = layout["y"]
+        top = layout["top"]
+        font_size = getattr(font, "size", 64)
+        text_x = VERTICAL_MARGIN + 34
+        shadow_alpha = 150
 
-        if mode == "typewriter":
-            take = max(0, min(len(line), int(len(line) * min(1.0, reveal * 1.2 - 0.1))))
-            visible = line[:take]
-            if not visible:
-                y += line_h + gap
+        max_local = 0.0
+        for index, line in enumerate(lines):
+            local = _ease_out((elapsed - 0.12 - index * 0.085) / 0.5)
+            max_local = max(max_local, local)
+            if local <= 0:
                 continue
-        else:
-            visible = line
+            rise = int((1.0 - local) * 30)
+            alpha = int(255 * local)
+            line_y = y + index * step + rise
+            draw.text(
+                (text_x + 1, line_y + 3),
+                line,
+                font=font,
+                fill=(0, 0, 0, int(shadow_alpha * local)),
+            )
+            draw.text(
+                (text_x, line_y),
+                line,
+                font=font,
+                fill=(248, 249, 253, alpha),
+            )
 
-        if mode == "slide":
-            offset = int((1.0 - local) * 70)
-            draw.text((x + 4 + offset, y + 4), visible, font=font, fill=(0, 0, 0, shadow))
-            draw.text((x + offset, y), visible, font=font, fill=color + (alpha,))
-        else:
-            draw.text((x + 4, y + 4), visible, font=font, fill=(0, 0, 0, shadow))
-            draw.text((x, y), visible, font=font, fill=color + (alpha,))
-        y += line_h + gap
+        # Accent rule grows upward with the text instead of popping in whole.
+        bar_h = int(layout["block_h"] * max_local)
+        if bar_h > 2:
+            bar_x = VERTICAL_MARGIN
+            bar_w = max(6, int(font_size * 0.09))
+            draw.rounded_rectangle(
+                [bar_x, top + layout["block_h"] - bar_h, bar_x + bar_w, top + layout["block_h"]],
+                radius=bar_w // 2,
+                fill=variant["accent"] + (230,),
+            )
+
+    brand = (config.BRAND_NAME or "NEWS").upper()
+    brand_in = _ease_out((elapsed - 0.05) / 0.5)
+    if brand_in > 0:
+        font_brand = _get_font(40)
+        alpha = int(232 * brand_in)
+        draw.rounded_rectangle(
+            [VERTICAL_MARGIN, 100, VERTICAL_MARGIN + 8, 132],
+            radius=4,
+            fill=variant["accent"] + (alpha,),
+        )
+        brand_text = _ellipsize(brand, font_brand, w - 2 * VERTICAL_MARGIN - 30)
+        draw.text((VERTICAL_MARGIN + 24, 92), brand_text, font=font_brand,
+                  fill=(0, 0, 0, int(140 * brand_in)))
+        draw.text((VERTICAL_MARGIN + 22, 90), brand_text, font=font_brand,
+                  fill=variant["brand"] + (alpha,))
+
+    foot_in = _ease_out((elapsed - 0.4) / 0.6)
+    if foot_in > 0:
+        font_small = _get_font(32)
+        font_credit = _get_font(25)
+        draw.line(
+            [(VERTICAL_MARGIN, h - 232), (w - VERTICAL_MARGIN, h - 232)],
+            fill=(255, 255, 255, int(55 * foot_in)),
+            width=2,
+        )
+        source_text = _ellipsize(f"Источник: {source}", font_small, w - 2 * VERTICAL_MARGIN)
+        draw.text((VERTICAL_MARGIN, h - 210), source_text, font=font_small,
+                  fill=(226, 230, 240, int(200 * foot_in)))
+        if credit:
+            credit_text = _ellipsize(f"Фото: {credit}", font_credit, w - 2 * VERTICAL_MARGIN)
+            draw.text((VERTICAL_MARGIN, h - 160), credit_text, font=font_credit,
+                      fill=(188, 194, 208, int(150 * foot_in)))
 
 
 def make_vertical_frame(
@@ -544,38 +723,21 @@ def make_vertical_frame(
     duration: float = 0.0,
 ) -> Image.Image:
     w, h = VERTICAL_WIDTH, VERTICAL_HEIGHT
-    levels, pad_x, pad_y, overlay, variant, credit = canvas
+    levels, pad_x, pad_y, overlay, variant, credit, layout, scrim = canvas
     progress = frame / max(total_frames - 1, 1)
 
     base = _frame_window(levels, w, h, pad_x, pad_y, progress, duration)
     overlay.draw(base, progress, duration)
     draw = ImageDraw.Draw(base, "RGBA")
-    _draw_particles(draw, w, h, frame, count=44)
+    _draw_particles(draw, w, h, frame, count=30)
 
-    font_title = _get_font(76)
-    font_brand = _get_font(44)
-    font_small = _get_font(36)
-    font_credit = _get_font(26)
+    # The scrim is prepared once per clip; pasting it here keeps the gradient
+    # stable while the photo behind it slowly zooms.
+    base.paste(scrim, (0, 0), scrim)
 
-    lines, line_h, y = _wrap_block(title, font_title, w, h, 6, 18, variant["position"])
-    total_chars = sum(len(line) for line in lines)
-    reveal = min(1.0, progress * 1.9)
-    _draw_block(draw, lines, line_h, y, 18, w, font_title, total_chars, reveal, variant["reveal"])
-
-    brand = config.BRAND_NAME or "NEWS"
-    if progress > 0.15:
-        alpha = int(200 * min(1.0, (progress - 0.15) / 0.25))
-        draw.text((63, 93), brand, font=font_brand, fill=(0, 0, 0, 140))
-        draw.text((60, 90), brand, font=font_brand, fill=variant["brand"] + (alpha,))
-
-    if progress > 0.55:
-        alpha = int(190 * min(1.0, (progress - 0.55) / 0.25))
-        draw.text((63, h - 147), f"Источник: {source}", font=font_small, fill=(0, 0, 0, 140))
-        draw.text((60, h - 150), f"Источник: {source}", font=font_small, fill=variant["source"] + (alpha,))
-
-    if credit and progress > 0.7:
-        alpha = int(120 * min(1.0, (progress - 0.7) / 0.25))
-        draw.text((60, h - 104), f"Фото: {credit}", font=font_credit, fill=(170, 170, 185, alpha))
+    clip_duration = duration if duration and duration > 0 else total_frames / FPS
+    elapsed = progress * clip_duration
+    _draw_vertical_text(draw, w, h, layout, variant, source, credit, elapsed)
 
     return base
 

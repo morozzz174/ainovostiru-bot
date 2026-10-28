@@ -224,38 +224,52 @@ NEWS_SOURCES_FACTS = {
 }
 
 NEWS_SOURCES_BEAUTY = {
-    # Дерматология и клиническая косметология
+    # Дерматология, косметология, эстетическая медицина
     "dermatology_times": {
         "name": "Dermatology Times",
         "url": "https://www.dermatologytimes.com/rss.xml",
         "lang": "en",
     },
-    # Наука о старении и долголетии
+    "cosmeticsbusiness": {
+        "name": "Cosmetics Business",
+        "url": "https://www.cosmeticsbusiness.com/rss",
+        "lang": "en",
+    },
+    "jcd_wiley": {
+        "name": "Journal of Cosmetic Dermatology",
+        "url": "https://onlinelibrary.wiley.com/feed/14732165/most-recent",
+        "lang": "en",
+    },
+    # Наука о старении: проходит только то, что касается кожи и процедур
     "fightaging": {
         "name": "Fight Aging",
         "url": "https://www.fightaging.org/feed/",
         "lang": "en",
+        "strong": True,
     },
     "frontiers_aging": {
         "name": "Frontiers in Aging",
         "url": "https://www.frontiersin.org/journals/aging/rss",
         "lang": "en",
-    },
-    # Рецензируемые исследования
-    "plos_biology": {
-        "name": "PLOS Biology",
-        "url": "https://journals.plos.org/plosbiology/feed/atom",
-        "lang": "en",
+        "strong": True,
     },
     "medical_xpress": {
         "name": "Medical Xpress",
         "url": "https://medicalxpress.com/rss-feed/",
         "lang": "en",
+        "strong": True,
     },
     "sciencedaily_health": {
         "name": "ScienceDaily Health",
         "url": "https://www.sciencedaily.com/rss/health_medicine.xml",
         "lang": "en",
+        "strong": True,
+    },
+    "sciencedaily_nutrition": {
+        "name": "ScienceDaily Nutrition",
+        "url": "https://www.sciencedaily.com/rss/health_medicine/nutrition.xml",
+        "lang": "en",
+        "strong": True,
     },
     # Индустрия и потребительский сегмент
     "allure": {
@@ -273,90 +287,43 @@ NEWS_SOURCES_BEAUTY = {
         "url": "https://www.newbeauty.com/feed/",
         "lang": "en",
     },
-    # Русскоязычные
-    "naked_beauty": {
-        "name": "Naked Science",
-        "url": "https://naked-science.ru/feed",
-        "lang": "ru",
-    },
-    "hi_news": {
-        "name": "Hi-News",
-        "url": "https://hi-news.ru/feed/",
-        "lang": "ru",
-    },
-    "tass_science_beauty": {
-        "name": "ТАСС Наука",
-        "url": "https://tass.ru/rss/v2.xml?category=science",
-        "lang": "ru",
-    },
-    "gazeta_science_beauty": {
-        "name": "Газета Наука",
-        "url": "https://www.gazeta.ru/export/rss/science.xml",
-        "lang": "ru",
-    },
-    "tass_health_beauty": {
-        "name": "ТАСС Здоровье",
-        "url": "https://tass.ru/rss/v2.xml?category=zdorovie",
-        "lang": "ru",
-    },
-    "lenta_science_beauty": {
-        "name": "Lenta.ru Наука",
-        "url": "https://lenta.ru/rss/news/science/",
-        "lang": "ru",
-    },
-    "interfax_science_beauty": {
-        "name": "Интерфакс Наука",
-        "url": "https://www.interfax.ru/rss.asp?cat=science",
-        "lang": "ru",
-    },
-    "ixbt_beauty": {
-        "name": "iXBT",
-        "url": "https://www.ixbt.com/export/news.rss",
-        "lang": "ru",
-    },
-
-    # Питание и образ жизни - основной вклад в долголетие (80% попадание)
-    "sciencedaily_nutrition": {
-        "name": "ScienceDaily Nutrition",
-        "url": "https://www.sciencedaily.com/rss/health_medicine/nutrition.xml",
+    # Процедуры и аппаратная косметология
+    "plasticsurgerypractice": {
+        "name": "Plastic Surgery Practice",
+        "url": "https://plasticsurgerypractice.com/feed/",
         "lang": "en",
     },
-    "sciencedaily_health": {
-        "name": "ScienceDaily Health",
-        "url": "https://www.sciencedaily.com/rss/health_medicine.xml",
+    "theaestheticguide": {
+        "name": "The Aesthetic Guide",
+        "url": "https://www.theaestheticguide.com/rss.xml",
         "lang": "en",
     },
-    # Дерматология и эстетическая медицина
-    "plos_one": {
-        "name": "PLOS ONE",
-        "url": "https://journals.plos.org/plosone/feed/atom",
+    "aestheticsjournal": {
+        "name": "Aesthetics Journal",
+        "url": "https://aestheticsjournal.com/rss",
         "lang": "en",
-    },
-    # Здоровье и долголетие
-    "guardian_health": {
-        "name": "The Guardian Health",
-        "url": "https://www.theguardian.com/society/health/rss",
-        "lang": "en",
-    },
-    "science_news": {
-        "name": "Phys.org",
-        "url": "https://phys.org/rss-feed/",
-        "lang": "en",
-    },
-    "lemonde_sante": {
-        "name": "Le Monde Santé",
-        "url": "https://www.lemonde.fr/sante/rss_full.xml",
-        "lang": "fr",
     },
     "premium_beauty": {
         "name": "Premium Beauty News",
         "url": "https://www.premiumbeautynews.com/spip.php?page=backend&lang=en",
         "lang": "en",
     },
-    "glossy": {
-        "name": "Glossy",
-        "url": "https://www.glossy.co/feed/",
-        "lang": "en",
+    # Русскоязычные
+    "tass_health_beauty": {
+        "name": "ТАСС Здоровье",
+        "url": "https://tass.ru/rss/v2.xml?category=zdorovie",
+        "lang": "ru",
+        "strong": True,
+    },
+    "beautyinsider": {
+        "name": "Beauty Insider",
+        "url": "https://beautyinsider.ru/feed/",
+        "lang": "ru",
+    },
+    "theblueprint": {
+        "name": "The Blueprint",
+        "url": "https://theblueprint.ru/rss/",
+        "lang": "ru",
     },
 }
 
@@ -525,23 +492,59 @@ THEMES = {
             "#Кожа", "#Антиэйджинг", "#Наука", "#Красота",
         ],
         "brand": "AESTHETIC.RU",
-        "image_queries": ["skincare", "cosmetics laboratory", "wellness"],
+        "image_queries": ["skincare", "cosmetology clinic", "beauty treatment"],
+        # Стем 6, а не 4: с четырьмя символами «косметология» превращалась
+        # в «косм» и ловила новости про космос, «коллаген» в «колл» —
+        # про коллайдер, «старение» в «стар» — про старт продаж УАЗа.
+        "stem": 6,
         "keywords": [
             # косметология и дерматология
-            "cosmetic", "dermatolog", "skin", "skin barrier", "wrinkle",
-            "collagen", "retinol", "retinoid", "botox", "filler",
-            "hyaluronic", "peptide", "sunscreen", "spf", "photoaging",
-            "biostimulator", "mesotherapy", "prp", "acne", "psoriasis",
-            "eczema", "melanoma", "hair loss", "alopecia", "pigment",
+            "cosmet", "dermat", "skin", "wrinkle", "collagen", "elastin",
+            "retinol", "retinoid", "botox", "botulin", "filler",
+            "hyaluron", "peptide", "sunscreen", "spf", "photoag",
+            "biostimul", "mesother", "biorevit", "prp", "acne", "rosacea",
+            "pigment", "melasma", "peel", "laser", "epilat", "lipolys",
+            "cryolip", "lpg", "cellulit", "aesthet", "skincar", "serum",
+            "moistur", "exfoli", "microneedl", "dermabras", "thread lift",
+            "blepharo", "rhinoplast", "liposuct", "mammoplast", "injectab",
+            "bbl", "medspa", "body contour", "процедур", "массаж",
             # омоложение и долголетие
-            "aging", "ageing", "longevity", "senolytic", "anti-aging",
-            "telomere", "cellular", "regenerat", "stem cell", "epigenetic",
-            "mitochondri", "metabolic", "microbiome", "inflammation",
-            "antioxidant", "healthspan", "biological age",
+            "aging", "ageing", "longevity", "senolyt", "anti-ag",
+            "telomer", "regenerat", "stem cell", "epigenet", "mitochondri",
+            "microbiom", "inflammat", "antioxid", "healthspan",
             # русский
-            "косметолог", "дерматолог", "омоложен", "долголет", "старени",
-            "кожа", "морщин", "коллаген", "ретинол", "гиалурон",
-            "антиоксид", "регенерац", "стелл", "здоровье",
+            "космет", "дермат", "омолож", "долголет", "старен", "кож",
+            "морщин", "коллаг", "эластин", "ретинол", "гиалурон",
+            "ботокс", "ботулот", "филлер", "биоревит", "мезотер",
+            "пилинг", "лазер", "эпиляц", "липолиз", "криолип", "lpg",
+            "целлюлит", "аппаратн", "микроток", "кавитац", "миостим",
+            "плазмолиф", "карбокситер", "нитев", "инъекц",
+            "тургор", "дрябл", "растяж", "пигмент", "гиперпигм",
+            "мелазм", "акне", "постакне", "розацеа", "купероз", "себоре",
+            "псориаз", "экзем", "алопеци", "гипергидр", "блефаропласт",
+            "пластическ", "липосакц", "сыворотк", "крем", "маск",
+            "красот", "косметик",
+        ],
+        # Для широких медицинских и научных лент: пропускаем только то,
+        # что прямо про кожу, косметологию или процедуры. Иначе «старение»
+        # приносит Альцгеймера, а «здоровье» — коралловые рифы.
+        "strong_keywords": [
+            "cosmet", "dermat", "skincar", "wrinkle", "collagen",
+            "retinol", "botox", "botulin", "filler", "hyaluron",
+            "peel", "laser", "epilat", "lipolys", "cryolip", "lpg",
+            "cellulit", "mesother", "biorevit", "microneedl", "dermabras",
+            "acne", "rosacea", "pigment", "melasma", "sunscreen", "spf",
+            "blepharo", "rhinoplast", "liposuct", "thread lift", "smas",
+            "injectab", "bbl", "medspa", "body contour",
+            "космет", "дермат", "кож", "морщин", "коллаг", "эластин",
+            "ретинол", "гиалурон", "ботокс", "ботулот", "филлер",
+            "биоревит", "мезотер", "пилинг", "лазер", "эпиляц", "липолиз",
+            "криолип", "lpg", "целлюлит", "аппаратн", "микроток",
+            "кавитац", "миостим", "плазмолиф", "карбокситер", "нитев",
+            "тургор", "дрябл", "растяж", "пигмент", "гиперпигм",
+            "мелазм", "акне", "постакне", "розацеа", "купероз", "себоре",
+            "гидроз", "блефаропласт", "пластическ", "липосакц", "омолож",
+            "сыворотк", "спф",
         ],
     },
     "metal": {
