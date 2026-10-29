@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Wed, 28 Oct 2026 19:23:58 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 11:22:30 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Как добавить свою LLM в aish</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/a8a276c395e3.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/a8a276c395e3.html</guid>
-      <pubDate>Sat, 24 Oct 2026 09:20:28 +0000</pubDate>
-      <category>Habr</category>
-      <description>Привет, меня зовут Наташа, я менеджер проектов в Selectel. Недавно я рассказывала, как и зачем мы создавали aish — ИИ-агента в терминале серверной ОС. Предлагаю перейти к практике и подключить к нему стороннюю LLM. В этой статье покажу, как выбрать подходящую модель, правильно ее настроить и…</description>
-      <content:encoded><![CDATA[<p>Привет, меня зовут Наташа, я менеджер проектов в Selectel.</p><p>Недавно я рассказывала, как и зачем мы создавали aish — ИИ-агента в терминале серверной ОС.</p><p>Предлагаю перейти к практике и подключить к нему стороннюю LLM.</p><p>В этой статье покажу, как выбрать подходящую модель, правильно ее настроить и избежать типичных ошибок при интеграции.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/a8a276c395e3.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Claude нашёл почти 500 дыр в популярном ПО — одной из них оказался 21 год</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/43a952c5d726.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/43a952c5d726.html</guid>
-      <pubDate>Sat, 24 Oct 2026 09:22:38 +0000</pubDate>
-      <category>3DNews</category>
-      <description>Инженеры Anthropic изучили с помощью модели искусственного интеллекта Claude 25 крупных проектов с открытым исходным кодом, написанных на языках C, C++, Java, PHP и Python, на предмет проблем в области безопасности. Были обнаружены почти 500 угроз, в том числе отключённые механизмы защиты из-за…</description>
-      <content:encoded><![CDATA[<p>Инженеры Anthropic изучили с помощью модели искусственного интеллекта Claude 25 крупных проектов с открытым исходным кодом, написанных на языках C, C++, Java, PHP и Python, на предмет проблем в области безопасности.</p><p>Были обнаружены почти 500 угроз, в том числе отключённые механизмы защиты из-за конфликтов в настройках, доступ к критически важным фрагментам кода до аутентификации и даже уязвимость, которой уже 21 год.</p><p>Источник изображения: Mohammad Rahmani / unsplash.com</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/43a952c5d726.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>OpenAI работает над новым повышением на $ 30 млрд на уровне $ 1,25T в преддверии IPO</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/03de7112bdc7.html</link>
@@ -214,6 +194,26 @@
       <description>Максимальный заявленный уровень тепловыделения нового однобашенного кулера DeepCool — 300 ватт. Это впечатляющее значение не только для двухбашенных кулеров, но и для большинства СЖО необслуживаемого типа. Однако у AK700 VC есть козырь в рукаве – испарительная камера второго поколения. Вопрос лишь…</description>
       <content:encoded><![CDATA[<p>Максимальный заявленный уровень тепловыделения нового однобашенного кулера DeepCool — 300 ватт.</p><p>Это впечатляющее значение не только для двухбашенных кулеров, но и для большинства СЖО необслуживаемого типа.</p><p>Однако у AK700 VC есть козырь в рукаве – испарительная камера второго поколения.</p><p>Вопрос лишь в том, сможет ли новый кулер этот козырь правильно разыграть?</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/ebe8568b0f69.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Теперь автозаполнение с помощью искусственного интеллекта Chrome позволяет просматривать Gmail и заполнять формы</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/697007864cd1.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/697007864cd1.html</guid>
+      <pubDate>Thu, 29 Oct 2026 11:21:26 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>Обновление автозаполнения позволяет Chrome получать подтверждения рейсов, информацию об отслеживании, сведения о заказе и другую информацию из папки «Входящие» с вашего разрешения.</description>
+      <content:encoded><![CDATA[<p>Обновление автозаполнения позволяет Chrome получать подтверждения рейсов, информацию об отслеживании, сведения о заказе и другую информацию из папки «Входящие» с вашего разрешения.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/697007864cd1.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>21 степень свободы и 1500 датчиков: Xiaomi разработала кисти рук для роботов-заводчан</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ac379786064f.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ac379786064f.html</guid>
+      <pubDate>Thu, 29 Oct 2026 11:22:30 +0000</pubDate>
+      <category>3DNews</category>
+      <description>Xiaomi представила результаты исследования, по итогам которого была построена роботизированная кисть руки, обладающая 21 степенью свободы и предназначенная для промышленного производства. Она рассчитана на задачи, в которых робот не просто захватывает предмет, но и с точностью меняет положение…</description>
+      <content:encoded><![CDATA[<p>Xiaomi представила результаты исследования, по итогам которого была построена роботизированная кисть руки, обладающая 21 степенью свободы и предназначенная для промышленного производства.</p><p>Она рассчитана на задачи, в которых робот не просто захватывает предмет, но и с точностью меняет положение пальцев, регулирует силу сжатия и учитывает контакт с поверхностью.</p><p>Источник изображений: mi.com</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/ac379786064f.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
