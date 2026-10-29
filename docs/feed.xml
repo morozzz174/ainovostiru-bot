@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Thu, 29 Oct 2026 11:22:30 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 19:29:31 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>OpenAI работает над новым повышением на $ 30 млрд на уровне $ 1,25T в преддверии IPO</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/03de7112bdc7.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/03de7112bdc7.html</guid>
-      <pubDate>Sat, 24 Oct 2026 14:19:21 +0000</pubDate>
-      <category>TechCrunch</category>
-      <description>Если в этом раунде OpenAI получит оценку более 1 триллиона $, это побьет рекорды как самая высоко оцененная частная компания за всю историю.</description>
-      <content:encoded><![CDATA[<p>Если в этом раунде OpenAI получит оценку более 1 триллиона $, это побьет рекорды как самая высоко оцененная частная компания за всю историю.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/03de7112bdc7.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>В пять раз быстрее: основатель Unitree ждёт прорыва в человекоподобных роботах уже через два года</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/45ec54b4c878.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/45ec54b4c878.html</guid>
-      <pubDate>Sat, 24 Oct 2026 14:20:27 +0000</pubDate>
-      <category>3DNews</category>
-      <description>Уже через пару лет человекоподобные роботы смогут успешно выполнять до 80 % команд на производстве и в быту, которые человек будет отдавать им в устной форме. Так считает основатель китайской компании Unitree Robotics. Ещё летом он полагал, что на это потребуется до десяти лет. Источник…</description>
-      <content:encoded><![CDATA[<p>Уже через пару лет человекоподобные роботы смогут успешно выполнять до 80 % команд на производстве и в быту, которые человек будет отдавать им в устной форме.</p><p>Так считает основатель китайской компании Unitree Robotics.</p><p>Ещё летом он полагал, что на это потребуется до десяти лет.</p><p>Источник изображения: Unitree Robotics</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/45ec54b4c878.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Glafira for Apache Kafka: открытый desktop-клиент на Rust, который даёт LLM читать кластер, но не трогать его</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/496fd9a3b1ef.html</link>
@@ -214,6 +194,26 @@
       <description>Xiaomi представила результаты исследования, по итогам которого была построена роботизированная кисть руки, обладающая 21 степенью свободы и предназначенная для промышленного производства. Она рассчитана на задачи, в которых робот не просто захватывает предмет, но и с точностью меняет положение…</description>
       <content:encoded><![CDATA[<p>Xiaomi представила результаты исследования, по итогам которого была построена роботизированная кисть руки, обладающая 21 степенью свободы и предназначенная для промышленного производства.</p><p>Она рассчитана на задачи, в которых робот не просто захватывает предмет, но и с точностью меняет положение пальцев, регулирует силу сжатия и учитывает контакт с поверхностью.</p><p>Источник изображений: mi.com</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/ac379786064f.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Этот проект с открытым исходным кодом позволяет синхронизировать данные Withings с другими приложениями без подписки</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c08ad527f933.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c08ad527f933.html</guid>
+      <pubDate>Thu, 29 Oct 2026 19:28:24 +0000</pubDate>
+      <category>The Verge</category>
+      <description>Когда в начале этого месяца выяснилось, что Withings потребует от новых пользователей подписки Withings Plus для синхронизации данных Heath с устройств компании на сторонние приложения, Том Энтони, которому уже надоело мобильное приложение Withings, которое они описывают как «раздутый беспорядок»,…</description>
+      <content:encoded><![CDATA[<p>Когда в начале этого месяца выяснилось, что Withings потребует от новых пользователей подписки Withings Plus для синхронизации данных Heath с устройств компании на сторонние приложения, Том Энтони, которому уже надоело мобильное приложение Withings, которое они описывают как «раздутый беспорядок», стал мотивированным, чтобы «освободить» их ...</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/c08ad527f933.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Софта для рецептур масел не было никогда — своя нейросеть сократила разработку с полугода до месяца</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/033e0590bde2.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/033e0590bde2.html</guid>
+      <pubDate>Thu, 29 Oct 2026 19:29:31 +0000</pubDate>
+      <category>Habr</category>
+      <description>Есть такая работа — несколько лет подряд считать рейтинги российских промышленных компаний по открытым данным. В последний год я всё чаще вижу один и тот же тип кейса: у компании уходит вендор, а готового продукта на замену просто нет. С рецептурами масел у «Газпром нефти» было именно так —…</description>
+      <content:encoded><![CDATA[<p>Есть такая работа — несколько лет подряд считать рейтинги российских промышленных компаний по открытым данным.</p><p>В последний год я всё чаще вижу один и тот же тип кейса: у компании уходит вендор, а готового продукта на замену просто нет.</p><p>С рецептурами масел у «Газпром нефти» было именно так — покупать было вообще не у кого, потому что такого продукта никогда не существовало.</p><p>Разбираюсь, как компания построила свою нейросеть «Алхимик» и что это меняет для остальной отрасли.</p><p>Узнать рецепт</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/033e0590bde2.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
