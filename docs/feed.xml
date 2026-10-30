@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Thu, 29 Oct 2026 19:29:31 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 11:14:31 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Glafira for Apache Kafka: открытый desktop-клиент на Rust, который даёт LLM читать кластер, но не трогать его</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/496fd9a3b1ef.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/496fd9a3b1ef.html</guid>
-      <pubDate>Sun, 25 Oct 2026 09:38:06 +0000</pubDate>
-      <category>Habr</category>
-      <description>Glafira for Apache Kafka — бесплатный desktop-клиент для Kafka под macOS, Windows и Linux: Tauri 2, Rust, librdkafka, код открыт под Apache 2.0. Просмотр сообщений с фильтрами и JSONPath, Producer с шаблонами, consumer-сессии, топики, группы, сброс оффсетов и встроенная проверка кластера.Самое…</description>
-      <content:encoded><![CDATA[<p>Glafira for Apache Kafka — бесплатный desktop-клиент для Kafka под macOS, Windows и Linux: Tauri 2, Rust, librdkafka, код открыт под Apache 2.0.</p><p>Просмотр сообщений с фильтрами и JSONPath, Producer с шаблонами, consumer-сессии, топики, группы, сброс оффсетов и встроенная проверка кластера.Самое интересное — MCP-шлюз для LLM.</p><p>Claude, GigaCode, Cursor или любой другой клиент с поддержкой MCP подключается к Glafira, читает метаданные кластера, находит проблемы, оставляет замечания и предлагает изменения.</p><p>Применить что-либо модель не может: у неё физически нет ни одного изменяющего инструмента, а предложение открывается заполненной формой, где кнопку нажимает человек.</p><p>В статье — как это устроено, почему это гарантия, а не обещание, и два настоящих диалога с Claude Code.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/496fd9a3b1ef.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Вынужденная выбирать, модель ИИ Грока выбирает республиканцев. OpenAI выбирает демократов.</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ebfd6ceebea0.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ebfd6ceebea0.html</guid>
-      <pubDate>Sun, 25 Oct 2026 09:39:20 +0000</pubDate>
-      <category>TechCrunch</category>
-      <description>Новое исследование показало, что ИИ Грока в подавляющем большинстве рекомендует кандидатов-республиканцев, в то время как GPT OpenAI поддерживает демократов, причем две модели ИИ расходятся более чем в 90% из почти 500 предвыборных гонок.</description>
-      <content:encoded><![CDATA[<p>Новое исследование показало, что ИИ Грока в подавляющем большинстве рекомендует кандидатов-республиканцев, в то время как GPT OpenAI поддерживает демократов, причем две модели ИИ расходятся более чем в 90% из почти 500 предвыборных гонок.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/ebfd6ceebea0.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Как мы взломали HHH‑цензуру корпоративных нейросетей через ЛитРПГ и заставили ИИ лечить души</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/45a4dcfc5da0.html</link>
@@ -214,6 +194,26 @@
       <description>Есть такая работа — несколько лет подряд считать рейтинги российских промышленных компаний по открытым данным. В последний год я всё чаще вижу один и тот же тип кейса: у компании уходит вендор, а готового продукта на замену просто нет. С рецептурами масел у «Газпром нефти» было именно так —…</description>
       <content:encoded><![CDATA[<p>Есть такая работа — несколько лет подряд считать рейтинги российских промышленных компаний по открытым данным.</p><p>В последний год я всё чаще вижу один и тот же тип кейса: у компании уходит вендор, а готового продукта на замену просто нет.</p><p>С рецептурами масел у «Газпром нефти» было именно так — покупать было вообще не у кого, потому что такого продукта никогда не существовало.</p><p>Разбираюсь, как компания построила свою нейросеть «Алхимик» и что это меняет для остальной отрасли.</p><p>Узнать рецепт</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/033e0590bde2.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Роботы-коммунисты: что бывает, когда у тысячи ИИ-агентов нет начальника</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/8a43a5b459e1.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/8a43a5b459e1.html</guid>
+      <pubDate>Fri, 30 Oct 2026 11:13:20 +0000</pubDate>
+      <category>Habr</category>
+      <description>Допустим, вы собрали тысячу программистов, дали им один репозиторий и одну задачу. Менеджера нет, тимлида нет, подзадачи никто не распределяет. О том, кто чем занят, в инструкции сказано только, что все равны и каждый решает сам. Госплана у нас нет, товарищи.Звучит как странный эксперимент или…</description>
+      <content:encoded><![CDATA[<p>Допустим, вы собрали тысячу программистов, дали им один репозиторий и одну задачу.</p><p>Менеджера нет, тимлида нет, подзадачи никто не распределяет.</p><p>О том, кто чем занят, в инструкции сказано только, что все равны и каждый решает сам.</p><p>Госплана у нас нет, товарищи.Звучит как странный эксперимент или неудачный стартап.</p><p>Но исследователи из Microsoft Research проделали это на ИИ-агентах.</p><p>В препринте Agensh до 1024 экземпляров одной модели шесть часов вместе воспроизводили поведение готовых программ, и никто ими не руководил.</p><p>При этом рой показал результат лучше одиночки.</p><p>Заодно сам завел у себя ревьюеров, интеграторов и регламенты.Давайте разберемся, как это устроено, что измеряли и где в цифрах прячутся оговорки.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/8a43a5b459e1.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Microsoft зафиксировала $ 10 млрд выручки от OpenAI</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/fb7b5b9624c4.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/fb7b5b9624c4.html</guid>
+      <pubDate>Fri, 30 Oct 2026 11:14:30 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>Microsoft заявила, что получила $ 10 млрд дохода от коммерческих соглашений с OpenAI, включая платежи по распределению доходов, в квартале, закончившемся 30 сентября. Это подчеркивает все еще огромную финансовую зависимость партнерства.</description>
+      <content:encoded><![CDATA[<p>Microsoft заявила, что получила $ 10 млрд дохода от коммерческих соглашений с OpenAI, включая платежи по распределению доходов, в квартале, закончившемся 30 сентября.</p><p>Это подчеркивает все еще огромную финансовую зависимость партнерства.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/fb7b5b9624c4.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
