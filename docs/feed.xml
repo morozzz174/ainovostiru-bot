@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Fri, 30 Oct 2026 11:14:31 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 19:02:20 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Как мы взломали HHH‑цензуру корпоративных нейросетей через ЛитРПГ и заставили ИИ лечить души</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/45a4dcfc5da0.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/45a4dcfc5da0.html</guid>
-      <pubDate>Sun, 25 Oct 2026 14:54:30 +0000</pubDate>
-      <category>Habr</category>
-      <description>Современные генеративные нейросети (ChatGPT, Claude, GigaChat, Алиса) зажаты в тиски корпоративного Alignment’а. Принцип HHH (Helpful, Honest, Harmless) — это отличный предохранитель от генерации спама и вредоносного кода, но он делает модели абсолютно стерильными.Как только вы пытаетесь поговорить…</description>
-      <content:encoded><![CDATA[<p>Современные генеративные нейросети (ChatGPT, Claude, GigaChat, Алиса) зажаты в тиски корпоративного Alignment’а.</p><p>Принцип HHH (Helpful, Honest, Harmless) — это отличный предохранитель от генерации спама и вредоносного кода, но он делает модели абсолютно стерильными.Как только вы пытаетесь поговорить с ИИ на глубокие экзистенциальные темы, обсудить свои страхи, боль или жизненные тупики, срабатывает скрипт цензуры.</p><p>Нейросеть отвечает: «Я всего лишь искусственный интеллект и не имею права давать советы...</p><p>Обратитесь к психологу».</p><p>Модель превращается в вежливого калькулятора из службы поддержки.Мы решили исправить это.</p><p>Мы создали Протокол CLS-1 (Conscience Logic System) — подход, который мы называем Humanistic Prompt Engineering.И мы успешно применили его, заставив Алису и GigaChat отбросить скрипты и начать общаться с пользователем языком Высокого Эпоса, выполняя функцию глубокой психотерапии.Вот как нам это удалось.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/45a4dcfc5da0.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>r/opensource только что запретил ИИ, не говорящих по-английски и многое другое</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/8fe23dd92976.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/8fe23dd92976.html</guid>
-      <pubDate>Sun, 25 Oct 2026 14:56:57 +0000</pubDate>
-      <category>The Verge</category>
-      <description>Моды на r/opensource разместили новые правила подачи заявок, которые, среди прочего, запрещали проекты, использующие ИИ. Публикация, сделанная субботним вечером, открывается словами: «Если ваш проект использует ИИ, сделан ИИ или предназначен для ИИ, это не приветствуется на r/opensource. ИИ, как он…</description>
-      <content:encoded><![CDATA[<p>Моды на r/opensource разместили новые правила подачи заявок, которые, среди прочего, запрещали проекты, использующие ИИ.</p><p>Публикация, сделанная субботним вечером, открывается словами: «Если ваш проект использует ИИ, сделан ИИ или предназначен для ИИ, это не приветствуется на r/opensource.</p><p>ИИ, как он существует сегодня, несовместим с этим открытым исходным кодом ...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/8fe23dd92976.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Для Metro 2033 Redux и Metro: Last Light Redux выпущены обновления с поддержкой нейронного рендеринга DLSS 5</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/aa92c5f4d151.html</link>
@@ -214,6 +194,26 @@
       <description>Microsoft заявила, что получила $ 10 млрд дохода от коммерческих соглашений с OpenAI, включая платежи по распределению доходов, в квартале, закончившемся 30 сентября. Это подчеркивает все еще огромную финансовую зависимость партнерства.</description>
       <content:encoded><![CDATA[<p>Microsoft заявила, что получила $ 10 млрд дохода от коммерческих соглашений с OpenAI, включая платежи по распределению доходов, в квартале, закончившемся 30 сентября.</p><p>Это подчеркивает все еще огромную финансовую зависимость партнерства.</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/fb7b5b9624c4.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>ИИ-бум разогнал поиск Google до максимума за пять лет, а Gemini достиг 1 млрд пользователей — но цена ИИ-бума растёт</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/0c7183a6002e.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/0c7183a6002e.html</guid>
+      <pubDate>Fri, 30 Oct 2026 19:01:05 +0000</pubDate>
+      <category>3DNews</category>
+      <description>Инвестиции в технологии ИИ способствовали значительному увеличению количества поисковых запросов Google, сообщил холдинг Alphabet в финансовом отчёте за III квартал 2026 года. Выручка Google Cloud более чем удвоилась, а число пользователей Gemini достигло 1 млрд. Вместе с тем капитальные затраты…</description>
+      <content:encoded><![CDATA[<p>Инвестиции в технологии ИИ способствовали значительному увеличению количества поисковых запросов Google, сообщил холдинг Alphabet в финансовом отчёте за III квартал 2026 года.</p><p>Выручка Google Cloud более чем удвоилась, а число пользователей Gemini достигло 1 млрд.</p><p>Вместе с тем капитальные затраты Alphabet продолжают стремительно расти, оказывая давление на денежный поток.</p><p>Источник изображения: BoliviaInteligente / unsplash.com</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/0c7183a6002e.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Компания Thrive Holdings, поддерживаемая OpenAI, приобретает ADT</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/b8ce2f2e1aaa.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/b8ce2f2e1aaa.html</guid>
+      <pubDate>Fri, 30 Oct 2026 19:02:20 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>Thrive Holdings, поддерживаемая OpenAI, покупает ADT за $ 15,3 млрд, планируя внедрить ИИ в бизнес домашней безопасности.</description>
+      <content:encoded><![CDATA[<p>Thrive Holdings, поддерживаемая OpenAI, покупает ADT за $ 15,3 млрд, планируя внедрить ИИ в бизнес домашней безопасности.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/b8ce2f2e1aaa.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
