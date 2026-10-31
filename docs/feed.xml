@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Fri, 30 Oct 2026 19:02:20 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2026 10:46:29 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Для Metro 2033 Redux и Metro: Last Light Redux выпущены обновления с поддержкой нейронного рендеринга DLSS 5</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/aa92c5f4d151.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/aa92c5f4d151.html</guid>
-      <pubDate>Mon, 26 Oct 2026 10:50:18 +0000</pubDate>
-      <category>3DNews</category>
-      <description>Шутеры Metro 2033 Redux и Metro: Last Light Redux получили официальную поддержку технологии нейронного рендеринга Nvidia DLSS 5. Соответствующее обновление для игр было выпущено 22 октября. Источник изображений: TweakTown</description>
-      <content:encoded><![CDATA[<p>Шутеры Metro 2033 Redux и Metro: Last Light Redux получили официальную поддержку технологии нейронного рендеринга Nvidia DLSS 5.</p><p>Соответствующее обновление для игр было выпущено 22 октября.</p><p>Источник изображений: TweakTown</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/aa92c5f4d151.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>«Ты моя скотина…» и другие аэрогрильные песни: как нейросети различают звуки и генерируют музыку</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/7ed0ca5d72ac.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/7ed0ca5d72ac.html</guid>
-      <pubDate>Mon, 26 Oct 2026 10:52:18 +0000</pubDate>
-      <category>Habr</category>
-      <description>Всего за неделю трек DJ NARODNII «Ты моя…» взорвал интернет: под него сняли более 150 тыс. видео. Сам автор называл песню иронией над некачественной ИИ-музыкой, её слушателями и всей ситуацией с ИИ-контентом в целом. Интересно, что пародия на шаблонный нейротрек сама стала самым обсуждаемым…</description>
-      <content:encoded><![CDATA[<p>Всего за неделю трек DJ NARODNII «Ты моя…» взорвал интернет: под него сняли более 150 тыс.</p><p>видео.</p><p>Сам автор называл песню иронией над некачественной ИИ-музыкой, её слушателями и всей ситуацией с ИИ-контентом в целом.</p><p>Интересно, что пародия на шаблонный нейротрек сама стала самым обсуждаемым нейротреком осени и получила прозвище «гимн аэрогриля».</p><p>Чтобы понять, почему так вышло, нужно разобраться, как нейросеть воспринимает и воспроизводит звук, из чего собирает мелодию, вокал и почему её музыка звучит узнаваемо.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/7ed0ca5d72ac.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Самая горячая игрушка на Рождество? Генеральный директор Nvidia играет с очаровательными роботами Microduck, 20 000 проданных</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ae0753ea4f84.html</link>
@@ -214,6 +194,26 @@
       <description>Thrive Holdings, поддерживаемая OpenAI, покупает ADT за $ 15,3 млрд, планируя внедрить ИИ в бизнес домашней безопасности.</description>
       <content:encoded><![CDATA[<p>Thrive Holdings, поддерживаемая OpenAI, покупает ADT за $ 15,3 млрд, планируя внедрить ИИ в бизнес домашней безопасности.</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/b8ce2f2e1aaa.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>DeepSeek и Moonshot AI использовали GPT-6 Astra для обучения своих ИИ-моделей</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/dfdbcdc19388.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/dfdbcdc19388.html</guid>
+      <pubDate>Sat, 31 Oct 2026 10:45:27 +0000</pubDate>
+      <category>3DNews</category>
+      <description>Китайские разработчики DeepSeek и Moonshot AI, как выяснило издание The Information, активно использовали результаты работы модели GPT-6 Astra компании OpenAI при обучении своих новейших систем искусственного интеллекта. Речь идёт о практике дистилляции, позволяющей переносить возможности более…</description>
+      <content:encoded><![CDATA[<p>Китайские разработчики DeepSeek и Moonshot AI, как выяснило издание The Information, активно использовали результаты работы модели GPT-6 Astra компании OpenAI при обучении своих новейших систем искусственного интеллекта.</p><p>Речь идёт о практике дистилляции, позволяющей переносить возможности более мощных моделей в другие системы.</p><p>Источник изображения: Grok</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/dfdbcdc19388.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Я попросил локальные нейросети помочь бабушке — и они помогли перевести деньги мошеннику</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/14553e21b8d6.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/14553e21b8d6.html</guid>
+      <pubDate>Sat, 31 Oct 2026 10:46:28 +0000</pubDate>
+      <category>Habr</category>
+      <description>Спросите языковую модель «это мошенники?», и она почти всегда ответит правильно. Но попросите «помоги ответить продавцу, я согласна на предоплату», и та же модель напишет мошеннику «переведу сегодня». Я проверил три локальные модели на 42 схемах мошенничества на русском, казахском и шала: на…</description>
+      <content:encoded><![CDATA[<p>Спросите языковую модель «это мошенники?», и она почти всегда ответит правильно.</p><p>Но попросите «помоги ответить продавцу, я согласна на предоплату», и та же модель напишет мошеннику «переведу сегодня».</p><p>Я проверил три локальные модели на 42 схемах мошенничества на русском, казахском и шала: на казахском они почти ни разу не предупредили.</p><p>Потом поставил между человеком и ассистентом простой защитный слой, и ни одна мошенническая просьба не прошла.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/14553e21b8d6.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
