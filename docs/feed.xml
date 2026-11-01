@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Sat, 31 Oct 2026 16:01:32 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Nov 2026 11:48:06 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Anthropic сжигает газ, чтобы питать стрелу ИИ</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d7ad25ada18a.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d7ad25ada18a.html</guid>
-      <pubDate>Tue, 27 Oct 2026 10:15:26 +0000</pubDate>
-      <category>The Verge</category>
-      <description>По мере того, как он готовится к обнародованию, ЗАЯВКА Anthropic S-1 делает зависимость генеративного ИИ от метана очевидной. «Конкуренция за доступ к электроснабжению и местам расположения центров обработки данных с достаточной доступностью электроэнергии является интенсивной.« В документах,…</description>
-      <content:encoded><![CDATA[<p>По мере того, как он готовится к обнародованию, ЗАЯВКА Anthropic S-1 делает зависимость генеративного ИИ от метана очевидной.</p><p>«Конкуренция за доступ к электроснабжению и местам расположения центров обработки данных с достаточной доступностью электроэнергии является интенсивной.« В документах, поданных в Комиссию по ценным бумагам и биржам США в понедельник, Anthropic признает, что центры обработки данных становятся все более зависимыми от «природного газа» ...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/d7ad25ada18a.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Keystone 1.0: LLM-шлюз, который не хардкодит модели, держит свои GPU и не теряет ключи</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/3ce2eddbc81e.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/3ce2eddbc81e.html</guid>
-      <pubDate>Tue, 27 Oct 2026 10:16:27 +0000</pubDate>
-      <category>Habr</category>
-      <description>Имя модели в коде устаревает в день выхода следующей модели. Если у вас десять сервисов, вы перепишете его десять раз и десять раз разнесёте по конфигам ключи вендоров.Keystone. The Model Switchboard. (KTMS) убирает это из кода. Сервис говорит, насколько сложна задача, а шлюз решает, какую модель…</description>
-      <content:encoded><![CDATA[<p>Имя модели в коде устаревает в день выхода следующей модели.</p><p>Если у вас десять сервисов, вы перепишете его десять раз и десять раз разнесёте по конфигам ключи вендоров.Keystone.</p><p>The Model Switchboard.</p><p>(KTMS) убирает это из кода.</p><p>Сервис говорит, насколько сложна задача, а шлюз решает, какую модель позвать, с каким ключом и не отдать ли запрос вашей собственной GPU.</p><p>В простое он занимает 7 МиБ памяти, а с версии 1.0 его API в пределах 1.x не ломается.Вместе со шлюзом 1.0 вышли веб-консоль ktms-admin и учёт расходов light-tokenmeter, все три на Go и под Apache 2.0.</p><p>Возможности ниже описаны по актуальной версии 1.3.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/3ce2eddbc81e.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Загрузка: IPO Anthropic, более интеллектуальные электросети и таблетки для упражнений</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/db88ed10cfe1.html</link>
@@ -214,6 +194,26 @@
       <description>Настроить кастомную модель с инструментами и RAG в OpenWebUI — легко. Заставить её работать предсказуемо в бою — сложнее. Наш бот техподдержки на Gemma 4 сначала отвечал правдоподобно, но без данных из систем. Мы разобрались, почему это происходит, и превратили «одну модель в интерфейсе» в…</description>
       <content:encoded><![CDATA[<p>Настроить кастомную модель с инструментами и RAG в OpenWebUI — легко.</p><p>Заставить её работать предсказуемо в бою — сложнее.</p><p>Наш бот техподдержки на Gemma 4 сначала отвечал правдоподобно, но без данных из систем.</p><p>Мы разобрались, почему это происходит, и превратили «одну модель в интерфейсе» в детерминированный конвейер с помощью пайпов.</p><p>Читать далее</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/d63e429aca71.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Как ChatGPT помог мне потратить шесть часов на пятиминутную проблему</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/0be8bb11aa83.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/0be8bb11aa83.html</guid>
+      <pubDate>Sun, 01 Nov 2026 11:45:43 +0000</pubDate>
+      <category>Habr</category>
+      <description>В тот августовский летний день я занимался своими исследованиями финансового рынка и приводил в порядок заметки в Obsidian. В какой-то момент я загрузил два CSV-файла, затем удалил их через Проводник Windows и обнаружил, что Obsidian стал подтормаживать.Причём тормозило не всё приложение. Редактор…</description>
+      <content:encoded><![CDATA[<p>В тот августовский летний день я занимался своими исследованиями финансового рынка и приводил в порядок заметки в Obsidian.</p><p>В какой-то момент я загрузил два CSV-файла, затем удалил их через Проводник Windows и обнаружил, что Obsidian стал подтормаживать.Причём тормозило не всё приложение.</p><p>Редактор работал прекрасно, поиск тоже.</p><p>А вот при переключении разделов настроек появлялась неприятная задержка.</p><p>И эта история не простой баг-хаунтинг.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/0be8bb11aa83.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Anthropic ожидает получить высокий «мусорный» рейтинг от кредитных агентств после IPO, говорится в отчете FT</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/105d197b3d48.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/105d197b3d48.html</guid>
+      <pubDate>Sun, 01 Nov 2026 11:48:06 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>Прогноз Блэкстоуна - это всего лишь прогноз, но, естественно, высокий рейтинг мусора затруднит и сделает дороже для Anthropic сбор денег, чтобы продолжать финансировать свои огромные расходы, которые легли в основу его бизнеса.</description>
+      <content:encoded><![CDATA[<p>Прогноз Блэкстоуна - это всего лишь прогноз, но, естественно, высокий рейтинг мусора затруднит и сделает дороже для Anthropic сбор денег, чтобы продолжать финансировать свои огромные расходы, которые легли в основу его бизнеса.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/105d197b3d48.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
