@@ -9,22 +9,12 @@
     <description>Косметология, уход за кожей, антивозрастные исследования и индустрия красоты.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Sun, 01 Nov 2026 12:00:04 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Nov 2026 18:31:00 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>FACTUM.RU Beauty</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Клиника Майо открывает новые способы борьбы с «зомби-клетками», которые управляют старением</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/2aa821d4c7c0.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/2aa821d4c7c0.html</guid>
-      <pubDate>Tue, 27 Oct 2026 18:50:25 +0000</pubDate>
-      <category>ScienceDaily Health</category>
-      <description>Ученые клиники Майо обнаружили удивительное новое понимание «зомби-клеток», стареющих клеток, которые задерживаются в организме и способствуют воспалению и болезням. Семь исследований показывают, почему эти клетки вредны, и определяют новые стратегии нацеливания на них, включая природное…</description>
-      <content:encoded><![CDATA[<p>Ученые клиники Майо обнаружили удивительное новое понимание «зомби-клеток», стареющих клеток, которые задерживаются в организме и способствуют воспалению и болезням.</p><p>Семь исследований показывают, почему эти клетки вредны, и определяют новые стратегии нацеливания на них, включая природное соединение, содержащееся в помидорах.</p><p>У стареющих мышей экспериментальное лечение уменьшало воспаление и улучшало физическое и мозговое здоровье.</p><p>Результаты могут открыть дверь для терапии</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/2aa821d4c7c0.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Эпигенетическое старение в микроокружении опухоли: механизмы и последствия для иммунотерапии</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f1876315a4ca.html</link>
@@ -214,6 +204,16 @@
       <description>Новые данные свидетельствуют о том, что женщины нуждаются в эстетических услугах, которые понимают, как гормональные изменения влияют на их кожу и результаты лечения.</description>
       <content:encoded><![CDATA[<p>Новые данные свидетельствуют о том, что женщины нуждаются в эстетических услугах, которые понимают, как гормональные изменения влияют на их кожу и результаты лечения.</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/aac3669bc48f.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Allergan Aesthetics обновляет ПРИЛОЖЕНИЕ, чтобы отразить меняющиеся потребности практики</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/59bca62bd3cb.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/59bca62bd3cb.html</guid>
+      <pubDate>Sun, 01 Nov 2026 18:29:59 +0000</pubDate>
+      <category>Plastic Surgery Practice</category>
+      <description>Хайди Шуртц из Allergan Aesthetics обсуждает обновления программы лояльности для ПРИЛОЖЕНИЙ, включая упрощенную экономию, большую прозрачность ценообразования и новые преимущества для растущих практик эстетики.</description>
+      <content:encoded><![CDATA[<p>Хайди Шуртц из Allergan Aesthetics обсуждает обновления программы лояльности для ПРИЛОЖЕНИЙ, включая упрощенную экономию, большую прозрачность ценообразования и новые преимущества для растущих практик эстетики.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/59bca62bd3cb.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
