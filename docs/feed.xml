@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Sun, 01 Nov 2026 11:48:06 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Nov 2026 18:51:51 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Загрузка: IPO Anthropic, более интеллектуальные электросети и таблетки для упражнений</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/db88ed10cfe1.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/db88ed10cfe1.html</guid>
-      <pubDate>Tue, 27 Oct 2026 16:14:56 +0000</pubDate>
-      <category>MIT Tech Review</category>
-      <description>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий. Настоящий антроп, пожалуйста, встаньте? После нескольких недель безумных спекуляций Anthropic подала свой проспект IPO. В 335-страничном…</description>
-      <content:encoded><![CDATA[<p>Это сегодняшнее издание The Download, нашего ежедневного информационного бюллетеня, в котором представлена ежедневная доза того, что происходит в мире технологий.</p><p>Настоящий антроп, пожалуйста, встаньте?</p><p>После нескольких недель безумных спекуляций Anthropic подала свой проспект IPO.</p><p>В 335-страничном документе (около 100 страниц сосредоточены на рисках) изложены...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/db88ed10cfe1.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Код считает, модель описывает: как мы встроили LLM в отчетность и не дали ей трогать цифры</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1431a36a362a.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1431a36a362a.html</guid>
-      <pubDate>Tue, 27 Oct 2026 16:17:37 +0000</pubDate>
-      <category>Habr</category>
-      <description>Привет, Хабр! Меня зовут Егор Шлюпиков, и я работаю старшим бизнес-аналитиком в YADRO в большой команде, которая менеджерит IT-оборудование. Мы следим за парком готовой техники и комплектующих, нужных для работы сотрудников. Сколько нужно купить, что залежалось, что в ремонте и утилизации и так…</description>
-      <content:encoded><![CDATA[<p>Привет, Хабр!</p><p>Меня зовут Егор Шлюпиков, и я работаю старшим бизнес-аналитиком в YADRO в большой команде, которая менеджерит IT-оборудование.</p><p>Мы следим за парком готовой техники и комплектующих, нужных для работы сотрудников.</p><p>Сколько нужно купить, что залежалось, что в ремонте и утилизации и так далее — плюс финансовая аналитика.В статье расскажу, как мы собрали сервис, который снял с нас немалую часть рутины: каждое утро он без участия человека выпускает более десятка отчетов с выводами от нейросети.</p><p>При этом ни одно число в отчете не проходит через модель — все считает код, а она только пишет текст.</p><p>Раскрою, как мы к этому пришли, зачем понадобился Trino и что делать, когда нужных данных в учетной системе просто нет.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/1431a36a362a.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>OpenAI представила GPT-6.1 Terra — быструю модель для самостоятельной работы на компьютере</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1292e2957390.html</link>
@@ -214,6 +194,26 @@
       <description>Прогноз Блэкстоуна - это всего лишь прогноз, но, естественно, высокий рейтинг мусора затруднит и сделает дороже для Anthropic сбор денег, чтобы продолжать финансировать свои огромные расходы, которые легли в основу его бизнеса.</description>
       <content:encoded><![CDATA[<p>Прогноз Блэкстоуна - это всего лишь прогноз, но, естественно, высокий рейтинг мусора затруднит и сделает дороже для Anthropic сбор денег, чтобы продолжать финансировать свои огромные расходы, которые легли в основу его бизнеса.</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/105d197b3d48.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Инвесторы отрезали OpenAI от денег — компания не собрала и половины от $30 млрд, на которые рассчитывала</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1bb1191c1b9d.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1bb1191c1b9d.html</guid>
+      <pubDate>Sun, 01 Nov 2026 18:49:14 +0000</pubDate>
+      <category>3DNews</category>
+      <description>OpenAI пока заручилась обязательствами инвесторов примерно на $11 млрд — менее половины первоначальной цели в $30 млрд, сообщила The Wall Street Journal со ссылкой на осведомлённые источники. Сбор средств продолжается, но теперь компания рассчитывает довести общий объём раунда до $20 млрд. Опасения…</description>
+      <content:encoded><![CDATA[<p>OpenAI пока заручилась обязательствами инвесторов примерно на $11 млрд — менее половины первоначальной цели в $30 млрд, сообщила The Wall Street Journal со ссылкой на осведомлённые источники.</p><p>Сбор средств продолжается, но теперь компания рассчитывает довести общий объём раунда до $20 млрд.</p><p>Опасения по поводу перспектив ИИ-бума охладили интерес части крупных инвесторов.</p><p>Источник изображения: Brecht Corbeel / unsplash.com</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/1bb1191c1b9d.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Могут ли центры обработки данных ИИ быть массовыми, как автомобили? Этот стартап стремится выяснить,</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/db24ea1647a0.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/db24ea1647a0.html</guid>
+      <pubDate>Sun, 01 Nov 2026 18:51:51 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>Runware строит завод по производству сборных ИИ-центров обработки данных на сборочной линии. Настоящим испытанием будет то, сможет ли он работать в таком масштабе.</description>
+      <content:encoded><![CDATA[<p>Runware строит завод по производству сборных ИИ-центров обработки данных на сборочной линии.</p><p>Настоящим испытанием будет то, сможет ли он работать в таком масштабе.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/db24ea1647a0.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
