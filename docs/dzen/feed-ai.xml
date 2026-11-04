@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Wed, 04 Nov 2026 12:51:59 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2026 20:43:42 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>ИИ-бум разогнал поиск Google до максимума за пять лет, а Gemini достиг 1 млрд пользователей — но цена ИИ-бума растёт</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/0c7183a6002e.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/0c7183a6002e.html</guid>
-      <pubDate>Fri, 30 Oct 2026 19:01:05 +0000</pubDate>
-      <category>3DNews</category>
-      <description>Инвестиции в технологии ИИ способствовали значительному увеличению количества поисковых запросов Google, сообщил холдинг Alphabet в финансовом отчёте за III квартал 2026 года. Выручка Google Cloud более чем удвоилась, а число пользователей Gemini достигло 1 млрд. Вместе с тем капитальные затраты…</description>
-      <content:encoded><![CDATA[<p>Инвестиции в технологии ИИ способствовали значительному увеличению количества поисковых запросов Google, сообщил холдинг Alphabet в финансовом отчёте за III квартал 2026 года.</p><p>Выручка Google Cloud более чем удвоилась, а число пользователей Gemini достигло 1 млрд.</p><p>Вместе с тем капитальные затраты Alphabet продолжают стремительно расти, оказывая давление на денежный поток.</p><p>Источник изображения: BoliviaInteligente / unsplash.com</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/0c7183a6002e.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Компания Thrive Holdings, поддерживаемая OpenAI, приобретает ADT</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/b8ce2f2e1aaa.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/b8ce2f2e1aaa.html</guid>
-      <pubDate>Fri, 30 Oct 2026 19:02:20 +0000</pubDate>
-      <category>TechCrunch</category>
-      <description>Thrive Holdings, поддерживаемая OpenAI, покупает ADT за $ 15,3 млрд, планируя внедрить ИИ в бизнес домашней безопасности.</description>
-      <content:encoded><![CDATA[<p>Thrive Holdings, поддерживаемая OpenAI, покупает ADT за $ 15,3 млрд, планируя внедрить ИИ в бизнес домашней безопасности.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/b8ce2f2e1aaa.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>DeepSeek и Moonshot AI использовали GPT-6 Astra для обучения своих ИИ-моделей</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/dfdbcdc19388.html</link>
@@ -214,6 +194,26 @@
       <description>В 2013 году мир увидел научную статью, которую частенько цитируют очень упрощённо. Обычно утверждается, будто при редактировании одного из нейронов мухи-дрозофилы насекомое внезапно начинает неконтролируемо много спариваться. Реальная научная работа выглядела чуть более сложно…</description>
       <content:encoded><![CDATA[<p>В 2013 году мир увидел научную статью, которую частенько цитируют очень упрощённо.</p><p>Обычно утверждается, будто при редактировании одного из нейронов мухи-дрозофилы насекомое внезапно начинает неконтролируемо много спариваться.</p><p>Реальная научная работа выглядела чуть более сложно (doi:10.1016/j.cell.2013.09.055).</p><p>Читать далее</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/bcad2e81f169.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Китайская Tencent бросила вызов DeepSeek и Kimi — открытая ИИ-модель Hy4 умеет видеть и рассуждать</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/e48b82a80863.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/e48b82a80863.html</guid>
+      <pubDate>Wed, 04 Nov 2026 20:42:26 +0000</pubDate>
+      <category>3DNews</category>
+      <description>Китайский технологический гигант Tencent Holdings представил флагманскую модель искусственного интеллекта Hy4. Она публикуется с открытыми весами и предлагает расширенные возможности ИИ-агентов, выступая основой для корпоративной платформы WorkBuddy. Источник изображения: tencent.ai</description>
+      <content:encoded><![CDATA[<p>Китайский технологический гигант Tencent Holdings представил флагманскую модель искусственного интеллекта Hy4.</p><p>Она публикуется с открытыми весами и предлагает расширенные возможности ИИ-агентов, выступая основой для корпоративной платформы WorkBuddy.</p><p>Источник изображения: tencent.ai</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/e48b82a80863.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Основываясь на ИИ с открытым исходным кодом? Руководитель политики Hugging Face по затратам, рискам и компромиссам</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/89f86908fc6c.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/89f86908fc6c.html</guid>
+      <pubDate>Wed, 04 Nov 2026 20:43:42 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>Модели с открытым исходным кодом становятся все более распространенными, поскольку предприятия, правительства и стартапы полагаются на обещание более низких затрат, большего контроля и большей гибкости. Но по мере того, как все более эффективные модели становятся более доступными, как компании…</description>
+      <content:encoded><![CDATA[<p>Модели с открытым исходным кодом становятся все более распространенными, поскольку предприятия, правительства и стартапы полагаются на обещание более низких затрат, большего контроля и большей гибкости.</p><p>Но по мере того, как все более эффективные модели становятся более доступными, как компании получают прибыль?</p><p>И с китайскими открытыми моделями, набирающими силу, могут ли американские игроки не отставать?</p><p>В этом эпизоде …</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/89f86908fc6c.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
