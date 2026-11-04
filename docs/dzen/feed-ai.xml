@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Tue, 03 Nov 2026 20:27:58 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2026 12:51:59 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Роботы-коммунисты: что бывает, когда у тысячи ИИ-агентов нет начальника</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/8a43a5b459e1.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/8a43a5b459e1.html</guid>
-      <pubDate>Fri, 30 Oct 2026 11:13:20 +0000</pubDate>
-      <category>Habr</category>
-      <description>Допустим, вы собрали тысячу программистов, дали им один репозиторий и одну задачу. Менеджера нет, тимлида нет, подзадачи никто не распределяет. О том, кто чем занят, в инструкции сказано только, что все равны и каждый решает сам. Госплана у нас нет, товарищи.Звучит как странный эксперимент или…</description>
-      <content:encoded><![CDATA[<p>Допустим, вы собрали тысячу программистов, дали им один репозиторий и одну задачу.</p><p>Менеджера нет, тимлида нет, подзадачи никто не распределяет.</p><p>О том, кто чем занят, в инструкции сказано только, что все равны и каждый решает сам.</p><p>Госплана у нас нет, товарищи.Звучит как странный эксперимент или неудачный стартап.</p><p>Но исследователи из Microsoft Research проделали это на ИИ-агентах.</p><p>В препринте Agensh до 1024 экземпляров одной модели шесть часов вместе воспроизводили поведение готовых программ, и никто ими не руководил.</p><p>При этом рой показал результат лучше одиночки.</p><p>Заодно сам завел у себя ревьюеров, интеграторов и регламенты.Давайте разберемся, как это устроено, что измеряли и где в цифрах прячутся оговорки.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/8a43a5b459e1.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Microsoft зафиксировала $ 10 млрд выручки от OpenAI</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/fb7b5b9624c4.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/fb7b5b9624c4.html</guid>
-      <pubDate>Fri, 30 Oct 2026 11:14:30 +0000</pubDate>
-      <category>TechCrunch</category>
-      <description>Microsoft заявила, что получила $ 10 млрд дохода от коммерческих соглашений с OpenAI, включая платежи по распределению доходов, в квартале, закончившемся 30 сентября. Это подчеркивает все еще огромную финансовую зависимость партнерства.</description>
-      <content:encoded><![CDATA[<p>Microsoft заявила, что получила $ 10 млрд дохода от коммерческих соглашений с OpenAI, включая платежи по распределению доходов, в квартале, закончившемся 30 сентября.</p><p>Это подчеркивает все еще огромную финансовую зависимость партнерства.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/fb7b5b9624c4.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>ИИ-бум разогнал поиск Google до максимума за пять лет, а Gemini достиг 1 млрд пользователей — но цена ИИ-бума растёт</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/0c7183a6002e.html</link>
@@ -214,6 +194,26 @@
       <description>В феврале 2026 года OpenAI рекомендовала оценивать ИИ-агентов для программирования по бенчмарку SWE-Bench Pro. Но уже 8 июля отозвала собственную рекомендацию, признав, что примерно 30% задач SWE-Bench Pro составлены с ошибками. До этого компания отказалась от SWE-bench Verified, когда выяснилось,…</description>
       <content:encoded><![CDATA[<p>В феврале 2026 года OpenAI рекомендовала оценивать ИИ-агентов для программирования по бенчмарку SWE-Bench Pro.</p><p>Но уже 8 июля отозвала собственную рекомендацию, признав, что примерно 30% задач SWE-Bench Pro составлены с ошибками.</p><p>До этого компания отказалась от SWE-bench Verified, когда выяснилось, что модели видели часть его задач и ответов еще при обучении.После этого возник вопрос: каким тестам вообще можно доверять?И пока индустрия это выясняет, исследователи NVIDIA занялись другим вопросом, который особенно важен для разработчиков моделей для генерации кода и тех, кто собирает на их основе ИИ-агентов.</p><p>Читать далее</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/d49c3b2846bb.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Anthropic работает над системой для подтверждения идентичности моделей ИИ</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/9ff98ed9bd45.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/9ff98ed9bd45.html</guid>
+      <pubDate>Wed, 04 Nov 2026 12:49:45 +0000</pubDate>
+      <category>TechCrunch</category>
+      <description>Система под названием FlashProve позволит любому проверить, действительно ли ответ ИИ исходит от модели, от которой он, по его утверждению, исходит.</description>
+      <content:encoded><![CDATA[<p>Система под названием FlashProve позволит любому проверить, действительно ли ответ ИИ исходит от модели, от которой он, по его утверждению, исходит.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/9ff98ed9bd45.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Как один нейрон влияет на личность</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/bcad2e81f169.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/bcad2e81f169.html</guid>
+      <pubDate>Wed, 04 Nov 2026 12:51:59 +0000</pubDate>
+      <category>Habr</category>
+      <description>В 2013 году мир увидел научную статью, которую частенько цитируют очень упрощённо. Обычно утверждается, будто при редактировании одного из нейронов мухи-дрозофилы насекомое внезапно начинает неконтролируемо много спариваться. Реальная научная работа выглядела чуть более сложно…</description>
+      <content:encoded><![CDATA[<p>В 2013 году мир увидел научную статью, которую частенько цитируют очень упрощённо.</p><p>Обычно утверждается, будто при редактировании одного из нейронов мухи-дрозофилы насекомое внезапно начинает неконтролируемо много спариваться.</p><p>Реальная научная работа выглядела чуть более сложно (doi:10.1016/j.cell.2013.09.055).</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/bcad2e81f169.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
