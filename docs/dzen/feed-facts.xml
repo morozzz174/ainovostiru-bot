@@ -9,32 +9,12 @@
     <description>Наука, история, космос и открытия — коротко и по делу.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Thu, 05 Nov 2026 20:45:55 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2026 22:12:39 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>FACTUM.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Клинический психолог: 5 видов нарциссизма и как их выявить</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f211db89432a.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f211db89432a.html</guid>
-      <pubDate>Sat, 31 Oct 2026 17:20:48 +0000</pubDate>
-      <category>Big Think</category>
-      <description>Нарциссические люди часто очаровательны на званом обеде и жестоки по дороге домой, что говорит о том, что они могут контролировать ситуацию. Клинический психолог Рамани Дурвасула, автор книги «Это не ты», изучала нарциссизм задолго до того, как он стал модным словом, и она утверждает, что большая…</description>
-      <content:encoded><![CDATA[<p>Нарциссические люди часто очаровательны на званом обеде и жестоки по дороге домой, что говорит о том, что они могут контролировать ситуацию.</p><p>Клинический психолог Рамани Дурвасула, автор книги «Это не ты», изучала нарциссизм задолго до того, как он стал модным словом, и она утверждает, что большая часть того, что распространяется в Интернете, неправильно.</p><p>Это видео Клинический психолог: 5 типов нарциссизма и как их выявить представлено в Big Think.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/f211db89432a.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Студенты Королевского университета в Белфасте нашли неуловимые троянские астероиды Нептуна</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/9a172f4147a5.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/9a172f4147a5.html</guid>
-      <pubDate>Sat, 31 Oct 2026 17:21:58 +0000</pubDate>
-      <category>Universe Today</category>
-      <description>Астрономы из Королевского университета в Белфасте возглавили международную команду, изучающую новые тела Солнечной системы вблизи Нептуна, помогая разгадать тайны эволюции нашей Солнечной системы.</description>
-      <content:encoded><![CDATA[<p>Астрономы из Королевского университета в Белфасте возглавили международную команду, изучающую новые тела Солнечной системы вблизи Нептуна, помогая разгадать тайны эволюции нашей Солнечной системы.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/9a172f4147a5.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Таинственная 4000-летняя стена переписывает историю Северной Африки</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/ae928108f25f.html</link>
@@ -214,6 +194,26 @@
       <description>Вполне вероятно, что вы слышали хотя бы пару треков из «Switched-On Bach» Венди Карлос. Но когда вы в последний раз ставили Switched-On Rock, Switched-On Country, Switched-On Santa или Switched-On Bacharach? Скорее всего, вы никогда даже не слышали о тех других альбомах, которые не имеют ничего…</description>
       <content:encoded><![CDATA[<p>Вполне вероятно, что вы слышали хотя бы пару треков из «Switched-On Bach» Венди Карлос.</p><p>Но когда вы в последний раз ставили Switched-On Rock, Switched-On Country, Switched-On Santa или Switched-On Bacharach?</p><p>Скорее всего, вы никогда даже не слышали о тех других альбомах, которые не имеют ничего общего с Карлосом и ...</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/3802144da1f0.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Физик разрабатывает детектор, способный подсчитывать фотоны для квантовых вычислений</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/bd7525d4f41a.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/bd7525d4f41a.html</guid>
+      <pubDate>Thu, 05 Nov 2026 22:11:28 +0000</pubDate>
+      <category>Phys.org</category>
+      <description>Обнаружение одного фотона само по себе является проблемой. Но что, если вы также хотите точно знать, сколько фотонов одновременно прибывает в определенную точку? Физик Эрик Баальберген работает над световыми детекторами, которые могут сделать именно это. Они образуют ключевой строительный блок для…</description>
+      <content:encoded><![CDATA[<p>Обнаружение одного фотона само по себе является проблемой.</p><p>Но что, если вы также хотите точно знать, сколько фотонов одновременно прибывает в определенную точку?</p><p>Физик Эрик Баальберген работает над световыми детекторами, которые могут сделать именно это.</p><p>Они образуют ключевой строительный блок для оптического квантового компьютера будущего.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/bd7525d4f41a.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>«Голубая волна» заставляет братьев-технологов искать центры обработки данных в космосе</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/65783557a91c.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/65783557a91c.html</guid>
+      <pubDate>Thu, 05 Nov 2026 22:12:39 +0000</pubDate>
+      <category>Wired</category>
+      <description>После того, как демократы выиграли крупные выборы в Техасе и других горячих точках инфраструктуры ИИ во вторник, энтузиасты центров обработки данных искали комфорт на низкой околоземной орбите.</description>
+      <content:encoded><![CDATA[<p>После того, как демократы выиграли крупные выборы в Техасе и других горячих точках инфраструктуры ИИ во вторник, энтузиасты центров обработки данных искали комфорт на низкой околоземной орбите.</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/65783557a91c.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
