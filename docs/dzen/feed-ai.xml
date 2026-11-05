@@ -9,32 +9,12 @@
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Thu, 05 Nov 2026 20:45:55 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2026 20:59:50 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
     </image>
-    <item>
-      <title>Глава Anthropic призывал замедлить развитие ИИ, но сам не собирается сбавлять обороты</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c227aa7bea1c.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c227aa7bea1c.html</guid>
-      <pubDate>Sat, 31 Oct 2026 15:59:42 +0000</pubDate>
-      <category>3DNews</category>
-      <description>Глава Anthropic ранее призвал участников индустрии искусственного интеллекта замедлить разработку технологий, чтобы снизить вероятность непредсказуемых последствий. Однако спустя шесть недель после того, как руководители OpenAI и SpaceX публично поддержали эту инициативу, гонка продолжилась с новой…</description>
-      <content:encoded><![CDATA[<p>Глава Anthropic ранее призвал участников индустрии искусственного интеллекта замедлить разработку технологий, чтобы снизить вероятность непредсказуемых последствий.</p><p>Однако спустя шесть недель после того, как руководители OpenAI и SpaceX публично поддержали эту инициативу, гонка продолжилась с новой силой.</p><p>Источник изображения: Anthropic</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/c227aa7bea1c.jpg" medium="image" type="image/jpeg" />
-    </item>
-    <item>
-      <title>Пайпы OpenWebUI: зачем писать код там, где «всё уже есть в настройках»</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d63e429aca71.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d63e429aca71.html</guid>
-      <pubDate>Sat, 31 Oct 2026 16:01:32 +0000</pubDate>
-      <category>Habr</category>
-      <description>Настроить кастомную модель с инструментами и RAG в OpenWebUI — легко. Заставить её работать предсказуемо в бою — сложнее. Наш бот техподдержки на Gemma 4 сначала отвечал правдоподобно, но без данных из систем. Мы разобрались, почему это происходит, и превратили «одну модель в интерфейсе» в…</description>
-      <content:encoded><![CDATA[<p>Настроить кастомную модель с инструментами и RAG в OpenWebUI — легко.</p><p>Заставить её работать предсказуемо в бою — сложнее.</p><p>Наш бот техподдержки на Gemma 4 сначала отвечал правдоподобно, но без данных из систем.</p><p>Мы разобрались, почему это происходит, и превратили «одну модель в интерфейсе» в детерминированный конвейер с помощью пайпов.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/d63e429aca71.jpg" medium="image" type="image/jpeg" />
-    </item>
     <item>
       <title>Как ChatGPT помог мне потратить шесть часов на пятиминутную проблему</title>
       <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/0be8bb11aa83.html</link>
@@ -214,6 +194,26 @@
       <description>Крис Лехейн из OpenAI хочет, чтобы ИИ определил выборы 2028 года, предложив новый социальный контракт, который может принести пользу американцам, а также продвигать собственные бизнес-интересы ИИ-гиганта.</description>
       <content:encoded><![CDATA[<p>Крис Лехейн из OpenAI хочет, чтобы ИИ определил выборы 2028 года, предложив новый социальный контракт, который может принести пользу американцам, а также продвигать собственные бизнес-интересы ИИ-гиганта.</p>]]></content:encoded>
       <media:content url="https://morozzz174.github.io/ainovostiru-bot/3e7dd18f048e.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Claude AI может подключаться непосредственно к вашему банковскому счету</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/da2d1431d66e.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/da2d1431d66e.html</guid>
+      <pubDate>Thu, 05 Nov 2026 20:58:44 +0000</pubDate>
+      <category>The Verge</category>
+      <description>У Anthropic есть новый подход к управлению вашими личными финансами: пусть это сделает Клод, с новой функцией личных финансов, которая связывает его с вашими банковскими и карточными счетами через платформу Plaid bank bridging. Например, вы можете спросить чат-бота «куда ушли мои деньги в этом…</description>
+      <content:encoded><![CDATA[<p>У Anthropic есть новый подход к управлению вашими личными финансами: пусть это сделает Клод, с новой функцией личных финансов, которая связывает его с вашими банковскими и карточными счетами через платформу Plaid bank bridging.</p><p>Например, вы можете спросить чат-бота «куда ушли мои деньги в этом месяце», и он создаст обзор ...</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/da2d1431d66e.jpg" medium="image" type="image/jpeg" />
+    </item>
+    <item>
+      <title>Из чего состоит ваш ИИ: разбираемся, что такое AIBOM и MLBOM</title>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/61b9b625b275.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/61b9b625b275.html</guid>
+      <pubDate>Thu, 05 Nov 2026 20:59:49 +0000</pubDate>
+      <category>Habr</category>
+      <description>В программный продукт наряду с собственным кодом попадает и сторонний код через зависимости, которые могут содержать уязвимости и накладывать лицензионные ограничения. Чтобы разобраться в таком наследстве, используется документ с названиями, версиями компонентов и связями между ними. Для него есть…</description>
+      <content:encoded><![CDATA[<p>В программный продукт наряду с собственным кодом попадает и сторонний код через зависимости, которые могут содержать уязвимости и накладывать лицензионные ограничения.</p><p>Чтобы разобраться в таком наследстве, используется документ с названиями, версиями компонентов и связями между ними.</p><p>Для него есть название – Software Bill of Materials (SBOM), или перечень программных компонентов (ППК).</p><p>По этому перечню разработчик может быстро найти библиотеки с известными уязвимостями в своих приложениях.</p><p>Команда CodeScoring часто работает с этим форматом, так как мы разрабатываем собственное решение для композиционного анализа ПО (Software Composition Analysis, или SCA).Разработчики могут взять готовую модель машинного обучения в открытом доступе, дообучить её на своих данных и уменьшить точность весов для запуска на машинах послабее.</p><p>В их продукт таким образом попадёт уже производная модель.</p><p>Чтобы разобраться в её происхождении, понадобится знать исходную модель, данные и выполненные преобразования.Для этого были введены понятия MLBOM и AIBOM, которыми обозначают документы с составом моделей и систем, использующих искусственный интеллект.</p><p>В этой статье мы разберёмся, что за ними стоит, чем отличаются эти названия и какие сведения для таких документов можно собрать автоматически.</p><p>Читать далее</p>]]></content:encoded>
+      <media:content url="https://morozzz174.github.io/ainovostiru-bot/61b9b625b275.jpg" medium="image" type="image/jpeg" />
     </item>
   </channel>
 </rss>
