@@ -354,13 +354,13 @@ def _structure(draft: dict) -> dict | None:
     """Clean a raw draft into a well-formed article, ignoring its length."""
     if not isinstance(draft, dict):
         return None
-    title = _clean_quote(draft.get("title", ""), 120)
+    title = _clean_quote(draft.get("title", ""), 120).rstrip(" .,:;—–-")
     lead = _clean_quote(draft.get("lead", ""), 700)
     sections = []
     for section in draft.get("sections") or []:
         if not isinstance(section, dict):
             continue
-        heading = _clean_quote(section.get("heading", ""), 100)
+        heading = _clean_quote(section.get("heading", ""), 100).rstrip(" .,:;—–-")
         paragraphs = [
             _clean_quote(p, 1200)
             for p in section.get("paragraphs") or []
@@ -448,7 +448,7 @@ def _extend_article(
     draft = _parse_json(content)
     if not draft or not isinstance(draft, dict):
         return None
-    heading = _clean_quote(draft.get("heading", ""), 100)
+    heading = _clean_quote(draft.get("heading", ""), 100).rstrip(" .,:;—–-")
     paragraphs = [
         _clean_quote(p, 1200)
         for p in draft.get("paragraphs") or []
