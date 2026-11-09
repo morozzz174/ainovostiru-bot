@@ -5,215 +5,275 @@
      xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>AINOVOSTI.RU</title>
-    <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
+    <link>https://morozzz174.github.io/ainovostiru-bot/dzen/index-ai.html</link>
     <description>Новости искусственного интеллекта и технологий: переводы, анализ, видео с озвучкой.</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
-    <lastBuildDate>Thu, 05 Nov 2026 20:59:50 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 13:42:51 +0000</lastBuildDate>
     <image>
       <url>https://morozzz174.github.io/ainovostiru-bot/dzen/avatar.jpg</url>
       <title>AINOVOSTI.RU</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/</link>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/index-ai.html</link>
     </image>
     <item>
       <title>Как ChatGPT помог мне потратить шесть часов на пятиминутную проблему</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/0be8bb11aa83.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/0be8bb11aa83.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/kak-chatgpt-pomog-mne-potratit-shest-chasov-na-0be8bb.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/kak-chatgpt-pomog-mne-potratit-shest-chasov-na-0be8bb.html</guid>
       <pubDate>Sun, 01 Nov 2026 11:45:43 +0000</pubDate>
-      <category>Habr</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>В тот августовский летний день я занимался своими исследованиями финансового рынка и приводил в порядок заметки в Obsidian. В какой-то момент я загрузил два CSV-файла, затем удалил их через Проводник Windows и обнаружил, что Obsidian стал подтормаживать.Причём тормозило не всё приложение. Редактор…</description>
-      <content:encoded><![CDATA[<p>В тот августовский летний день я занимался своими исследованиями финансового рынка и приводил в порядок заметки в Obsidian.</p><p>В какой-то момент я загрузил два CSV-файла, затем удалил их через Проводник Windows и обнаружил, что Obsidian стал подтормаживать.Причём тормозило не всё приложение.</p><p>Редактор работал прекрасно, поиск тоже.</p><p>А вот при переключении разделов настроек появлялась неприятная задержка.</p><p>И эта история не простой баг-хаунтинг.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/0be8bb11aa83.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>Как ChatGPT помог мне потратить шесть часов на пятиминутную проблему</h1>
+<p>В тот августовский летний день я занимался своими исследованиями финансового рынка и приводил в порядок заметки в Obsidian.</p><p>В какой-то момент я загрузил два CSV-файла, затем удалил их через Проводник Windows и обнаружил, что Obsidian стал подтормаживать.Причём тормозило не всё приложение.</p><p>Редактор работал прекрасно, поиск тоже.</p><p>А вот при переключении разделов настроек появлялась неприятная задержка.</p><p>И эта история не простой баг-хаунтинг.</p><p>Читать далее</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/0be8bb11aa83.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>Anthropic ожидает получить высокий «мусорный» рейтинг от кредитных агентств после IPO, говорится в отчете FT</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/105d197b3d48.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/105d197b3d48.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/anthropic-ozhidaet-poluchit-vysokiy-musornyy-reyting-ot-105d19.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/anthropic-ozhidaet-poluchit-vysokiy-musornyy-reyting-ot-105d19.html</guid>
       <pubDate>Sun, 01 Nov 2026 11:48:06 +0000</pubDate>
-      <category>TechCrunch</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>Прогноз Блэкстоуна - это всего лишь прогноз, но, естественно, высокий рейтинг мусора затруднит и сделает дороже для Anthropic сбор денег, чтобы продолжать финансировать свои огромные расходы, которые легли в основу его бизнеса.</description>
-      <content:encoded><![CDATA[<p>Прогноз Блэкстоуна - это всего лишь прогноз, но, естественно, высокий рейтинг мусора затруднит и сделает дороже для Anthropic сбор денег, чтобы продолжать финансировать свои огромные расходы, которые легли в основу его бизнеса.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/105d197b3d48.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>Anthropic ожидает получить высокий «мусорный» рейтинг от кредитных агентств после IPO, говорится в отчете FT</h1>
+<p>Прогноз Блэкстоуна - это всего лишь прогноз, но, естественно, высокий рейтинг мусора затруднит и сделает дороже для Anthropic сбор денег, чтобы продолжать финансировать свои огромные расходы, которые легли в основу его бизнеса.</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/105d197b3d48.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>Инвесторы отрезали OpenAI от денег — компания не собрала и половины от $30 млрд, на которые рассчитывала</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1bb1191c1b9d.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/1bb1191c1b9d.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/investory-otrezali-openai-ot-deneg-kompaniya-ne-sobrala-i-1bb119.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/investory-otrezali-openai-ot-deneg-kompaniya-ne-sobrala-i-1bb119.html</guid>
       <pubDate>Sun, 01 Nov 2026 18:49:14 +0000</pubDate>
-      <category>3DNews</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>OpenAI пока заручилась обязательствами инвесторов примерно на $11 млрд — менее половины первоначальной цели в $30 млрд, сообщила The Wall Street Journal со ссылкой на осведомлённые источники. Сбор средств продолжается, но теперь компания рассчитывает довести общий объём раунда до $20 млрд. Опасения…</description>
-      <content:encoded><![CDATA[<p>OpenAI пока заручилась обязательствами инвесторов примерно на $11 млрд — менее половины первоначальной цели в $30 млрд, сообщила The Wall Street Journal со ссылкой на осведомлённые источники.</p><p>Сбор средств продолжается, но теперь компания рассчитывает довести общий объём раунда до $20 млрд.</p><p>Опасения по поводу перспектив ИИ-бума охладили интерес части крупных инвесторов.</p><p>Источник изображения: Brecht Corbeel / unsplash.com</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/1bb1191c1b9d.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>Инвесторы отрезали OpenAI от денег — компания не собрала и половины от $30 млрд, на которые рассчитывала</h1>
+<p>OpenAI пока заручилась обязательствами инвесторов примерно на $11 млрд — менее половины первоначальной цели в $30 млрд, сообщила The Wall Street Journal со ссылкой на осведомлённые источники.</p><p>Сбор средств продолжается, но теперь компания рассчитывает довести общий объём раунда до $20 млрд.</p><p>Опасения по поводу перспектив ИИ-бума охладили интерес части крупных инвесторов.</p><p>Источник изображения: Brecht Corbeel / unsplash.com</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/1bb1191c1b9d.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>Могут ли центры обработки данных ИИ быть массовыми, как автомобили? Этот стартап стремится выяснить,</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/db24ea1647a0.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/db24ea1647a0.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/mogut-li-tsentry-obrabotki-dannykh-ii-byt-massovymi-kak-db24ea.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/mogut-li-tsentry-obrabotki-dannykh-ii-byt-massovymi-kak-db24ea.html</guid>
       <pubDate>Sun, 01 Nov 2026 18:51:51 +0000</pubDate>
-      <category>TechCrunch</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>Runware строит завод по производству сборных ИИ-центров обработки данных на сборочной линии. Настоящим испытанием будет то, сможет ли он работать в таком масштабе.</description>
-      <content:encoded><![CDATA[<p>Runware строит завод по производству сборных ИИ-центров обработки данных на сборочной линии.</p><p>Настоящим испытанием будет то, сможет ли он работать в таком масштабе.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/db24ea1647a0.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>Могут ли центры обработки данных ИИ быть массовыми, как автомобили? Этот стартап стремится выяснить,</h1>
+<p>Runware строит завод по производству сборных ИИ-центров обработки данных на сборочной линии.</p><p>Настоящим испытанием будет то, сможет ли он работать в таком масштабе.</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/db24ea1647a0.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>Программный робот vs «Умный» программный робот vs Интеллектуальный агент: первый взгляд</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/a71c1489fc3a.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/a71c1489fc3a.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/programmnyy-robot-vs-umnyy-programmnyy-robot-vs-a71c14.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/programmnyy-robot-vs-umnyy-programmnyy-robot-vs-a71c14.html</guid>
       <pubDate>Mon, 02 Nov 2026 13:13:54 +0000</pubDate>
-      <category>Habr</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>Ну и развелось же роботов! Теперь они бывают разных видов и назначений, направленные на механическую и «умственную» работу. Как не перепутать один вид с другим и есть ли вообще между ними разница или это маркетинговые ярлыки для одного и того же? Ведущий специалист Отдела исследований и разработки…</description>
-      <content:encoded><![CDATA[<p>Ну и развелось же роботов!</p><p>Теперь они бывают разных видов и назначений, направленные на механическую и «умственную» работу.</p><p>Как не перепутать один вид с другим и есть ли вообще между ними разница или это маркетинговые ярлыки для одного и того же?</p><p>Ведущий специалист Отдела исследований и разработки АО «Гринатом» Валерий Поздняков проанализировал нормативные документы — от приказов Минцифры и Минпромторга до ГОСТов — и собрал признаки, по которым можно отличить программного робота от «умного» и, наконец, от интеллектуального агента.</p><p>Спойлер: граница есть, но она тоньше, чем кажется.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/a71c1489fc3a.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>Программный робот vs «Умный» программный робот vs Интеллектуальный агент: первый взгляд</h1>
+<p>Ну и развелось же роботов!</p><p>Теперь они бывают разных видов и назначений, направленные на механическую и «умственную» работу.</p><p>Как не перепутать один вид с другим и есть ли вообще между ними разница или это маркетинговые ярлыки для одного и того же?</p><p>Ведущий специалист Отдела исследований и разработки АО «Гринатом» Валерий Поздняков проанализировал нормативные документы — от приказов Минцифры и Минпромторга до ГОСТов — и собрал признаки, по которым можно отличить программного робота от «умного» и, наконец, от интеллектуального агента.</p><p>Спойлер: граница есть, но она тоньше, чем кажется.</p><p>Читать далее</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/a71c1489fc3a.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>DeepSeek создала «ИИ-суперагента» — конкурент Claude Code сам читает чаты разработчиков и предлагает решения задач</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/b877d299f3d7.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/b877d299f3d7.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/deepseek-sozdala-ii-superagenta-konkurent-claude-code-sam-b877d2.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/deepseek-sozdala-ii-superagenta-konkurent-claude-code-sam-b877d2.html</guid>
       <pubDate>Mon, 02 Nov 2026 13:15:00 +0000</pubDate>
-      <category>3DNews</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>Компания DeepSeek представила прототип автономного ИИ-агента для программирования, стремясь составить конкуренцию популярному инструменту Claude Code от компании Anthropic. Источник изображения: DeepSeek</description>
-      <content:encoded><![CDATA[<p>Компания DeepSeek представила прототип автономного ИИ-агента для программирования, стремясь составить конкуренцию популярному инструменту Claude Code от компании Anthropic.</p><p>Источник изображения: DeepSeek</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/b877d299f3d7.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>DeepSeek создала «ИИ-суперагента» — конкурент Claude Code сам читает чаты разработчиков и предлагает решения задач</h1>
+<p>Компания DeepSeek представила прототип автономного ИИ-агента для программирования, стремясь составить конкуренцию популярному инструменту Claude Code от компании Anthropic.</p><p>Источник изображения: DeepSeek</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/b877d299f3d7.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>Anthropic предупреждает, что он очень близок к возможностям RSI, он же самостроительный ИИ</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c1ca0295aeb0.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/c1ca0295aeb0.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/anthropic-preduprezhdaet-chto-on-ochen-blizok-k-c1ca02.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/anthropic-preduprezhdaet-chto-on-ochen-blizok-k-c1ca02.html</guid>
       <pubDate>Mon, 02 Nov 2026 22:39:17 +0000</pubDate>
-      <category>TechCrunch</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>RSI - это точка, в которой ИИ настолько хорошо тренируется, что это приводит к резкому ускорению возможностей ИИ. Для обреченных ИИ RSI представляет собой катаклизм, из которого нет возврата.</description>
-      <content:encoded><![CDATA[<p>RSI - это точка, в которой ИИ настолько хорошо тренируется, что это приводит к резкому ускорению возможностей ИИ.</p><p>Для обреченных ИИ RSI представляет собой катаклизм, из которого нет возврата.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/c1ca0295aeb0.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>Anthropic предупреждает, что он очень близок к возможностям RSI, он же самостроительный ИИ</h1>
+<p>RSI - это точка, в которой ИИ настолько хорошо тренируется, что это приводит к резкому ускорению возможностей ИИ.</p><p>Для обреченных ИИ RSI представляет собой катаклизм, из которого нет возврата.</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/c1ca0295aeb0.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>OpenAI представляет электростанции для центров обработки данных как способ защиты близлежащих районов</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/68554706318e.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/68554706318e.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/openai-predstavlyaet-elektrostantsii-dlya-tsentrov-685547.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/openai-predstavlyaet-elektrostantsii-dlya-tsentrov-685547.html</guid>
       <pubDate>Mon, 02 Nov 2026 22:40:32 +0000</pubDate>
-      <category>The Verge</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>В объявлении, опубликованном в понедельник, OpenAI заявляет, что будет пилотировать свою «Программу защиты сетей» в предстоящем центре обработки данных в округе Эффингем, штат Джорджия, где компания обещает освободить до 1000 мегаватт электроэнергии во время экстремальных погодных условий или…</description>
-      <content:encoded><![CDATA[<p>В объявлении, опубликованном в понедельник, OpenAI заявляет, что будет пилотировать свою «Программу защиты сетей» в предстоящем центре обработки данных в округе Эффингем, штат Джорджия, где компания обещает освободить до 1000 мегаватт электроэнергии во время экстремальных погодных условий или чрезвычайных ситуаций, достаточных для питания кондиционеров воздуха примерно в 700 000 домах.</p><p>Объявление прозвучало как противодействие …</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/68554706318e.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>OpenAI представляет электростанции для центров обработки данных как способ защиты близлежащих районов</h1>
+<p>В объявлении, опубликованном в понедельник, OpenAI заявляет, что будет пилотировать свою «Программу защиты сетей» в предстоящем центре обработки данных в округе Эффингем, штат Джорджия, где компания обещает освободить до 1000 мегаватт электроэнергии во время экстремальных погодных условий или чрезвычайных ситуаций, достаточных для питания кондиционеров воздуха примерно в 700 000 домах.</p><p>Объявление прозвучало как противодействие …</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/68554706318e.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>«Как генная инженерия для нейросетей»: учёные предложили улучшать ИИ-модели без дообучения, редактируя их веса</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/b829f9c91eaf.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/b829f9c91eaf.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/kak-gennaya-inzheneriya-dlya-neyrosetey-uchenye-predlozhili-b829f9.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/kak-gennaya-inzheneriya-dlya-neyrosetey-uchenye-predlozhili-b829f9.html</guid>
       <pubDate>Tue, 03 Nov 2026 12:40:16 +0000</pubDate>
-      <category>3DNews</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>Исследователи предложили новый способ повышения эффективности ИИ-моделей без традиционного дообучения или повторного обучения. Этот подход под названием «Программирование в пространстве весов» (Weight-space programming), заключающийся в редактирования весов модели — числовых параметров,…</description>
-      <content:encoded><![CDATA[<p>Исследователи предложили новый способ повышения эффективности ИИ-моделей без традиционного дообучения или повторного обучения.</p><p>Этот подход под названием «Программирование в пространстве весов» (Weight-space programming), заключающийся в редактирования весов модели — числовых параметров, определяющих её поведение, в перспективе может ускорить разработку нейросетей, хотя и не во всех случаях.</p><p>Источник изображения: Zach M/unsplash.com</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/b829f9c91eaf.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>«Как генная инженерия для нейросетей»: учёные предложили улучшать ИИ-модели без дообучения, редактируя их веса</h1>
+<p>Исследователи предложили новый способ повышения эффективности ИИ-моделей без традиционного дообучения или повторного обучения.</p><p>Этот подход под названием «Программирование в пространстве весов» (Weight-space programming), заключающийся в редактирования весов модели — числовых параметров, определяющих её поведение, в перспективе может ускорить разработку нейросетей, хотя и не во всех случаях.</p><p>Источник изображения: Zach M/unsplash.com</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/b829f9c91eaf.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>Антропные зажимы на клонах видеоигр ИИ Клода</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f9133b872894.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/f9133b872894.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/antropnye-zazhimy-na-klonakh-videoigr-ii-kloda-f9133b.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/antropnye-zazhimy-na-klonakh-videoigr-ii-kloda-f9133b.html</guid>
       <pubDate>Tue, 03 Nov 2026 12:42:23 +0000</pubDate>
-      <category>The Verge</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>Anthropic обновила системную подсказку Клода Кода, чтобы предотвратить использование инструмента ИИ для воссоздания существующих видеоигр, как сообщает Tom&#x27;s Hardware. Ретро-игры в настоящее время переполнены декомпиляциями, перекомпиляциями и портами, созданными ИИ, но, хотя Anthropic по-прежнему…</description>
-      <content:encoded><![CDATA[<p>Anthropic обновила системную подсказку Клода Кода, чтобы предотвратить использование инструмента ИИ для воссоздания существующих видеоигр, как сообщает Tom&#x27;s Hardware.</p><p>Ретро-игры в настоящее время переполнены декомпиляциями, перекомпиляциями и портами, созданными ИИ, но, хотя Anthropic по-прежнему позволяет людям использовать код Клода для создания игр, он не хочет, чтобы люди ...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/f9133b872894.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>Антропные зажимы на клонах видеоигр ИИ Клода</h1>
+<p>Anthropic обновила системную подсказку Клода Кода, чтобы предотвратить использование инструмента ИИ для воссоздания существующих видеоигр, как сообщает Tom&#x27;s Hardware.</p><p>Ретро-игры в настоящее время переполнены декомпиляциями, перекомпиляциями и портами, созданными ИИ, но, хотя Anthropic по-прежнему позволяет людям использовать код Клода для создания игр, он не хочет, чтобы люди ...</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/f9133b872894.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>Кадровый бумеранг ИИ: работодатели массово возвращают тех, кого недавно заменили нейросетями</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/b4fbf080bb67.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/b4fbf080bb67.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/kadrovyy-bumerang-ii-rabotodateli-massovo-vozvrashchayut-b4fbf0.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/kadrovyy-bumerang-ii-rabotodateli-massovo-vozvrashchayut-b4fbf0.html</guid>
       <pubDate>Tue, 03 Nov 2026 20:26:53 +0000</pubDate>
-      <category>3DNews</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>Массовые сокращения штата, обусловленные внедрением искусственного интеллекта, привели к возникновению новой категории «сотрудников-бумерангов». Согласно исследованию консалтинговой компании Challenger, Gray &amp; Christmas, в мае 2026 года работодатели назвали ИИ главной причиной почти 40 %…</description>
-      <content:encoded><![CDATA[<p>Массовые сокращения штата, обусловленные внедрением искусственного интеллекта, привели к возникновению новой категории «сотрудников-бумерангов».</p><p>Согласно исследованию консалтинговой компании Challenger, Gray &amp; Christmas, в мае 2026 года работодатели назвали ИИ главной причиной почти 40 % объявленных увольнений в США.</p><p>Однако сейчас зафиксирована обратная тенденция, которую эксперты называют «ИИ-отскоком».</p><p>Источник изображения: Milad Fakurian / Unsplash.com</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/b4fbf080bb67.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>Кадровый бумеранг ИИ: работодатели массово возвращают тех, кого недавно заменили нейросетями</h1>
+<p>Массовые сокращения штата, обусловленные внедрением искусственного интеллекта, привели к возникновению новой категории «сотрудников-бумерангов».</p><p>Согласно исследованию консалтинговой компании Challenger, Gray &amp; Christmas, в мае 2026 года работодатели назвали ИИ главной причиной почти 40 % объявленных увольнений в США.</p><p>Однако сейчас зафиксирована обратная тенденция, которую эксперты называют «ИИ-отскоком».</p><p>Источник изображения: Milad Fakurian / Unsplash.com</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/b4fbf080bb67.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>Из какой LLM получится хороший виртуальный сотрудник, или Почему валятся бенчмарки моделей для генерации кода</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d49c3b2846bb.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/d49c3b2846bb.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/iz-kakoy-llm-poluchitsya-khoroshiy-virtualnyy-sotrudnik-ili-d49c3b.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/iz-kakoy-llm-poluchitsya-khoroshiy-virtualnyy-sotrudnik-ili-d49c3b.html</guid>
       <pubDate>Tue, 03 Nov 2026 20:27:58 +0000</pubDate>
-      <category>Habr</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>В феврале 2026 года OpenAI рекомендовала оценивать ИИ-агентов для программирования по бенчмарку SWE-Bench Pro. Но уже 8 июля отозвала собственную рекомендацию, признав, что примерно 30% задач SWE-Bench Pro составлены с ошибками. До этого компания отказалась от SWE-bench Verified, когда выяснилось,…</description>
-      <content:encoded><![CDATA[<p>В феврале 2026 года OpenAI рекомендовала оценивать ИИ-агентов для программирования по бенчмарку SWE-Bench Pro.</p><p>Но уже 8 июля отозвала собственную рекомендацию, признав, что примерно 30% задач SWE-Bench Pro составлены с ошибками.</p><p>До этого компания отказалась от SWE-bench Verified, когда выяснилось, что модели видели часть его задач и ответов еще при обучении.После этого возник вопрос: каким тестам вообще можно доверять?И пока индустрия это выясняет, исследователи NVIDIA занялись другим вопросом, который особенно важен для разработчиков моделей для генерации кода и тех, кто собирает на их основе ИИ-агентов.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/d49c3b2846bb.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>Из какой LLM получится хороший виртуальный сотрудник, или Почему валятся бенчмарки моделей для генерации кода</h1>
+<p>В феврале 2026 года OpenAI рекомендовала оценивать ИИ-агентов для программирования по бенчмарку SWE-Bench Pro.</p><p>Но уже 8 июля отозвала собственную рекомендацию, признав, что примерно 30% задач SWE-Bench Pro составлены с ошибками.</p><p>До этого компания отказалась от SWE-bench Verified, когда выяснилось, что модели видели часть его задач и ответов еще при обучении.После этого возник вопрос: каким тестам вообще можно доверять?И пока индустрия это выясняет, исследователи NVIDIA занялись другим вопросом, который особенно важен для разработчиков моделей для генерации кода и тех, кто собирает на их основе ИИ-агентов.</p><p>Читать далее</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/d49c3b2846bb.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>Anthropic работает над системой для подтверждения идентичности моделей ИИ</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/9ff98ed9bd45.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/9ff98ed9bd45.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/anthropic-rabotaet-nad-sistemoy-dlya-podtverzhdeniya-9ff98e.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/anthropic-rabotaet-nad-sistemoy-dlya-podtverzhdeniya-9ff98e.html</guid>
       <pubDate>Wed, 04 Nov 2026 12:49:45 +0000</pubDate>
-      <category>TechCrunch</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>Система под названием FlashProve позволит любому проверить, действительно ли ответ ИИ исходит от модели, от которой он, по его утверждению, исходит.</description>
-      <content:encoded><![CDATA[<p>Система под названием FlashProve позволит любому проверить, действительно ли ответ ИИ исходит от модели, от которой он, по его утверждению, исходит.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/9ff98ed9bd45.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>Anthropic работает над системой для подтверждения идентичности моделей ИИ</h1>
+<p>Система под названием FlashProve позволит любому проверить, действительно ли ответ ИИ исходит от модели, от которой он, по его утверждению, исходит.</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/9ff98ed9bd45.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>Как один нейрон влияет на личность</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/bcad2e81f169.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/bcad2e81f169.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/kak-odin-neyron-vliyaet-na-lichnost-bcad2e.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/kak-odin-neyron-vliyaet-na-lichnost-bcad2e.html</guid>
       <pubDate>Wed, 04 Nov 2026 12:51:59 +0000</pubDate>
-      <category>Habr</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>В 2013 году мир увидел научную статью, которую частенько цитируют очень упрощённо. Обычно утверждается, будто при редактировании одного из нейронов мухи-дрозофилы насекомое внезапно начинает неконтролируемо много спариваться. Реальная научная работа выглядела чуть более сложно…</description>
-      <content:encoded><![CDATA[<p>В 2013 году мир увидел научную статью, которую частенько цитируют очень упрощённо.</p><p>Обычно утверждается, будто при редактировании одного из нейронов мухи-дрозофилы насекомое внезапно начинает неконтролируемо много спариваться.</p><p>Реальная научная работа выглядела чуть более сложно (doi:10.1016/j.cell.2013.09.055).</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/bcad2e81f169.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>Как один нейрон влияет на личность</h1>
+<p>В 2013 году мир увидел научную статью, которую частенько цитируют очень упрощённо.</p><p>Обычно утверждается, будто при редактировании одного из нейронов мухи-дрозофилы насекомое внезапно начинает неконтролируемо много спариваться.</p><p>Реальная научная работа выглядела чуть более сложно (doi:10.1016/j.cell.2013.09.055).</p><p>Читать далее</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/bcad2e81f169.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>Китайская Tencent бросила вызов DeepSeek и Kimi — открытая ИИ-модель Hy4 умеет видеть и рассуждать</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/e48b82a80863.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/e48b82a80863.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/kitayskaya-tencent-brosila-vyzov-deepseek-i-kimi-otkrytaya-e48b82.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/kitayskaya-tencent-brosila-vyzov-deepseek-i-kimi-otkrytaya-e48b82.html</guid>
       <pubDate>Wed, 04 Nov 2026 20:42:26 +0000</pubDate>
-      <category>3DNews</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>Китайский технологический гигант Tencent Holdings представил флагманскую модель искусственного интеллекта Hy4. Она публикуется с открытыми весами и предлагает расширенные возможности ИИ-агентов, выступая основой для корпоративной платформы WorkBuddy. Источник изображения: tencent.ai</description>
-      <content:encoded><![CDATA[<p>Китайский технологический гигант Tencent Holdings представил флагманскую модель искусственного интеллекта Hy4.</p><p>Она публикуется с открытыми весами и предлагает расширенные возможности ИИ-агентов, выступая основой для корпоративной платформы WorkBuddy.</p><p>Источник изображения: tencent.ai</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/e48b82a80863.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>Китайская Tencent бросила вызов DeepSeek и Kimi — открытая ИИ-модель Hy4 умеет видеть и рассуждать</h1>
+<p>Китайский технологический гигант Tencent Holdings представил флагманскую модель искусственного интеллекта Hy4.</p><p>Она публикуется с открытыми весами и предлагает расширенные возможности ИИ-агентов, выступая основой для корпоративной платформы WorkBuddy.</p><p>Источник изображения: tencent.ai</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/e48b82a80863.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>Основываясь на ИИ с открытым исходным кодом? Руководитель политики Hugging Face по затратам, рискам и компромиссам</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/89f86908fc6c.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/89f86908fc6c.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/osnovyvayas-na-ii-s-otkrytym-iskhodnym-kodom-rukovoditel-89f869.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/osnovyvayas-na-ii-s-otkrytym-iskhodnym-kodom-rukovoditel-89f869.html</guid>
       <pubDate>Wed, 04 Nov 2026 20:43:42 +0000</pubDate>
-      <category>TechCrunch</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>Модели с открытым исходным кодом становятся все более распространенными, поскольку предприятия, правительства и стартапы полагаются на обещание более низких затрат, большего контроля и большей гибкости. Но по мере того, как все более эффективные модели становятся более доступными, как компании…</description>
-      <content:encoded><![CDATA[<p>Модели с открытым исходным кодом становятся все более распространенными, поскольку предприятия, правительства и стартапы полагаются на обещание более низких затрат, большего контроля и большей гибкости.</p><p>Но по мере того, как все более эффективные модели становятся более доступными, как компании получают прибыль?</p><p>И с китайскими открытыми моделями, набирающими силу, могут ли американские игроки не отставать?</p><p>В этом эпизоде …</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/89f86908fc6c.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>Основываясь на ИИ с открытым исходным кодом? Руководитель политики Hugging Face по затратам, рискам и компромиссам</h1>
+<p>Модели с открытым исходным кодом становятся все более распространенными, поскольку предприятия, правительства и стартапы полагаются на обещание более низких затрат, большего контроля и большей гибкости.</p><p>Но по мере того, как все более эффективные модели становятся более доступными, как компании получают прибыль?</p><p>И с китайскими открытыми моделями, набирающими силу, могут ли американские игроки не отставать?</p><p>В этом эпизоде …</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/89f86908fc6c.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>Anthropic поручила Claude проектировать чипы — на Уолл-стрит испугались за Synopsys и Cadence</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/75821f65d905.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/75821f65d905.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/anthropic-poruchila-claude-proektirovat-chipy-na-uoll-strit-75821f.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/anthropic-poruchila-claude-proektirovat-chipy-na-uoll-strit-75821f.html</guid>
       <pubDate>Thu, 05 Nov 2026 12:58:30 +0000</pubDate>
-      <category>3DNews</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>Anthropic стала обращать внимание инвесторов на своё новое конкурентное преимущество — использование искусственного интеллекта при разработке полупроводников. В компании создано подразделение по разработке оборудования — сейчас в нём числятся 15 специалистов. Источник изображения:…</description>
-      <content:encoded><![CDATA[<p>Anthropic стала обращать внимание инвесторов на своё новое конкурентное преимущество — использование искусственного интеллекта при разработке полупроводников.</p><p>В компании создано подразделение по разработке оборудования — сейчас в нём числятся 15 специалистов.</p><p>Источник изображения: BoliviaInteligente / unsplash.com</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/75821f65d905.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>Anthropic поручила Claude проектировать чипы — на Уолл-стрит испугались за Synopsys и Cadence</h1>
+<p>Anthropic стала обращать внимание инвесторов на своё новое конкурентное преимущество — использование искусственного интеллекта при разработке полупроводников.</p><p>В компании создано подразделение по разработке оборудования — сейчас в нём числятся 15 специалистов.</p><p>Источник изображения: BoliviaInteligente / unsplash.com</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/75821f65d905.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>OpenAI уже пытается повлиять на выборы 2028 года</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/3e7dd18f048e.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/3e7dd18f048e.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/openai-uzhe-pytaetsya-povliyat-na-vybory-2028-goda-3e7dd1.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/openai-uzhe-pytaetsya-povliyat-na-vybory-2028-goda-3e7dd1.html</guid>
       <pubDate>Thu, 05 Nov 2026 12:59:45 +0000</pubDate>
-      <category>TechCrunch</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>Крис Лехейн из OpenAI хочет, чтобы ИИ определил выборы 2028 года, предложив новый социальный контракт, который может принести пользу американцам, а также продвигать собственные бизнес-интересы ИИ-гиганта.</description>
-      <content:encoded><![CDATA[<p>Крис Лехейн из OpenAI хочет, чтобы ИИ определил выборы 2028 года, предложив новый социальный контракт, который может принести пользу американцам, а также продвигать собственные бизнес-интересы ИИ-гиганта.</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/3e7dd18f048e.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>OpenAI уже пытается повлиять на выборы 2028 года</h1>
+<p>Крис Лехейн из OpenAI хочет, чтобы ИИ определил выборы 2028 года, предложив новый социальный контракт, который может принести пользу американцам, а также продвигать собственные бизнес-интересы ИИ-гиганта.</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/3e7dd18f048e.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>Claude AI может подключаться непосредственно к вашему банковскому счету</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/da2d1431d66e.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/da2d1431d66e.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/claude-ai-mozhet-podklyuchatsya-neposredstvenno-k-vashemu-da2d14.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/claude-ai-mozhet-podklyuchatsya-neposredstvenno-k-vashemu-da2d14.html</guid>
       <pubDate>Thu, 05 Nov 2026 20:58:44 +0000</pubDate>
-      <category>The Verge</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>У Anthropic есть новый подход к управлению вашими личными финансами: пусть это сделает Клод, с новой функцией личных финансов, которая связывает его с вашими банковскими и карточными счетами через платформу Plaid bank bridging. Например, вы можете спросить чат-бота «куда ушли мои деньги в этом…</description>
-      <content:encoded><![CDATA[<p>У Anthropic есть новый подход к управлению вашими личными финансами: пусть это сделает Клод, с новой функцией личных финансов, которая связывает его с вашими банковскими и карточными счетами через платформу Plaid bank bridging.</p><p>Например, вы можете спросить чат-бота «куда ушли мои деньги в этом месяце», и он создаст обзор ...</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/da2d1431d66e.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>Claude AI может подключаться непосредственно к вашему банковскому счету</h1>
+<p>У Anthropic есть новый подход к управлению вашими личными финансами: пусть это сделает Клод, с новой функцией личных финансов, которая связывает его с вашими банковскими и карточными счетами через платформу Plaid bank bridging.</p><p>Например, вы можете спросить чат-бота «куда ушли мои деньги в этом месяце», и он создаст обзор ...</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/da2d1431d66e.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>Из чего состоит ваш ИИ: разбираемся, что такое AIBOM и MLBOM</title>
-      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/61b9b625b275.html</link>
-      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/61b9b625b275.html</guid>
+      <link>https://morozzz174.github.io/ainovostiru-bot/dzen/articles/iz-chego-sostoit-vash-ii-razbiraemsya-chto-takoe-aibom-i-61b9b6.html</link>
+      <guid isPermaLink="true">https://morozzz174.github.io/ainovostiru-bot/dzen/articles/iz-chego-sostoit-vash-ii-razbiraemsya-chto-takoe-aibom-i-61b9b6.html</guid>
       <pubDate>Thu, 05 Nov 2026 20:59:49 +0000</pubDate>
-      <category>Habr</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>В программный продукт наряду с собственным кодом попадает и сторонний код через зависимости, которые могут содержать уязвимости и накладывать лицензионные ограничения. Чтобы разобраться в таком наследстве, используется документ с названиями, версиями компонентов и связями между ними. Для него есть…</description>
-      <content:encoded><![CDATA[<p>В программный продукт наряду с собственным кодом попадает и сторонний код через зависимости, которые могут содержать уязвимости и накладывать лицензионные ограничения.</p><p>Чтобы разобраться в таком наследстве, используется документ с названиями, версиями компонентов и связями между ними.</p><p>Для него есть название – Software Bill of Materials (SBOM), или перечень программных компонентов (ППК).</p><p>По этому перечню разработчик может быстро найти библиотеки с известными уязвимостями в своих приложениях.</p><p>Команда CodeScoring часто работает с этим форматом, так как мы разрабатываем собственное решение для композиционного анализа ПО (Software Composition Analysis, или SCA).Разработчики могут взять готовую модель машинного обучения в открытом доступе, дообучить её на своих данных и уменьшить точность весов для запуска на машинах послабее.</p><p>В их продукт таким образом попадёт уже производная модель.</p><p>Чтобы разобраться в её происхождении, понадобится знать исходную модель, данные и выполненные преобразования.Для этого были введены понятия MLBOM и AIBOM, которыми обозначают документы с составом моделей и систем, использующих искусственный интеллект.</p><p>В этой статье мы разберёмся, что за ними стоит, чем отличаются эти названия и какие сведения для таких документов можно собрать автоматически.</p><p>Читать далее</p>]]></content:encoded>
-      <media:content url="https://morozzz174.github.io/ainovostiru-bot/61b9b625b275.jpg" medium="image" type="image/jpeg" />
+      <content:encoded><![CDATA[<h1>Из чего состоит ваш ИИ: разбираемся, что такое AIBOM и MLBOM</h1>
+<p>В программный продукт наряду с собственным кодом попадает и сторонний код через зависимости, которые могут содержать уязвимости и накладывать лицензионные ограничения.</p><p>Чтобы разобраться в таком наследстве, используется документ с названиями, версиями компонентов и связями между ними.</p><p>Для него есть название – Software Bill of Materials (SBOM), или перечень программных компонентов (ППК).</p><p>По этому перечню разработчик может быстро найти библиотеки с известными уязвимостями в своих приложениях.</p><p>Команда CodeScoring часто работает с этим форматом, так как мы разрабатываем собственное решение для композиционного анализа ПО (Software Composition Analysis, или SCA).Разработчики могут взять готовую модель машинного обучения в открытом доступе, дообучить её на своих данных и уменьшить точность весов для запуска на машинах послабее.</p><p>В их продукт таким образом попадёт уже производная модель.</p><p>Чтобы разобраться в её происхождении, понадобится знать исходную модель, данные и выполненные преобразования.Для этого были введены понятия MLBOM и AIBOM, которыми обозначают документы с составом моделей и систем, использующих искусственный интеллект.</p><p>В этой статье мы разберёмся, что за ними стоит, чем отличаются эти названия и какие сведения для таких документов можно собрать автоматически.</p><p>Читать далее</p>]]></content:encoded>
+      <enclosure url="https://morozzz174.github.io/ainovostiru-bot/dzen/61b9b625b275.jpg" type="image/jpeg" />
     </item>
   </channel>
 </rss>
