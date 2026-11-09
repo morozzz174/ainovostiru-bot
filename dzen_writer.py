@@ -319,6 +319,30 @@ _FOREIGN_SCRIPT_RE = re.compile(
 )
 
 
+_BUSINESS_RE = re.compile(
+    r"(сделк|приобрет|поглощен|слияни|консолидац|кадров|назначен|"
+    r"вице-президент|выручк|квартальн|инвестиц|акционер|"
+    r"игроки рынка|портфель|acquisition|acquire|merger|appoint|"
+    r"joins|vice president|revenue|quarterly|earnings|investor|"
+    r"portfolio|pipeline)",
+    re.I,
+)
+
+
+def business_source(text: str) -> bool:
+    """True when a page is mostly corporate news rather than cosmetology.
+
+    Some magazine pages list several unrelated business headlines (M&A,
+    appointments) while the RSS title still looks like a skincare article.
+    Two distinct business markers are enough to stop before spending an LLM
+    request on a topic the channel does not cover.
+    """
+    if not text:
+        return False
+    hits = {match.group(0).lower() for match in _BUSINESS_RE.finditer(text)}
+    return len(hits) >= 2
+
+
 def _bad_language(text: str) -> bool:
     """True when Russian text is corrupted with mixed alphabets or scripts.
 
@@ -457,6 +481,9 @@ def _finish(clean: dict, source_text: str = "") -> dict | None:
     prose = _draft_text(clean)
     if _bad_language(prose):
         logger.info("Dzen LLM article contains mixed alphabets or foreign characters")
+        return None
+    if business_source(prose):
+        logger.info("Dzen LLM article drifted into business or market news")
         return None
     total = _text_len(clean)
     if total < config.DZEN_ARTICLE_MIN_CHARS or total > config.DZEN_ARTICLE_MAX_CHARS:

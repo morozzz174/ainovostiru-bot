@@ -74,6 +74,53 @@ a {{ color: #0a58ca; }}
 </html>
 """
 
+LANDING_TEMPLATE = """<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title>
+<meta name="description" content="{description}">
+<style>
+body {{ font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 880px; margin: 40px auto;
+        padding: 0 20px; line-height: 1.6; color: #1c1c1e; background: #fbfaf9; }}
+header {{ margin-bottom: 28px; }}
+h1 {{ font-size: 34px; margin: 0 0 6px; }}
+.sub {{ color: #6e6e73; margin: 0; font-size: 17px; }}
+.grid {{ display: grid; gap: 22px; }}
+.card {{ background: #fff; border: 1px solid #eee7e2; border-radius: 14px; overflow: hidden; }}
+.card img {{ width: 100%; height: 220px; object-fit: cover; display: block; }}
+.card-body {{ padding: 16px 20px 20px; }}
+.card h2 {{ font-size: 21px; line-height: 1.3; margin: 0 0 8px; }}
+.card h2 a {{ color: #1c1c1e; text-decoration: none; }}
+.card p {{ margin: 0; color: #4a4a4f; }}
+.card .date {{ color: #8a8a8f; font-size: 13px; margin-bottom: 6px; }}
+footer {{ margin-top: 36px; color: #8a8a8f; font-size: 14px; }}
+a {{ color: #0a58ca; }}
+</style>
+</head>
+<body>
+<header>
+<h1>{title}</h1>
+<p class="sub">{description}</p>
+</header>
+<main class="grid">
+{cards}
+</main>
+<footer>Материалы носят информационный характер и не заменяют консультацию врача.</footer>
+</body>
+</html>
+"""
+
+CARD_TEMPLATE = """<article class="card">
+<a href="articles/{slug}.html"><img src="{image}" alt="{title}"></a>
+<div class="card-body">
+<p class="date">{date}</p>
+<h2><a href="articles/{slug}.html">{title}</a></h2>
+<p>{summary}</p>
+</div>
+</article>"""
+
 RSS_TEMPLATE = """<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"
      xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -81,7 +128,7 @@ RSS_TEMPLATE = """<?xml version="1.0" encoding="UTF-8"?>
      xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>{title}</title>
-    <link>{site}/dzen/</link>
+    <link>{channel_link}</link>
     <description>{description}</description>
     <language>ru</language>
     <generator>ainovostiru-bot</generator>
@@ -89,7 +136,7 @@ RSS_TEMPLATE = """<?xml version="1.0" encoding="UTF-8"?>
     <image>
       <url>{avatar}</url>
       <title>{title}</title>
-      <link>{site}/dzen/</link>
+      <link>{channel_link}</link>
     </image>
 {items}
   </channel>
@@ -225,11 +272,15 @@ def add_article(article, image_buf: io.BytesIO) -> bool:
 
     draft = None
     if config.LLM_API_KEY:
+        source_text = _source_text(article.url)
+        if dzen_writer.business_source(source_text):
+            logger.info("Dzen: source page is business news, skipping the feed item")
+            return False
         draft = dzen_writer.generate_article(
             article.title,
             article.description or "",
             article.source,
-            source_text=_source_text(article.url),
+            source_text=source_text,
         )
     if not draft and config.DZEN_REQUIRE_ARTICLE:
         logger.warning("Dzen: no long article for %r, skipping the feed item", article.title[:60])
@@ -310,7 +361,7 @@ def _load_items(theme: str) -> list[dict]:
         return []
 
 
-def _build_item(item: dict, theme: str) -> str:
+def _build_item(item: dict, theme: str) -> tuple[str, dict]:
     slug = _article_slug(item["title"], item["pub_date"])
     article_path = f"dzen/articles/{slug}.html"
     link = f"{SITE}/{article_path}"
@@ -359,7 +410,7 @@ def _build_item(item: dict, theme: str) -> str:
     rss_body = f"<h1>{html.escape(item['title'])}</h1>\n{body}"
     rss_body = rss_body.replace('<p class="lead">', "<p>")
 
-    return ITEM_TEMPLATE.format(
+    xml = ITEM_TEMPLATE.format(
         title=html.escape(item["title"]),
         link=link,
         pub_date=pub_date,
@@ -367,6 +418,14 @@ def _build_item(item: dict, theme: str) -> str:
         body=rss_body,
         image=image_url,
     )
+    card = {
+        "slug": slug,
+        "title": html.escape(item["title"]),
+        "summary": html.escape(item["summary"]),
+        "image": image_names[0],
+        "date": datetime.fromisoformat(item["pub_date"]).astimezone().strftime("%d.%m.%Y"),
+    }
+    return xml, card
 
 
 def flush(theme: str | None = None) -> dict:
@@ -393,14 +452,19 @@ def flush(theme: str | None = None) -> dict:
             items.append(item)
 
         items = items[-MAX_ITEMS:]
-        rendered = [_build_item(item, name) for item in items]
+        built = [_build_item(item, name) for item in items]
+        rendered = [xml for xml, _ in built]
+        cards = [card for _, card in built]
 
+        channel_link = (
+            f"{SITE}/dzen/" if name == "beauty" else f"{SITE}/dzen/index-{name}.html"
+        )
         feed_path = os.path.join(DIST_DIR, f"feed-{name}.xml")
         with open(feed_path, "w", encoding="utf-8") as f:
             f.write(RSS_TEMPLATE.format(
                 title=channel["title"],
                 description=channel["description"],
-                site=SITE,
+                channel_link=channel_link,
                 avatar=channel_avatar_url,
                 now=format_datetime(datetime.now(timezone.utc)),
                 items="\n".join(rendered),
@@ -410,11 +474,21 @@ def flush(theme: str | None = None) -> dict:
                 f.write(RSS_TEMPLATE.format(
                     title=channel["title"],
                     description=channel["description"],
-                    site=SITE,
+                    channel_link=channel_link,
                     avatar=channel_avatar_url,
                     now=format_datetime(datetime.now(timezone.utc)),
                     items="\n".join(rendered),
                 ))
+
+        landing_name = "index.html" if name == "beauty" else f"index-{name}.html"
+        with open(os.path.join(DIST_DIR, landing_name), "w", encoding="utf-8") as f:
+            f.write(LANDING_TEMPLATE.format(
+                title=html.escape(channel["title"]),
+                description=html.escape(channel["description"]),
+                cards="\n".join(
+                    CARD_TEMPLATE.format(**card) for card in reversed(cards)
+                ),
+            ))
 
         with open(_items_path(name), "w", encoding="utf-8") as f:
             json.dump(items, f, ensure_ascii=False, indent=2)
