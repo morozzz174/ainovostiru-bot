@@ -75,6 +75,28 @@ TT_DISABLE_COMMENT = os.getenv("TT_DISABLE_COMMENT", "false").lower() == "true"
 TT_DISABLE_STITCH = os.getenv("TT_DISABLE_STITCH", "true").lower() == "true"
 
 DZEN_ENABLED = os.getenv("DZEN_ENABLED", "false").lower() == "true"
+# Long-form Dzen articles. The client speaks the OpenAI-compatible protocol,
+# so DeepSeek, OpenRouter and OpenAI all work; only the base URL/model change.
+# A machine-wide OPENROUTER_API_KEY is enough: the base URL and a cheap model
+# are picked automatically, no extra setup.
+_OPENROUTER_KEY = os.getenv("OPENROUTER_API_KEY", "")
+LLM_API_KEY = os.getenv("LLM_API_KEY") or _OPENROUTER_KEY or os.getenv("DEEPSEEK_API_KEY", "")
+LLM_BASE_URL = os.getenv("LLM_BASE_URL", "").rstrip("/") or (
+    "https://openrouter.ai/api/v1"
+    if _OPENROUTER_KEY and not os.getenv("LLM_API_KEY")
+    else "https://api.deepseek.com/v1"
+)
+LLM_MODEL = os.getenv("LLM_MODEL", "") or (
+    "deepseek/deepseek-v3.2" if "openrouter.ai" in LLM_BASE_URL else "deepseek-chat"
+)
+LLM_TIMEOUT = int(os.getenv("LLM_TIMEOUT", "180"))
+# A short teaser is fine for Telegram but not for Dzen: the channel needs
+# long reads. Skip the feed item instead of publishing a stub when the model
+# is down, so the feed never fills with low-value posts.
+DZEN_REQUIRE_ARTICLE = os.getenv("DZEN_REQUIRE_ARTICLE", "true").lower() == "true"
+DZEN_ARTICLE_MIN_CHARS = int(os.getenv("DZEN_ARTICLE_MIN_CHARS", "3500"))
+DZEN_ARTICLE_MAX_CHARS = int(os.getenv("DZEN_ARTICLE_MAX_CHARS", "7000"))
+DZEN_IMAGES = int(os.getenv("DZEN_IMAGES", "3"))
 USE_THEMED_IMAGES = os.getenv("USE_THEMED_IMAGES", "true").lower() == "true"
 # Ориентация искомых фото: portrait (9:16, для видео) или landscape (для постов)
 IMAGE_ORIENTATION = os.getenv("IMAGE_ORIENTATION", "portrait")
@@ -504,7 +526,7 @@ THEMES = {
             "hyaluron", "peptide", "sunscreen", "spf", "photoag",
             "biostimul", "mesother", "biorevit", "prp", "acne", "rosacea",
             "pigment", "melasma", "peel", "laser", "epilat", "lipolys",
-            "cryolip", "lpg", "cellulit", "aesthet", "skincar", "serum",
+            "cryolip", "lpg", "cellulit", "aesthet", "эстет", "skincar", "serum",
             "moistur", "exfoli", "microneedl", "dermabras", "thread lift",
             "blepharo", "rhinoplast", "liposuct", "mammoplast", "injectab",
             "bbl", "medspa", "body contour", "процедур", "массаж",
@@ -529,7 +551,7 @@ THEMES = {
         # что прямо про кожу, косметологию или процедуры. Иначе «старение»
         # приносит Альцгеймера, а «здоровье» — коралловые рифы.
         "strong_keywords": [
-            "cosmet", "dermat", "skincar", "wrinkle", "collagen",
+            "cosmet", "dermat", "aesthet", "эстет", "skincar", "wrinkle", "collagen",
             "retinol", "botox", "botulin", "filler", "hyaluron",
             "peel", "laser", "epilat", "lipolys", "cryolip", "lpg",
             "cellulit", "mesother", "biorevit", "microneedl", "dermabras",
@@ -597,6 +619,22 @@ THEMES = {
             "бренд", "приобре", "покупк", "выручк", "продаж", "кварта",
             "назнач", "кампани", "инвест", "ретейл", "стоимо", "директ",
             "руково", "сотруд", "контра", "постав", "произв", "подборк",
+            # Общая медицина и фарма-бизнес: диабет-датчики, суды о цене
+            # лекарств и ИИ-рецепты проходили по слову «ботокс»/«кожа»,
+            # хотя к косметологии отношения не имеют.
+            "diabet", "glucos", "insulin", "cgm", "pharma", "prescription",
+            "telehealth", "oncology", "alzheimer", "parkinson", "vaccine",
+            "lawsuit", "court", "sensor",
+            "диабет", "глюкоз", "инсулин", "фарма", "рецепт", "телемед",
+            "онколог", "альцгеймер", "паркинсон", "вакцин", "судебн",
+            "исков", "переговор", "лекарств", "датчик", "постанов",
+            # Фэшн, селебрити и B2B-косметика: канал не про джинсы,
+            # красные дорожки и формуляцию сырья.
+            "jeans", "makeup", "fashion", "outfit", "carpet", "celebrity",
+            "formulation", "encapsulation", "supplier", "trends",
+            "fda", "rfk", "period",
+            "джинс", "макияж", "мода", "знаменит", "поставщик",
+            "тренд", "регулир", "менструац",
         ],
     },
     "metal": {

@@ -1,4 +1,4 @@
-name: AESTHETIC Bot
+name: Cosmobb Bot
 on:
   schedule:
     # 10:30, 14:30, 18:30, 21:30 по Екатеринбургу (UTC+5) = 05:30, 09:30, 13:30, 16:30 UTC.
@@ -46,20 +46,26 @@ jobs:
           BOT_TOKEN: ${{ secrets.AESTHETIC_BOT_TOKEN }}
           CHANNEL_ID: ${{ secrets.AESTHETIC_CHANNEL_ID }}
           THEME: beauty
-          BRAND_NAME: AESTHETIC.RU
+          BRAND_NAME: КОСМОББ
           DATABASE_PATH: bot_beauty.db
           VIDEO_ORIENTATION: vertical
           MUSIC_STYLE: auto
           USE_THEMED_IMAGES: "true"
           IMAGE_ORIENTATION: portrait
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
+          LLM_MODEL: ${{ vars.LLM_MODEL }}
+          DZEN_REQUIRE_ARTICLE: "true"
         run: python main.py --once --strict
 
       - name: Build Dzen RSS feed
         if: always()
+        env:
+          THEME: beauty
         run: |
           if [ "$DZEN_ENABLED" = "true" ]; then
-            python dzen_feed.py flush
+            python dzen_feed.py flush beauty
           else
             echo "DZEN_ENABLED is not true, skipping the feed"
           fi
@@ -88,7 +94,7 @@ jobs:
               echo "rebase conflicted, rebuilding the feed on top of the remote state"
               git rebase --abort >/dev/null 2>&1
               git reset --hard origin/main >/dev/null 2>&1
-              python dzen_feed.py flush
+              python dzen_feed.py flush beauty
               git add -A docs
               if git diff --staged --quiet; then
                 echo "nothing left to commit"

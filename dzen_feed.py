@@ -13,6 +13,7 @@ from urllib.parse import quote
 from PIL import Image
 
 import config
+import dzen_writer
 
 logger = logging.getLogger(__name__)
 
@@ -38,8 +39,9 @@ CHANNELS = {
         "description": "Наука, история, космос и открытия — коротко и по делу.",
     },
     "beauty": {
-        "title": "FACTUM.RU Beauty",
-        "description": "Косметология, уход за кожей, антивозрастные исследования и индустрия красоты.",
+        "title": "Космобб",
+        "description": "Косметология, уход за кожей и процедуры — без обещаний и волшебных кремов.",
+        "avatar": "avatar-beauty.jpg",
     },
 }
 
@@ -54,6 +56,11 @@ ARTICLE_TEMPLATE = """<!DOCTYPE html>
 body {{ font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 760px; margin: 40px auto;
         padding: 0 20px; line-height: 1.65; color: #1c1c1e; }}
 img {{ width: 100%; height: auto; border-radius: 12px; display: block; }}
+h1 {{ font-size: 30px; line-height: 1.25; margin: 24px 0 16px; }}
+h2 {{ font-size: 22px; line-height: 1.3; margin: 28px 0 12px; }}
+.lead {{ font-size: 19px; color: #3a3a3c; }}
+figure {{ margin: 24px 0; }}
+figcaption {{ color: #6e6e73; font-size: 14px; margin-top: 8px; }}
 .meta {{ color: #6e6e73; font-size: 14px; margin: 14px 0 24px; }}
 a {{ color: #0a58ca; }}
 </style>
@@ -101,6 +108,7 @@ ITEM_TEMPLATE = """    <item>
       <category>{category}</category>
       <description>{summary}</description>
       <content:encoded><![CDATA[{body}]]></content:encoded>
+      <enclosure url="{image}" type="image/jpeg" />
       <media:content url="{image}" medium="image" type="image/jpeg" />
     </item>"""
 
@@ -159,8 +167,37 @@ def save_pending(pending: dict) -> None:
         json.dump(pending, f, ensure_ascii=False, indent=2)
 
 
+def _source_text(url: str, limit: int = 8000) -> str:
+    """Opening paragraphs of the source page, used to ground the LLM."""
+    try:
+        from collector import _page_paragraphs
+    except Exception:
+        return ""
+    try:
+        pieces: list[str] = []
+        total = 0
+        for paragraph in _page_paragraphs(url):
+            paragraph = paragraph.strip()
+            if not paragraph:
+                continue
+            pieces.append(paragraph)
+            total += len(paragraph)
+            if total >= limit:
+                break
+        return " ".join(pieces)[:limit]
+    except Exception as e:
+        logger.info("Dzen: source text fetch failed: %s", e)
+        return ""
+
+
 def add_article(article, image_buf: io.BytesIO) -> bool:
-    """Queue a published article for the next feed build."""
+    """Queue a published article for the next feed build.
+
+    Dzen needs a long read, not the two-sentence Telegram teaser. The draft is
+    generated here, while the source text is still at hand. If the model is
+    unavailable or returns something unusable, the short teaser is kept so a
+    feed build never blocks a Telegram post.
+    """
     if not config.DZEN_ENABLED or image_buf is None:
         return False
     theme = config.THEME if config.THEME in CHANNELS else "ai"
@@ -170,18 +207,52 @@ def add_article(article, image_buf: io.BytesIO) -> bool:
         logger.warning("Dzen: image conversion failed: %s", e)
         return False
 
+    draft = None
+    if config.LLM_API_KEY:
+        draft = dzen_writer.generate_article(
+            article.title,
+            article.description or "",
+            article.source,
+            source_text=_source_text(article.url),
+        )
+    if not draft and config.DZEN_REQUIRE_ARTICLE:
+        logger.warning("Dzen: no long article for %r, skipping the feed item", article.title[:60])
+        return False
+
+    images = []
+    if draft:
+        images.append({"hex": jpeg.hex(), "caption": draft["title"]})
+        quote_cards = draft.get("quotes") or []
+        for i, quote in enumerate(quote_cards[: max(0, config.DZEN_IMAGES - 1)]):
+            try:
+                card = dzen_writer.make_quote_card(quote, i)
+            except Exception as e:
+                logger.warning("Dzen: quote card failed: %s", e)
+                break
+            images.append({"hex": card.hex(), "caption": "Ключевая мысль"})
+        placeholders = [""] + [f"{{{{IMG{i}}}}}" for i in range(1, len(images))]
+        body = dzen_writer.render_body(draft, placeholders, article.url, article.source)
+        summary = _summary(draft["lead"])
+        title = draft["title"]
+        logger.info("Dzen: long article %d chars for %r", len(body), title[:60])
+    else:
+        images.append({"hex": jpeg.hex(), "caption": ""})
+        body = _paragraphs(article.description)
+        summary = _summary(article.description)
+        title = _clean(article.title)
+
     pending = load_pending()
     pending.setdefault(theme, []).append({
-        "title": _clean(article.title),
-        "body": _paragraphs(article.description),
-        "summary": _summary(article.description),
+        "title": title,
+        "body": body,
+        "summary": summary,
         "source_url": article.url,
         "source": article.source,
-        "image": jpeg.hex(),
+        "images": images,
         "pub_date": datetime.now(timezone.utc).isoformat(),
     })
     save_pending(pending)
-    logger.info("Dzen: queued %r for the %s feed", article.title[:60], theme)
+    logger.info("Dzen: queued %r for the %s feed", title[:60], theme)
     return True
 
 
@@ -225,14 +296,34 @@ def _load_items(theme: str) -> list[dict]:
 
 def _build_item(item: dict, theme: str) -> str:
     slug = hashlib.sha1(f"{item['title']}{item['pub_date']}".encode("utf-8")).hexdigest()[:12]
-    image_name = f"{slug}.jpg"
     article_path = f"dzen/articles/{slug}.html"
-    image_url = f"{SITE}/{image_name}"
     link = f"{SITE}/{article_path}"
     pub_date = format_datetime(
         datetime.fromisoformat(item["pub_date"]).astimezone(timezone.utc),
     )
     channel = CHANNELS[theme]["title"]
+
+    # New items carry a list (hero + quote cards); old items have one image.
+    images = item.get("images")
+    if not images:
+        images = [{"hex": item.get("image", ""), "caption": ""}]
+    image_names: list[str] = []
+    for image in images:
+        if not image.get("hex"):
+            continue
+        name = f"{slug}.jpg" if not image_names else f"{slug}-{len(image_names)}.jpg"
+        with open(os.path.join(DIST_DIR, name), "wb") as f:
+            f.write(bytes.fromhex(image["hex"]))
+        image_names.append(name)
+    if not image_names:
+        raise ValueError(f"Dzen item has no images: {item['title'][:60]}")
+    image_urls = [f"{SITE}/dzen/{name}" for name in image_names]
+    image_url = image_urls[0]
+
+    body = item["body"] or f"<p>{html.escape(item['summary'])}</p>"
+    for i, url in enumerate(image_urls[1:], start=1):
+        body = body.replace(f"{{{{IMG{i}}}}}", url)
+    body = re.sub(r'<figure><img src="\{\{IMG\d+\}\}">.*?</figure>', "", body, flags=re.S)
 
     os.makedirs(ARTICLES_DIR, exist_ok=True)
     with open(os.path.join(ARTICLES_DIR, f"{slug}.html"), "w", encoding="utf-8") as f:
@@ -241,12 +332,10 @@ def _build_item(item: dict, theme: str) -> str:
             summary=html.escape(item["summary"])[:200],
             channel=html.escape(channel),
             date=datetime.fromisoformat(item["pub_date"]).astimezone().strftime("%d.%m.%Y"),
-            image=f"../{image_name}",
-            body=item["body"] or f"<p>{html.escape(item['summary'])}</p>",
+            image=f"../{image_names[0]}",
+            body=body,
             source=html.escape(item["source_url"]),
         ))
-    with open(os.path.join(DIST_DIR, image_name), "wb") as f:
-        f.write(bytes.fromhex(item["image"]))
 
     return ITEM_TEMPLATE.format(
         title=html.escape(item["title"]),
@@ -254,7 +343,7 @@ def _build_item(item: dict, theme: str) -> str:
         pub_date=pub_date,
         category=html.escape(item["source"]),
         summary=html.escape(item["summary"]),
-        body=item["body"] or f"<p>{html.escape(item['summary'])}</p>",
+        body=body,
         image=image_url,
     )
 
@@ -271,6 +360,10 @@ def flush(theme: str | None = None) -> dict:
 
     for name in themes:
         channel = CHANNELS.get(name, CHANNELS["ai"])
+        channel_avatar = channel.get("avatar")
+        channel_avatar_url = (
+            f"{SITE}/dzen/{channel_avatar}" if channel_avatar else avatar_url
+        )
         items = _load_items(name)
 
         for item in pending.get(name, []):
@@ -287,7 +380,7 @@ def flush(theme: str | None = None) -> dict:
                 title=channel["title"],
                 description=channel["description"],
                 site=SITE,
-                avatar=avatar_url,
+                avatar=channel_avatar_url,
                 now=format_datetime(datetime.now(timezone.utc)),
                 items="\n".join(rendered),
             ))
@@ -297,7 +390,7 @@ def flush(theme: str | None = None) -> dict:
                     title=channel["title"],
                     description=channel["description"],
                     site=SITE,
-                    avatar=avatar_url,
+                    avatar=channel_avatar_url,
                     now=format_datetime(datetime.now(timezone.utc)),
                     items="\n".join(rendered),
                 ))

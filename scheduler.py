@@ -109,13 +109,18 @@ def _draw_candidates(new_articles: list[Article], count: int) -> list[Article]:
             advanced = False
             for source in list(sources):
                 bucket = by_source[source]
-                while bucket and len((bucket[0].description or "").strip()) < minimum:
-                    bucket.pop(0)
-                if bucket:
-                    picked.append(bucket.pop(0))
-                    advanced = True
-                    if len(picked) >= count:
-                        break
+                if not bucket:
+                    continue
+                # Do not discard short-description stories in the first pass:
+                # beauty feeds often ship bare headlines, and dropping them
+                # here left the whole run with an empty candidate pool even
+                # though enrich_description could have fetched the text.
+                if minimum and len((bucket[0].description or "").strip()) < minimum:
+                    continue
+                picked.append(bucket.pop(0))
+                advanced = True
+                if len(picked) >= count:
+                    break
             if not advanced:
                 break
     return picked
