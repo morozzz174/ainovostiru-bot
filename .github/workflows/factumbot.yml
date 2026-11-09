@@ -54,7 +54,7 @@ jobs:
         if: always()
         run: |
           if [ "$DZEN_ENABLED" = "true" ]; then
-            python dzen_feed.py flush
+            python dzen_feed.py flush facts
           else
             echo "DZEN_ENABLED is not true, skipping the feed"
           fi
@@ -83,7 +83,7 @@ jobs:
               echo "rebase conflicted, rebuilding the feed on top of the remote state"
               git rebase --abort >/dev/null 2>&1
               git reset --hard origin/main >/dev/null 2>&1
-              python dzen_feed.py flush
+              python dzen_feed.py flush facts
               git add -A docs
               if git diff --staged --quiet; then
                 echo "nothing left to commit"
