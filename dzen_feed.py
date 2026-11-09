@@ -71,8 +71,6 @@ a {{ color: #0a58ca; }}
 <img src="{image}" alt="{title}">
 <h1>{title}</h1>
 {body}
-<hr>
-<p class="meta">Источник: <a href="{source}">{source}</a></p>
 </article>
 </body>
 </html>

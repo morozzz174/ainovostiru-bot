@@ -219,6 +219,15 @@ EXTEND_PROMPT = """Статья для Дзена уже написана, но 
 Верни только JSON:
 {{"heading": "...", "paragraphs": ["...", "..."]}}"""
 
+PROOFREAD_PROMPT = """Проверь русский текст статьи и исправь только орфографию,
+опечатки, падежи и согласование. Не меняй факты, структуру, заголовки и смысл.
+Не добавляй и не убирай числа, цены, сроки, проценты и названия процедур.
+Убери случайные латинские и другие иностранные вставки внутри русских слов.
+Верни только исправленный JSON той же структуры, без markdown и пояснений.
+
+Статья:
+{article}"""
+
 
 def _chat(messages: list[dict], max_tokens: int = 5000) -> str | None:
     if not config.LLM_API_KEY:
@@ -281,7 +290,7 @@ def _parse_json(content: str | None) -> dict | None:
 def _draft_text(draft: dict) -> str:
     """All prose of a raw (possibly malformed) draft as plain text."""
     parts: list[str] = []
-    for key in ("lead", "takeaway"):
+    for key in ("title", "lead", "takeaway", "question"):
         value = draft.get(key)
         if isinstance(value, str):
             parts.append(value)
@@ -290,6 +299,9 @@ def _draft_text(draft: dict) -> str:
         for section in sections:
             if not isinstance(section, dict):
                 continue
+            heading = section.get("heading")
+            if isinstance(heading, str):
+                parts.append(heading)
             paragraphs = section.get("paragraphs")
             if isinstance(paragraphs, list):
                 parts.extend(p for p in paragraphs if isinstance(p, str))
@@ -297,6 +309,32 @@ def _draft_text(draft: dict) -> str:
     if isinstance(quotes, list):
         parts.extend(q for q in quotes if isinstance(q, str))
     return " ".join(parts)
+
+
+_CYRILLIC_RE = re.compile(r"[А-Яа-яЁё]")
+_LATIN_RE = re.compile(r"[A-Za-z]")
+_FOREIGN_SCRIPT_RE = re.compile(
+    r"[\u0590-\u05FF\u0600-\u06FF\u0750-\u077F"
+    r"\u0E00-\u0E7F\u3040-\u30FF\u4E00-\u9FFF\uAC00-\uD7AF]"
+)
+
+
+def _bad_language(text: str) -> bool:
+    """True when Russian text is corrupted with mixed alphabets or scripts.
+
+    Small free models occasionally glue Latin or Arabic fragments into Russian
+    words ("постинflammatory", "фотоoproteкция", "النمшей"). That reads as
+    machine garbage and must never reach Dzen, so it is rejected and the
+    article is regenerated.
+    """
+    if not text:
+        return False
+    if _FOREIGN_SCRIPT_RE.search(text):
+        return True
+    for word in re.findall(r"[A-Za-zА-Яа-яЁё]+", text):
+        if _CYRILLIC_RE.search(word) and _LATIN_RE.search(word):
+            return True
+    return False
 
 
 def _text_len(draft: dict) -> int:
@@ -318,6 +356,12 @@ _PRICE_RE = re.compile(
     re.I,
 )
 _PERCENT_RE = re.compile(r"\d+(?:[.,]\d+)?\s*%")
+_SPF_RE = re.compile(r"\bspf\s*\d{1,3}\+?", re.I)
+_PA_RE = re.compile(r"\bpa\+{2,}", re.I)
+_TIMEFRAME_RE = re.compile(
+    r"\d+\s*(?:[–-]\s*\d+\s*)?(?:недел|месяц|сеанс|процедур|курс)",
+    re.I,
+)
 _BANNED_PHRASES = (
     "сжигает жир",
     "сжигание жира",
@@ -346,6 +390,11 @@ def _unsupported_specifics(text: str, source_text: str) -> bool:
     for regex in (_PRICE_RE, _PERCENT_RE):
         for match in regex.finditer(lowered):
             if match.group(0).strip() not in source:
+                return True
+    for regex in (_SPF_RE, _PA_RE, _TIMEFRAME_RE):
+        for match in regex.finditer(lowered):
+            token = re.sub(r"\s+", " ", match.group(0)).strip()
+            if token not in re.sub(r"\s+", " ", source):
                 return True
     return False
 
@@ -405,6 +454,10 @@ def _structure(draft: dict) -> dict | None:
 
 def _finish(clean: dict, source_text: str = "") -> dict | None:
     """Accept a well-formed draft only if it is long and factually safe."""
+    prose = _draft_text(clean)
+    if _bad_language(prose):
+        logger.info("Dzen LLM article contains mixed alphabets or foreign characters")
+        return None
     total = _text_len(clean)
     if total < config.DZEN_ARTICLE_MIN_CHARS or total > config.DZEN_ARTICLE_MAX_CHARS:
         logger.info(
@@ -412,7 +465,7 @@ def _finish(clean: dict, source_text: str = "") -> dict | None:
             total, config.DZEN_ARTICLE_MIN_CHARS, config.DZEN_ARTICLE_MAX_CHARS,
         )
         return None
-    if _unsupported_specifics(_draft_text(clean), source_text):
+    if _unsupported_specifics(prose, source_text):
         logger.info("Dzen LLM article contains unsupported prices, percentages or clichés")
         return None
     return clean
@@ -456,6 +509,9 @@ def _extend_article(
     ]
     if not heading or len(paragraphs) < 2:
         return None
+    if _bad_language(" ".join(paragraphs) + " " + heading):
+        logger.info("Dzen LLM extension contains mixed alphabets, skipping")
+        return None
     lowered = heading.lower()
     if any(lowered == section["heading"].lower() for section in clean["sections"]):
         return None
@@ -468,6 +524,38 @@ def _extend_article(
         "paragraphs": paragraphs,
     }]
     return extended
+
+
+def _proofread(clean: dict, source_text: str) -> dict | None:
+    """Fix typos and grammar without changing facts, structure or length.
+
+    A small model can write a decent article and still leave "защищает коже"
+    or "дермальный мелазма". This pass is optional: on any validation failure
+    the caller keeps the original draft, so it can never make the article
+    unpublishable.
+    """
+    content = _chat([
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {
+            "role": "user",
+            "content": PROOFREAD_PROMPT.format(
+                article=json.dumps(clean, ensure_ascii=False)
+            ),
+        },
+    ])
+    draft = _parse_json(content)
+    if not draft:
+        return None
+    fixed = _structure(draft)
+    if not fixed:
+        return None
+    fixed = _finish(fixed, source_text)
+    if not fixed:
+        return None
+    if _text_len(fixed) < int(_text_len(clean) * 0.9):
+        logger.info("Dzen LLM proofread shrank the article too much, keeping the draft")
+        return None
+    return fixed
 
 
 def generate_article(
@@ -510,14 +598,21 @@ def generate_article(
                 last_good = structured
                 clean = _finish(structured, allowed_source)
                 if clean:
-                    return clean
+                    return _proofread(clean, allowed_source) or clean
             total = _text_len(draft)
             all_text = _draft_text(draft)
-            if structured and total < config.DZEN_ARTICLE_MIN_CHARS:
+            if structured and _bad_language(all_text):
+                instruction = (
+                    "В тексте есть слова со смешанной кириллицей и латиницей, "
+                    "посторонние символы или иностранные вставки. Перепиши весь "
+                    "текст чистым русским языком, без латинских и арабских "
+                    "фрагментов внутри русских слов. Верни только тот же JSON."
+                )
+            elif structured and total < config.DZEN_ARTICLE_MIN_CHARS:
                 # The tiny model keeps ignoring "make it longer", so stop
                 # retrying the same prompt and extend the article separately.
                 break
-            if _unsupported_specifics(all_text, allowed_source):
+            elif _unsupported_specifics(all_text, allowed_source):
                 instruction = (
                     "Убери из статьи цены, проценты, сроки и обещания, которых нет "
                     "в исходнике, а также штампы вроде «сжигает жир» и «выводит "
@@ -541,7 +636,11 @@ def generate_article(
     # A short but well-formed article is easier to rescue with one extra
     # section than with another round of "please expand" (which the small
     # free models routinely ignore).
-    if last_good and not _unsupported_specifics(_draft_text(last_good), allowed_source):
+    if (
+        last_good
+        and not _bad_language(_draft_text(last_good))
+        and not _unsupported_specifics(_draft_text(last_good), allowed_source)
+    ):
         for _ in range(2):
             if _text_len(last_good) >= config.DZEN_ARTICLE_MIN_CHARS:
                 break
@@ -551,7 +650,7 @@ def generate_article(
             last_good = extended
         clean = _finish(last_good, allowed_source)
         if clean:
-            return clean
+            return _proofread(clean, allowed_source) or clean
     logger.warning("Dzen LLM: could not produce a long article for %r", title[:80])
     return None
 
