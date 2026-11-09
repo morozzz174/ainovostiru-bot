@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Dzen RSS crawler must be able to read the feed and article pages.
+Allow: /dzen/
+Allow: /dzen/feed-beauty.xml

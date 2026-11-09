@@ -5,10 +5,8 @@ import json
 import logging
 import os
 import re
-import time
 from datetime import datetime, timezone
 from email.utils import format_datetime
-from urllib.parse import quote
 
 from PIL import Image
 
@@ -103,17 +101,37 @@ ITEM_TEMPLATE = """    <item>
       <link>{link}</link>
       <guid isPermaLink="true">{link}</guid>
       <pubDate>{pub_date}</pubDate>
-      <category>{category}</category>
+      <category>format-article</category>
+      <category>index</category>
+      <category>comment-all</category>
       <description>{summary}</description>
       <content:encoded><![CDATA[{body}]]></content:encoded>
       <enclosure url="{image}" type="image/jpeg" />
-      <media:content url="{image}" medium="image" type="image/jpeg" />
     </item>"""
 
 
-def _slug(title: str) -> str:
-    digest = hashlib.sha1(title.encode("utf-8")).hexdigest()[:10]
-    return f"{digest}-{int(time.time() * 1000) % 100000:05d}"
+_TRANSLIT = {
+    "а": "a", "б": "b", "в": "v", "г": "g", "д": "d", "е": "e", "ё": "e",
+    "ж": "zh", "з": "z", "и": "i", "й": "y", "к": "k", "л": "l", "м": "m",
+    "н": "n", "о": "o", "п": "p", "р": "r", "с": "s", "т": "t", "у": "u",
+    "ф": "f", "х": "kh", "ц": "ts", "ч": "ch", "ш": "sh", "щ": "shch",
+    "ъ": "", "ы": "y", "ь": "", "э": "e", "ю": "yu", "я": "ya",
+}
+
+
+def _article_slug(title: str, pub_date: str) -> str:
+    """Human-readable URL slug: Dzen rejects feeds with hash-only links.
+
+    A short hash suffix keeps two articles with the same headline apart, while
+    the transliterated title makes the link look like a normal publication
+    rather than a random token.
+    """
+    latin = "".join(_TRANSLIT.get(ch, ch) for ch in title.lower())
+    latin = re.sub(r"[^a-z0-9]+", "-", latin).strip("-")
+    if len(latin) > 60:
+        latin = latin[:60].rsplit("-", 1)[0]
+    digest = hashlib.sha1(f"{title}{pub_date}".encode("utf-8")).hexdigest()[:6]
+    return f"{latin or 'article'}-{digest}"
 
 
 def _clean(text: str) -> str:
@@ -293,7 +311,7 @@ def _load_items(theme: str) -> list[dict]:
 
 
 def _build_item(item: dict, theme: str) -> str:
-    slug = hashlib.sha1(f"{item['title']}{item['pub_date']}".encode("utf-8")).hexdigest()[:12]
+    slug = _article_slug(item["title"], item["pub_date"])
     article_path = f"dzen/articles/{slug}.html"
     link = f"{SITE}/{article_path}"
     pub_date = format_datetime(
@@ -305,11 +323,12 @@ def _build_item(item: dict, theme: str) -> str:
     images = item.get("images")
     if not images:
         images = [{"hex": item.get("image", ""), "caption": ""}]
+    image_slug = hashlib.sha1(f"{item['title']}{item['pub_date']}".encode("utf-8")).hexdigest()[:12]
     image_names: list[str] = []
     for image in images:
         if not image.get("hex"):
             continue
-        name = f"{slug}.jpg" if not image_names else f"{slug}-{len(image_names)}.jpg"
+        name = f"{image_slug}.jpg" if not image_names else f"{image_slug}-{len(image_names)}.jpg"
         with open(os.path.join(DIST_DIR, name), "wb") as f:
             f.write(bytes.fromhex(image["hex"]))
         image_names.append(name)
@@ -335,13 +354,17 @@ def _build_item(item: dict, theme: str) -> str:
             source=html.escape(item["source_url"]),
         ))
 
+    # Dzen ignores the item <title> during conversion, so the headline must be
+    # repeated inside content:encoded. The site page already has its own h1.
+    rss_body = f"<h1>{html.escape(item['title'])}</h1>\n{body}"
+    rss_body = rss_body.replace('<p class="lead">', "<p>")
+
     return ITEM_TEMPLATE.format(
         title=html.escape(item["title"]),
         link=link,
         pub_date=pub_date,
-        category=html.escape(item["source"]),
         summary=html.escape(item["summary"]),
-        body=body,
+        body=rss_body,
         image=image_url,
     )
 
