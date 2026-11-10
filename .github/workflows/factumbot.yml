@@ -48,6 +48,10 @@ jobs:
           THEME: facts
           BRAND_NAME: FACTUM.RU
           DATABASE_PATH: bot_facts.db
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
+          LLM_MODEL: ${{ vars.LLM_MODEL }}
+          DZEN_REQUIRE_ARTICLE: "true"
         run: python main.py --once --strict
 
       - name: Build Dzen RSS feed
