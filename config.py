@@ -281,12 +281,6 @@ NEWS_SOURCES_BEAUTY = {
         "lang": "en",
         "strong": True,
     },
-    "sciencedaily_health": {
-        "name": "ScienceDaily Health",
-        "url": "https://www.sciencedaily.com/rss/health_medicine.xml",
-        "lang": "en",
-        "strong": True,
-    },
     "sciencedaily_nutrition": {
         "name": "ScienceDaily Nutrition",
         "url": "https://www.sciencedaily.com/rss/health_medicine/nutrition.xml",

@@ -187,6 +187,11 @@ def _clean(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+def _meta_description(summary: str, limit: int = 200) -> str:
+    """Escape first, then cut: cutting the escaped text can split an entity."""
+    return html.escape(summary[:limit])
+
+
 def _paragraphs(text: str) -> str:
     parts = [p.strip() for p in re.split(r"(?<=[.!?…])\s+", _clean(text)) if p.strip()]
     if not parts:
@@ -397,7 +402,7 @@ def _build_item(item: dict, theme: str) -> tuple[str, dict]:
     with open(os.path.join(ARTICLES_DIR, f"{slug}.html"), "w", encoding="utf-8") as f:
         f.write(ARTICLE_TEMPLATE.format(
             title=html.escape(item["title"]),
-            summary=html.escape(item["summary"])[:200],
+            summary=_meta_description(item["summary"]),
             channel=html.escape(channel),
             date=datetime.fromisoformat(item["pub_date"]).astimezone().strftime("%d.%m.%Y"),
             image=f"../{image_names[0]}",
