@@ -1,6 +1,8 @@
+import hashlib
 import io
+import json
 import logging
-import random
+import os
 import re
 
 import requests
@@ -18,6 +20,56 @@ USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
 )
+
+# Used photos are remembered between runs, otherwise a 5-result query kept
+# offering the same few pictures day after day. The exact URLs differ per
+# size, so entries are keyed by the source's photo id, not by url.
+_HISTORY_PATH = os.path.join(config.BASE_DIR, ".image_history.json")
+_HISTORY_LIMIT = getattr(config, "IMAGE_HISTORY_SIZE", 80)
+_HISTORY_STATE: dict | None = None
+
+
+def _history_used() -> dict[str, int]:
+    global _HISTORY_STATE
+    if _HISTORY_STATE is None:
+        used: list[str] = []
+        try:
+            with open(_HISTORY_PATH, encoding="utf-8") as f:
+                data = json.load(f)
+            if isinstance(data, dict) and isinstance(data.get("used"), list):
+                seen: set[str] = set()
+                for key in data["used"]:
+                    if isinstance(key, str) and key not in seen:
+                        seen.add(key)
+                        used.append(key)
+        except FileNotFoundError:
+            pass
+        except Exception as e:
+            logger.debug("Image history unreadable: %s", e)
+        _HISTORY_STATE = {"used": used}
+    pos = {key: i for i, key in enumerate(_HISTORY_STATE["used"])}
+    return pos
+
+
+def _mark_used(key: str | None) -> None:
+    global _HISTORY_STATE
+    if not key:
+        return
+    if _HISTORY_STATE is None:
+        _HISTORY_STATE = {"used": []}
+        _history_used()
+    used = _HISTORY_STATE["used"]
+    if key in used:
+        used.remove(key)
+    used.append(key)
+    del used[:-_HISTORY_LIMIT]
+    try:
+        tmp = _HISTORY_PATH + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump({"used": used}, f)
+        os.replace(tmp, _HISTORY_PATH)
+    except Exception as e:
+        logger.debug("Image history not saved: %s", e)
 
 
 def _extract_keywords(text: str) -> list[str]:
@@ -57,44 +109,51 @@ def _is_known_term(word: str) -> bool:
     return any(word.startswith(stem) for stem in RU_TO_EN)
 
 
-def _search_pexels(query: str) -> str | None:
+def _search_pexels(query: str) -> list[tuple[str, str]]:
+    """(photo_url, history_key) pairs, ordered by the API's relevance."""
     if not config.PEXELS_API_KEY:
-        return None
+        return []
     try:
         resp = requests.get(
             PEXELS_API,
             headers={"Authorization": config.PEXELS_API_KEY},
-            params={"query": query, "per_page": 5, "orientation": config.IMAGE_ORIENTATION},
+            params={"query": query, "per_page": 15, "orientation": config.IMAGE_ORIENTATION},
             timeout=10,
         )
         resp.raise_for_status()
         data = resp.json()
-        if data.get("photos"):
-            photo = random.choice(data["photos"])
-            return photo["src"]["large2x"]
+        results = []
+        for photo in data.get("photos") or []:
+            url = (photo.get("src") or {}).get("large2x")
+            if url:
+                results.append((url, "pexels:%s" % photo.get("id")))
+        return results
     except Exception as e:
         logger.debug("Pexels search failed: %s", e)
-    return None
+    return []
 
 
-def _search_unsplash(query: str) -> str | None:
+def _search_unsplash(query: str) -> list[tuple[str, str]]:
     if not config.UNSPLASH_ACCESS_KEY:
-        return None
+        return []
     try:
         resp = requests.get(
             UNSPLASH_API,
             headers={"Authorization": f"Client-ID {config.UNSPLASH_ACCESS_KEY}"},
-            params={"query": query, "per_page": 5, "orientation": config.IMAGE_ORIENTATION},
+            params={"query": query, "per_page": 15, "orientation": config.IMAGE_ORIENTATION},
             timeout=10,
         )
         resp.raise_for_status()
         data = resp.json()
-        if data.get("results"):
-            photo = random.choice(data["results"])
-            return photo["urls"]["regular"]
+        results = []
+        for photo in data.get("results") or []:
+            url = (photo.get("urls") or {}).get("regular")
+            if url:
+                results.append((url, "unsplash:%s" % photo.get("id")))
+        return results
     except Exception as e:
         logger.debug("Unsplash search failed: %s", e)
-    return None
+    return []
 
 
 RU_TO_EN = {
@@ -142,6 +201,16 @@ RU_TO_EN = {
     "безопасност": "cybersecurity",
     "шифр": "encryption",
     "квант": "quantum computing",
+    "спутник": "satellite",
+    "орбит": "orbit",
+    "чип": "processor chip",
+    "полупровод": "semiconductor",
+    "хакер": "hacking",
+    "кибератак": "cybersecurity",
+    "взлом": "hacking",
+    "смартфон": "smartphone",
+    "электромоб": "electric car",
+    "финанс": "finance",
     "рынок": "stock market",
     "экономик": "economy",
     "инвест": "investment",
@@ -271,20 +340,21 @@ def _english_queries(keywords: list[str]) -> list[str]:
     # "blast furnace" stays ahead of "furnace" while vague terms drop back.
     queries.sort(key=lambda query: query in GENERIC_QUERIES)
     for fallback in getattr(config, "IMAGE_QUERIES", []):
-        if len(queries) >= 3:
+        if len(queries) >= 4:
             break
         if fallback not in queries:
             queries.append(fallback)
-    return queries[:3]
+    return queries[:4]
 
 
-def _search_openverse(query: str) -> tuple[str, str] | None:
+def _search_openverse(query: str) -> list[tuple[str, str, str]] | None:
+    """(photo_url, history_key, credit) triples for one query."""
     try:
         resp = requests.get(
             OPENVERSE_API,
             params={
                 "q": query,
-                "page_size": 6,
+                "page_size": 10,
                 "license_type": "commercial",
                 "mature": "false",
             },
@@ -293,28 +363,44 @@ def _search_openverse(query: str) -> tuple[str, str] | None:
         )
         resp.raise_for_status()
         results = resp.json().get("results") or []
-        if not results:
-            return None
-        photo = random.choice(results)
-        url = photo.get("url")
-        if not url:
-            return None
-        creator = (photo.get("creator") or "").strip()
-        license_name = (photo.get("license") or "").lower()
-        if license_name == "cc0":
-            label = "CC0"
-        elif license_name.startswith("cc"):
-            label = "CC " + license_name[2:].upper()
-        elif license_name:
-            label = license_name.upper()
-        else:
-            label = ""
-        parts = [p for p in (creator, label) if p]
-        credit = " · ".join(parts)
-        return url, credit
+        entries: list[tuple[str, str, str]] = []
+        for photo in results:
+            url = photo.get("url")
+            if not url:
+                continue
+            # Low-resolution scans are useless in a video or a poster.
+            width = photo.get("width") or 0
+            if width and width < 650:
+                continue
+            key = "openverse:%s" % (photo.get("id") or hashlib.sha1(url.encode()).hexdigest()[:12])
+            creator = (photo.get("creator") or "").strip()
+            license_name = (photo.get("license") or "").lower()
+            if license_name == "cc0":
+                label = "CC0"
+            elif license_name.startswith("cc"):
+                label = "CC " + license_name[2:].upper()
+            elif license_name:
+                label = license_name.upper()
+            else:
+                label = ""
+            parts = [p for p in (creator, label) if p]
+            entries.append((url, key, " · ".join(parts)))
+        return entries
     except Exception as e:
         logger.debug("Openverse search failed: %s", e)
-    return None
+    return []
+
+
+def _prefer_fresh(entries) -> tuple | None:
+    """First never-used candidate; when everything was shown before, the one
+    whose previous use is the oldest in history wins."""
+    if not entries:
+        return None
+    used = _history_used()
+    fresh = [entry for entry in entries if entry[1] not in used]
+    if fresh:
+        return fresh[0]
+    return min(entries, key=lambda entry: used.get(entry[1], 1 << 30))
 
 
 def _download(url: str) -> io.BytesIO | None:
@@ -336,33 +422,37 @@ def find_image_with_credit(text: str) -> tuple[io.BytesIO | None, str]:
     last resort, but it serves a random photo for any seed, which is how a
     steel news channel ended up with pictures of coffee and sunsets. When
     nothing matches, returning None lets the publisher draw a branded poster.
+    Previously served photos are rotated through `.image_history.json`, so
+    every new post gets a different picture until the pool runs dry.
     """
     keywords = _extract_keywords(text)
     queries = _english_queries(keywords)
     if not queries:
         return None, ""
 
-    candidates = []
+    # Each query is asked for a bigger page now (15-20 hits instead of 5),
+    # and only never-shown candidates are taken from it, marked as used only
+    # after a successful download. The first hit is always the search engine's
+    # own relevance pick, which also keeps photos closer to the topic.
+    attempts: list[tuple[str, str, str]] = []  # (url, key, credit)
     for query in queries:
-        url = _search_pexels(query)
-        if url:
-            candidates.append((url, "Pexels"))
-            continue
-        url = _search_unsplash(query)
-        if url:
-            candidates.append((url, "Unsplash"))
-
+        entries = _search_pexels(query)
+        chosen = _prefer_fresh(entries)
+        if chosen:
+            attempts.append((chosen[0], chosen[1], "Pexels"))
     for query in queries:
-        found = _search_openverse(query)
-        if found:
-            candidates.append(found)
+        entries = _search_unsplash(query)
+        chosen = _prefer_fresh(entries)
+        if chosen:
+            attempts.append((chosen[0], chosen[1], "Unsplash"))
+    for query in queries:
+        for url, key, credit in (_search_openverse(query) or []):
+            attempts.append((url, key, credit))
 
-    for entry in candidates:
-        if not entry:
-            continue
-        url, credit = entry
+    for url, key, credit in attempts:
         image = _download(url)
         if image:
+            _mark_used(key)
             return image, credit
 
     return None, ""
