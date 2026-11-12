@@ -334,10 +334,12 @@ _BUSINESS_RE = re.compile(
 # funding" all slipped in over the word "skin". Checked on generated prose,
 # where there is no boilerplate to confuse the markers with.
 _BRAND_NOISE_RE = re.compile(
-    r"(бренд|запуска|платформ|анонс|пресс-релиз|"
-    r"реклам|жалоб|регулятор|оспор|штраф|"
+    r"(бренд|платформ|анонс|пресс-релиз|"
+    r"запуска\w*\s+(?:нов\w*\s+)?(?:лини|платформ|бренд|программ|сервис)"
+    r"|реклам|жалоб|регулятор|оспор|штраф|"
     r"финанс|грант|экономик|наукомет|"
-    r"unveil|launch|brand|platform|advertis|complaint|regulator|"
+    r"unveil|\blaunch(?:es|ed)?\s+(?:a|an|its|the|new|their)\s+"
+    r"|brand|platform|advertis|complaint|regulator|"
     r"watchdog|funding|grant)",
     re.I,
 )
@@ -372,7 +374,10 @@ def business_source(text: str, strict: bool = False) -> bool:
         return True
     if strict:
         hits.update(match.group(0).lower() for match in _BRAND_NOISE_RE.finditer(text))
-        return len(hits) >= 2
+        if len(hits) < 2:
+            return False
+        logger.info("Dzen business markers: %s", ", ".join(sorted(hits)))
+        return True
     return False
 
 
