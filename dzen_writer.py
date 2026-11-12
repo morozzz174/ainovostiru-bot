@@ -328,19 +328,52 @@ _BUSINESS_RE = re.compile(
     re.I,
 )
 
+# Corporate launches, advertising rulings and funding reports are not M&A but
+# still not cosmetology: "Estee Lauder launches a platform for its brands",
+# "advertising watchdog upholds a moisturizer claim" and "30 years of research
+# funding" all slipped in over the word "skin". Checked on generated prose,
+# where there is no boilerplate to confuse the markers with.
+_BRAND_NOISE_RE = re.compile(
+    r"(бренд|запуска|платформ|анонс|пресс-релиз|"
+    r"реклам|жалоб|регулятор|оспор|штраф|"
+    r"финанс|грант|экономик|наукомет|"
+    r"unveil|launch|brand|platform|advertis|complaint|regulator|"
+    r"watchdog|funding|grant)",
+    re.I,
+)
 
-def business_source(text: str) -> bool:
+# Preclinical work ("what the mice showed") is read by nobody on a beauty
+# channel, so a single hit anywhere in the text is already enough.
+_ANIMAL_RE = re.compile(
+    r"(мыши|мышей|мышах|мышь|грызун|крыс|млекопит|"
+    r"\b(?:mice|mouse|rat|rats|rodents?|murine)\b)",
+    re.I,
+)
+
+
+def business_source(text: str, strict: bool = False) -> bool:
     """True when a page is mostly corporate news rather than cosmetology.
 
     Some magazine pages list several unrelated business headlines (M&A,
     appointments) while the RSS title still looks like a skincare article.
     Two distinct business markers are enough to stop before spending an LLM
     request on a topic the channel does not cover.
+
+    strict=True additionally counts brand launches and advertising news; it is
+    for generated prose, which carries no boilerplate that could confuse the
+    extra markers ("реклама" in page footers, "brand" in a shop sidebar).
     """
     if not text:
         return False
+    if _ANIMAL_RE.search(text):
+        return True
     hits = {match.group(0).lower() for match in _BUSINESS_RE.finditer(text)}
-    return len(hits) >= 2
+    if len(hits) >= 2:
+        return True
+    if strict:
+        hits.update(match.group(0).lower() for match in _BRAND_NOISE_RE.finditer(text))
+        return len(hits) >= 2
+    return False
 
 
 def _bad_language(text: str) -> bool:
@@ -482,7 +515,7 @@ def _finish(clean: dict, source_text: str = "") -> dict | None:
     if _bad_language(prose):
         logger.info("Dzen LLM article contains mixed alphabets or foreign characters")
         return None
-    if business_source(prose):
+    if business_source(prose, strict=True):
         logger.info("Dzen LLM article drifted into business or market news")
         return None
     total = _text_len(clean)
