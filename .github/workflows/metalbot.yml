@@ -51,7 +51,9 @@ jobs:
           THEME: metal
           BRAND_NAME: NOVOSTI TRUBY METALL
           DATABASE_PATH: bot_metal.db
-          MAX_POSTS_PER_RUN: 1
+          # GitHub пропускает часть кронов под нагрузкой, поэтому за один
+          # запуск публикуем 2 поста, чтобы канал не оказался с 1 постом в день.
+          MAX_POSTS_PER_RUN: 2
           POST_MODE: ${{ inputs.post_mode || 'mixed' }}
           VIDEO_ORIENTATION: vertical
           MUSIC_STYLE: auto
