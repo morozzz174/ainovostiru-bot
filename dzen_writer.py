@@ -338,9 +338,10 @@ _BRAND_NOISE_RE = re.compile(
     r"запуска\w*\s+(?:нов\w*\s+)?(?:лини|платформ|бренд|программ|сервис)"
     r"|реклам|жалоб|регулятор|оспор|штраф|"
     r"финанс|грант|экономик|наукомет|"
+    r"премьер|фильм|кино|партнер|коллабор|спонсор|гидраденит|"
     r"unveil|\blaunch(?:es|ed)?\s+(?:a|an|its|the|new|their)\s+"
     r"|brand|platform|advertis|complaint|regulator|"
-    r"watchdog|funding|grant)",
+    r"watchdog|funding|grant|collab|partnership)",
     re.I,
 )
 
